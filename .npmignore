@@ -1,0 +1,5 @@
+coverage
+test
+README.md
+*.log
+tsconfig.json

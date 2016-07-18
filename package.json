@@ -1,0 +1,36 @@
+{
+  "name": "vueds",
+  "version": "0.1.0",
+  "description": "vue and protostuff-ds",
+  "private": true,
+  "author": "dyu",
+  "main": "lib/index.js",
+  "typings": "lib/index",
+  "scripts": {
+    "prepublish": "npm run clean && npm run build",
+    "test": "mocha",
+    "dev": "mocha -w",
+    "build": "tsc",
+    "clean": "rm -rf coverage && rm -rf lib",
+    "cover": "tsc && istanbul cover node_modules/mocha/bin/_mocha built/test/**/*.js && remap-istanbul -i coverage/coverage.json -o coverage/html-report -t html"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^2.5.3",
+    "mocha-clean": "^1.0.0",
+    "ts-node": "^0.9.3",
+    "typescript": "^2.0.0",
+    "@types/vue": "^1.0.25-alpha",
+    "@types/vue-router": "^0.7.25-alpha",
+    "@types/chai": "^3.4.27-alpha",
+    "@types/mocha": "^2.2.26-alpha"
+  },
+  "dependencies": {
+    "vue": "^1.0.26"
+  },
+  "peerDependencies": {
+    "vue": "^1.0.26"
+  }
+}
