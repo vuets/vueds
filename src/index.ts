@@ -1,5 +1,14 @@
 import * as Vue from 'vue'
 
+export interface MultiCAS {
+
+}
+export namespace MultiCAS {
+    export function $create(): MultiCAS {
+        return {}
+    }
+}
+
 // target is vm
 export function mergeVmFrom<T>(src: any, int2str: any, target: T): T {
     for (var i in src) {
