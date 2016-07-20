@@ -1,2 +1,2 @@
-export declare function mergeVmFrom(src: any, int2str: any, target: any): void;
-export declare function mergePojoFrom(src: any, str2int: any, target: any): void;
+export declare function mergeVmFrom<T>(src: any, int2str: any, target: T): T;
+export declare function mergePojoFrom<T>(src: any, str2int: any, target: T): T;
