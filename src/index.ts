@@ -7,6 +7,13 @@ export namespace MultiCAS {
     export function $create(): MultiCAS {
         return {}
     }
+    export function $stringify(obj: any): string {
+        return ''
+    }
+}
+
+export function escapeValue(v: string): string {
+    return v
 }
 
 // target is vm
