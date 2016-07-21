@@ -6,5 +6,5 @@ export declare namespace MultiCAS {
     const $descriptor: {};
 }
 export declare function escapeValue(v: string): string;
-export declare function mergeVmFrom<T>(src: any, int2str: any, target: T): T;
-export declare function mergePojoFrom<T>(src: any, str2int: any, target: T): T;
+export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
+export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T): T;
