@@ -10,6 +10,9 @@ export namespace MultiCAS {
     export function $stringify(obj: any): string {
         return ''
     }
+    export const $descriptor = {
+    
+    }
 }
 
 export function escapeValue(v: string): string {
