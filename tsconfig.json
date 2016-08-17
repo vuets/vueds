@@ -11,6 +11,13 @@
     "outDir": "lib"
   },
   "files": [
-    "src/index.ts"
+    "src/index.ts",
+    "src/ds/index.ts",
+    "src/ds/prk/p1/index.ts",
+    "src/ds/prk/p4/index.ts",
+    "src/ds/prk/p8/index.ts",
+    "src/ds/prk/pd/index.ts",
+    "src/ds/prk/pk/index.ts",
+    "src/ds/prk/ps/index.ts"
   ]
 }
