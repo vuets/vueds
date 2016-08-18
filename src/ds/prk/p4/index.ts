@@ -31,6 +31,16 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, p4: number, l: ds.P1): P444441 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                p4: p4,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -107,6 +117,16 @@ export namespace p4 {
                 p3: 0,
                 p4: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, p2: number, p3: number, p4: number, l: ds.P4): P444444 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                p4: p4,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -187,6 +207,16 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, p4: number, l: ds.P8): P444448 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                p4: p4,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -263,6 +293,16 @@ export namespace p4 {
                 p3: 0,
                 p4: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, p2: number, p3: number, p4: number, l: ds.PD): P44444D {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                p4: p4,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -343,6 +383,16 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, p4: number, l: ds.PK): P44444K {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                p4: p4,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -421,6 +471,16 @@ export namespace p4 {
                 l: ds.PS.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, p4: number, l: ds.PS): P44444S {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                p4: p4,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -497,6 +557,15 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, l: ds.P1): P44441 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -565,6 +634,15 @@ export namespace p4 {
                 p2: 0,
                 p3: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, p2: number, p3: number, l: ds.P4): P44444 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -637,6 +715,15 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, l: ds.P8): P44448 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -705,6 +792,15 @@ export namespace p4 {
                 p2: 0,
                 p3: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, p2: number, p3: number, l: ds.PD): P4444D {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -777,6 +873,15 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, l: ds.PK): P4444K {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -847,6 +952,15 @@ export namespace p4 {
                 l: ds.PS.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, p3: number, l: ds.PS): P4444S {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                p3: p3,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -915,6 +1029,14 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, l: ds.P1): P4441 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -975,6 +1097,14 @@ export namespace p4 {
                 p1: 0,
                 p2: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, p2: number, l: ds.P4): P4444 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1039,6 +1169,14 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, l: ds.P8): P4448 {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1099,6 +1237,14 @@ export namespace p4 {
                 p1: 0,
                 p2: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, p2: number, l: ds.PD): P444D {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1163,6 +1309,14 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, l: ds.PK): P444K {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1225,6 +1379,14 @@ export namespace p4 {
                 l: ds.PS.$create()
             }
         }
+        export function create(p0: number, p1: number, p2: number, l: ds.PS): P444S {
+            return {
+                p0: p0,
+                p1: p1,
+                p2: p2,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1285,6 +1447,13 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P1): P411 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1337,6 +1506,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.P4): P414 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1393,6 +1569,13 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P8): P418 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1445,6 +1628,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PD): P41D {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1501,6 +1691,13 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.PK): P41K {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1553,6 +1750,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PS.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PS): P41S {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1610,6 +1814,13 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P1): P481 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1662,6 +1873,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.P4): P484 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1718,6 +1936,13 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P8): P488 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1770,6 +1995,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PD): P48D {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1826,6 +2058,13 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.PK): P48K {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1878,6 +2117,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PS.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PS): P48S {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -1935,6 +2181,13 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P1): P4D1 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -1987,6 +2240,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.P4): P4D4 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2043,6 +2303,13 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P8): P4D8 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2095,6 +2362,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PD): P4DD {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2151,6 +2425,13 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.PK): P4DK {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2203,6 +2484,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PS.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PS): P4DS {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2260,6 +2548,13 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.P1): P4K1 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2312,6 +2607,13 @@ export namespace p4 {
                 p0: 0,
                 p1: "",
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: string, l: ds.P4): P4K4 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2368,6 +2670,13 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.P8): P4K8 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2420,6 +2729,13 @@ export namespace p4 {
                 p0: 0,
                 p1: "",
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: string, l: ds.PD): P4KD {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2476,6 +2792,13 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.PK): P4KK {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2528,6 +2851,13 @@ export namespace p4 {
                 p0: 0,
                 p1: "",
                 l: ds.PS.$create()
+            }
+        }
+        export function create(p0: number, p1: string, l: ds.PS): P4KS {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2585,6 +2915,13 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P1): P441 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2637,6 +2974,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.P4): P444 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2693,6 +3037,13 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.P8): P448 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2745,6 +3096,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PD): P44D {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2801,6 +3159,13 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: number, l: ds.PK): P44K {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2853,6 +3218,13 @@ export namespace p4 {
                 p0: 0,
                 p1: 0,
                 l: ds.PS.$create()
+            }
+        }
+        export function create(p0: number, p1: number, l: ds.PS): P44S {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -2910,6 +3282,13 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.P1): P4S1 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -2962,6 +3341,13 @@ export namespace p4 {
                 p0: 0,
                 p1: "",
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, p1: string, l: ds.P4): P4S4 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -3018,6 +3404,13 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.P8): P4S8 {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -3070,6 +3463,13 @@ export namespace p4 {
                 p0: 0,
                 p1: "",
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, p1: string, l: ds.PD): P4SD {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -3126,6 +3526,13 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.PK): P4SK {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -3180,6 +3587,13 @@ export namespace p4 {
                 l: ds.PS.$create()
             }
         }
+        export function create(p0: number, p1: string, l: ds.PS): P4SS {
+            return {
+                p0: p0,
+                p1: p1,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -3232,6 +3646,12 @@ export namespace p4 {
                 l: ds.P1.$create()
             }
         }
+        export function create(p0: number, l: ds.P1): P41 {
+            return {
+                p0: p0,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -3276,6 +3696,12 @@ export namespace p4 {
             return {
                 p0: 0,
                 l: ds.P4.$create()
+            }
+        }
+        export function create(p0: number, l: ds.P4): P44 {
+            return {
+                p0: p0,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -3324,6 +3750,12 @@ export namespace p4 {
                 l: ds.P8.$create()
             }
         }
+        export function create(p0: number, l: ds.P8): P48 {
+            return {
+                p0: p0,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -3368,6 +3800,12 @@ export namespace p4 {
             return {
                 p0: 0,
                 l: ds.PD.$create()
+            }
+        }
+        export function create(p0: number, l: ds.PD): P4D {
+            return {
+                p0: p0,
+                l: l
             }
         }
         export function $stringify(obj: any): string {
@@ -3416,6 +3854,12 @@ export namespace p4 {
                 l: ds.PK.$create()
             }
         }
+        export function create(p0: number, l: ds.PK): P4K {
+            return {
+                p0: p0,
+                l: l
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.p0,
@@ -3460,6 +3904,12 @@ export namespace p4 {
             return {
                 p0: 0,
                 l: ds.PS.$create()
+            }
+        }
+        export function create(p0: number, l: ds.PS): P4S {
+            return {
+                p0: p0,
+                l: l
             }
         }
         export function $stringify(obj: any): string {

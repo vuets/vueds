@@ -14,6 +14,7 @@ export declare namespace pk {
             l = 4,
         }
         function $create(): PK111;
+        function create(p0: string, p1: number, p2: number, l: ds.P1): PK111;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -143,6 +144,7 @@ export declare namespace pk {
             l = 4,
         }
         function $create(): PK114;
+        function create(p0: string, p1: number, p2: number, l: ds.P4): PK114;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -272,6 +274,7 @@ export declare namespace pk {
             l = 4,
         }
         function $create(): PK118;
+        function create(p0: string, p1: number, p2: number, l: ds.P8): PK118;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -401,6 +404,7 @@ export declare namespace pk {
             l = 4,
         }
         function $create(): PK11D;
+        function create(p0: string, p1: number, p2: number, l: ds.PD): PK11D;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -530,6 +534,7 @@ export declare namespace pk {
             l = 4,
         }
         function $create(): PK11K;
+        function create(p0: string, p1: number, p2: number, l: ds.PK): PK11K;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -659,6 +664,7 @@ export declare namespace pk {
             l = 4,
         }
         function $create(): PK11S;
+        function create(p0: string, p1: number, p2: number, l: ds.PS): PK11S;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -786,6 +792,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK81;
+        function create(p0: string, p1: number, l: ds.P1): PK81;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -905,6 +912,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK84;
+        function create(p0: string, p1: number, l: ds.P4): PK84;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1024,6 +1032,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK88;
+        function create(p0: string, p1: number, l: ds.P8): PK88;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1143,6 +1152,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK8D;
+        function create(p0: string, p1: number, l: ds.PD): PK8D;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1262,6 +1272,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK8K;
+        function create(p0: string, p1: number, l: ds.PK): PK8K;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1381,6 +1392,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK8S;
+        function create(p0: string, p1: number, l: ds.PS): PK8S;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1504,6 +1516,7 @@ export declare namespace pk {
             l = 5,
         }
         function $create(): PK1111;
+        function create(p0: string, p1: number, p2: number, p3: number, l: ds.P1): PK1111;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1643,6 +1656,7 @@ export declare namespace pk {
             l = 5,
         }
         function $create(): PK1114;
+        function create(p0: string, p1: number, p2: number, p3: number, l: ds.P4): PK1114;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1782,6 +1796,7 @@ export declare namespace pk {
             l = 5,
         }
         function $create(): PK1118;
+        function create(p0: string, p1: number, p2: number, p3: number, l: ds.P8): PK1118;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -1921,6 +1936,7 @@ export declare namespace pk {
             l = 5,
         }
         function $create(): PK111D;
+        function create(p0: string, p1: number, p2: number, p3: number, l: ds.PD): PK111D;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2060,6 +2076,7 @@ export declare namespace pk {
             l = 5,
         }
         function $create(): PK111K;
+        function create(p0: string, p1: number, p2: number, p3: number, l: ds.PK): PK111K;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2199,6 +2216,7 @@ export declare namespace pk {
             l = 5,
         }
         function $create(): PK111S;
+        function create(p0: string, p1: number, p2: number, p3: number, l: ds.PS): PK111S;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2334,6 +2352,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK11;
+        function create(p0: string, p1: number, l: ds.P1): PK11;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2453,6 +2472,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK14;
+        function create(p0: string, p1: number, l: ds.P4): PK14;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2572,6 +2592,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK18;
+        function create(p0: string, p1: number, l: ds.P8): PK18;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2691,6 +2712,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK1D;
+        function create(p0: string, p1: number, l: ds.PD): PK1D;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2810,6 +2832,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK1K;
+        function create(p0: string, p1: number, l: ds.PK): PK1K;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -2929,6 +2952,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK1S;
+        function create(p0: string, p1: number, l: ds.PS): PK1S;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3048,6 +3072,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKK1;
+        function create(p0: string, p1: string, l: ds.P1): PKK1;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3167,6 +3192,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKK4;
+        function create(p0: string, p1: string, l: ds.P4): PKK4;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3286,6 +3312,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKK8;
+        function create(p0: string, p1: string, l: ds.P8): PKK8;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3405,6 +3432,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKKD;
+        function create(p0: string, p1: string, l: ds.PD): PKKD;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3524,6 +3552,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKKK;
+        function create(p0: string, p1: string, l: ds.PK): PKKK;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3643,6 +3672,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKKS;
+        function create(p0: string, p1: string, l: ds.PS): PKKS;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3760,6 +3790,7 @@ export declare namespace pk {
             l = 2,
         }
         function $create(): PK1;
+        function create(p0: string, l: ds.P1): PK1;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3869,6 +3900,7 @@ export declare namespace pk {
             l = 2,
         }
         function $create(): PK4;
+        function create(p0: string, l: ds.P4): PK4;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -3978,6 +4010,7 @@ export declare namespace pk {
             l = 2,
         }
         function $create(): PK8;
+        function create(p0: string, l: ds.P8): PK8;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4087,6 +4120,7 @@ export declare namespace pk {
             l = 2,
         }
         function $create(): PKD;
+        function create(p0: string, l: ds.PD): PKD;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4196,6 +4230,7 @@ export declare namespace pk {
             l = 2,
         }
         function $create(): PKK;
+        function create(p0: string, l: ds.PK): PKK;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4305,6 +4340,7 @@ export declare namespace pk {
             l = 2,
         }
         function $create(): PKS;
+        function create(p0: string, l: ds.PS): PKS;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4416,6 +4452,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKD1;
+        function create(p0: string, p1: number, l: ds.P1): PKD1;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4535,6 +4572,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKD4;
+        function create(p0: string, p1: number, l: ds.P4): PKD4;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4654,6 +4692,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKD8;
+        function create(p0: string, p1: number, l: ds.P8): PKD8;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4773,6 +4812,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKDD;
+        function create(p0: string, p1: number, l: ds.PD): PKDD;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -4892,6 +4932,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKDK;
+        function create(p0: string, p1: number, l: ds.PK): PKDK;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5011,6 +5052,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKDS;
+        function create(p0: string, p1: number, l: ds.PS): PKDS;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5130,6 +5172,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK41;
+        function create(p0: string, p1: number, l: ds.P1): PK41;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5249,6 +5292,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK44;
+        function create(p0: string, p1: number, l: ds.P4): PK44;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5368,6 +5412,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK48;
+        function create(p0: string, p1: number, l: ds.P8): PK48;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5487,6 +5532,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK4D;
+        function create(p0: string, p1: number, l: ds.PD): PK4D;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5606,6 +5652,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK4K;
+        function create(p0: string, p1: number, l: ds.PK): PK4K;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5725,6 +5772,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PK4S;
+        function create(p0: string, p1: number, l: ds.PS): PK4S;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5844,6 +5892,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKS1;
+        function create(p0: string, p1: string, l: ds.P1): PKS1;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -5963,6 +6012,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKS4;
+        function create(p0: string, p1: string, l: ds.P4): PKS4;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -6082,6 +6132,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKS8;
+        function create(p0: string, p1: string, l: ds.P8): PKS8;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -6201,6 +6252,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKSD;
+        function create(p0: string, p1: string, l: ds.PD): PKSD;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -6320,6 +6372,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKSK;
+        function create(p0: string, p1: string, l: ds.PK): PKSK;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -6439,6 +6492,7 @@ export declare namespace pk {
             l = 3,
         }
         function $create(): PKSS;
+        function create(p0: string, p1: string, l: ds.PS): PKSS;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {

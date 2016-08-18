@@ -8,6 +8,7 @@ export declare namespace ds {
             id = 1,
         }
         function $create(): ParamId;
+        function create(id: number): ParamId;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -34,6 +35,7 @@ export declare namespace ds {
             parentKey = 2,
         }
         function $create(): ParamKey;
+        function create(key: string, parentKey?: string): ParamKey;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -70,6 +72,7 @@ export declare namespace ds {
             id = 3,
         }
         function $create(): ParamUpdate;
+        function create(key: string, mc: MultiCAS, id?: number): ParamUpdate;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -117,6 +120,7 @@ export declare namespace ds {
             parentKey = 4,
         }
         function $create(): ParamRangeKey;
+        function create(desc: boolean, limit?: number, startKey?: string, parentKey?: string): ParamRangeKey;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -172,6 +176,7 @@ export declare namespace ds {
             id = 3,
         }
         function $create(): ACResult;
+        function create(name: string, value: string, id?: number): ACResult;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -218,6 +223,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): P1;
+        function create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P1;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -309,6 +315,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): P4;
+        function create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P4;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -400,6 +407,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): P8;
+        function create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P8;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -491,6 +499,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): PD;
+        function create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): PD;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -582,6 +591,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): PB;
+        function create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PB;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -673,6 +683,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): PK;
+        function create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PK;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {
@@ -764,6 +775,7 @@ export declare namespace ds {
             prk = 4,
         }
         function $create(): PS;
+        function create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PS;
         function $stringify(obj: any): string;
         function $handle(type: number, message: any): number;
         const $descriptor: {

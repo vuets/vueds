@@ -16,6 +16,11 @@ export namespace ds {
                 id: 0
             }
         }
+        export function create(id: number): ParamId {
+            return {
+                id: id
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.id;
@@ -53,6 +58,12 @@ export namespace ds {
             return {
                 key: "",
                 parentKey: ""
+            }
+        }
+        export function create(key: string, parentKey: string = null): ParamKey {
+            return {
+                key: key,
+                parentKey: parentKey
             }
         }
         export function $stringify(obj: any): string {
@@ -100,6 +111,13 @@ export namespace ds {
                 key: "",
                 mc: MultiCAS.$create(),
                 id: 0
+            }
+        }
+        export function create(key: string, mc: MultiCAS, id: number = null): ParamUpdate {
+            return {
+                key: key,
+                mc: mc,
+                id: id
             }
         }
         export function $stringify(obj: any): string {
@@ -156,6 +174,14 @@ export namespace ds {
                 limit: 0,
                 startKey: "",
                 parentKey: ""
+            }
+        }
+        export function create(desc: boolean, limit: number = null, startKey: string = null, parentKey: string = null): ParamRangeKey {
+            return {
+                desc: desc,
+                limit: limit,
+                startKey: startKey,
+                parentKey: parentKey
             }
         }
         export function $stringify(obj: any): string {
@@ -219,6 +245,13 @@ export namespace ds {
                 id: 0
             }
         }
+        export function create(name: string, value: string, id: number = null): ACResult {
+            return {
+                name: name,
+                value: value,
+                id: id
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.name,
@@ -272,6 +305,14 @@ export namespace ds {
                 end: 0,
                 pgstart: 0,
                 prk: ParamRangeKey.$create()
+            }
+        }
+        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P1 {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
             }
         }
         export function $stringify(obj: any): string {
@@ -335,6 +376,14 @@ export namespace ds {
                 prk: ParamRangeKey.$create()
             }
         }
+        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P4 {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.value,
@@ -394,6 +443,14 @@ export namespace ds {
                 end: 0,
                 pgstart: 0,
                 prk: ParamRangeKey.$create()
+            }
+        }
+        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P8 {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
             }
         }
         export function $stringify(obj: any): string {
@@ -457,6 +514,14 @@ export namespace ds {
                 prk: ParamRangeKey.$create()
             }
         }
+        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): PD {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.value,
@@ -516,6 +581,14 @@ export namespace ds {
                 end: "",
                 pgstart: "",
                 prk: ParamRangeKey.$create()
+            }
+        }
+        export function create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PB {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
             }
         }
         export function $stringify(obj: any): string {
@@ -579,6 +652,14 @@ export namespace ds {
                 prk: ParamRangeKey.$create()
             }
         }
+        export function create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PK {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
+            }
+        }
         export function $stringify(obj: any): string {
             var buf = [],
                 _1 = obj.value,
@@ -638,6 +719,14 @@ export namespace ds {
                 end: "",
                 pgstart: "",
                 prk: ParamRangeKey.$create()
+            }
+        }
+        export function create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PS {
+            return {
+                value: value,
+                end: end,
+                pgstart: pgstart,
+                prk: prk
             }
         }
         export function $stringify(obj: any): string {
