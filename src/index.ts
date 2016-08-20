@@ -29,6 +29,7 @@ export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     var fd
     for (var i in src) {
         if ((fd = descriptor[i])) target[fd.$] = src[i]
+        else target[i] = src[i]
     }
 
     return target
