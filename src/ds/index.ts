@@ -11,12 +11,13 @@ export namespace ds {
         export const enum $f {
             id = 1
         }
-        export function $create(): ParamId {
+        export function $createObservable(): ParamId {
             return {
                 id: 0
             }
         }
-        export function create(id: number): ParamId {
+
+        export function $create(id: number): ParamId {
             return {
                 id: id
             }
@@ -54,13 +55,14 @@ export namespace ds {
             key = 1,
             parentKey = 2
         }
-        export function $create(): ParamKey {
+        export function $createObservable(): ParamKey {
             return {
                 key: "",
                 parentKey: ""
             }
         }
-        export function create(key: string, parentKey: string = null): ParamKey {
+
+        export function $create(key: string, parentKey: string = null): ParamKey {
             return {
                 key: key,
                 parentKey: parentKey
@@ -106,14 +108,15 @@ export namespace ds {
             mc = 2,
             id = 3
         }
-        export function $create(): ParamUpdate {
+        export function $createObservable(): ParamUpdate {
             return {
                 key: "",
-                mc: MultiCAS.$create(),
+                mc: MultiCAS.$createObservable(),
                 id: 0
             }
         }
-        export function create(key: string, mc: MultiCAS, id: number = null): ParamUpdate {
+
+        export function $create(key: string, mc: MultiCAS, id: number = null): ParamUpdate {
             return {
                 key: key,
                 mc: mc,
@@ -168,7 +171,7 @@ export namespace ds {
             startKey = 3,
             parentKey = 4
         }
-        export function $create(): ParamRangeKey {
+        export function $createObservable(): ParamRangeKey {
             return {
                 desc: false,
                 limit: 0,
@@ -176,7 +179,8 @@ export namespace ds {
                 parentKey: ""
             }
         }
-        export function create(desc: boolean, limit: number = null, startKey: string = null, parentKey: string = null): ParamRangeKey {
+
+        export function $create(desc: boolean, limit: number = null, startKey: string = null, parentKey: string = null): ParamRangeKey {
             return {
                 desc: desc,
                 limit: limit,
@@ -238,14 +242,15 @@ export namespace ds {
             value = 2,
             id = 3
         }
-        export function $create(): ACResult {
+        export function $createObservable(): ACResult {
             return {
                 name: "",
                 value: "",
                 id: 0
             }
         }
-        export function create(name: string, value: string, id: number = null): ACResult {
+
+        export function $create(name: string, value: string, id: number = null): ACResult {
             return {
                 name: name,
                 value: value,
@@ -299,15 +304,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): P1 {
+        export function $createObservable(): P1 {
             return {
                 value: 0,
                 end: 0,
                 pgstart: 0,
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P1 {
+
+        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P1 {
             return {
                 value: value,
                 end: end,
@@ -368,15 +374,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): P4 {
+        export function $createObservable(): P4 {
             return {
                 value: 0,
                 end: 0,
                 pgstart: 0,
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P4 {
+
+        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P4 {
             return {
                 value: value,
                 end: end,
@@ -437,15 +444,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): P8 {
+        export function $createObservable(): P8 {
             return {
                 value: 0,
                 end: 0,
                 pgstart: 0,
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P8 {
+
+        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P8 {
             return {
                 value: value,
                 end: end,
@@ -506,15 +514,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): PD {
+        export function $createObservable(): PD {
             return {
                 value: 0,
                 end: 0,
                 pgstart: 0,
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): PD {
+
+        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): PD {
             return {
                 value: value,
                 end: end,
@@ -575,15 +584,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): PB {
+        export function $createObservable(): PB {
             return {
                 value: "",
                 end: "",
                 pgstart: "",
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PB {
+
+        export function $create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PB {
             return {
                 value: value,
                 end: end,
@@ -644,15 +654,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): PK {
+        export function $createObservable(): PK {
             return {
                 value: "",
                 end: "",
                 pgstart: "",
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PK {
+
+        export function $create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PK {
             return {
                 value: value,
                 end: end,
@@ -713,15 +724,16 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
-        export function $create(): PS {
+        export function $createObservable(): PS {
             return {
                 value: "",
                 end: "",
                 pgstart: "",
-                prk: ParamRangeKey.$create()
+                prk: ParamRangeKey.$createObservable()
             }
         }
-        export function create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PS {
+
+        export function $create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PS {
             return {
                 value: value,
                 end: end,

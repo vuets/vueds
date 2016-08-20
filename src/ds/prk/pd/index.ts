@@ -15,14 +15,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDD1 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P1): PDD1 {
+
+        export function $create(p0: number, p1: number, l: ds.P1): PDD1 {
             return {
                 p0: p0,
                 p1: p1,
@@ -76,14 +70,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDD4 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P4): PDD4 {
+
+        export function $create(p0: number, p1: number, l: ds.P4): PDD4 {
             return {
                 p0: p0,
                 p1: p1,
@@ -137,14 +125,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDD8 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P8): PDD8 {
+
+        export function $create(p0: number, p1: number, l: ds.P8): PDD8 {
             return {
                 p0: p0,
                 p1: p1,
@@ -198,14 +180,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDDD {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PD): PDDD {
+
+        export function $create(p0: number, p1: number, l: ds.PD): PDDD {
             return {
                 p0: p0,
                 p1: p1,
@@ -259,14 +235,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDDK {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PK): PDDK {
+
+        export function $create(p0: number, p1: number, l: ds.PK): PDDK {
             return {
                 p0: p0,
                 p1: p1,
@@ -320,14 +290,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDDS {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PS): PDDS {
+
+        export function $create(p0: number, p1: number, l: ds.PS): PDDS {
             return {
                 p0: p0,
                 p1: p1,
@@ -382,14 +346,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDS1 {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.P1): PDS1 {
+
+        export function $create(p0: number, p1: string, l: ds.P1): PDS1 {
             return {
                 p0: p0,
                 p1: p1,
@@ -443,14 +401,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDS4 {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.P4): PDS4 {
+
+        export function $create(p0: number, p1: string, l: ds.P4): PDS4 {
             return {
                 p0: p0,
                 p1: p1,
@@ -504,14 +456,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDS8 {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.P8): PDS8 {
+
+        export function $create(p0: number, p1: string, l: ds.P8): PDS8 {
             return {
                 p0: p0,
                 p1: p1,
@@ -565,14 +511,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDSD {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.PD): PDSD {
+
+        export function $create(p0: number, p1: string, l: ds.PD): PDSD {
             return {
                 p0: p0,
                 p1: p1,
@@ -626,14 +566,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDSK {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.PK): PDSK {
+
+        export function $create(p0: number, p1: string, l: ds.PK): PDSK {
             return {
                 p0: p0,
                 p1: p1,
@@ -687,14 +621,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDSS {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.PS): PDSS {
+
+        export function $create(p0: number, p1: string, l: ds.PS): PDSS {
             return {
                 p0: p0,
                 p1: p1,
@@ -747,13 +675,8 @@ export namespace pd {
             p0 = 1,
             l = 2
         }
-        export function $create(): PD1 {
-            return {
-                p0: 0,
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, l: ds.P1): PD1 {
+
+        export function $create(p0: number, l: ds.P1): PD1 {
             return {
                 p0: p0,
                 l: l
@@ -799,13 +722,8 @@ export namespace pd {
             p0 = 1,
             l = 2
         }
-        export function $create(): PD4 {
-            return {
-                p0: 0,
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, l: ds.P4): PD4 {
+
+        export function $create(p0: number, l: ds.P4): PD4 {
             return {
                 p0: p0,
                 l: l
@@ -851,13 +769,8 @@ export namespace pd {
             p0 = 1,
             l = 2
         }
-        export function $create(): PD8 {
-            return {
-                p0: 0,
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, l: ds.P8): PD8 {
+
+        export function $create(p0: number, l: ds.P8): PD8 {
             return {
                 p0: p0,
                 l: l
@@ -903,13 +816,8 @@ export namespace pd {
             p0 = 1,
             l = 2
         }
-        export function $create(): PDD {
-            return {
-                p0: 0,
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, l: ds.PD): PDD {
+
+        export function $create(p0: number, l: ds.PD): PDD {
             return {
                 p0: p0,
                 l: l
@@ -955,13 +863,8 @@ export namespace pd {
             p0 = 1,
             l = 2
         }
-        export function $create(): PDK {
-            return {
-                p0: 0,
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, l: ds.PK): PDK {
+
+        export function $create(p0: number, l: ds.PK): PDK {
             return {
                 p0: p0,
                 l: l
@@ -1007,13 +910,8 @@ export namespace pd {
             p0 = 1,
             l = 2
         }
-        export function $create(): PDS {
-            return {
-                p0: 0,
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, l: ds.PS): PDS {
+
+        export function $create(p0: number, l: ds.PS): PDS {
             return {
                 p0: p0,
                 l: l
@@ -1062,14 +960,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDK1 {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.P1): PDK1 {
+
+        export function $create(p0: number, p1: string, l: ds.P1): PDK1 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1123,14 +1015,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDK4 {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.P4): PDK4 {
+
+        export function $create(p0: number, p1: string, l: ds.P4): PDK4 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1184,14 +1070,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDK8 {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.P8): PDK8 {
+
+        export function $create(p0: number, p1: string, l: ds.P8): PDK8 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1245,14 +1125,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDKD {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.PD): PDKD {
+
+        export function $create(p0: number, p1: string, l: ds.PD): PDKD {
             return {
                 p0: p0,
                 p1: p1,
@@ -1306,14 +1180,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDKK {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.PK): PDKK {
+
+        export function $create(p0: number, p1: string, l: ds.PK): PDKK {
             return {
                 p0: p0,
                 p1: p1,
@@ -1367,14 +1235,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PDKS {
-            return {
-                p0: 0,
-                p1: "",
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, p1: string, l: ds.PS): PDKS {
+
+        export function $create(p0: number, p1: string, l: ds.PS): PDKS {
             return {
                 p0: p0,
                 p1: p1,
@@ -1429,14 +1291,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD11 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P1): PD11 {
+
+        export function $create(p0: number, p1: number, l: ds.P1): PD11 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1490,14 +1346,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD14 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P4): PD14 {
+
+        export function $create(p0: number, p1: number, l: ds.P4): PD14 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1551,14 +1401,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD18 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P8): PD18 {
+
+        export function $create(p0: number, p1: number, l: ds.P8): PD18 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1612,14 +1456,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD1D {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PD): PD1D {
+
+        export function $create(p0: number, p1: number, l: ds.PD): PD1D {
             return {
                 p0: p0,
                 p1: p1,
@@ -1673,14 +1511,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD1K {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PK): PD1K {
+
+        export function $create(p0: number, p1: number, l: ds.PK): PD1K {
             return {
                 p0: p0,
                 p1: p1,
@@ -1734,14 +1566,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD1S {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PS): PD1S {
+
+        export function $create(p0: number, p1: number, l: ds.PS): PD1S {
             return {
                 p0: p0,
                 p1: p1,
@@ -1796,14 +1622,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD81 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P1): PD81 {
+
+        export function $create(p0: number, p1: number, l: ds.P1): PD81 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1857,14 +1677,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD84 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P4): PD84 {
+
+        export function $create(p0: number, p1: number, l: ds.P4): PD84 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1918,14 +1732,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD88 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P8): PD88 {
+
+        export function $create(p0: number, p1: number, l: ds.P8): PD88 {
             return {
                 p0: p0,
                 p1: p1,
@@ -1979,14 +1787,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD8D {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PD): PD8D {
+
+        export function $create(p0: number, p1: number, l: ds.PD): PD8D {
             return {
                 p0: p0,
                 p1: p1,
@@ -2040,14 +1842,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD8K {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PK): PD8K {
+
+        export function $create(p0: number, p1: number, l: ds.PK): PD8K {
             return {
                 p0: p0,
                 p1: p1,
@@ -2101,14 +1897,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD8S {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PS): PD8S {
+
+        export function $create(p0: number, p1: number, l: ds.PS): PD8S {
             return {
                 p0: p0,
                 p1: p1,
@@ -2163,14 +1953,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD41 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P1.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P1): PD41 {
+
+        export function $create(p0: number, p1: number, l: ds.P1): PD41 {
             return {
                 p0: p0,
                 p1: p1,
@@ -2224,14 +2008,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD44 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P4.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P4): PD44 {
+
+        export function $create(p0: number, p1: number, l: ds.P4): PD44 {
             return {
                 p0: p0,
                 p1: p1,
@@ -2285,14 +2063,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD48 {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.P8.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.P8): PD48 {
+
+        export function $create(p0: number, p1: number, l: ds.P8): PD48 {
             return {
                 p0: p0,
                 p1: p1,
@@ -2346,14 +2118,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD4D {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PD.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PD): PD4D {
+
+        export function $create(p0: number, p1: number, l: ds.PD): PD4D {
             return {
                 p0: p0,
                 p1: p1,
@@ -2407,14 +2173,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD4K {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PK.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PK): PD4K {
+
+        export function $create(p0: number, p1: number, l: ds.PK): PD4K {
             return {
                 p0: p0,
                 p1: p1,
@@ -2468,14 +2228,8 @@ export namespace pd {
             p1 = 2,
             l = 3
         }
-        export function $create(): PD4S {
-            return {
-                p0: 0,
-                p1: 0,
-                l: ds.PS.$create()
-            }
-        }
-        export function create(p0: number, p1: number, l: ds.PS): PD4S {
+
+        export function $create(p0: number, p1: number, l: ds.PS): PD4S {
             return {
                 p0: p0,
                 p1: p1,
