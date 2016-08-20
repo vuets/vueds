@@ -12,6 +12,7 @@
   },
   "files": [
     "src/index.ts",
+    "src/store/index.ts",
     "src/ds/index.ts",
     "src/ds/prk/p1/index.ts",
     "src/ds/prk/p4/index.ts",
