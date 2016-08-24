@@ -5,7 +5,7 @@ export interface MultiCAS {
 }
 export namespace MultiCAS {
     export function $createObservable(): MultiCAS {
-        return null
+        return {}
     }
     export function $create(): MultiCAS {
         return {}
