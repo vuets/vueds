@@ -4,7 +4,7 @@ import { mergePojoFrom, mergeVmFrom } from '../'
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
 function b_to_b64(bytes: any): string {
-    for (var base64 = [], i = 0; i < bytes.length; i += 3) {
+    for (var base64: string[] = [], i = 0; i < bytes.length; i += 3) {
         var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2]
         for (var j = 0; j < 4; j++) {
             if (i * 8 + j * 6 <= bytes.length * 8)
@@ -32,7 +32,7 @@ function b64_to_b(base64: string): any {
     // Remove non-base-64 characters
     base64 = base64.replace(/[^A-Z0-9+\/]/ig, '')
 
-    for (var bytes = [], i = 0, imod4 = 0; i < base64.length; imod4 = ++i % 4) {
+    for (var bytes: number[] = [], i = 0, imod4 = 0; i < base64.length; imod4 = ++i % 4) {
         if (imod4 === 0)
             continue
         
@@ -124,12 +124,12 @@ export interface Pager {
     size: number // the total number of fetched items
     state: number
     msg: string
-    array: any
+    array: any[]
     index_selected: number
     index_hidden: number
     q_index: number
 
-    prev_key: string
+    prev_key: string|null
     prev_page: number
     prev_vstate: number
 
@@ -139,7 +139,7 @@ export interface Pager {
     page_from: number
     page_to: number
 
-    pojo: any
+    pojo?: any
 }
 
 export function resolveNextPageIndex(pager: Pager, idx: number): number {
@@ -186,10 +186,10 @@ export const enum SelectionFlags {
     CLICKED = 1,
     REFRESH = 2,
     CLICKED_UPDATE = 3,
-    FORCE = 4
-}
+    FORCE = 4,
 
-export const SelectionFlags$$MASK_FORCE_OR_UPDATE = SelectionFlags.FORCE | SelectionFlags.CLICKED_UPDATE
+    MASK_FORCE_OR_UPDATE = FORCE | CLICKED_UPDATE
+}
 
 export const enum PojoState {
     NONE = 0,
@@ -197,20 +197,20 @@ export const enum PojoState {
     ERROR = 2,
     WARNING = 4,
     LOADING = 8,
+    
+    UPDATE = 16,
 
-    UPDATE = 16
+    MASK_STATUS = SUCCESS | ERROR | WARNING
 }
-
-export const PojoState$$MASK_STATUS = PojoState.SUCCESS | PojoState.ERROR | PojoState.WARNING
 
 export const enum PojoListState {
     NONE = 0,
     INCLUDED = 1,
     SELECTED = 2,
-    REFRESH = 4
-}
+    REFRESH = 4,
 
-export const PojoListState$$MASK_SELECTED_REFRESH = PojoListState.SELECTED | PojoListState.REFRESH
+    MASK_SELECTED_REFRESH = SELECTED | REFRESH
+}
 
 export const enum PagerState {
     NONE = 0,
@@ -224,12 +224,12 @@ export const enum PagerState {
     LOAD_OLDER = 64,
     RELOAD = 128,
 
-    LOCAL_SEARCH = 256
-}
+    LOCAL_SEARCH = 256,
 
-export const PagerState$$MASK_STATUS = PagerState.SUCCESS | PagerState.ERROR | PagerState.WARNING
-export const PagerState$$MASK_RPC = PagerState.LOAD_NEWER | PagerState.LOAD_OLDER | PagerState.RELOAD
-export const PagerState$$MASK_RPC_DISABLE = PagerState.LOADING | PagerState.LOCAL_SEARCH
+    MASK_STATUS = SUCCESS | ERROR | WARNING,
+    MASK_RPC = LOAD_NEWER | LOAD_OLDER | RELOAD,
+    MASK_RPC_DISABLE = LOADING | LOCAL_SEARCH
+}
 
 export function $is_set(state: number, value: number): boolean {
     return 0 !== (value & state)
@@ -335,15 +335,15 @@ export class PojoStore<T> {
             page_count: size / pageSize,
             page_vcount: 0,
             page_from: 1,
-            page_to: pageSize - remaining,
+            page_to: pageSize - remaining
 
-            pojo: null
+            //pojo: null
         }
 
         defp(this.pager, 'store', this)
     }
 
-    getLastSeenObj(): T {
+    getLastSeenObj(): T|null {
         return this.mainArray.length === 0 ? null : this.mainArray[0]
     }
 
@@ -402,8 +402,8 @@ export class PojoStore<T> {
         var target: T,
             target_,
             message: T,
-            selected: T = null,
-            prevKey: string = type >= SelectionType.RETAIN ? pager.prev_key : null,
+            selected: T|null = null,
+            prevKey: string|null = type >= SelectionType.RETAIN ? pager.prev_key : null,
             i = 0
         
         for (let state = 0; i < len; i++) {
@@ -508,7 +508,7 @@ export class PojoStore<T> {
                 previous_[c.VCOUNT] = 0
 
                 nullifyAll(current_[c.VPROPS])
-            } else if ((state & PojoState$$MASK_STATUS)) {
+            } else if ((state & PojoState.MASK_STATUS)) {
                 previous_[c.MSG] = null
             }
 
@@ -605,8 +605,8 @@ export class PojoStore<T> {
         return desc ? populatePages + index : this.size() - populatePages - index - 1
     }
 
-    getSelectedOriginal(): T {
-        var selected: T = this.pager.pojo
+    getSelectedOriginal(): T|null {
+        var selected = this.pager.pojo
         return !selected ? null : this.get(this.getStoreIndex(selected['$index']))
     }
     
@@ -863,9 +863,9 @@ export class PojoStore<T> {
         return ret
     }
 
-    getStartObj(): T {
+    getStartObj(): T|null {
         let pager = this.pager,
-            masked = PagerState$$MASK_RPC & pager.state
+            masked = PagerState.MASK_RPC & pager.state
         switch (masked) {
             case PagerState.LOAD_NEWER:
                 return this.get(0)
@@ -978,9 +978,9 @@ export class PojoStore<T> {
 
     callbackFromFetch(array: Array<T>) {
         let pager = this.pager, 
-            masked = PagerState$$MASK_RPC & pager.state
+            masked = PagerState.MASK_RPC & pager.state
         
-        $bit_unset(pager, c.STATE, PagerState$$MASK_RPC)
+        $bit_unset(pager, c.STATE, PagerState.MASK_RPC)
 
         switch (masked) {
             case PagerState.LOAD_NEWER:
