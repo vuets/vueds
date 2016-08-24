@@ -15,11 +15,11 @@ export interface Pager {
     size: number;
     state: number;
     msg: string;
-    array: any;
+    array: any[];
     index_selected: number;
     index_hidden: number;
     q_index: number;
-    prev_key: string;
+    prev_key: string | null;
     prev_page: number;
     prev_vstate: number;
     page: number;
@@ -27,7 +27,7 @@ export interface Pager {
     page_vcount: number;
     page_from: number;
     page_to: number;
-    pojo: any;
+    pojo?: any;
 }
 export declare function resolveNextPageIndex(pager: Pager, idx: number): number;
 export interface KeyHandler {
@@ -63,8 +63,8 @@ export declare const enum SelectionFlags {
     REFRESH = 2,
     CLICKED_UPDATE = 3,
     FORCE = 4,
+    MASK_FORCE_OR_UPDATE = 7,
 }
-export declare const SelectionFlags$$MASK_FORCE_OR_UPDATE: number;
 export declare const enum PojoState {
     NONE = 0,
     SUCCESS = 1,
@@ -72,15 +72,15 @@ export declare const enum PojoState {
     WARNING = 4,
     LOADING = 8,
     UPDATE = 16,
+    MASK_STATUS = 7,
 }
-export declare const PojoState$$MASK_STATUS: number;
 export declare const enum PojoListState {
     NONE = 0,
     INCLUDED = 1,
     SELECTED = 2,
     REFRESH = 4,
+    MASK_SELECTED_REFRESH = 6,
 }
-export declare const PojoListState$$MASK_SELECTED_REFRESH: number;
 export declare const enum PagerState {
     NONE = 0,
     SUCCESS = 1,
@@ -92,10 +92,10 @@ export declare const enum PagerState {
     LOAD_OLDER = 64,
     RELOAD = 128,
     LOCAL_SEARCH = 256,
+    MASK_STATUS = 7,
+    MASK_RPC = 224,
+    MASK_RPC_DISABLE = 264,
 }
-export declare const PagerState$$MASK_STATUS: number;
-export declare const PagerState$$MASK_RPC: number;
-export declare const PagerState$$MASK_RPC_DISABLE: number;
 export declare function $is_set(state: number, value: number): boolean;
 export declare function $bit_unset(obj: any, name: string, value: number): void;
 export declare function $bit_toggle(obj: any, name: string, value: number): void;
@@ -131,7 +131,7 @@ export declare class PojoStore<T> {
     private mainArray;
     private fnMergeFrom;
     constructor(fetchedArray: Array<T>, options: PagerOptions<T>);
-    getLastSeenObj(): T;
+    getLastSeenObj(): T | null;
     isEmpty(): boolean;
     size(): number;
     isMainArray(): boolean;
@@ -150,7 +150,7 @@ export declare class PojoStore<T> {
     get(index: number): T;
     getStoreIndex(selected: T): number;
     $getStoreIndex(index: number): number;
-    getSelectedOriginal(): T;
+    getSelectedOriginal(): T | null;
     getOriginal(selected: T): T;
     remove(index: number): T;
     clear(): void;
@@ -176,7 +176,7 @@ export declare class PojoStore<T> {
      * Returns true if an item was removed.
      */
     update(updateArray: Array<T>): boolean;
-    getStartObj(): T;
+    getStartObj(): T | null;
     newRangeKeyForReload(): ds.ParamRangeKey;
     $newRangeKeyForReload(desc: boolean): ds.ParamRangeKey;
     newRangeKeyForLoadNewer(): ds.ParamRangeKey;

@@ -4,9 +4,20 @@ import { MultiCAS, escapeValue } from '../../../'
 import { ds } from '../../'
 
 export namespace ps {
+    /**
+     * 
+     * message PSK1 {
+     *   required string p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface PSK1 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P1
     }
     export namespace PSK1 {
@@ -24,7 +35,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -59,9 +70,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSK4 {
+     *   required string p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface PSK4 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P4
     }
     export namespace PSK4 {
@@ -79,7 +101,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -114,9 +136,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSK8 {
+     *   required string p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface PSK8 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P8
     }
     export namespace PSK8 {
@@ -134,7 +167,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -169,9 +202,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSKD {
+     *   required string p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface PSKD {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PD
     }
     export namespace PSKD {
@@ -189,7 +233,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -224,9 +268,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSKK {
+     *   required string p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface PSKK {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PK
     }
     export namespace PSKK {
@@ -244,7 +299,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -279,9 +334,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSKS {
+     *   required string p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface PSKS {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PS
     }
     export namespace PSKS {
@@ -299,7 +365,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -335,10 +401,23 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PS111 {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.P1 l = 4;
+     * }
+     */
     export interface PS111 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.P1
     }
     export namespace PS111 {
@@ -358,7 +437,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -398,10 +477,23 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS114 {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.P4 l = 4;
+     * }
+     */
     export interface PS114 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.P4
     }
     export namespace PS114 {
@@ -421,7 +513,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -461,10 +553,23 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS118 {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.P8 l = 4;
+     * }
+     */
     export interface PS118 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.P8
     }
     export namespace PS118 {
@@ -484,7 +589,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -524,10 +629,23 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS11D {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.PD l = 4;
+     * }
+     */
     export interface PS11D {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.PD
     }
     export namespace PS11D {
@@ -547,7 +665,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -587,10 +705,23 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS11K {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.PK l = 4;
+     * }
+     */
     export interface PS11K {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.PK
     }
     export namespace PS11K {
@@ -610,7 +741,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -650,10 +781,23 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS11S {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.PS l = 4;
+     * }
+     */
     export interface PS11S {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.PS
     }
     export namespace PS11S {
@@ -673,7 +817,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -714,9 +858,20 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PSD1 {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface PSD1 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace PSD1 {
@@ -734,7 +889,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -769,9 +924,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSD4 {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface PSD4 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace PSD4 {
@@ -789,7 +955,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -824,9 +990,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSD8 {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface PSD8 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace PSD8 {
@@ -844,7 +1021,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -879,9 +1056,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSDD {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface PSDD {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace PSDD {
@@ -899,7 +1087,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -934,9 +1122,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSDK {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface PSDK {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace PSDK {
@@ -954,7 +1153,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -989,9 +1188,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSDS {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface PSDS {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace PSDS {
@@ -1009,7 +1219,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1045,9 +1255,20 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PS41 {
+     *   required string p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface PS41 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace PS41 {
@@ -1065,7 +1286,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1100,9 +1321,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS44 {
+     *   required string p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface PS44 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace PS44 {
@@ -1120,7 +1352,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1155,9 +1387,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS48 {
+     *   required string p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface PS48 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace PS48 {
@@ -1175,7 +1418,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1210,9 +1453,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS4D {
+     *   required string p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface PS4D {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace PS4D {
@@ -1230,7 +1484,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1265,9 +1519,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS4K {
+     *   required string p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface PS4K {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace PS4K {
@@ -1285,7 +1550,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1320,9 +1585,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS4S {
+     *   required string p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface PS4S {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace PS4S {
@@ -1340,7 +1616,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1376,9 +1652,20 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PSS1 {
+     *   required string p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface PSS1 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P1
     }
     export namespace PSS1 {
@@ -1396,7 +1683,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1431,9 +1718,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSS4 {
+     *   required string p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface PSS4 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P4
     }
     export namespace PSS4 {
@@ -1451,7 +1749,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1486,9 +1784,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSS8 {
+     *   required string p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface PSS8 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P8
     }
     export namespace PSS8 {
@@ -1506,7 +1815,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1541,9 +1850,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSSD {
+     *   required string p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface PSSD {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PD
     }
     export namespace PSSD {
@@ -1561,7 +1881,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1596,9 +1916,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSSK {
+     *   required string p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface PSSK {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PK
     }
     export namespace PSSK {
@@ -1616,7 +1947,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1651,9 +1982,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSSS {
+     *   required string p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface PSSS {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PS
     }
     export namespace PSSS {
@@ -1671,7 +2013,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1707,9 +2049,20 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PS11 {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface PS11 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace PS11 {
@@ -1727,7 +2080,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1762,9 +2115,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS14 {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface PS14 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace PS14 {
@@ -1782,7 +2146,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1817,9 +2181,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS18 {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface PS18 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace PS18 {
@@ -1837,7 +2212,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1872,9 +2247,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS1D {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface PS1D {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace PS1D {
@@ -1892,7 +2278,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1927,9 +2313,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS1K {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface PS1K {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace PS1K {
@@ -1947,7 +2344,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1982,9 +2379,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS1S {
+     *   required string p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface PS1S {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace PS1S {
@@ -2002,7 +2410,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2038,9 +2446,20 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PS81 {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface PS81 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace PS81 {
@@ -2058,7 +2477,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2093,9 +2512,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS84 {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface PS84 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace PS84 {
@@ -2113,7 +2543,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2148,9 +2578,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS88 {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface PS88 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace PS88 {
@@ -2168,7 +2609,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2203,9 +2644,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS8D {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface PS8D {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace PS8D {
@@ -2223,7 +2675,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2258,9 +2710,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS8K {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface PS8K {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace PS8K {
@@ -2278,7 +2741,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2313,9 +2776,20 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS8S {
+     *   required string p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface PS8S {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace PS8S {
@@ -2333,7 +2807,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2369,8 +2843,17 @@ export namespace ps {
 
 
 
+    /**
+     * 
+     * message PS1 {
+     *   required string p0 = 1;
+     *   required ds.P1 l = 2;
+     * }
+     */
     export interface PS1 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         l: ds.P1
     }
     export namespace PS1 {
@@ -2386,7 +2869,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -2416,8 +2899,17 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS4 {
+     *   required string p0 = 1;
+     *   required ds.P4 l = 2;
+     * }
+     */
     export interface PS4 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         l: ds.P4
     }
     export namespace PS4 {
@@ -2433,7 +2925,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -2463,8 +2955,17 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PS8 {
+     *   required string p0 = 1;
+     *   required ds.P8 l = 2;
+     * }
+     */
     export interface PS8 {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         l: ds.P8
     }
     export namespace PS8 {
@@ -2480,7 +2981,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -2510,8 +3011,17 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSD {
+     *   required string p0 = 1;
+     *   required ds.PD l = 2;
+     * }
+     */
     export interface PSD {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         l: ds.PD
     }
     export namespace PSD {
@@ -2527,7 +3037,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -2557,8 +3067,17 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSK {
+     *   required string p0 = 1;
+     *   required ds.PK l = 2;
+     * }
+     */
     export interface PSK {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         l: ds.PK
     }
     export namespace PSK {
@@ -2574,7 +3093,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -2604,8 +3123,17 @@ export namespace ps {
     }
 
 
+    /**
+     * 
+     * message PSS {
+     *   required string p0 = 1;
+     *   required ds.PS l = 2;
+     * }
+     */
     export interface PSS {
+        /** required: 1 */
         p0: string
+        /** required: 2 */
         l: ds.PS
     }
     export namespace PSS {
@@ -2621,7 +3149,7 @@ export namespace ps {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 

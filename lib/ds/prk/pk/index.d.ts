@@ -1,9 +1,22 @@
 import { ds } from '../../';
 export declare namespace pk {
+    /**
+     *
+     * message PK111 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.P1 l = 4;
+     * }
+     */
     interface PK111 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         l: ds.P1;
     }
     namespace PK111 {
@@ -129,10 +142,23 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK114 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.P4 l = 4;
+     * }
+     */
     interface PK114 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         l: ds.P4;
     }
     namespace PK114 {
@@ -258,10 +284,23 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK118 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.P8 l = 4;
+     * }
+     */
     interface PK118 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         l: ds.P8;
     }
     namespace PK118 {
@@ -387,10 +426,23 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK11D {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.PD l = 4;
+     * }
+     */
     interface PK11D {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         l: ds.PD;
     }
     namespace PK11D {
@@ -516,10 +568,23 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK11K {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.PK l = 4;
+     * }
+     */
     interface PK11K {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         l: ds.PK;
     }
     namespace PK11K {
@@ -645,10 +710,23 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK11S {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required ds.PS l = 4;
+     * }
+     */
     interface PK11S {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         l: ds.PS;
     }
     namespace PK11S {
@@ -774,9 +852,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK81 {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     interface PK81 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P1;
     }
     namespace PK81 {
@@ -893,9 +982,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK84 {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     interface PK84 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P4;
     }
     namespace PK84 {
@@ -1012,9 +1112,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK88 {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     interface PK88 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P8;
     }
     namespace PK88 {
@@ -1131,9 +1242,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK8D {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     interface PK8D {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PD;
     }
     namespace PK8D {
@@ -1250,9 +1372,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK8K {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     interface PK8K {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PK;
     }
     namespace PK8K {
@@ -1369,9 +1502,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK8S {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     interface PK8S {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PS;
     }
     namespace PK8S {
@@ -1488,11 +1632,26 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1111 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required int8 p3 = 4;
+     *   required ds.P1 l = 5;
+     * }
+     */
     interface PK1111 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         p3: number;
+        /** required: 5 */
         l: ds.P1;
     }
     namespace PK1111 {
@@ -1627,11 +1786,26 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1114 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required int8 p3 = 4;
+     *   required ds.P4 l = 5;
+     * }
+     */
     interface PK1114 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         p3: number;
+        /** required: 5 */
         l: ds.P4;
     }
     namespace PK1114 {
@@ -1766,11 +1940,26 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1118 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required int8 p3 = 4;
+     *   required ds.P8 l = 5;
+     * }
+     */
     interface PK1118 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         p3: number;
+        /** required: 5 */
         l: ds.P8;
     }
     namespace PK1118 {
@@ -1905,11 +2094,26 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK111D {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required int8 p3 = 4;
+     *   required ds.PD l = 5;
+     * }
+     */
     interface PK111D {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         p3: number;
+        /** required: 5 */
         l: ds.PD;
     }
     namespace PK111D {
@@ -2044,11 +2248,26 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK111K {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required int8 p3 = 4;
+     *   required ds.PK l = 5;
+     * }
+     */
     interface PK111K {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         p3: number;
+        /** required: 5 */
         l: ds.PK;
     }
     namespace PK111K {
@@ -2183,11 +2402,26 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK111S {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required int8 p2 = 3;
+     *   required int8 p3 = 4;
+     *   required ds.PS l = 5;
+     * }
+     */
     interface PK111S {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         p2: number;
+        /** required: 4 */
         p3: number;
+        /** required: 5 */
         l: ds.PS;
     }
     namespace PK111S {
@@ -2322,9 +2556,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK11 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     interface PK11 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P1;
     }
     namespace PK11 {
@@ -2441,9 +2686,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK14 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     interface PK14 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P4;
     }
     namespace PK14 {
@@ -2560,9 +2816,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK18 {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     interface PK18 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P8;
     }
     namespace PK18 {
@@ -2679,9 +2946,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1D {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     interface PK1D {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PD;
     }
     namespace PK1D {
@@ -2798,9 +3076,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1K {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     interface PK1K {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PK;
     }
     namespace PK1K {
@@ -2917,9 +3206,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1S {
+     *   required bytes p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     interface PK1S {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PS;
     }
     namespace PK1S {
@@ -3036,9 +3336,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKK1 {
+     *   required bytes p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     interface PKK1 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.P1;
     }
     namespace PKK1 {
@@ -3146,7 +3457,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 p1: number;
@@ -3155,9 +3466,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKK4 {
+     *   required bytes p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     interface PKK4 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.P4;
     }
     namespace PKK4 {
@@ -3265,7 +3587,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 p1: number;
@@ -3274,9 +3596,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKK8 {
+     *   required bytes p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     interface PKK8 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.P8;
     }
     namespace PKK8 {
@@ -3384,7 +3717,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 p1: number;
@@ -3393,9 +3726,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKKD {
+     *   required bytes p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     interface PKKD {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.PD;
     }
     namespace PKKD {
@@ -3503,7 +3847,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 p1: number;
@@ -3512,9 +3856,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKKK {
+     *   required bytes p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     interface PKKK {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.PK;
     }
     namespace PKKK {
@@ -3622,7 +3977,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 p1: number;
@@ -3631,9 +3986,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKKS {
+     *   required bytes p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     interface PKKS {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.PS;
     }
     namespace PKKS {
@@ -3741,7 +4107,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 p1: number;
@@ -3750,8 +4116,17 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK1 {
+     *   required bytes p0 = 1;
+     *   required ds.P1 l = 2;
+     * }
+     */
     interface PK1 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         l: ds.P1;
     }
     namespace PK1 {
@@ -3851,7 +4226,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 l: number;
@@ -3859,8 +4234,17 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK4 {
+     *   required bytes p0 = 1;
+     *   required ds.P4 l = 2;
+     * }
+     */
     interface PK4 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         l: ds.P4;
     }
     namespace PK4 {
@@ -3960,7 +4344,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 l: number;
@@ -3968,8 +4352,17 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK8 {
+     *   required bytes p0 = 1;
+     *   required ds.P8 l = 2;
+     * }
+     */
     interface PK8 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         l: ds.P8;
     }
     namespace PK8 {
@@ -4069,7 +4462,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 l: number;
@@ -4077,8 +4470,17 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKD {
+     *   required bytes p0 = 1;
+     *   required ds.PD l = 2;
+     * }
+     */
     interface PKD {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         l: ds.PD;
     }
     namespace PKD {
@@ -4178,7 +4580,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 l: number;
@@ -4186,8 +4588,17 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKK {
+     *   required bytes p0 = 1;
+     *   required ds.PK l = 2;
+     * }
+     */
     interface PKK {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         l: ds.PK;
     }
     namespace PKK {
@@ -4287,7 +4698,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 l: number;
@@ -4295,8 +4706,17 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKS {
+     *   required bytes p0 = 1;
+     *   required ds.PS l = 2;
+     * }
+     */
     interface PKS {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         l: ds.PS;
     }
     namespace PKS {
@@ -4396,7 +4816,7 @@ export declare namespace pk {
                     $handle: (type: number, message: any) => number;
                 };
             };
-            $fdf: any[];
+            $fdf: never[];
             $: {
                 p0: number;
                 l: number;
@@ -4404,9 +4824,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKD1 {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     interface PKD1 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P1;
     }
     namespace PKD1 {
@@ -4523,9 +4954,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKD4 {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     interface PKD4 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P4;
     }
     namespace PKD4 {
@@ -4642,9 +5084,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKD8 {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     interface PKD8 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P8;
     }
     namespace PKD8 {
@@ -4761,9 +5214,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKDD {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     interface PKDD {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PD;
     }
     namespace PKDD {
@@ -4880,9 +5344,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKDK {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     interface PKDK {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PK;
     }
     namespace PKDK {
@@ -4999,9 +5474,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKDS {
+     *   required bytes p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     interface PKDS {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PS;
     }
     namespace PKDS {
@@ -5118,9 +5604,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK41 {
+     *   required bytes p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     interface PK41 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P1;
     }
     namespace PK41 {
@@ -5237,9 +5734,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK44 {
+     *   required bytes p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     interface PK44 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P4;
     }
     namespace PK44 {
@@ -5356,9 +5864,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK48 {
+     *   required bytes p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     interface PK48 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.P8;
     }
     namespace PK48 {
@@ -5475,9 +5994,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK4D {
+     *   required bytes p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     interface PK4D {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PD;
     }
     namespace PK4D {
@@ -5594,9 +6124,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK4K {
+     *   required bytes p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     interface PK4K {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PK;
     }
     namespace PK4K {
@@ -5713,9 +6254,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PK4S {
+     *   required bytes p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     interface PK4S {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: number;
+        /** required: 3 */
         l: ds.PS;
     }
     namespace PK4S {
@@ -5832,9 +6384,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKS1 {
+     *   required bytes p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     interface PKS1 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.P1;
     }
     namespace PKS1 {
@@ -5951,9 +6514,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKS4 {
+     *   required bytes p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     interface PKS4 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.P4;
     }
     namespace PKS4 {
@@ -6070,9 +6644,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKS8 {
+     *   required bytes p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     interface PKS8 {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.P8;
     }
     namespace PKS8 {
@@ -6189,9 +6774,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKSD {
+     *   required bytes p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     interface PKSD {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.PD;
     }
     namespace PKSD {
@@ -6308,9 +6904,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKSK {
+     *   required bytes p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     interface PKSK {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.PK;
     }
     namespace PKSK {
@@ -6427,9 +7034,20 @@ export declare namespace pk {
             $handle: (type: number, message: any) => number;
         };
     }
+    /**
+     *
+     * message PKSS {
+     *   required bytes p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     interface PKSS {
+        /** required: 1 */
         p0: string;
+        /** required: 2 */
         p1: string;
+        /** required: 3 */
         l: ds.PS;
     }
     namespace PKSS {

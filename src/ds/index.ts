@@ -4,26 +4,33 @@ import { MultiCAS, escapeValue } from '../'
 
 
 export namespace ds {
+    /**
+     * 
+     * message ParamId {
+     *   required uint32 id = 1;
+     * }
+     */
     export interface ParamId {
+        /** required: 1 */
         id: number
     }
     export namespace ParamId {
         export const enum $f {
             id = 1
         }
+
         export function $createObservable(): ParamId {
             return {
                 id: 0
             }
         }
-
         export function $create(id: number): ParamId {
             return {
                 id: id
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.id;
 
             if (_1 != null)
@@ -46,8 +53,17 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message ParamKey {
+     *   required bytes key = 1;
+     *   optional bytes parent_key = 2;
+     * }
+     */
     export interface ParamKey {
+        /** required: 1 */
         key: string
+        /** optional: 2 */
         parentKey?: string
     }
     export namespace ParamKey {
@@ -55,21 +71,21 @@ export namespace ds {
             key = 1,
             parentKey = 2
         }
+
         export function $createObservable(): ParamKey {
             return {
                 key: "",
                 parentKey: ""
             }
         }
-
-        export function $create(key: string, parentKey: string = null): ParamKey {
+        export function $create(key: string, parentKey?: string): ParamKey {
             return {
                 key: key,
                 parentKey: parentKey
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.key,
                 _2 = obj.parentKey;
 
@@ -97,9 +113,20 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message ParamUpdate {
+     *   required bytes key = 1;
+     *   required MultiCAS mc = 2;
+     *   optional uint32 id = 3;
+     * }
+     */
     export interface ParamUpdate {
+        /** required: 1 */
         key: string
+        /** required: 2 */
         mc: MultiCAS
+        /** optional: 3 */
         id?: number
     }
     export namespace ParamUpdate {
@@ -108,6 +135,7 @@ export namespace ds {
             mc = 2,
             id = 3
         }
+
         export function $createObservable(): ParamUpdate {
             return {
                 key: "",
@@ -115,8 +143,7 @@ export namespace ds {
                 id: 0
             }
         }
-
-        export function $create(key: string, mc: MultiCAS, id: number = null): ParamUpdate {
+        export function $create(key: string, mc: MultiCAS, id?: number): ParamUpdate {
             return {
                 key: key,
                 mc: mc,
@@ -124,7 +151,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.key,
                 _2 = obj.mc,
                 _3 = obj.id;
@@ -158,10 +185,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message ParamRangeKey {
+     *   required bool desc = 1;
+     *   optional uint32 limit = 2;
+     *   optional bytes start_key = 3;
+     *   optional bytes parent_key = 4;
+     * }
+     */
     export interface ParamRangeKey {
+        /** required: 1 */
         desc: boolean
+        /** optional: 2 */
         limit?: number
+        /** optional: 3 */
         startKey?: string
+        /** optional: 4 */
         parentKey?: string
     }
     export namespace ParamRangeKey {
@@ -171,6 +211,7 @@ export namespace ds {
             startKey = 3,
             parentKey = 4
         }
+
         export function $createObservable(): ParamRangeKey {
             return {
                 desc: false,
@@ -179,8 +220,7 @@ export namespace ds {
                 parentKey: ""
             }
         }
-
-        export function $create(desc: boolean, limit: number = null, startKey: string = null, parentKey: string = null): ParamRangeKey {
+        export function $create(desc: boolean, limit?: number, startKey?: string, parentKey?: string): ParamRangeKey {
             return {
                 desc: desc,
                 limit: limit,
@@ -189,7 +229,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.desc,
                 _2 = obj.limit,
                 _3 = obj.startKey,
@@ -227,13 +267,31 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message ACResult {
+     *   required string name = 1;
+     *   required bytes value = 2;
+     *   optional uint32 id = 3;
+     * }
+     */
     export interface ACResult {
+        /** required: 1 */
         name: string
+        /** required: 2 */
         value: string
+        /** optional: 3 */
         id?: number
     }
     export namespace ACResult {
+        /**
+         * 
+         * message PList {
+         *   repeated ACResult p = 1;
+         * }
+         */
         export interface PList {
+            /** repeated: 1 */
             p?: ACResult[]
         }
 
@@ -242,6 +300,7 @@ export namespace ds {
             value = 2,
             id = 3
         }
+
         export function $createObservable(): ACResult {
             return {
                 name: "",
@@ -249,8 +308,7 @@ export namespace ds {
                 id: 0
             }
         }
-
-        export function $create(name: string, value: string, id: number = null): ACResult {
+        export function $create(name: string, value: string, id?: number): ACResult {
             return {
                 name: name,
                 value: value,
@@ -258,7 +316,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.name,
                 _2 = obj.value,
                 _3 = obj.id;
@@ -291,10 +349,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message P1 {
+     *   required int8 value = 1;
+     *   optional int8 end = 2;
+     *   optional int8 pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface P1 {
+        /** required: 1 */
         value: number
+        /** optional: 2 */
         end?: number
+        /** optional: 3 */
         pgstart?: number
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace P1 {
@@ -304,6 +375,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): P1 {
             return {
                 value: 0,
@@ -312,8 +384,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P1 {
+        export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P1 {
             return {
                 value: value,
                 end: end,
@@ -322,7 +393,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,
@@ -361,10 +432,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message P4 {
+     *   required uint32 value = 1;
+     *   optional uint32 end = 2;
+     *   optional uint32 pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface P4 {
+        /** required: 1 */
         value: number
+        /** optional: 2 */
         end?: number
+        /** optional: 3 */
         pgstart?: number
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace P4 {
@@ -374,6 +458,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): P4 {
             return {
                 value: 0,
@@ -382,8 +467,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P4 {
+        export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P4 {
             return {
                 value: value,
                 end: end,
@@ -392,7 +476,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,
@@ -431,10 +515,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message P8 {
+     *   required uint64 value = 1;
+     *   optional uint64 end = 2;
+     *   optional uint64 pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface P8 {
+        /** required: 1 */
         value: number
+        /** optional: 2 */
         end?: number
+        /** optional: 3 */
         pgstart?: number
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace P8 {
@@ -444,6 +541,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): P8 {
             return {
                 value: 0,
@@ -452,8 +550,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): P8 {
+        export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P8 {
             return {
                 value: value,
                 end: end,
@@ -462,7 +559,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,
@@ -501,10 +598,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message PD {
+     *   required uint64 value = 1;
+     *   optional uint64 end = 2;
+     *   optional uint64 pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface PD {
+        /** required: 1 */
         value: number
+        /** optional: 2 */
         end?: number
+        /** optional: 3 */
         pgstart?: number
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace PD {
@@ -514,6 +624,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): PD {
             return {
                 value: 0,
@@ -522,8 +633,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: number, prk: ParamRangeKey, end: number = null, pgstart: number = null): PD {
+        export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): PD {
             return {
                 value: value,
                 end: end,
@@ -532,7 +642,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,
@@ -571,10 +681,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message PB {
+     *   required bytes value = 1;
+     *   optional bytes end = 2;
+     *   optional bytes pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface PB {
+        /** required: 1 */
         value: string
+        /** optional: 2 */
         end?: string
+        /** optional: 3 */
         pgstart?: string
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace PB {
@@ -584,6 +707,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): PB {
             return {
                 value: "",
@@ -592,8 +716,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PB {
+        export function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PB {
             return {
                 value: value,
                 end: end,
@@ -602,7 +725,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,
@@ -641,10 +764,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message PK {
+     *   required bytes value = 1;
+     *   optional bytes end = 2;
+     *   optional bytes pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface PK {
+        /** required: 1 */
         value: string
+        /** optional: 2 */
         end?: string
+        /** optional: 3 */
         pgstart?: string
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace PK {
@@ -654,6 +790,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): PK {
             return {
                 value: "",
@@ -662,8 +799,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PK {
+        export function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PK {
             return {
                 value: value,
                 end: end,
@@ -672,7 +808,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,
@@ -711,10 +847,23 @@ export namespace ds {
     }
 
 
+    /**
+     * 
+     * message PS {
+     *   required string value = 1;
+     *   optional string end = 2;
+     *   optional string pgstart = 3;
+     *   required ParamRangeKey prk = 4;
+     * }
+     */
     export interface PS {
+        /** required: 1 */
         value: string
+        /** optional: 2 */
         end?: string
+        /** optional: 3 */
         pgstart?: string
+        /** required: 4 */
         prk: ParamRangeKey
     }
     export namespace PS {
@@ -724,6 +873,7 @@ export namespace ds {
             pgstart = 3,
             prk = 4
         }
+
         export function $createObservable(): PS {
             return {
                 value: "",
@@ -732,8 +882,7 @@ export namespace ds {
                 prk: ParamRangeKey.$createObservable()
             }
         }
-
-        export function $create(value: string, prk: ParamRangeKey, end: string = null, pgstart: string = null): PS {
+        export function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PS {
             return {
                 value: value,
                 end: end,
@@ -742,7 +891,7 @@ export namespace ds {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.value,
                 _2 = obj.end,
                 _3 = obj.pgstart,

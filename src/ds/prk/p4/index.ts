@@ -4,12 +4,29 @@ import { MultiCAS, escapeValue } from '../../../'
 import { ds } from '../../'
 
 export namespace p4 {
+    /**
+     * 
+     * message P444441 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required uint32 p4 = 5;
+     *   required ds.P1 l = 6;
+     * }
+     */
     export interface P444441 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         p4: number
+        /** required: 6 */
         l: ds.P1
     }
     export namespace P444441 {
@@ -33,7 +50,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -83,12 +100,29 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P444444 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required uint32 p4 = 5;
+     *   required ds.P4 l = 6;
+     * }
+     */
     export interface P444444 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         p4: number
+        /** required: 6 */
         l: ds.P4
     }
     export namespace P444444 {
@@ -112,7 +146,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -162,12 +196,29 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P444448 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required uint32 p4 = 5;
+     *   required ds.P8 l = 6;
+     * }
+     */
     export interface P444448 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         p4: number
+        /** required: 6 */
         l: ds.P8
     }
     export namespace P444448 {
@@ -191,7 +242,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -241,12 +292,29 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44444D {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required uint32 p4 = 5;
+     *   required ds.PD l = 6;
+     * }
+     */
     export interface P44444D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         p4: number
+        /** required: 6 */
         l: ds.PD
     }
     export namespace P44444D {
@@ -270,7 +338,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -320,12 +388,29 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44444K {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required uint32 p4 = 5;
+     *   required ds.PK l = 6;
+     * }
+     */
     export interface P44444K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         p4: number
+        /** required: 6 */
         l: ds.PK
     }
     export namespace P44444K {
@@ -349,7 +434,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -399,12 +484,29 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44444S {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required uint32 p4 = 5;
+     *   required ds.PS l = 6;
+     * }
+     */
     export interface P44444S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         p4: number
+        /** required: 6 */
         l: ds.PS
     }
     export namespace P44444S {
@@ -428,7 +530,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -479,11 +581,26 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P44441 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required ds.P1 l = 5;
+     * }
+     */
     export interface P44441 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         l: ds.P1
     }
     export namespace P44441 {
@@ -505,7 +622,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -550,11 +667,26 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44444 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required ds.P4 l = 5;
+     * }
+     */
     export interface P44444 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         l: ds.P4
     }
     export namespace P44444 {
@@ -576,7 +708,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -621,11 +753,26 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44448 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required ds.P8 l = 5;
+     * }
+     */
     export interface P44448 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         l: ds.P8
     }
     export namespace P44448 {
@@ -647,7 +794,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -692,11 +839,26 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4444D {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required ds.PD l = 5;
+     * }
+     */
     export interface P4444D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         l: ds.PD
     }
     export namespace P4444D {
@@ -718,7 +880,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -763,11 +925,26 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4444K {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required ds.PK l = 5;
+     * }
+     */
     export interface P4444K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         l: ds.PK
     }
     export namespace P4444K {
@@ -789,7 +966,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -834,11 +1011,26 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4444S {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required uint32 p3 = 4;
+     *   required ds.PS l = 5;
+     * }
+     */
     export interface P4444S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         p3: number
+        /** required: 5 */
         l: ds.PS
     }
     export namespace P4444S {
@@ -860,7 +1052,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -906,10 +1098,23 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P4441 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required ds.P1 l = 4;
+     * }
+     */
     export interface P4441 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.P1
     }
     export namespace P4441 {
@@ -929,7 +1134,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -969,10 +1174,23 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4444 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required ds.P4 l = 4;
+     * }
+     */
     export interface P4444 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.P4
     }
     export namespace P4444 {
@@ -992,7 +1210,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -1032,10 +1250,23 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4448 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required ds.P8 l = 4;
+     * }
+     */
     export interface P4448 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.P8
     }
     export namespace P4448 {
@@ -1055,7 +1286,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -1095,10 +1326,23 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P444D {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required ds.PD l = 4;
+     * }
+     */
     export interface P444D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.PD
     }
     export namespace P444D {
@@ -1118,7 +1362,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -1158,10 +1402,23 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P444K {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required ds.PK l = 4;
+     * }
+     */
     export interface P444K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.PK
     }
     export namespace P444K {
@@ -1181,7 +1438,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -1221,10 +1478,23 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P444S {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required uint32 p2 = 3;
+     *   required ds.PS l = 4;
+     * }
+     */
     export interface P444S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         p2: number
+        /** required: 4 */
         l: ds.PS
     }
     export namespace P444S {
@@ -1244,7 +1514,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.p2,
@@ -1285,9 +1555,20 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P411 {
+     *   required uint32 p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface P411 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace P411 {
@@ -1305,7 +1586,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1340,9 +1621,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P414 {
+     *   required uint32 p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface P414 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace P414 {
@@ -1360,7 +1652,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1395,9 +1687,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P418 {
+     *   required uint32 p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface P418 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace P418 {
@@ -1415,7 +1718,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1450,9 +1753,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P41D {
+     *   required uint32 p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface P41D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace P41D {
@@ -1470,7 +1784,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1505,9 +1819,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P41K {
+     *   required uint32 p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface P41K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace P41K {
@@ -1525,7 +1850,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1560,9 +1885,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P41S {
+     *   required uint32 p0 = 1;
+     *   required int8 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface P41S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace P41S {
@@ -1580,7 +1916,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1616,9 +1952,20 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P481 {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface P481 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace P481 {
@@ -1636,7 +1983,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1671,9 +2018,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P484 {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface P484 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace P484 {
@@ -1691,7 +2049,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1726,9 +2084,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P488 {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface P488 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace P488 {
@@ -1746,7 +2115,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1781,9 +2150,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P48D {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface P48D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace P48D {
@@ -1801,7 +2181,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1836,9 +2216,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P48K {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface P48K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace P48K {
@@ -1856,7 +2247,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1891,9 +2282,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P48S {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface P48S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace P48S {
@@ -1911,7 +2313,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -1947,9 +2349,20 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P4D1 {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface P4D1 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace P4D1 {
@@ -1967,7 +2380,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2002,9 +2415,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4D4 {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface P4D4 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace P4D4 {
@@ -2022,7 +2446,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2057,9 +2481,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4D8 {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface P4D8 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace P4D8 {
@@ -2077,7 +2512,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2112,9 +2547,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4DD {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface P4DD {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace P4DD {
@@ -2132,7 +2578,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2167,9 +2613,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4DK {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface P4DK {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace P4DK {
@@ -2187,7 +2644,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2222,9 +2679,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4DS {
+     *   required uint32 p0 = 1;
+     *   required uint64 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface P4DS {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace P4DS {
@@ -2242,7 +2710,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2278,9 +2746,20 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P4K1 {
+     *   required uint32 p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface P4K1 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P1
     }
     export namespace P4K1 {
@@ -2298,7 +2777,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2333,9 +2812,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4K4 {
+     *   required uint32 p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface P4K4 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P4
     }
     export namespace P4K4 {
@@ -2353,7 +2843,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2388,9 +2878,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4K8 {
+     *   required uint32 p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface P4K8 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P8
     }
     export namespace P4K8 {
@@ -2408,7 +2909,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2443,9 +2944,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4KD {
+     *   required uint32 p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface P4KD {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PD
     }
     export namespace P4KD {
@@ -2463,7 +2975,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2498,9 +3010,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4KK {
+     *   required uint32 p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface P4KK {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PK
     }
     export namespace P4KK {
@@ -2518,7 +3041,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2553,9 +3076,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4KS {
+     *   required uint32 p0 = 1;
+     *   required bytes p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface P4KS {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PS
     }
     export namespace P4KS {
@@ -2573,7 +3107,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2609,9 +3143,20 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P441 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface P441 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P1
     }
     export namespace P441 {
@@ -2629,7 +3174,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2664,9 +3209,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P444 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface P444 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P4
     }
     export namespace P444 {
@@ -2684,7 +3240,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2719,9 +3275,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P448 {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface P448 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.P8
     }
     export namespace P448 {
@@ -2739,7 +3306,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2774,9 +3341,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44D {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface P44D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PD
     }
     export namespace P44D {
@@ -2794,7 +3372,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2829,9 +3407,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44K {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface P44K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PK
     }
     export namespace P44K {
@@ -2849,7 +3438,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2884,9 +3473,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44S {
+     *   required uint32 p0 = 1;
+     *   required uint32 p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface P44S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: number
+        /** required: 3 */
         l: ds.PS
     }
     export namespace P44S {
@@ -2904,7 +3504,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2940,9 +3540,20 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P4S1 {
+     *   required uint32 p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P1 l = 3;
+     * }
+     */
     export interface P4S1 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P1
     }
     export namespace P4S1 {
@@ -2960,7 +3571,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -2995,9 +3606,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4S4 {
+     *   required uint32 p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P4 l = 3;
+     * }
+     */
     export interface P4S4 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P4
     }
     export namespace P4S4 {
@@ -3015,7 +3637,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -3050,9 +3672,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4S8 {
+     *   required uint32 p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.P8 l = 3;
+     * }
+     */
     export interface P4S8 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.P8
     }
     export namespace P4S8 {
@@ -3070,7 +3703,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -3105,9 +3738,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4SD {
+     *   required uint32 p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PD l = 3;
+     * }
+     */
     export interface P4SD {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PD
     }
     export namespace P4SD {
@@ -3125,7 +3769,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -3160,9 +3804,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4SK {
+     *   required uint32 p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PK l = 3;
+     * }
+     */
     export interface P4SK {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PK
     }
     export namespace P4SK {
@@ -3180,7 +3835,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -3215,9 +3870,20 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4SS {
+     *   required uint32 p0 = 1;
+     *   required string p1 = 2;
+     *   required ds.PS l = 3;
+     * }
+     */
     export interface P4SS {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         p1: string
+        /** required: 3 */
         l: ds.PS
     }
     export namespace P4SS {
@@ -3235,7 +3901,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.p1,
                 _3 = obj.l;
@@ -3271,8 +3937,17 @@ export namespace p4 {
 
 
 
+    /**
+     * 
+     * message P41 {
+     *   required uint32 p0 = 1;
+     *   required ds.P1 l = 2;
+     * }
+     */
     export interface P41 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         l: ds.P1
     }
     export namespace P41 {
@@ -3288,7 +3963,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -3318,8 +3993,17 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P44 {
+     *   required uint32 p0 = 1;
+     *   required ds.P4 l = 2;
+     * }
+     */
     export interface P44 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         l: ds.P4
     }
     export namespace P44 {
@@ -3335,7 +4019,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -3365,8 +4049,17 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P48 {
+     *   required uint32 p0 = 1;
+     *   required ds.P8 l = 2;
+     * }
+     */
     export interface P48 {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         l: ds.P8
     }
     export namespace P48 {
@@ -3382,7 +4075,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -3412,8 +4105,17 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4D {
+     *   required uint32 p0 = 1;
+     *   required ds.PD l = 2;
+     * }
+     */
     export interface P4D {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         l: ds.PD
     }
     export namespace P4D {
@@ -3429,7 +4131,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -3459,8 +4161,17 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4K {
+     *   required uint32 p0 = 1;
+     *   required ds.PK l = 2;
+     * }
+     */
     export interface P4K {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         l: ds.PK
     }
     export namespace P4K {
@@ -3476,7 +4187,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
@@ -3506,8 +4217,17 @@ export namespace p4 {
     }
 
 
+    /**
+     * 
+     * message P4S {
+     *   required uint32 p0 = 1;
+     *   required ds.PS l = 2;
+     * }
+     */
     export interface P4S {
+        /** required: 1 */
         p0: number
+        /** required: 2 */
         l: ds.PS
     }
     export namespace P4S {
@@ -3523,7 +4243,7 @@ export namespace p4 {
             }
         }
         export function $stringify(obj: any): string {
-            var buf = [],
+            var buf: string[] = [],
                 _1 = obj.p0,
                 _2 = obj.l;
 
