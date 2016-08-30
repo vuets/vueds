@@ -1,3 +1,8 @@
+/**
+ * Define a property that should not be observed by vue's vm.
+ * Returns the value
+ */
+export declare function defp<T>(obj: any, prop: string, val: T): T;
 export interface MultiCAS {
 }
 export declare namespace MultiCAS {

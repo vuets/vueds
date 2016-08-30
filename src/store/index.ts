@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { mergePojoFrom, mergeVmFrom } from '../'
+import { mergeVmFrom, defp } from '../'
 
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
@@ -84,23 +84,6 @@ export function decrementKey(key: string): string {
     let decoded = base64ToBytes(key)
     decoded[decoded.length-1] &= 0xFE
     return bytesToBase64(decoded)
-}
-
-/**
- * Define a property that should not be observed by vue's vm.
- */
-export function defp<T>(obj: T, prop: string, val: any/*, observable: boolean = false*/): T {
-    /*if (observable) {
-        obj[prop] = val
-        return obj
-    }*/
-
-    Object.defineProperty(obj, prop, {
-        enumerable: false,
-        value: val
-    })
-
-    return obj
 }
 
 export function setp<T>(obj: T, prop: string, val: any): T {

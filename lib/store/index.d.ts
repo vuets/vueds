@@ -5,10 +5,6 @@ export declare const base64ToBytes: (base64: string) => any;
 export declare function shallowCopyTo<T>(target: T, src: T): void;
 export declare function incrementKey(key: string): string;
 export declare function decrementKey(key: string): string;
-/**
- * Define a property that should not be observed by vue's vm.
- */
-export declare function defp<T>(obj: T, prop: string, val: any): T;
 export declare function setp<T>(obj: T, prop: string, val: any): T;
 export declare function nullifyAll(obj: any, descriptor?: any): void;
 export interface Pager {

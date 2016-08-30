@@ -1,5 +1,18 @@
 import * as Vue from 'vue'
 
+/**
+ * Define a property that should not be observed by vue's vm.
+ * Returns the value
+ */
+export function defp<T>(obj: any, prop: string, val: T): T {
+    Object.defineProperty(obj, prop, {
+        enumerable: false,
+        value: val
+    })
+
+    return val
+}
+
 export interface MultiCAS {
 
 }
