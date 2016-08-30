@@ -7,25 +7,6 @@ export declare function incrementKey(key: string): string;
 export declare function decrementKey(key: string): string;
 export declare function setp<T>(obj: T, prop: string, val: any): T;
 export declare function nullifyAll(obj: any, descriptor?: any): void;
-export interface Pager {
-    size: number;
-    state: number;
-    msg: string;
-    array: any[];
-    index_selected: number;
-    index_hidden: number;
-    q_index: number;
-    prev_key: string | null;
-    prev_page: number;
-    prev_vstate: number;
-    page: number;
-    page_count: number;
-    page_vcount: number;
-    page_from: number;
-    page_to: number;
-    pojo?: any;
-}
-export declare function resolveNextPageIndex(pager: Pager, idx: number): number;
 export interface KeyHandler {
     inc(key: string): string;
     dec(key: string): string;
@@ -92,6 +73,25 @@ export declare const enum PagerState {
     MASK_RPC = 224,
     MASK_RPC_DISABLE = 264,
 }
+export interface Pager {
+    size: number;
+    state: number;
+    msg: string;
+    array: any[];
+    index_selected: number;
+    index_hidden: number;
+    q_index: number;
+    prev_key: string | null;
+    prev_page: number;
+    prev_vstate: number;
+    page: number;
+    page_count: number;
+    page_vcount: number;
+    page_from: number;
+    page_to: number;
+    pojo?: any;
+}
+export declare function resolveNextPageIndex(pager: Pager, idx: number): number;
 export declare function $is_set(state: number, value: number): boolean;
 export declare function $bit_unset(obj: any, name: string, value: number): void;
 export declare function $bit_toggle(obj: any, name: string, value: number): void;
@@ -189,5 +189,6 @@ export declare class PojoStore<T> {
     $$requestOlder(pager: Pager): void;
     $$reload(pager: Pager): void;
     $$notify(): void;
-    callbackFromFetch(array: Array<T>): void;
+    cbFetchSuccess(array: Array<T>): void;
+    cbFetchFailed(err: any): void;
 }

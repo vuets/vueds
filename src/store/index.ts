@@ -103,32 +103,6 @@ export function nullifyAll(obj: any, descriptor: any = null) {
     }
 }
 
-export interface Pager {
-    size: number // the total number of fetched items
-    state: number
-    msg: string
-    array: any[]
-    index_selected: number
-    index_hidden: number
-    q_index: number
-
-    prev_key: string|null
-    prev_page: number
-    prev_vstate: number
-
-    page: number
-    page_count: number
-    page_vcount: number // visible count
-    page_from: number
-    page_to: number
-
-    pojo?: any
-}
-
-export function resolveNextPageIndex(pager: Pager, idx: number): number {
-    return pager.page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
-}
-
 export interface KeyHandler {
     inc(key: string): string
     dec(key: string): string
@@ -212,6 +186,32 @@ export const enum PagerState {
     MASK_STATUS = SUCCESS | ERROR | WARNING,
     MASK_RPC = LOAD_NEWER | LOAD_OLDER | RELOAD,
     MASK_RPC_DISABLE = LOADING | LOCAL_SEARCH
+}
+
+export interface Pager {
+    size: number // the total number of fetched items
+    state: number
+    msg: string
+    array: any[]
+    index_selected: number
+    index_hidden: number
+    q_index: number
+
+    prev_key: string|null
+    prev_page: number
+    prev_vstate: number
+
+    page: number
+    page_count: number
+    page_vcount: number // visible count
+    page_from: number
+    page_to: number
+
+    pojo?: any
+}
+
+export function resolveNextPageIndex(pager: Pager, idx: number): number {
+    return pager.page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
 }
 
 export function $is_set(state: number, value: number): boolean {
@@ -907,19 +907,22 @@ export class PojoStore<T> {
 
     requestNewer() {
         let pager = this.pager
-        pager.state |= PagerState.LOAD_NEWER
+        $bit_clear_and_set(pager, c.STATE, PagerState.MASK_STATUS, 
+            PagerState.LOADING | PagerState.LOAD_NEWER)
         this.options.fetch(this.newRangeKeyForLoadNewer(), pager)
     }
 
     requestOlder() {
         let pager = this.pager
-        pager.state |= PagerState.LOAD_OLDER
+        $bit_clear_and_set(pager, c.STATE, PagerState.MASK_STATUS, 
+            PagerState.LOADING | PagerState.LOAD_OLDER)
         this.options.fetch(this.newRangeKeyForLoadOlder(), pager)
     }
 
     reload() {
         let pager = this.pager
-        pager.state |= PagerState.RELOAD
+        $bit_clear_and_set(pager, c.STATE, PagerState.MASK_STATUS, 
+            PagerState.LOADING | PagerState.RELOAD)
         this.options.fetch(this.newRangeKeyForReload(), pager)
     }
 
@@ -1023,11 +1026,11 @@ export class PojoStore<T> {
         Vue.nextTick(() => this.notify())
     }
 
-    callbackFromFetch(array: Array<T>) {
+    cbFetchSuccess(array: Array<T>) {
         let pager = this.pager, 
             masked = PagerState.MASK_RPC & pager.state
         
-        $bit_unset(pager, c.STATE, PagerState.MASK_RPC)
+        $bit_unset(pager, c.STATE, PagerState.MASK_RPC | PagerState.LOADING)
 
         switch (masked) {
             case PagerState.LOAD_NEWER:
@@ -1040,5 +1043,11 @@ export class PojoStore<T> {
                 this.update(array)
                 break
         }
+    }
+
+    cbFetchFailed(err: any) {
+        let pager = this.pager
+        $bit_clear_and_set(pager, c.STATE, PagerState.MASK_RPC | PagerState.LOADING, PagerState.ERROR)
+        pager.msg = !err ? 'Failed.' : String(err)
     }
 }
