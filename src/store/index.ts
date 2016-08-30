@@ -509,7 +509,7 @@ export class PojoStore<T> {
         let ret = options.onSelect(current, flags)
         
         pager.pojo = current
-        pager.prev_key = current[k]
+        pager.prev_key = current['key'] || current[k]
         pager.prev_page = page
         pager.prev_vstate = current_[c.VSTATE]
 
