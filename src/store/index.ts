@@ -868,7 +868,6 @@ export class PojoStore<T> {
     $newRangeKeyForReload(desc: boolean): ds.ParamRangeKey {
         let pager = this.pager,
             options = this.options,
-            k = options.keyProperty,
             toPopulate = pager.array as Array<T>,
             size = this.size(),
             page = pager.page,
@@ -876,7 +875,9 @@ export class PojoStore<T> {
             pages = (page * pageSize) + pageSize,
             remaining = pages > size ? pages - size : 0,
             visibleItemCount = pageSize - remaining,
-            key: string = toPopulate[0][k],
+            first = toPopulate[0],
+            // keyProperty initially applies to the non-observable pojo
+            key: string = first['key'] || first[options.keyProperty],
             kh = options.kh
         
         // TODO set functions as object field

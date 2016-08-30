@@ -44,8 +44,13 @@ export function escapeValue(v: string): string {
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     var fd
     for (var i in src) {
-        if ((fd = descriptor[i])) target[fd.$] = src[i]
-        else target[i] = src[i]
+        let v = src[i]
+        // only trigger the observable if the value changed
+        if ((fd = descriptor[i])) {
+            if (v !== target[fd.$]) target[fd.$] = v
+        } else if (v !== (target[i])) {
+            target[i] = v
+        }
     }
 
     return target
