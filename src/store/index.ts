@@ -363,8 +363,8 @@ export class PojoStore<T> {
         return this.$populate(SelectionType.RETAIN, 0, this.isMainArray(), -1, this.pager.page)
     }
 
-    populate(type: SelectionType, flags: SelectionFlags, main: boolean, idxSelected: number): number {
-        return this.$populate(type, flags, main, idxSelected,  this.pager.page)
+    populate(type: SelectionType, flags: SelectionFlags, idxSelected: number): number {
+        return this.$populate(type, flags, this.isMainArray(), idxSelected, this.pager.page)
     }
 
     $populate(type: SelectionType, flags: SelectionFlags, main: boolean,
@@ -956,6 +956,70 @@ export class PojoStore<T> {
 
     addOlder(array: Array<T>) {
         this.addAll(array, false, false)
+    }
+
+    pagePrevOrLoad(flags: number): number {
+        let pager = this.pager
+        if (pager.page) {
+            // goto previous
+            //e.preventDefault()
+            pager.page--
+            if (flags & 16) {
+                this.populate(SelectionType.SELECT, 0, pager.index_selected)
+            } else {
+                this.repaint()
+            }
+            return c.PREVENT_BOTH
+        }
+
+        if (pager.state & PagerState.MASK_RPC_DISABLE)
+            return c.PREVENT_PROPAGATION
+
+        if (pager.state & PagerState.DESC) {
+            this.requestNewer()
+        } else if (pager.index_hidden) {
+            this.requestOlder()
+        } else {
+            return c.PREVENT_PROPAGATION
+        }
+
+        return c.PREVENT_BOTH
+    }
+
+    pageNextOrLoad(flags: number): number {
+        let pager = this.pager
+        if (pager.page < pager.page_count) {
+            // goto next
+            //e.preventDefault()
+            pager.page++
+            if (flags & 16) {
+                this.populate(SelectionType.SELECT, 0, resolveNextPageIndex(pager, pager.index_selected))
+            } else {
+                this.repaint()
+            }
+            return c.PREVENT_BOTH
+        }
+        // page push
+        if (pager.state & PagerState.MASK_RPC_DISABLE || !pager.index_hidden)
+            return c.PREVENT_PROPAGATION
+
+        //e.preventDefault()
+        //pager.$handle(pager.state & c.STATE_DESC ? 3 : 2)
+        if (pager.state & PagerState.DESC) {
+            this.requestOlder()
+        } else {
+            this.requestNewer()
+        }
+
+        // must be desc to be able to load newer
+        //if (pager.index_hidden) {
+        //    e.preventDefault()
+        //    pager.$handle(pager.state & c.STATE_DESC ? 3 : 2) 
+        //} else if (pager.state & c.STATE_DESC === 0) {
+        //    e.preventDefault()
+        //    pager.$handle(2)
+        //}
+        return c.PREVENT_BOTH
     }
 
     // next tick

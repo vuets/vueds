@@ -136,7 +136,7 @@ export declare class PojoStore<T> {
     size(): number;
     isMainArray(): boolean;
     repaint(): number;
-    populate(type: SelectionType, flags: SelectionFlags, main: boolean, idxSelected: number): number;
+    populate(type: SelectionType, flags: SelectionFlags, idxSelected: number): number;
     $populate(type: SelectionType, flags: SelectionFlags, main: boolean, idxSelected: number, page: number): any;
     select(current: T, flags: SelectionFlags, idx: number): number;
     $select(current: T, flags: SelectionFlags, idx: number, page: number, selectWithoutPopulate: boolean): number;
@@ -187,6 +187,8 @@ export declare class PojoStore<T> {
     $reload(desc: boolean): void;
     addNewer(array: Array<T>): void;
     addOlder(array: Array<T>): void;
+    pagePrevOrLoad(flags: number): number;
+    pageNextOrLoad(flags: number): number;
     $$requestNewer(pager: Pager): void;
     $$requestOlder(pager: Pager): void;
     $$reload(pager: Pager): void;
