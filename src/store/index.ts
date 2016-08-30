@@ -437,7 +437,7 @@ export class PojoStore<T> {
         }
 
         pager.page_vcount = visibleCount
-        pager.page_count = (size - 1) / pageSize
+        pager.page_count = Math.floor((size - 1) / pageSize)
         pager.page_from = (page * pageSize) + 1
         pager.page_to = (page * pageSize) + (pageSize - remaining)
 
