@@ -48,7 +48,7 @@ export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
         // only trigger the observable if the value changed
         if ((fd = descriptor[i])) {
             if (v !== target[fd.$]) target[fd.$] = v
-        } else if (v !== (target[i])) {
+        } else if (v !== target[i]) {
             target[i] = v
         }
     }
