@@ -210,8 +210,8 @@ export interface Pager {
     pojo?: any
 }
 
-export function resolveNextPageIndex(pager: Pager, idx: number): number {
-    return pager.page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
+export function resolveNextPageIndex(page: number, idx: number, pager: Pager): number {
+    return page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
 }
 
 export function $is_set(state: number, value: number): boolean {
@@ -974,38 +974,30 @@ export class PojoStore<T> {
     }
 
     pageNextOrLoad(flags: number): number {
-        let pager = this.pager
-        if (pager.page < pager.page_count) {
+        let pager = this.pager,
+            page = pager.page
+        if (page < pager.page_count) {
             // goto next
             //e.preventDefault()
-            pager.page++
-            if (flags & 16) {
-                this.populate(SelectionType.SELECT, 0, resolveNextPageIndex(pager, pager.index_selected))
-            } else {
+            page = ++pager.page
+            if (flags & 16)
+                this.populate(SelectionType.SELECT, 0, resolveNextPageIndex(page, pager.index_selected, pager))
+            else
                 this.repaint()
-            }
+            
             return c.PREVENT_BOTH
         }
+
+        let state = pager.state
         // page push
-        if (pager.state & PagerState.MASK_RPC_DISABLE || !pager.index_hidden)
+        if (state & PagerState.MASK_RPC_DISABLE || !pager.index_hidden)
             return c.PREVENT_PROPAGATION
 
-        //e.preventDefault()
-        //pager.$handle(pager.state & c.STATE_DESC ? 3 : 2)
-        if (pager.state & PagerState.DESC) {
+        if (state & PagerState.DESC)
             this.requestOlder()
-        } else {
+        else
             this.requestNewer()
-        }
-
-        // must be desc to be able to load newer
-        //if (pager.index_hidden) {
-        //    e.preventDefault()
-        //    pager.$handle(pager.state & c.STATE_DESC ? 3 : 2) 
-        //} else if (pager.state & c.STATE_DESC === 0) {
-        //    e.preventDefault()
-        //    pager.$handle(2)
-        //}
+        
         return c.PREVENT_BOTH
     }
 

@@ -91,7 +91,7 @@ export interface Pager {
     page_to: number;
     pojo?: any;
 }
-export declare function resolveNextPageIndex(pager: Pager, idx: number): number;
+export declare function resolveNextPageIndex(page: number, idx: number, pager: Pager): number;
 export declare function $is_set(state: number, value: number): boolean;
 export declare function $bit_unset(obj: any, name: string, value: number): void;
 export declare function $bit_toggle(obj: any, name: string, value: number): void;
