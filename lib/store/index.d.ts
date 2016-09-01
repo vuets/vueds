@@ -19,6 +19,7 @@ export declare namespace c {
     const VCOUNT: string;
     const VPROPS: string;
     const DESCRIPTOR: string;
+    const INDEX: string;
     const PREV_KEY: string;
     const PREV_PAGE: string;
     const PREV_VSTATE: string;

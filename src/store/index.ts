@@ -119,6 +119,7 @@ export namespace c {
     export const VPROPS = "vprops"
 
     export const DESCRIPTOR = "$d"
+    export const INDEX = "$index"
 
     export const PREV_KEY = "$prev_key"
     export const PREV_PAGE = "$prev_page"
@@ -297,6 +298,7 @@ export class PojoStore<T> {
             }
             let p = options.createObservable(so)
             p['_'] = so
+            defp(p, c.INDEX, i)
             defp(p, c.DESCRIPTOR, descriptor)
             observedArray.push(p)
         }
@@ -576,7 +578,7 @@ export class PojoStore<T> {
     }
 
     getStoreIndex(selected: T): number {
-        return this.$getStoreIndex(selected['$index'])
+        return this.$getStoreIndex(selected[c.INDEX])
     }
 
     $getStoreIndex(index: number): number {
@@ -590,11 +592,11 @@ export class PojoStore<T> {
 
     getSelectedOriginal(): T|null {
         var selected = this.pager.pojo
-        return !selected ? null : this.get(this.getStoreIndex(selected['$index']))
+        return !selected ? null : this.get(this.getStoreIndex(selected[c.INDEX]))
     }
     
     getOriginal(selected: T): T {
-        return this.get(this.getStoreIndex(selected['$index']))
+        return this.get(this.getStoreIndex(selected[c.INDEX]))
     }
 
     remove(index: number): T {
