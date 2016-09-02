@@ -12,6 +12,13 @@ export function defp<T>(obj: any, prop: string, val: T): T {
 
     return val
 }
+/**
+ * Nullify property.
+ * Also useful for lazy observable properties that bypasses typescript's strictNullChecks config.
+ */
+export function nullp(obj: any, prop: string) {
+    obj[prop] = null
+}
 
 export interface MultiCAS {
 

@@ -3,6 +3,11 @@
  * Returns the value
  */
 export declare function defp<T>(obj: any, prop: string, val: T): T;
+/**
+ * Nullify property.
+ * Also useful for lazy observable properties that bypasses typescript's strictNullChecks config.
+ */
+export declare function nullp(obj: any, prop: string): void;
 export interface MultiCAS {
 }
 export declare namespace MultiCAS {
