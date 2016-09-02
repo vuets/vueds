@@ -266,6 +266,23 @@ export interface PagerOptions<T> {
 
 }
 
+function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pager): T {
+    let so: StateObject = {
+        state: 0,
+        lstate: 0,
+        msg: '',
+        vstate: 0,
+        vcount: 0,
+        vprops: {}
+    }
+    let p = options.createObservable(so)
+    p['_'] = so
+    defp(p, c.INDEX, index)
+    defp(p, c.DESCRIPTOR, options.descriptor)
+    defp(p, '$pager', pager)
+    return p
+}
+
 export class PojoStore<T> {
 
     pager: Pager
@@ -283,27 +300,12 @@ export class PojoStore<T> {
             size = fetchedArray.length,
             pageSize = options.pageSize,
             page = 0,
-            remaining = pageSize > size ? pageSize - size : 0
+            remaining = pageSize > size ? pageSize - size : 0,
+            pager: Pager
         
         this.fnMergeFrom = descriptor.$ ? mergeVmFrom : shallowCopyFrom
         
-        for (let i = 0; i < pageSize; i++) {
-            let so: StateObject = {
-                state: 0,
-                lstate: 0,
-                msg: '',
-                vstate: 0,
-                vcount: 0,
-                vprops: {}
-            }
-            let p = options.createObservable(so)
-            p['_'] = so
-            defp(p, c.INDEX, i)
-            defp(p, c.DESCRIPTOR, descriptor)
-            observedArray.push(p)
-        }
-        
-        this.pager = {
+        this.pager = pager = {
             size: size,
             state: options.desc ? PagerState.DESC : 0,
             msg: '',
@@ -325,7 +327,11 @@ export class PojoStore<T> {
             //pojo: null
         }
 
-        defp(this.pager, 'store', this)
+        for (let i = 0; i < pageSize; i++) {
+            observedArray.push(createObservable(options, i, pager))
+        }
+
+        defp(pager, 'store', this)
     }
 
     getLastSeenObj(): T|null {
