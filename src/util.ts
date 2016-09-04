@@ -55,7 +55,8 @@ export const base64ToBytes = b64_to_b_fn()
 
 const ZERO_KEY = 'AAAAAAAAAAAA'
 
-export const regexKey = /^[A-Za-z0-9+/]+$/,
+export const
+    regexKey = /^[A-Za-z0-9+/]+$/,
     regexInt = /^-?[0-9]+$/,
     regexDouble = /^-?[0-9]+(\.[0-9]+)?$/,
     regexTime = /^[0-2]?[0-9]\:[0-5][0-9](\:[0-5][0-9])?$/,
@@ -95,9 +96,29 @@ export function getUTCOffset(): number {
     }
 }
 
-export const UTC_OFFSET = getUTCOffset(),
+/*export function now(): number {
+    return Date.now()
+}*/
+
+export const
+    MILLIS_PER_DAY = 1000 * 60 * 60 * 24,
+    MAX_TIME_IN_MILLIS_PER_DAY = (1000 * 60 * 60 * 24) - 1,
+    MILLIS_PER_HOUR = 1000 * 60 * 60,
+
+    UTC_OFFSET = getUTCOffset(),
     HOST_RAW_OFFSET = UTC_OFFSET * 60 * 60 * 1000,
-    HOST_RAW_OFFSET_SECONDS = UTC_OFFSET * 60 * 60
+    HOST_RAW_OFFSET_SECONDS = UTC_OFFSET * 60 * 60,
+    SECONDS_PER_HOUR = 60 * 60
+
+export function hour(h: number): number {
+    return h * SECONDS_PER_HOUR
+}
+
+export function minute(m: number): number {
+    return m * 60
+}
+
+export const MAX_TIME = hour(23) + minute(59) + 59
 
 export function localToUtc(ts: number): number {
     return ts + HOST_RAW_OFFSET
@@ -110,6 +131,43 @@ export function utcToLocal(ts: number): number {
 }
 export function utcToLocalSeconds(s: number): number {
     return s - HOST_RAW_OFFSET_SECONDS
+}
+
+export function extractTime(ts: number, date: number) {
+    return Math.floor((localToUtc(ts) - date) / 1000)
+}
+
+export function isExpired(value: number, duration: number): boolean {
+    return Date.now() > (value + duration)
+}
+
+export function isExpired24Hrs(value: number): boolean {
+    return isExpired(value, MILLIS_PER_DAY)
+}
+
+export function startOfDayMS(ts: number): number {
+    ts += HOST_RAW_OFFSET
+    return ts - (ts % MILLIS_PER_DAY)
+}
+
+export function isSameDay(ts1: number, ts2: number): boolean {
+    return startOfDayMS(ts1) === startOfDayMS(ts2)
+}
+
+export function addDaysTo(ts: number, days: number): number {
+    return ts + (MILLIS_PER_DAY * days)
+}
+
+export function startOfTodayMS(): number {
+    return startOfDayMS(Date.now())
+}
+
+/*export function startOfUTCTodayMS(): number {
+    TODO
+}*/
+
+export function utcNow(): number {
+    return Date.now() + HOST_RAW_OFFSET
 }
 
 // =====================================
