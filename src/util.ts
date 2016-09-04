@@ -1,3 +1,5 @@
+export const hasOwnProperty = Object.prototype.hasOwnProperty
+
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
 function b_to_b64(bytes: any): string {
@@ -163,7 +165,7 @@ export function startOfTodayMS(): number {
 }
 
 /*export function startOfUTCTodayMS(): number {
-    TODO
+    return startOfDayMS(Date.now())//startOfDayMS(localDateToUTC(new Date()))
 }*/
 
 export function utcNow(): number {

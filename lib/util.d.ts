@@ -1,3 +1,4 @@
+export declare const hasOwnProperty: (v: string) => boolean;
 export declare const bytesToBase64: (bytes: any) => string;
 export declare const base64ToBytes: (base64: string) => any;
 export declare const regexKey: RegExp, regexInt: RegExp, regexDouble: RegExp, regexTime: RegExp, regexDate: RegExp, regexDateTime: RegExp;
