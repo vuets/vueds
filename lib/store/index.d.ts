@@ -1,11 +1,6 @@
 /// <reference types="vue" />
 import { ds } from '../ds/';
-export declare const bytesToBase64: (bytes: any) => string;
-export declare const base64ToBytes: (base64: string) => any;
 export declare function shallowCopyTo<T>(target: T, src: T): void;
-export declare function incrementKey(key: string): string;
-export declare function decrementKey(key: string): string;
-export declare function setp<T>(obj: T, prop: string, val: any): T;
 export declare function nullifyAll(obj: any, descriptor?: any): void;
 export interface KeyHandler {
     inc(key: string): string;

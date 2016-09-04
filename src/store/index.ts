@@ -1,60 +1,6 @@
 import { ds } from '../ds/'
 import { mergeVmFrom, defp } from '../'
-
-const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-
-function b_to_b64(bytes: any): string {
-    for (var base64: string[] = [], i = 0; i < bytes.length; i += 3) {
-        var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2]
-        for (var j = 0; j < 4; j++) {
-            if (i * 8 + j * 6 <= bytes.length * 8)
-                base64.push(base64map.charAt((triplet >>> 6 * (3 - j)) & 0x3F))
-            else
-                base64.push('=')
-        }
-    }
-
-    return base64.join('')
-}
-
-function b_to_b64_fn(): (bytes: any) => string {
-    var b = window['Binary'], b2a = window.btoa, b2s
-    if (b && (b2s = b['bytesToString']) && typeof b2s === 'function' && typeof b2a === 'function') {
-        return function(bytes: any): string {
-            return b2a(b2s(bytes))
-        }
-    }
-
-    return b_to_b64
-}
-
-function b64_to_b(base64: string): any {
-    // Remove non-base-64 characters
-    base64 = base64.replace(/[^A-Z0-9+\/]/ig, '')
-
-    for (var bytes: number[] = [], i = 0, imod4 = 0; i < base64.length; imod4 = ++i % 4) {
-        if (imod4 === 0)
-            continue
-        
-        bytes.push(((base64map.indexOf(base64.charAt(i - 1)) & (Math.pow(2, -2 * imod4 + 8) - 1)) << (imod4 * 2)) | (base64map.indexOf(base64.charAt(i)) >>> (6 - imod4 * 2)))
-    }
-
-    return bytes
-}
-
-function b64_to_b_fn(): (base64: string) => any {
-    var b = window['Binary'], a2b = window.atob, s2b
-    if (b && (s2b = b['stringToBytes']) && typeof s2b === 'function' && typeof a2b === 'function') {
-        return function(base64: string): any {
-            return s2b(a2b(base64))
-        }
-    }
-
-    return b64_to_b
-}
-
-export const bytesToBase64 = b_to_b64_fn()
-export const base64ToBytes = b64_to_b_fn()
+import { incrementKey, decrementKey } from '../util'
 
 // TODO usage
 function extractMessage(err: any): string {
@@ -72,23 +18,6 @@ function shallowCopyFrom<T>(src: any, descriptor: any, target: T): T {
         target[i] = src[i]
     
     return target
-}
-
-export function incrementKey(key: string): string {
-    let decoded = base64ToBytes(key)
-    decoded[decoded.length-1] |= 0x02
-    return bytesToBase64(decoded)
-}
-
-export function decrementKey(key: string): string {
-    let decoded = base64ToBytes(key)
-    decoded[decoded.length-1] &= 0xFE
-    return bytesToBase64(decoded)
-}
-
-export function setp<T>(obj: T, prop: string, val: any): T {
-    obj[prop] = val
-    return obj
 }
 
 export function nullifyAll(obj: any, descriptor: any = null) {
