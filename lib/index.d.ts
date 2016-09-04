@@ -8,6 +8,25 @@ export declare function defp<T>(obj: any, prop: string, val: T): T;
  * Also useful for lazy observable properties that bypasses typescript's strictNullChecks config.
  */
 export declare function nullp(obj: any, prop: string): void;
+export declare const enum FieldType {
+    MESSAGE = 0,
+    BOOL = 1,
+    BYTES = 2,
+    STRING = 3,
+    FLOAT = 4,
+    DOUBLE = 5,
+    UINT32 = 6,
+    UINT64 = 7,
+    INT32 = 8,
+    INT64 = 9,
+    FIXED32 = 10,
+    FIXED64 = 11,
+    SINT32 = 12,
+    SINT64 = 13,
+    SFIXED32 = 14,
+    SFIXED64 = 15,
+    ENUM = 16,
+}
 export interface MultiCAS {
 }
 export declare namespace MultiCAS {
