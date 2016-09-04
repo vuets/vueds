@@ -114,7 +114,7 @@ export function isValidFuture(value: number, min?: number, max?: number): boolea
     return value >= (today + (MILLIS_PER_DAY * min)) && value <= (today + (MILLIS_PER_DAY * max))
 }
 
-export function isValidLength(value: string, min: number, max: number) {
+export function isValidLength(value: string, min: number, max: number): boolean {
     let length = value.length
     return length >= min && length <= max
 }
@@ -131,11 +131,11 @@ export function isValidNotEmpty(value: string|any[]): boolean {
     return 0 !== (Array.isArray(value) ? value.length : value.trim().length)
 }
 
-export function isValidNotNull(value: any) {
+export function isValidNotNull(value: any): boolean {
     return !!value
 }
 
-export function isValidNull(value: any) {
+export function isValidNull(value: any): boolean {
     return !value
 }
 
