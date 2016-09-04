@@ -33,7 +33,7 @@ export function isValidKey(key: string|string[], kind?: number): boolean {
 }
 
 export function isValidKeyUnique(keys: string[], kind: number, unique: number): boolean {
-    if (!keys) return true
+    if (!keys || !keys.length) return true
 
     let map = {}
     for (let k of keys) {
