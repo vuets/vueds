@@ -1,6 +1,6 @@
 /// <reference types="vue" />
 import { ds } from '../ds/';
-export declare function shallowCopyTo<T>(target: T, src: T): void;
+export declare function shallowCopyTo<T>(target: T, src: T): T;
 export declare function nullifyAll(obj: any, descriptor?: any): void;
 export interface KeyHandler {
     inc(key: string): string;
@@ -37,15 +37,6 @@ export declare const enum SelectionFlags {
     CLICKED_UPDATE = 3,
     FORCE = 4,
     MASK_FORCE_OR_UPDATE = 7,
-}
-export declare const enum PojoState {
-    NONE = 0,
-    SUCCESS = 1,
-    ERROR = 2,
-    WARNING = 4,
-    LOADING = 8,
-    UPDATE = 16,
-    MASK_STATUS = 7,
 }
 export declare const enum PojoListState {
     NONE = 0,

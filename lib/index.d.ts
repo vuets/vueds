@@ -27,6 +27,15 @@ export declare const enum FieldType {
     SFIXED64 = 15,
     ENUM = 16,
 }
+export declare const enum PojoState {
+    NONE = 0,
+    SUCCESS = 1,
+    ERROR = 2,
+    WARNING = 4,
+    LOADING = 8,
+    UPDATE = 16,
+    MASK_STATUS = 7,
+}
 export interface MultiCAS {
 }
 export declare namespace MultiCAS {
@@ -40,6 +49,7 @@ export interface KV {
     v: any;
 }
 export declare function escapeValue(v: string): string;
+export declare function createVprops<T>(descriptor: any): any;
 export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
 export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T): T;
 export declare function writeKVsTo<T>(target: T, kvs: KV[]): T;
