@@ -86,8 +86,10 @@ export function createVprops<T>(descriptor: any): any {
     if (!fields)
         return vprops
     
-    for (let k of fields) {
-        vprops['$' + k] = null
+    if (descriptor.$) {
+        for (let k of fields) vprops[descriptor[k].$] = null
+    } else {
+        for (let k of fields) vprops[k] = null
     }
     
     return vprops
