@@ -51,6 +51,7 @@ export interface KV {
 export declare function escapeValue(v: string): string;
 export declare function createVprops<T>(descriptor: any): any;
 export declare function createStateObject(vprops: any): any;
+export declare function postValidate(message: any, f: any, fk: any, msg: any): void;
 export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
 export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T): T;
 export declare function writeKVsTo<T>(target: T, kvs: KV[]): T;

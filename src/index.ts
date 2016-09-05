@@ -105,6 +105,27 @@ export function createStateObject(vprops: any): any {
     }
 }
 
+export function postValidate(message, f, fk, msg) {
+    let message_ = message._,
+        vprops = message_.vprops,
+        state = message_.state,
+        vfbs = message_.vfbs
+    
+    vprops[fk] = msg
+
+    if (!(state & PojoState.UPDATE))
+        message_.state = state | PojoState.UPDATE
+
+    // reuse state var
+    if (msg)
+        state = vfbs | (1 << --f)
+    else
+        state = vfbs & (~(1 << --f) & 0x7fffffff)
+
+    if (vfbs !== state)
+        message_.vfbs = state
+}
+
 // target is vm
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     var fd
