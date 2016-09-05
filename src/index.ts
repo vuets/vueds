@@ -93,6 +93,16 @@ export function createVprops<T>(descriptor: any): any {
     return vprops
 }
 
+export function createStateObject(vprops: any): any {
+    return {
+        state: 0,
+        msg: '',
+        vstate: 0,
+        vcount: 0,
+        vprops
+    }
+}
+
 // target is vm
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     var fd
