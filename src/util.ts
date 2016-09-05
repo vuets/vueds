@@ -1,4 +1,5 @@
 export const hasOwnProperty = Object.prototype.hasOwnProperty
+export function noop() { return null }
 
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
