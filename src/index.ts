@@ -40,6 +40,18 @@ export const enum FieldType {
     ENUM = 16
 }
 
+export const enum PojoState {
+    NONE = 0,
+    SUCCESS = 1,
+    ERROR = 2,
+    WARNING = 4,
+    LOADING = 8,
+    
+    UPDATE = 16,
+
+    MASK_STATUS = SUCCESS | ERROR | WARNING
+}
+
 export interface MultiCAS {
 
 }
@@ -65,6 +77,20 @@ export interface KV {
 
 export function escapeValue(v: string): string {
     return v
+}
+
+export function createVprops<T>(descriptor: any): any {
+    let vprops = {},
+        fields = descriptor.$fdf
+    
+    if (!fields)
+        return vprops
+    
+    for (let k of fields) {
+        vprops['$' + k] = null
+    }
+    
+    return vprops
 }
 
 // target is vm

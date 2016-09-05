@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { mergeVmFrom, defp } from '../'
+import { mergeVmFrom, defp, createVprops, PojoState } from '../'
 import { incrementKey, decrementKey } from '../util'
 
 // TODO usage
@@ -8,9 +8,11 @@ function extractMessage(err: any): string {
     return Array.isArray(str) ? str.join('\n') : str
 }
 
-export function shallowCopyTo<T>(target: T, src: T) {
+export function shallowCopyTo<T>(target: T, src: T): T {
     for (var i in src)
         target[i] = src[i]
+    
+    return target
 }
 
 function shallowCopyFrom<T>(src: any, descriptor: any, target: T): T {
@@ -76,18 +78,6 @@ export const enum SelectionFlags {
     FORCE = 4,
 
     MASK_FORCE_OR_UPDATE = FORCE | CLICKED_UPDATE
-}
-
-export const enum PojoState {
-    NONE = 0,
-    SUCCESS = 1,
-    ERROR = 2,
-    WARNING = 4,
-    LOADING = 8,
-    
-    UPDATE = 16,
-
-    MASK_STATUS = SUCCESS | ERROR | WARNING
 }
 
 export const enum PojoListState {
@@ -195,19 +185,20 @@ export interface PagerOptions<T> {
 
 }
 
-function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pager): T {
+function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pager, 
+    descriptor: any, vprops: any): T {
     let so: StateObject = {
         state: 0,
         lstate: 0,
         msg: '',
         vstate: 0,
         vcount: 0,
-        vprops: {}
+        vprops
     }
     let p = options.createObservable(so)
     p['_'] = so
     defp(p, c.INDEX, index)
-    defp(p, c.DESCRIPTOR, options.descriptor)
+    defp(p, c.DESCRIPTOR, descriptor)
     defp(p, '$pager', pager)
     return p
 }
@@ -256,8 +247,10 @@ export class PojoStore<T> {
             //pojo: null
         }
 
-        for (let i = 0; i < pageSize; i++) {
-            observedArray.push(createObservable(options, i, pager))
+        let vprops = createVprops(descriptor)
+        observedArray.push(createObservable(options, 0, pager, descriptor, vprops))
+        for (let i = 1; i < pageSize; i++) {
+            observedArray.push(createObservable(options, i, pager, descriptor, shallowCopyTo({}, vprops)))
         }
 
         defp(pager, 'store', this)
