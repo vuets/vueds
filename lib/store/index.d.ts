@@ -11,7 +11,7 @@ export declare namespace c {
     const MSG: string;
     const LSTATE: string;
     const VSTATE: string;
-    const VCOUNT: string;
+    const VFBS: string;
     const VPROPS: string;
     const DESCRIPTOR: string;
     const INDEX: string;
@@ -88,7 +88,7 @@ export interface StateObject {
     lstate: number;
     msg: string;
     vstate: number;
-    vcount: number;
+    vfbs: number;
     vprops: any;
 }
 export interface PagerOptions<T> {
