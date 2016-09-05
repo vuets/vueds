@@ -149,7 +149,8 @@ export function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: 
 export function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T,
         field: string | number): boolean {
     var d, t, k, array, forig, fmod,
-        i = isNaN(field as any) ? descriptor.$[field] : String(field)
+        $ = descriptor.$,
+        i = $ && isNaN(field as any) ? $[field] : String(field)
 
     if (!i ||
         !(d = descriptor[i]) ||
@@ -169,10 +170,11 @@ export function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, mod
 
 // only the scalar fields are diffed
 export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[] {
-    var d, t, k, array, forig, fmod, i, diffed: KV[] = []
+    var d, t, k, array, forig, fmod, i, $ = descriptor.$, diffed: KV[] = []
 
     for (var vi in modified) {
-        if (!(i = descriptor.$[vi]) ||
+        i = $ ? $[vi] : vi
+        if (!i ||
             !(d = descriptor[i]) ||
             !d.m ||
             !(t = d.t) ||
