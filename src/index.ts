@@ -85,9 +85,9 @@ export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
 
 // target is pojo
 export function mergePojoFrom<T>(src: any, descriptor: any, target: T): T {
-    var str2int = descriptor.$, k
+    var mapping = descriptor.$, k
     for (var i in src) {
-        if ((k = str2int[i])) target[String(k)] = src[i]
+        if ((k = mapping[i])) target[k] = src[i]
     }
 
     return target
