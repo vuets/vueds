@@ -46,7 +46,7 @@ export namespace c {
     export const LSTATE = "lstate" // list state
 
     export const VSTATE = "vstate" // validation state
-    export const VCOUNT = "vcount"
+    export const VFBS = "vfbs" // validation field bit set
     export const VPROPS = "vprops"
 
     export const DESCRIPTOR = "$d"
@@ -155,7 +155,7 @@ export interface StateObject {
     lstate: number
     msg: string
     vstate: number
-    vcount: number
+    vfbs: number
     vprops: any
 }
 
@@ -192,7 +192,7 @@ function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pag
         lstate: 0,
         msg: '',
         vstate: 0,
-        vcount: 0,
+        vfbs: 0,
         vprops
     }
     let p = options.createObservable(so)
@@ -418,7 +418,7 @@ export class PojoStore<T> {
             } else if ((state & PojoState.UPDATE)) {
 
                 previous_[c.MSG] = null
-                previous_[c.VCOUNT] = 0
+                previous_[c.VFBS] = 0
 
                 nullifyAll(current_[c.VPROPS])
             } else if ((state & PojoState.MASK_STATUS)) {

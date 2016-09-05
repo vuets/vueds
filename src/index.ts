@@ -100,7 +100,7 @@ export function createStateObject(vprops: any): any {
         state: 0,
         msg: '',
         vstate: 0,
-        vcount: 0,
+        vfbs: 0,
         vprops
     }
 }
