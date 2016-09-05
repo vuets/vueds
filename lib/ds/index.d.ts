@@ -17,9 +17,9 @@ export declare namespace ds {
         function $createObservable(): ParamId;
         function $create(id: number): ParamId;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -27,9 +27,9 @@ export declare namespace ds {
                 $n: string;
             };
             $: {
-                id: number;
+                id: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -53,9 +53,9 @@ export declare namespace ds {
         function $createObservable(): ParamKey;
         function $create(key: string, parentKey?: string): ParamKey;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -63,6 +63,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -70,10 +71,10 @@ export declare namespace ds {
                 $n: string;
             };
             $: {
-                key: number;
-                parentKey: number;
+                key: string;
+                parentKey: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -101,9 +102,9 @@ export declare namespace ds {
         function $createObservable(): ParamUpdate;
         function $create(key: string, mc: MultiCAS, id?: number): ParamUpdate;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -111,6 +112,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -119,6 +121,7 @@ export declare namespace ds {
                 d: {};
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -126,11 +129,11 @@ export declare namespace ds {
                 $n: string;
             };
             $: {
-                key: number;
-                mc: number;
-                id: number;
+                key: string;
+                mc: string;
+                id: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -162,9 +165,9 @@ export declare namespace ds {
         function $createObservable(): ParamRangeKey;
         function $create(desc: boolean, limit?: number, startKey?: string, parentKey?: string): ParamRangeKey;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -172,6 +175,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -179,6 +183,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -186,6 +191,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -193,12 +199,12 @@ export declare namespace ds {
                 $n: string;
             };
             $: {
-                desc: number;
-                limit: number;
-                startKey: number;
-                parentKey: number;
+                desc: string;
+                limit: string;
+                startKey: string;
+                parentKey: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -236,9 +242,9 @@ export declare namespace ds {
         function $createObservable(): ACResult;
         function $create(name: string, value: string, id?: number): ACResult;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -246,6 +252,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -253,6 +260,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -260,11 +268,11 @@ export declare namespace ds {
                 $n: string;
             };
             $: {
-                name: number;
-                value: number;
-                id: number;
+                name: string;
+                value: string;
+                id: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -296,9 +304,9 @@ export declare namespace ds {
         function $createObservable(): P1;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P1;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -306,6 +314,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -313,6 +322,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -320,6 +330,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -327,6 +338,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -334,6 +346,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -341,6 +354,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -348,6 +362,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -355,21 +370,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -401,9 +416,9 @@ export declare namespace ds {
         function $createObservable(): P4;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P4;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -411,6 +426,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -418,6 +434,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -425,6 +442,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -432,6 +450,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -439,6 +458,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -446,6 +466,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -453,6 +474,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -460,21 +482,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -506,9 +528,9 @@ export declare namespace ds {
         function $createObservable(): P8;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P8;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -516,6 +538,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -523,6 +546,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -530,6 +554,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -537,6 +562,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -544,6 +570,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -551,6 +578,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -558,6 +586,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -565,21 +594,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -611,9 +640,9 @@ export declare namespace ds {
         function $createObservable(): PD;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): PD;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -621,6 +650,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -628,6 +658,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -635,6 +666,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -642,6 +674,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -649,6 +682,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -656,6 +690,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -663,6 +698,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -670,21 +706,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -716,9 +752,9 @@ export declare namespace ds {
         function $createObservable(): PB;
         function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PB;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -726,6 +762,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -733,6 +770,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -740,6 +778,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -747,6 +786,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -754,6 +794,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -761,6 +802,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -768,6 +810,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -775,21 +818,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -821,9 +864,9 @@ export declare namespace ds {
         function $createObservable(): PK;
         function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PK;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -831,6 +874,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -838,6 +882,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -845,6 +890,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -852,6 +898,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -859,6 +906,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -866,6 +914,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -873,6 +922,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -880,21 +930,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
     /**
@@ -926,9 +976,9 @@ export declare namespace ds {
         function $createObservable(): PS;
         function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PS;
         function $stringify(obj: any): string;
-        function $handle(type: number, message: any): number;
         const $descriptor: {
             '1': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -936,6 +986,7 @@ export declare namespace ds {
                 $n: string;
             };
             '2': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -943,6 +994,7 @@ export declare namespace ds {
                 $n: string;
             };
             '3': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -950,6 +1002,7 @@ export declare namespace ds {
                 $n: string;
             };
             '4': {
+                _: number;
                 t: number;
                 m: number;
                 a: number;
@@ -957,6 +1010,7 @@ export declare namespace ds {
                 $n: string;
                 d: {
                     '1': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -964,6 +1018,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '2': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -971,6 +1026,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '3': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -978,6 +1034,7 @@ export declare namespace ds {
                         $n: string;
                     };
                     '4': {
+                        _: number;
                         t: number;
                         m: number;
                         a: number;
@@ -985,21 +1042,21 @@ export declare namespace ds {
                         $n: string;
                     };
                     $: {
-                        desc: number;
-                        limit: number;
-                        startKey: number;
-                        parentKey: number;
+                        desc: string;
+                        limit: string;
+                        startKey: string;
+                        parentKey: string;
                     };
-                    $handle: (type: number, message: any) => number;
+                    $validate: () => null;
                 };
             };
             $: {
-                value: number;
-                end: number;
-                pgstart: number;
-                prk: number;
+                value: string;
+                end: string;
+                pgstart: string;
+                prk: string;
             };
-            $handle: (type: number, message: any) => number;
+            $validate: () => null;
         };
     }
 }

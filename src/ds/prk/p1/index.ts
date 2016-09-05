@@ -50,22 +50,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -115,22 +99,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -182,22 +150,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -247,22 +199,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -314,22 +250,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -379,22 +299,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -471,28 +375,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -566,28 +448,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -663,28 +523,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -758,28 +596,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -855,28 +671,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -951,28 +745,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1040,26 +812,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1125,26 +877,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -1212,26 +944,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1297,26 +1009,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -1384,26 +1076,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1470,26 +1142,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1541,22 +1193,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1606,22 +1242,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -1673,22 +1293,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1738,22 +1342,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -1805,22 +1393,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -1870,22 +1442,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -1938,22 +1494,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 3, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2003,22 +1543,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 3, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2070,22 +1594,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 3, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2135,22 +1643,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 3, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2202,22 +1694,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 3, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2267,22 +1743,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 3, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2335,22 +1795,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 2, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2400,22 +1844,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 2, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2467,22 +1895,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 2, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2532,22 +1944,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 2, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2599,22 +1995,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 2, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2664,22 +2044,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 2, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2732,22 +2096,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2797,22 +2145,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2864,22 +2196,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -2929,22 +2245,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -2996,22 +2296,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -3061,22 +2345,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -3137,24 +2405,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -3212,24 +2462,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -3289,24 +2521,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -3364,24 +2578,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -3441,24 +2637,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -3516,24 +2694,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -3602,26 +2762,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -3687,26 +2827,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -3774,26 +2894,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -3859,26 +2959,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -3946,26 +3026,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4032,26 +3092,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4103,22 +3143,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4168,22 +3192,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -4235,22 +3243,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4300,22 +3292,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -4367,22 +3343,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4432,22 +3392,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                l: 3
-            },
-            $handle: $handle
         }
 
     }
@@ -4516,26 +3460,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4601,26 +3525,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -4688,26 +3592,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4773,26 +3657,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -4860,26 +3724,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -4946,26 +3790,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5025,24 +3849,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5100,24 +3906,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -5177,24 +3965,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5252,24 +4022,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -5329,24 +4081,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5404,24 +4138,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -5482,24 +4198,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5557,24 +4255,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -5634,24 +4314,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5709,24 +4371,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -5786,24 +4430,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -5861,24 +4487,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -5939,24 +4547,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -6014,24 +4604,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -6091,24 +4663,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -6166,24 +4720,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -6243,24 +4779,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -6318,24 +4836,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -6404,26 +4904,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -6489,26 +4969,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -6576,26 +5036,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -6661,26 +5101,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -6748,26 +5168,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -6833,26 +5233,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -6929,28 +5309,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -7024,28 +5382,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -7121,28 +5457,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -7216,28 +5530,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -7313,28 +5605,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -7408,28 +5678,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -7506,28 +5754,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -7601,28 +5827,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -7698,28 +5902,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -7793,28 +5975,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -7890,28 +6050,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -7985,28 +6123,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -8083,28 +6199,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 6, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8178,28 +6272,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 6, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -8275,28 +6347,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 6, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8370,28 +6420,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 6, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -8467,28 +6495,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 6, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8563,28 +6569,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 6, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8628,20 +6612,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                l: 2
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8683,20 +6653,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                l: 2
-            },
-            $handle: $handle
         }
 
     }
@@ -8740,20 +6696,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                l: 2
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8795,20 +6737,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                l: 2
-            },
-            $handle: $handle
         }
 
     }
@@ -8852,20 +6780,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                l: 2
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -8907,20 +6821,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                l: 2
-            },
-            $handle: $handle
         }
 
     }
@@ -8997,28 +6897,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9092,28 +6970,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -9189,28 +7045,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9284,28 +7118,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
         }
 
     }
@@ -9381,28 +7193,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9477,28 +7267,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','5'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 2, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 8, m: 2, a: 0, $: 'p4', $n: 'TODO name for display'},
-            '6': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                p4: 5,
-                l: 6
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9558,24 +7326,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9633,24 +7383,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -9710,24 +7442,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9785,24 +7499,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -9862,24 +7558,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -9937,24 +7615,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 6, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 6, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10015,24 +7675,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -10090,24 +7732,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10167,24 +7791,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -10242,24 +7848,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10319,24 +7907,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -10394,24 +7964,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10472,24 +8024,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 3, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -10547,24 +8081,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 3, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10624,24 +8140,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 3, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -10699,24 +8197,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 3, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10776,24 +8256,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 3, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -10851,24 +8313,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 3, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                l: 4
-            },
-            $handle: $handle
         }
 
     }
@@ -10937,26 +8381,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -11022,26 +8446,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -11109,26 +8513,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -11194,26 +8578,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -11281,26 +8645,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -11366,26 +8710,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 11, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 2, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 8, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -11454,26 +8778,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P1.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -11539,26 +8843,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P4.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -11626,26 +8910,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.P8.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -11711,26 +8975,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PD.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
@@ -11798,26 +9042,6 @@ export namespace p1 {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PK.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
-        }
 
     }
 
@@ -11883,26 +9107,6 @@ export namespace p1 {
 
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
-        }
-        export function $handle(type: number, message: any): number {
-            // TODO
-            return 0
-        }
-        export const $descriptor = {
-            $fdf: ['1','2','3','4'],
-            '1': {t: 8, m: 2, a: 0, $: 'p0', $n: 'TODO name for display'},
-            '2': {t: 8, m: 2, a: 0, $: 'p1', $n: 'TODO name for display'},
-            '3': {t: 8, m: 2, a: 0, $: 'p2', $n: 'TODO name for display'},
-            '4': {t: 6, m: 2, a: 0, $: 'p3', $n: 'TODO name for display'},
-            '5': {t: 0, m: 2, a: 0, $: 'l', $n: 'TODO name for display', d: ds.PS.$descriptor},
-            $: {
-                p0: 1,
-                p1: 2,
-                p2: 3,
-                p3: 4,
-                l: 5
-            },
-            $handle: $handle
         }
 
     }
