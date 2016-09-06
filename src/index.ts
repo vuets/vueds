@@ -279,7 +279,7 @@ export function $change(event, message, field: string|number, form_new: boolean)
             break
         case FieldType.STRING:
             if ((val = el.value.trim())) {
-                if (!fd.vfn || !(msg = d.vfn(val)))
+                if (!fd.vfn || !(msg = fd.vfn(val)))
                     message.name = val
             } else if (!form_new) {
                 el.value = message.name
