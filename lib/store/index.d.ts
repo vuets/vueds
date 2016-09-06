@@ -18,10 +18,6 @@ export declare namespace c {
     const PREV_KEY: string;
     const PREV_PAGE: string;
     const PREV_VSTATE: string;
-    const PREVENT_NONE: number;
-    const PREVENT_DEFAULT: number;
-    const PREVENT_PROPAGATION: number;
-    const PREVENT_BOTH: number;
 }
 export declare const enum SelectionType {
     NONE = 0,

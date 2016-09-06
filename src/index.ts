@@ -53,6 +53,14 @@ export const enum PojoState {
     MASK_STATUS = SUCCESS | ERROR | WARNING
 }
 
+export const enum EventFlags {
+    PREVENT_NONE = 0,
+    PREVENT_DEFAULT = 1,
+    PREVENT_PROPAGATION = 2,
+    PREVENT_BOTH = 3,
+    CAPTURING = 4
+}
+
 export interface MultiCAS {
 
 }

@@ -36,6 +36,13 @@ export declare const enum PojoState {
     UPDATE = 16,
     MASK_STATUS = 7,
 }
+export declare const enum EventFlags {
+    PREVENT_NONE = 0,
+    PREVENT_DEFAULT = 1,
+    PREVENT_PROPAGATION = 2,
+    PREVENT_BOTH = 3,
+    CAPTURING = 4,
+}
 export interface MultiCAS {
 }
 export declare namespace MultiCAS {

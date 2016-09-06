@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { mergeVmFrom, defp, createVprops, PojoState } from '../'
+import { mergeVmFrom, defp, createVprops, PojoState, EventFlags } from '../'
 import { incrementKey, decrementKey } from '../util'
 
 // TODO usage
@@ -55,11 +55,6 @@ export namespace c {
     export const PREV_KEY = "$prev_key"
     export const PREV_PAGE = "$prev_page"
     export const PREV_VSTATE = "$prev_vstate"
-
-    export const PREVENT_NONE = 0
-    export const PREVENT_DEFAULT = 1
-    export const PREVENT_PROPAGATION = 2
-    export const PREVENT_BOTH = 3
 }
 
 export const enum SelectionType {
@@ -407,7 +402,7 @@ export class PojoStore<T> {
                 state: number = previous_[c.STATE]
             
             if ((state & PojoState.LOADING))
-                return c.PREVENT_BOTH
+                return EventFlags.PREVENT_BOTH
 
             let sameSlot = current === previous,
                 same = sameSlot && (!selectWithoutPopulate || current[k] === prevKey),
@@ -886,21 +881,21 @@ export class PojoStore<T> {
             } else {
                 this.repaint()
             }
-            return c.PREVENT_BOTH
+            return EventFlags.PREVENT_BOTH
         }
 
         if (pager.state & PagerState.MASK_RPC_DISABLE)
-            return c.PREVENT_PROPAGATION
+            return EventFlags.PREVENT_PROPAGATION
 
         if (pager.state & PagerState.DESC) {
             this.requestNewer()
         } else if (pager.index_hidden) {
             this.requestOlder()
         } else {
-            return c.PREVENT_PROPAGATION
+            return EventFlags.PREVENT_PROPAGATION
         }
 
-        return c.PREVENT_BOTH
+        return EventFlags.PREVENT_BOTH
     }
 
     pageNextOrLoad(flags: number): number {
@@ -915,20 +910,20 @@ export class PojoStore<T> {
             else
                 this.repaint()
             
-            return c.PREVENT_BOTH
+            return EventFlags.PREVENT_BOTH
         }
 
         let state = pager.state
         // page push
         if (state & PagerState.MASK_RPC_DISABLE || !pager.index_hidden)
-            return c.PREVENT_PROPAGATION
+            return EventFlags.PREVENT_PROPAGATION
 
         if (state & PagerState.DESC)
             this.requestOlder()
         else
             this.requestNewer()
         
-        return c.PREVENT_BOTH
+        return EventFlags.PREVENT_BOTH
     }
 
     // next tick
