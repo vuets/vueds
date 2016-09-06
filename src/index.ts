@@ -1,4 +1,5 @@
 import * as Vue from 'vue'
+import { regexInt, regexDouble } from './util'
 
 /**
  * Define a property that should not be observed by vue's vm.
@@ -103,27 +104,6 @@ export function createStateObject(vprops: any): any {
         vfbs: 0,
         vprops
     }
-}
-
-export function postValidate(message, f, fk, msg) {
-    let message_ = message._,
-        vprops = message_.vprops,
-        state = message_.state,
-        vfbs = message_.vfbs
-    
-    vprops[fk] = msg
-
-    if (!(state & PojoState.UPDATE))
-        message_.state = state | PojoState.UPDATE
-
-    // reuse state var
-    if (msg)
-        state = vfbs | (1 << --f)
-    else
-        state = vfbs & (~(1 << --f) & 0x7fffffff)
-
-    if (vfbs !== state)
-        message_.vfbs = state
 }
 
 // target is vm
@@ -251,3 +231,95 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
     return diffed
 }
 
+// =====================================
+// event handling
+
+function postValidate(message, f, fk, msg) {
+    let message_ = message._,
+        vprops = message_.vprops,
+        state = message_.state,
+        vfbs = message_.vfbs
+    
+    vprops[fk] = msg
+
+    if (!(state & PojoState.UPDATE))
+        message_.state = state | PojoState.UPDATE
+
+    // reuse state var
+    if (msg)
+        state = vfbs | (1 << --f)
+    else
+        state = vfbs & (~(1 << --f) & 0x7fffffff)
+
+    if (vfbs !== state)
+        message_.vfbs = state
+}
+
+export function $change(event, message, field: string|number, form_new: boolean): string|null {
+    let d = message['$d'],
+        $ = d.$,
+        fk = $ && isNaN(field as any) ? $[field] : String(field),
+        fd = d[fk]
+    
+    if (!fd || fd.t === FieldType.BYTES)
+        return null
+    
+    let f = fd._,
+        prop = fd.$ || fk,
+        el = event.target,
+        msg: string|null = null,
+        val
+    
+    switch (fd.t) {
+        case FieldType.BOOL:
+            message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
+            break
+        case FieldType.ENUM:
+            message[prop] = parseInt(el.value, 10)
+            break
+        case FieldType.STRING:
+            if ((val = el.value.trim())) {
+                if (!fd.vfn || !(msg = d.vfn(val)))
+                    message.name = val
+            } else if (!form_new) {
+                el.value = message.name
+            } else if (message.name) {
+                message.name = null
+                msg = fd.$n + ' is required.'
+            }
+            break
+        case FieldType.FLOAT:
+        case FieldType.DOUBLE:
+            if ((val = el.value.trim())) {
+                if (!regexDouble.test(val))
+                    msg = fd.$n + ' is invalid.'
+                else if (!fd.vfn)
+                    message[prop] = parseFloat(val)
+                else if (!(msg = fd.vfn(val = parseFloat(val))))
+                    message[prop] = val
+            } else if (!form_new) {
+                el.value = message[prop]
+            } else if (message[prop]) {
+                message[prop] = null
+                msg = fd.$n + ' is required.'
+            }
+            break
+        default:
+            if ((val = el.value.trim())) {
+                if (!regexInt.test(val))
+                    msg = fd.$n + ' is invalid.'
+                else if (!fd.vfn)
+                    message[prop] = parseInt(val, 10)
+                else if (!(msg = fd.vfn(val = parseInt(val, 10))))
+                    message[prop] = val
+            } else if (!form_new) {
+                el.value = message[prop]
+            } else if (message[prop]) {
+                message[prop] = null
+                msg = fd.$n + ' is required.'
+            }
+    }
+
+    postValidate(message, f, prop, msg)
+    return msg
+}
