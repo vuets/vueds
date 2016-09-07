@@ -296,7 +296,8 @@ export function $change(event, message, field: string|number, update: boolean): 
             message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
             break
         case FieldType.ENUM:
-            message[prop] = parseInt(el.value, 10)
+            val = el.value
+            message[prop] = !val.length ? null : parseInt(val, 10)
             break
         case FieldType.STRING:
             if ((val = el.value.trim())) {
