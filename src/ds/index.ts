@@ -163,7 +163,7 @@ export namespace ds {
         }
         export const $descriptor = {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'key', $n: 'Key'},
-            '2': {_: 2, t: 0, m: 2, a: 0, $: 'mc', $n: 'Mc', d: MultiCAS.$descriptor},
+            '2': {_: 2, t: 0, m: 2, a: 0, $: 'mc', $n: 'Mc', d_fn: () => MultiCAS.$descriptor},
             '3': {_: 3, t: 10, m: 1, a: 0, $: 'id', $n: 'Id'},
             $: {
                 key: '1',
@@ -401,7 +401,7 @@ export namespace ds {
             '1': {_: 1, t: 8, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 8, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 8, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
@@ -481,7 +481,7 @@ export namespace ds {
             '1': {_: 1, t: 6, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 6, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 6, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
@@ -561,7 +561,7 @@ export namespace ds {
             '1': {_: 1, t: 11, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 11, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 11, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
@@ -641,7 +641,7 @@ export namespace ds {
             '1': {_: 1, t: 11, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 11, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 11, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
@@ -721,7 +721,7 @@ export namespace ds {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 2, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
@@ -801,7 +801,7 @@ export namespace ds {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 2, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
@@ -881,7 +881,7 @@ export namespace ds {
             '1': {_: 1, t: 3, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 3, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 3, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
-            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d: ParamRangeKey.$descriptor},
+            '4': {_: 4, t: 0, m: 2, a: 0, $: 'prk', $n: 'Prk', d_fn: () => ParamRangeKey.$descriptor},
             $: {
                 value: '1',
                 end: '2',
