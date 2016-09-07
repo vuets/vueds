@@ -263,7 +263,10 @@ function postValidate(message, f, fk, msg) {
         message_.vfbs = state
 }
 
-export function $change(event, message, field: string|number, form_new: boolean): string|null {
+/**
+ * The update arg means if existing data is modified (not creating new data).
+ */
+export function $change(event, message, field: string|number, update: boolean): string|null {
     let d = message['$d'],
         $ = d.$,
         fk = $ && isNaN(field as any) ? $[field] : String(field),
@@ -289,7 +292,7 @@ export function $change(event, message, field: string|number, form_new: boolean)
             if ((val = el.value.trim())) {
                 if (!fd.vfn || !(msg = fd.vfn(val)))
                     message.name = val
-            } else if (!form_new) {
+            } else if (update) {
                 el.value = message.name
             } else if (message.name) {
                 message.name = null
@@ -305,7 +308,7 @@ export function $change(event, message, field: string|number, form_new: boolean)
                     message[prop] = parseFloat(val)
                 else if (!(msg = fd.vfn(val = parseFloat(val))))
                     message[prop] = val
-            } else if (!form_new) {
+            } else if (update) {
                 el.value = message[prop]
             } else if (message[prop]) {
                 message[prop] = null
@@ -320,7 +323,7 @@ export function $change(event, message, field: string|number, form_new: boolean)
                     message[prop] = parseInt(val, 10)
                 else if (!(msg = fd.vfn(val = parseInt(val, 10))))
                     message[prop] = val
-            } else if (!form_new) {
+            } else if (update) {
                 el.value = message[prop]
             } else if (message[prop]) {
                 message[prop] = null
