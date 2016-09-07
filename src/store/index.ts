@@ -192,8 +192,8 @@ function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pag
     }
     let p = options.createObservable(so)
     p['_'] = so
-    defp(p, c.INDEX, index)
     defp(p, c.DESCRIPTOR, descriptor)
+    defp(p, c.INDEX, index)
     defp(p, '$pager', pager)
     return p
 }

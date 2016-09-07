@@ -114,6 +114,16 @@ export function createStateObject(vprops: any): any {
     }
 }
 
+export function initObservable<T>(target: T, descriptor: any): T {
+    target['_'] = createStateObject(createVprops(descriptor))
+    defp(target, '$d', descriptor)
+    return target
+}
+
+export function createObservable<T>(descriptor: any): T {
+    return initObservable(descriptor.$new(), descriptor)
+}
+
 // target is vm
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     var fd

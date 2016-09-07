@@ -44,6 +44,7 @@ export namespace ds {
             $: {
                 id: '1'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -100,6 +101,7 @@ export namespace ds {
                 key: '1',
                 parentKey: '2'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -168,6 +170,7 @@ export namespace ds {
                 mc: '2',
                 id: '3'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -246,6 +249,7 @@ export namespace ds {
                 startKey: '3',
                 parentKey: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -324,6 +328,7 @@ export namespace ds {
                 value: '2',
                 id: '3'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -403,6 +408,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -482,6 +488,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -561,6 +568,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -640,6 +648,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -719,6 +728,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -798,6 +808,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
@@ -877,6 +888,7 @@ export namespace ds {
                 pgstart: '3',
                 prk: '4'
             },
+            $new: $createObservable,
             $change
         }
 
