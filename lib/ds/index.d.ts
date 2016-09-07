@@ -120,7 +120,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {};
+                d_fn: () => {};
             };
             '3': {
                 _: number;
@@ -341,7 +341,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
@@ -455,7 +455,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
@@ -569,7 +569,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
@@ -683,7 +683,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
@@ -797,7 +797,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
@@ -911,7 +911,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
@@ -1025,7 +1025,7 @@ export declare namespace ds {
                 a: number;
                 $: string;
                 $n: string;
-                d: {
+                d_fn: () => {
                     '1': {
                         _: number;
                         t: number;
