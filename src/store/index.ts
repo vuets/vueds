@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { mergeVmFrom, defp, createVprops, PojoState, EventFlags } from '../'
+import { mergeVmFrom, defp, PojoState, EventFlags } from '../'
 import { incrementKey, decrementKey } from '../util'
 
 // TODO usage
@@ -24,13 +24,15 @@ function shallowCopyFrom<T>(src: any, descriptor: any, target: T): T {
 
 export function nullifyAll(obj: any, descriptor: any = null) {
     if (!descriptor) {
-        for (var i in obj) obj[i] = null
+        for (var i in obj) {
+            if (obj[i] !== null) obj[i] = null
+        }
         return
     }
 
     let $ = descriptor.$
     for (var i in obj) {
-        if ($[i]) obj[i] = null
+        if ($[i] && obj[i] !== null) obj[i] = null
     }
 }
 
@@ -178,6 +180,29 @@ export interface PagerOptions<T> {
     onRemoveArray?(array: Array<T>, main: boolean)
     onPopulate?(message: T, main: boolean, target: T, index: number)
 
+}
+
+function createVprops<T>(descriptor: any): any {
+    let vprops = {},
+        fields = descriptor.$fdf
+    
+    if (!fields)
+        return vprops
+    
+    if (!descriptor.$) {
+        for (let k of fields) {
+            vprops[k] = null
+        }
+        return vprops
+    }
+    
+    var i = 0, len = fields.length, prop
+    while (i < len) {
+        prop = descriptor[fields[i++]].$
+        vprops[prop] = null
+    }
+    
+    return vprops
 }
 
 function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pager, 

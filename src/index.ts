@@ -88,23 +88,34 @@ export function escapeValue(v: string): string {
     return v
 }
 
-export function createVprops<T>(descriptor: any): any {
+function createVprops<T>(descriptor: any, owner: any): any {
     let vprops = {},
         fields = descriptor.$fdf
     
     if (!fields)
         return vprops
     
-    if (descriptor.$) {
-        for (let k of fields) vprops[descriptor[k].$] = null
-    } else {
-        for (let k of fields) vprops[k] = null
+    if (!descriptor.$) {
+        for (let k of fields) {
+            vprops[k] = null
+            if (owner)
+                owner[k] = null
+        }
+        return vprops
+    }
+    
+    var i = 0, len = fields.length, prop
+    while (i < len) {
+        prop = descriptor[fields[i++]].$
+        vprops[prop] = null
+        if (owner)
+            owner[prop] = null
     }
     
     return vprops
 }
 
-export function createStateObject(vprops: any): any {
+function createStateObject(vprops: any): any {
     return {
         state: 0,
         msg: '',
@@ -114,15 +125,22 @@ export function createStateObject(vprops: any): any {
     }
 }
 
-export function initObservable<T>(target: T, descriptor: any): T {
-    target['_'] = createStateObject(createVprops(descriptor))
+export function initObservable<T>(target: T, descriptor: any, update?: boolean): T {
+    target['_'] = createStateObject(createVprops(descriptor, update ? null : target))
     defp(target, '$d', descriptor)
+    if (!descriptor.$fmf)
+        return target
+
+    for (let fk of descriptor.$fmf) {
+        let fd = descriptor[fk]
+        initObservable(target[fd.$], fd.d_fn(), update)
+    }
     return target
 }
 
-export function createObservable<T>(descriptor: any): T {
+/*export function createObservable<T>(descriptor: any): T {
     return initObservable(descriptor.$new(), descriptor)
-}
+}*/
 
 // target is vm
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
@@ -289,6 +307,7 @@ export function $change(event, message, field: string|number, update: boolean): 
         prop = fd.$ || fk,
         el = event.target,
         msg: string|null = null,
+        pv = true,
         val
     
     switch (fd.t) {
@@ -302,12 +321,17 @@ export function $change(event, message, field: string|number, update: boolean): 
         case FieldType.STRING:
             if ((val = el.value.trim())) {
                 if (!fd.vfn || !(msg = fd.vfn(val)))
-                    message.name = val
+                    message[prop] = val
             } else if (update) {
-                el.value = message.name
-            } else if (message.name) {
-                message.name = null
+                el.value = message[prop]
+            } else if (message[prop]) {
+                el.value = ''
+                message[prop] = null
                 msg = fd.$n + ' is required.'
+            } else if (el.value) {
+                // remove whitespace
+                el.value = ''
+                pv = false
             }
             break
         case FieldType.FLOAT:
@@ -322,8 +346,13 @@ export function $change(event, message, field: string|number, update: boolean): 
             } else if (update) {
                 el.value = message[prop]
             } else if (message[prop]) {
+                el.value = ''
                 message[prop] = null
                 msg = fd.$n + ' is required.'
+            } else if (el.value) {
+                // remove whitespace
+                el.value = ''
+                pv = false
             }
             break
         default:
@@ -337,11 +366,18 @@ export function $change(event, message, field: string|number, update: boolean): 
             } else if (update) {
                 el.value = message[prop]
             } else if (message[prop]) {
+                el.value = ''
                 message[prop] = null
                 msg = fd.$n + ' is required.'
+            } else if (el.value) {
+                // remove whitespace
+                el.value = ''
+                pv = false
             }
     }
 
-    postValidate(message, f, prop, msg)
+    if (pv)
+        postValidate(message, f, prop, msg)
+    
     return msg
 }
