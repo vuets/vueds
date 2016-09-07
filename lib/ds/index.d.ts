@@ -29,7 +29,7 @@ export declare namespace ds {
             $: {
                 id: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -74,7 +74,7 @@ export declare namespace ds {
                 key: string;
                 parentKey: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -133,7 +133,7 @@ export declare namespace ds {
                 mc: string;
                 id: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -204,7 +204,7 @@ export declare namespace ds {
                 startKey: string;
                 parentKey: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -272,7 +272,7 @@ export declare namespace ds {
                 value: string;
                 id: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -375,7 +375,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -384,7 +384,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -487,7 +487,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -496,7 +496,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -599,7 +599,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -608,7 +608,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -711,7 +711,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -720,7 +720,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -823,7 +823,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -832,7 +832,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -935,7 +935,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -944,7 +944,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
     /**
@@ -1047,7 +1047,7 @@ export declare namespace ds {
                         startKey: string;
                         parentKey: string;
                     };
-                    $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+                    $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
                 };
             };
             $: {
@@ -1056,7 +1056,7 @@ export declare namespace ds {
                 pgstart: string;
                 prk: string;
             };
-            $change: (event: any, message: any, field: string | number, form_new: boolean) => string | null;
+            $change: (event: any, message: any, field: string | number, update: boolean) => string | null;
         };
     }
 }

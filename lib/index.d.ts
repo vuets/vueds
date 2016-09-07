@@ -65,4 +65,7 @@ export declare function diffFieldTo<T>(mc: MultiCAS, descriptor: any, original: 
 export declare function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[];
 export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T, field: string | number): boolean;
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[];
-export declare function $change(event: any, message: any, field: string | number, form_new: boolean): string | null;
+/**
+ * The update arg means if existing data is modified (not creating new data).
+ */
+export declare function $change(event: any, message: any, field: string | number, update: boolean): string | null;
