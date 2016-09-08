@@ -14,9 +14,9 @@ export declare namespace ds {
         const enum $f {
             id = 1,
         }
-        function $createObservable(): ParamId;
         function $create(id: number): ParamId;
         function $stringify(obj: any): string;
+        function $createObservable(): ParamId;
         const $descriptor: {
             '1': {
                 _: number;
@@ -51,9 +51,9 @@ export declare namespace ds {
             key = 1,
             parentKey = 2,
         }
-        function $createObservable(): ParamKey;
         function $create(key: string, parentKey?: string): ParamKey;
         function $stringify(obj: any): string;
+        function $createObservable(): ParamKey;
         const $descriptor: {
             '1': {
                 _: number;
@@ -101,9 +101,9 @@ export declare namespace ds {
             mc = 2,
             id = 3,
         }
-        function $createObservable(): ParamUpdate;
         function $create(key: string, mc: MultiCAS, id?: number): ParamUpdate;
         function $stringify(obj: any): string;
+        function $createObservable(): ParamUpdate;
         const $descriptor: {
             '1': {
                 _: number;
@@ -165,9 +165,9 @@ export declare namespace ds {
             startKey = 3,
             parentKey = 4,
         }
-        function $createObservable(): ParamRangeKey;
         function $create(desc: boolean, limit?: number, startKey?: string, parentKey?: string): ParamRangeKey;
         function $stringify(obj: any): string;
+        function $createObservable(): ParamRangeKey;
         const $descriptor: {
             '1': {
                 _: number;
@@ -243,9 +243,9 @@ export declare namespace ds {
             value = 2,
             id = 3,
         }
-        function $createObservable(): ACResult;
         function $create(name: string, value: string, id?: number): ACResult;
         function $stringify(obj: any): string;
+        function $createObservable(): ACResult;
         const $descriptor: {
             '1': {
                 _: number;
@@ -306,9 +306,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): P1;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P1;
         function $stringify(obj: any): string;
+        function $createObservable(): P1;
         const $descriptor: {
             '1': {
                 _: number;
@@ -420,9 +420,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): P4;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P4;
         function $stringify(obj: any): string;
+        function $createObservable(): P4;
         const $descriptor: {
             '1': {
                 _: number;
@@ -534,9 +534,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): P8;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P8;
         function $stringify(obj: any): string;
+        function $createObservable(): P8;
         const $descriptor: {
             '1': {
                 _: number;
@@ -648,9 +648,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): PD;
         function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): PD;
         function $stringify(obj: any): string;
+        function $createObservable(): PD;
         const $descriptor: {
             '1': {
                 _: number;
@@ -762,9 +762,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): PB;
         function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PB;
         function $stringify(obj: any): string;
+        function $createObservable(): PB;
         const $descriptor: {
             '1': {
                 _: number;
@@ -876,9 +876,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): PK;
         function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PK;
         function $stringify(obj: any): string;
+        function $createObservable(): PK;
         const $descriptor: {
             '1': {
                 _: number;
@@ -990,9 +990,9 @@ export declare namespace ds {
             pgstart = 3,
             prk = 4,
         }
-        function $createObservable(): PS;
         function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PS;
         function $stringify(obj: any): string;
+        function $createObservable(): PS;
         const $descriptor: {
             '1': {
                 _: number;
