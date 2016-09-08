@@ -405,13 +405,17 @@ export class PojoStore<T> {
             if (!refresh) {
                 // do nothing
             } else if ((state & PojoState.UPDATE)) {
-
-                previous_.msg = null
-                previous_.vfbs = 0
-
-                nullifyAll(current_.vprops)
+                if (previous_.vfbs) {
+                    previous_.vfbs = 0
+                    previous_.msg = null
+                    nullifyAll(current_.vprops)
+                } else if (previous_.msg) {
+                    previous_.msg = null
+                }
+                // state intentionally not modified
             } else if ((state & PojoState.MASK_STATUS)) {
                 previous_.msg = null
+                // state intentionally not modified
             }
 
             if (same)
