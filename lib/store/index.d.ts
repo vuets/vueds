@@ -1,23 +1,18 @@
 /// <reference types="vue" />
 import { ds } from '../ds/';
+export declare const STATE: string;
+export declare const LSTATE: string;
+export declare const VSTATE: string;
+export declare const DESCRIPTOR: string;
+export declare const INDEX: string;
+export declare const PREV_KEY: string;
+export declare const PREV_PAGE: string;
+export declare const PREV_VSTATE: string;
 export declare function shallowCopyTo<T>(target: T, src: T): T;
 export declare function nullifyAll(obj: any): void;
 export interface KeyHandler {
     inc(key: string): string;
     dec(key: string): string;
-}
-export declare namespace c {
-    const STATE: string;
-    const MSG: string;
-    const LSTATE: string;
-    const VSTATE: string;
-    const VFBS: string;
-    const VPROPS: string;
-    const DESCRIPTOR: string;
-    const INDEX: string;
-    const PREV_KEY: string;
-    const PREV_PAGE: string;
-    const PREV_VSTATE: string;
 }
 export declare const enum SelectionType {
     NONE = 0,
@@ -144,7 +139,7 @@ export declare class PojoStore<T> {
      */
     reset(array: Array<T>, notify?: boolean): void;
     /**
-     * Simply sets the array.  No notifications/etc.
+     * Simply sets the array.  No notifications/etc
      */
     setArray(array: Array<T>): void;
     /**
