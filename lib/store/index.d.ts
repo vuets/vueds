@@ -1,7 +1,7 @@
 /// <reference types="vue" />
 import { ds } from '../ds/';
 export declare function shallowCopyTo<T>(target: T, src: T): T;
-export declare function nullifyAll(obj: any, descriptor?: any): void;
+export declare function nullifyAll(obj: any): void;
 export interface KeyHandler {
     inc(key: string): string;
     dec(key: string): string;
