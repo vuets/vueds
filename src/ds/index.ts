@@ -20,11 +20,6 @@ export namespace ds {
             id = 1
         }
 
-        export function $createObservable(): ParamId {
-            return {
-                id: 0
-            }
-        }
         export function $create(id: number): ParamId {
             return {
                 id: id
@@ -39,13 +34,17 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): ParamId {
+            return {
+                id: 0,
+                _: null, $d: null
+            } as ParamId
+        }
         export const $descriptor = {
             '1': {_: 1, t: 10, m: 2, a: 0, $: 'id', $n: 'Id'},
             $: {
                 id: '1'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -70,12 +69,6 @@ export namespace ds {
             parentKey = 2
         }
 
-        export function $createObservable(): ParamKey {
-            return {
-                key: "",
-                parentKey: ""
-            }
-        }
         export function $create(key: string, parentKey?: string): ParamKey {
             return {
                 key: key,
@@ -94,15 +87,20 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): ParamKey {
+            return {
+                key: "",
+                parentKey: "",
+                _: null, $d: null
+            } as ParamKey
+        }
         export const $descriptor = {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'key', $n: 'Key'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'parentKey', $n: 'Parent Key'},
             $: {
                 key: '1',
                 parentKey: '2'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -131,13 +129,6 @@ export namespace ds {
             id = 3
         }
 
-        export function $createObservable(): ParamUpdate {
-            return {
-                key: "",
-                mc: MultiCAS.$createObservable(),
-                id: 0
-            }
-        }
         export function $create(key: string, mc: MultiCAS, id?: number): ParamUpdate {
             return {
                 key: key,
@@ -161,6 +152,14 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): ParamUpdate {
+            return {
+                key: "",
+                mc: MultiCAS.$createObservable(),
+                id: 0,
+                _: null, $d: null
+            } as ParamUpdate
+        }
         export const $descriptor = {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'key', $n: 'Key'},
             '2': {_: 2, t: 0, m: 2, a: 0, $: 'mc', $n: 'Mc', d_fn: () => MultiCAS.$descriptor},
@@ -169,9 +168,7 @@ export namespace ds {
                 key: '1',
                 mc: '2',
                 id: '3'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -204,14 +201,6 @@ export namespace ds {
             parentKey = 4
         }
 
-        export function $createObservable(): ParamRangeKey {
-            return {
-                desc: false,
-                limit: 0,
-                startKey: "",
-                parentKey: ""
-            }
-        }
         export function $create(desc: boolean, limit?: number, startKey?: string, parentKey?: string): ParamRangeKey {
             return {
                 desc: desc,
@@ -238,6 +227,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): ParamRangeKey {
+            return {
+                desc: false,
+                limit: 0,
+                startKey: "",
+                parentKey: "",
+                _: null, $d: null
+            } as ParamRangeKey
+        }
         export const $descriptor = {
             '1': {_: 1, t: 1, m: 2, a: 0, $: 'desc', $n: 'Desc'},
             '2': {_: 2, t: 6, m: 1, a: 0, $: 'limit', $n: 'Limit'},
@@ -248,9 +246,7 @@ export namespace ds {
                 limit: '2',
                 startKey: '3',
                 parentKey: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -290,13 +286,6 @@ export namespace ds {
             id = 3
         }
 
-        export function $createObservable(): ACResult {
-            return {
-                name: "",
-                value: "",
-                id: 0
-            }
-        }
         export function $create(name: string, value: string, id?: number): ACResult {
             return {
                 name: name,
@@ -319,6 +308,14 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): ACResult {
+            return {
+                name: "",
+                value: "",
+                id: 0,
+                _: null, $d: null
+            } as ACResult
+        }
         export const $descriptor = {
             '1': {_: 1, t: 3, m: 2, a: 0, $: 'name', $n: 'Name'},
             '2': {_: 2, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
@@ -327,9 +324,7 @@ export namespace ds {
                 name: '1',
                 value: '2',
                 id: '3'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -362,14 +357,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): P1 {
-            return {
-                value: 0,
-                end: 0,
-                pgstart: 0,
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P1 {
             return {
                 value: value,
@@ -397,6 +384,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): P1 {
+            return {
+                value: 0,
+                end: 0,
+                pgstart: 0,
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as P1
+        }
         export const $descriptor = {
             '1': {_: 1, t: 8, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 8, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -407,9 +403,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -442,14 +436,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): P4 {
-            return {
-                value: 0,
-                end: 0,
-                pgstart: 0,
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P4 {
             return {
                 value: value,
@@ -477,6 +463,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): P4 {
+            return {
+                value: 0,
+                end: 0,
+                pgstart: 0,
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as P4
+        }
         export const $descriptor = {
             '1': {_: 1, t: 6, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 6, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -487,9 +482,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -522,14 +515,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): P8 {
-            return {
-                value: 0,
-                end: 0,
-                pgstart: 0,
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): P8 {
             return {
                 value: value,
@@ -557,6 +542,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): P8 {
+            return {
+                value: 0,
+                end: 0,
+                pgstart: 0,
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as P8
+        }
         export const $descriptor = {
             '1': {_: 1, t: 11, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 11, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -567,9 +561,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -602,14 +594,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): PD {
-            return {
-                value: 0,
-                end: 0,
-                pgstart: 0,
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: number, prk: ParamRangeKey, end?: number, pgstart?: number): PD {
             return {
                 value: value,
@@ -637,6 +621,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): PD {
+            return {
+                value: 0,
+                end: 0,
+                pgstart: 0,
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as PD
+        }
         export const $descriptor = {
             '1': {_: 1, t: 11, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 11, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -647,9 +640,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -682,14 +673,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): PB {
-            return {
-                value: "",
-                end: "",
-                pgstart: "",
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PB {
             return {
                 value: value,
@@ -717,6 +700,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): PB {
+            return {
+                value: "",
+                end: "",
+                pgstart: "",
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as PB
+        }
         export const $descriptor = {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -727,9 +719,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -762,14 +752,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): PK {
-            return {
-                value: "",
-                end: "",
-                pgstart: "",
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PK {
             return {
                 value: value,
@@ -797,6 +779,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): PK {
+            return {
+                value: "",
+                end: "",
+                pgstart: "",
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as PK
+        }
         export const $descriptor = {
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -807,9 +798,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
@@ -842,14 +831,6 @@ export namespace ds {
             prk = 4
         }
 
-        export function $createObservable(): PS {
-            return {
-                value: "",
-                end: "",
-                pgstart: "",
-                prk: ParamRangeKey.$createObservable()
-            }
-        }
         export function $create(value: string, prk: ParamRangeKey, end?: string, pgstart?: string): PS {
             return {
                 value: value,
@@ -877,6 +858,15 @@ export namespace ds {
 
             return 0 === buf.length ? '{}' : '{' + buf.join(',') + '}';
         }
+        export function $createObservable(): PS {
+            return {
+                value: "",
+                end: "",
+                pgstart: "",
+                prk: ParamRangeKey.$createObservable(),
+                _: null, $d: null
+            } as PS
+        }
         export const $descriptor = {
             '1': {_: 1, t: 3, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 3, m: 1, a: 0, $: 'end', $n: 'End'},
@@ -887,9 +877,7 @@ export namespace ds {
                 end: '2',
                 pgstart: '3',
                 prk: '4'
-            },
-            $new: $createObservable,
-            $change
+            }, $new: $createObservable, $change
         }
 
     }
