@@ -22,17 +22,9 @@ function shallowCopyFrom<T>(src: any, descriptor: any, target: T): T {
     return target
 }
 
-export function nullifyAll(obj: any, descriptor: any = null) {
-    if (!descriptor) {
-        for (var i in obj) {
-            if (obj[i] !== null) obj[i] = null
-        }
-        return
-    }
-
-    let $ = descriptor.$
+export function nullifyAll(obj: any) {
     for (var i in obj) {
-        if ($[i] && obj[i] !== null) obj[i] = null
+        if (obj[i] !== null) obj[i] = null
     }
 }
 
