@@ -8,6 +8,7 @@ import { regexInt, regexDouble } from './util'
 export function defp<T>(obj: any, prop: string, val: T): T {
     Object.defineProperty(obj, prop, {
         enumerable: false,
+        configurable: true,
         value: val
     })
 
