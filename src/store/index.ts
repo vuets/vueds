@@ -186,9 +186,11 @@ function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pag
     }
     let p = options.createObservable(so)
     p['_'] = so
-    defp(p, DESCRIPTOR, descriptor)
-    defp(p, INDEX, index)
-    defp(p, '$pager', pager)
+    Object.defineProperties(p, {
+        $d: { value: descriptor, enumerable: false, configurable: true },
+        $index: { value: index, enumerable: false, configurable: true },
+        $pager: { value: pager, enumerable: false, configurable: true }
+    })
     return p
 }
 
