@@ -1,6 +1,6 @@
 import { ds } from '../ds/'
 import { mergeVmFrom, defp, PojoState, EventFlags } from '../'
-import { incrementKey, decrementKey } from '../util'
+import { $is_set, $bit_clear_and_set, $bit_toggle, $bit_unset, incrementKey, decrementKey } from '../util'
 
 export const STATE = "state"
 export const LSTATE = "lstate" // list state
@@ -114,22 +114,6 @@ export interface Pager {
 
 export function resolveNextPageIndex(page: number, idx: number, pager: Pager): number {
     return page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
-}
-
-export function $is_set(state: number, value: number): boolean {
-    return 0 !== (value & state)
-}
-
-export function $bit_unset(obj: any, name: string, value: number) {
-    obj[name] &= ~value & 2147483647
-}
-
-export function $bit_toggle(obj: any, name: string, value: number) {
-    obj[name] = value ^ obj[name]
-}
-
-export function $bit_clear_and_set(obj: any, name: string, clear: number, set: number) {
-    obj[name] = set | (~clear & 2147483647 & obj[name])
 }
 
 export interface StateObject {
