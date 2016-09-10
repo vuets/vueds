@@ -89,45 +89,27 @@ export function escapeValue(v: string): string {
     return v
 }
 
-function createVprops<T>(descriptor: any, owner: any): any {
-    let vprops = {},
-        fields = descriptor.$fdf
+function addVpropsTo<T>(so: T, descriptor: any, owner: any): T {
+    if (!descriptor.$fdf)
+        return so
     
-    if (!fields)
-        return vprops
-    
-    if (!descriptor.$) {
-        for (let k of fields) {
-            vprops[k] = null
-            if (owner)
-                owner[k] = null
-        }
-        return vprops
-    }
-    
-    var i = 0, len = fields.length, prop
-    while (i < len) {
-        prop = descriptor[fields[i++]].$
-        vprops[prop] = null
+    for (let k of descriptor.$fdf) {
+        so[k] = null
         if (owner)
-            owner[prop] = null
+            owner[descriptor[k].$ || k] = null
     }
     
-    return vprops
-}
-
-function createStateObject(vprops: any): any {
-    return {
-        state: 0,
-        msg: '',
-        vstate: 0,
-        vfbs: 0,
-        vprops
-    }
+    return so
 }
 
 export function initObservable<T>(target: T, descriptor: any, update?: boolean): T {
-    target['_'] = createStateObject(createVprops(descriptor, update ? null : target))
+    target['_'] = addVpropsTo({
+        state: 0,
+        msg: '',
+        vstate: 0,
+        vfbs: 0
+    }, descriptor, update ? null : target)
+
     defp(target, '$d', descriptor)
     if (!descriptor.$fmf)
         return target
@@ -273,11 +255,10 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
 
 function postValidate(message, f, fk, msg) {
     let message_ = message._,
-        vprops = message_.vprops,
         state = message_.state,
         vfbs = message_.vfbs
     
-    vprops[fk] = msg
+    message_[fk] = msg
 
     if (!(state & PojoState.UPDATE))
         message_.state = state | PojoState.UPDATE
@@ -378,7 +359,7 @@ export function $change(event, message, field: string|number, update: boolean): 
     }
 
     if (pv)
-        postValidate(message, f, prop, msg)
+        postValidate(message, f, fk, msg)
     
     return msg
 }

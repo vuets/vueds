@@ -33,11 +33,11 @@ function shallowCopyFrom<T>(src: any, descriptor: any, target: T): T {
     return target
 }
 
-export function nullifyAll(obj: any) {
+/*export function nullifyAll(obj: any) {
     for (var i in obj) {
         if (obj[i] !== null) obj[i] = null
     }
-}
+}*/
 
 export interface KeyHandler {
     inc(key: string): string
@@ -122,7 +122,6 @@ export interface StateObject {
     msg: string
     vstate: number
     vfbs: number
-    vprops: any
 }
 
 export interface PagerOptions<T> {
@@ -151,39 +150,28 @@ export interface PagerOptions<T> {
 
 }
 
-function createVprops<T>(descriptor: any): any {
-    let vprops = {},
-        fields = descriptor.$fdf
+export function nullifyVprops(so: StateObject, descriptor: any) {
+    if (!descriptor.$fdf)
+        return so
     
-    if (!fields)
-        return vprops
+    for (let k of descriptor.$fdf) {
+        if (so[k] !== null) so[k] = null
+    }
+}
+
+function addVpropsTo(so: StateObject, descriptor: any): StateObject {
+    if (!descriptor.$fdf)
+        return so
     
-    if (!descriptor.$) {
-        for (let k of fields) {
-            vprops[k] = null
-        }
-        return vprops
+    for (let k of descriptor.$fdf) {
+        so[k] = null
     }
     
-    var i = 0, len = fields.length, prop
-    while (i < len) {
-        prop = descriptor[fields[i++]].$
-        vprops[prop] = null
-    }
-    
-    return vprops
+    return so
 }
 
 function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pager, 
-    descriptor: any, vprops: any): T {
-    let so: StateObject = {
-        state: 0,
-        lstate: 0,
-        msg: '',
-        vstate: 0,
-        vfbs: 0,
-        vprops
-    }
+    descriptor: any, so: any): T {
     let p = options.createObservable(so)
     p['_'] = so
     Object.defineProperties(p, {
@@ -238,10 +226,18 @@ export class PojoStore<T> {
             //pojo: null
         }
 
-        let vprops = createVprops(descriptor)
-        observedArray.push(createObservable(options, 0, pager, descriptor, vprops))
+        let so = addVpropsTo({
+            state: 0,
+            lstate: 0,
+            msg: '',
+            vstate: 0,
+            vfbs: 0
+        }, descriptor)
+        observedArray.push(createObservable(options, 0, pager, descriptor, so))
         for (let i = 1; i < pageSize; i++) {
-            observedArray.push(createObservable(options, i, pager, descriptor, shallowCopyTo({}, vprops)))
+            // shallow copy the shared object
+            // TODO Object.assign({}, so)
+            observedArray.push(createObservable(options, i, pager, descriptor, shallowCopyTo({}, so)))
         }
 
         defp(pager, 'store', this)
@@ -410,7 +406,7 @@ export class PojoStore<T> {
                 if (previous_.vfbs) {
                     previous_.vfbs = 0
                     previous_.msg = null
-                    nullifyAll(current_.vprops)
+                    nullifyVprops(current_, options.descriptor)
                 } else if (previous_.msg) {
                     previous_.msg = null
                 }
