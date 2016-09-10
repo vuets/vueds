@@ -9,7 +9,6 @@ export declare const PREV_KEY: string;
 export declare const PREV_PAGE: string;
 export declare const PREV_VSTATE: string;
 export declare function shallowCopyTo<T>(target: T, src: T): T;
-export declare function nullifyAll(obj: any): void;
 export interface KeyHandler {
     inc(key: string): string;
     dec(key: string): string;
@@ -76,7 +75,6 @@ export interface StateObject {
     msg: string;
     vstate: number;
     vfbs: number;
-    vprops: any;
 }
 export interface PagerOptions<T> {
     desc: boolean;
@@ -94,6 +92,7 @@ export interface PagerOptions<T> {
     onRemoveArray?(array: Array<T>, main: boolean): any;
     onPopulate?(message: T, main: boolean, target: T, index: number): any;
 }
+export declare function nullifyVprops(so: StateObject, descriptor: any): StateObject | undefined;
 export declare class PojoStore<T> {
     private options;
     pager: Pager;
