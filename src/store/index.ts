@@ -128,7 +128,8 @@ export interface PagerOptions<T> {
     desc: boolean
     pageSize: number
     descriptor: any
-    keyProperty: string
+    keyProperty?: string
+    $keyProperty?: string
     kh?: KeyHandler
 
     /** create Pojo With Defaults */
@@ -185,6 +186,8 @@ function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pag
 export class PojoStore<T> {
 
     pager: Pager
+    private k: string
+    private $k: string
     private array: Array<T>
     private mainArray: Array<T>
 
@@ -193,6 +196,8 @@ export class PojoStore<T> {
     constructor(fetchedArray: Array<T>, private options: PagerOptions<T>) {
         this.mainArray = fetchedArray
         this.array = fetchedArray
+        this.k = options.keyProperty || '1'
+        this.$k = options.$keyProperty || 'key'
 
         let observedArray: Array<T> = [],
             descriptor = options.descriptor,
@@ -280,7 +285,7 @@ export class PojoStore<T> {
             options = this.options,
             descriptor = options.descriptor,
             fnMergeFrom = this.fnMergeFrom,
-            k = options.keyProperty
+            k = this.k
         
         if (size === 0) {
             if (!desc) {
@@ -385,7 +390,7 @@ export class PojoStore<T> {
         let pager = this.pager,
             prevKey = pager.prev_key,
             options = this.options,
-            k = options.keyProperty,
+            k = this.k,
             current_ = current['_']
         
         if (prevKey) {
@@ -682,7 +687,7 @@ export class PojoStore<T> {
         let updateLen = updateArray.length,
             populateLen = toPopulate.length,
             populatePages = page * populateLen,
-            k = options.keyProperty,
+            k = this.k,
             i = 0,
             removed = 0,
             idx = desc ? populatePages + i : size - populatePages - i - 1
@@ -798,7 +803,7 @@ export class PojoStore<T> {
             visibleItemCount = pageSize - remaining,
             first = toPopulate[0],
             // keyProperty initially applies to the non-observable pojo
-            key: string = first['key'] || first[options.keyProperty],
+            key: string = first[this.$k] || first[this.k],
             kh = options.kh
         
         // TODO set functions as object field
@@ -818,13 +823,13 @@ export class PojoStore<T> {
         if (this.isEmpty())
             return ds.ParamRangeKey.$create(true, toPopulate.length + 1)
         
-        return ds.ParamRangeKey.$create(false, toPopulate.length, this.get(0)[this.options.keyProperty])
+        return ds.ParamRangeKey.$create(false, toPopulate.length, this.get(0)[this.k])
     }
 
     newRangeKeyForLoadOlder(): ds.ParamRangeKey {
         let toPopulate = this.pager.array as Array<T>
 
-        return ds.ParamRangeKey.$create(true, toPopulate.length, this.get(this.size() - 1)[this.options.keyProperty])
+        return ds.ParamRangeKey.$create(true, toPopulate.length, this.get(this.size() - 1)[this.k])
     }
 
     requestNewer() {
