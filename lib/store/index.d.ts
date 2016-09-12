@@ -80,7 +80,8 @@ export interface PagerOptions<T> {
     desc: boolean;
     pageSize: number;
     descriptor: any;
-    keyProperty: string;
+    keyProperty?: string;
+    $keyProperty?: string;
     kh?: KeyHandler;
     /** create Pojo With Defaults */
     createObservable(so: StateObject): T;
@@ -96,6 +97,8 @@ export declare function nullifyVprops(so: StateObject, descriptor: any): StateOb
 export declare class PojoStore<T> {
     private options;
     pager: Pager;
+    private k;
+    private $k;
     private array;
     private mainArray;
     private fnMergeFrom;
