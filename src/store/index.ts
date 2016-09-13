@@ -161,11 +161,16 @@ export function nullifyVprops(so: StateObject, descriptor: any) {
 }
 
 function addVpropsTo(so: StateObject, descriptor: any): StateObject {
-    if (!descriptor.$fdf)
-        return so
-    
-    for (let k of descriptor.$fdf) {
-        so[k] = null
+    if (descriptor.$fdf) {
+        for (let k of descriptor.$fdf) {
+            so[k] = null
+        }
+    }
+
+    if (descriptor.$fdikf) {
+        for (let k of descriptor.$fdikf) {
+            so[k] = null
+        }
     }
     
     return so
