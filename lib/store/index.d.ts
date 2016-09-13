@@ -99,6 +99,7 @@ export declare class PojoStore<T> {
     pager: Pager;
     k: string;
     $k: string;
+    startObj: T;
     private array;
     private mainArray;
     private fnMergeFrom;
