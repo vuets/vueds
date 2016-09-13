@@ -10,7 +10,9 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/axios": "^0.9.31",
     "@types/vue": "^1.0.29",
+    "axios": "^0.13.1",
     "typescript": "^2.0.0",
     "vue": "^1.0.26"
   },
