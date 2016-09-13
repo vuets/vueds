@@ -107,6 +107,7 @@ export declare class PojoStore<T> {
     isEmpty(): boolean;
     size(): number;
     isMainArray(): boolean;
+    isSameArray(array: any): boolean;
     repaint(): number;
     populate(type: SelectionType, flags: SelectionFlags, idxSelected: number): number;
     $populate(type: SelectionType, flags: SelectionFlags, main: boolean, idxSelected: number, page: number): any;

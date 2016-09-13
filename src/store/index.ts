@@ -269,6 +269,10 @@ export class PojoStore<T> {
         return this.mainArray === this.array
     }
 
+    isSameArray(array) {
+        return this.mainArray === array
+    }
+
     repaint(): number {
         return this.$populate(SelectionType.RETAIN, 0, this.isMainArray(), -1, this.pager.page)
     }
