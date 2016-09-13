@@ -97,8 +97,8 @@ export declare function nullifyVprops(so: StateObject, descriptor: any): StateOb
 export declare class PojoStore<T> {
     private options;
     pager: Pager;
-    private k;
-    private $k;
+    k: string;
+    $k: string;
     private array;
     private mainArray;
     private fnMergeFrom;
