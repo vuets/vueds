@@ -191,8 +191,8 @@ function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pag
 export class PojoStore<T> {
 
     pager: Pager
-    private k: string
-    private $k: string
+    k: string
+    $k: string
     private array: Array<T>
     private mainArray: Array<T>
 
