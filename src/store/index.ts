@@ -193,6 +193,7 @@ export class PojoStore<T> {
     pager: Pager
     k: string
     $k: string
+    startObj: T
     private array: Array<T>
     private mainArray: Array<T>
 
@@ -815,6 +816,7 @@ export class PojoStore<T> {
             key: string = first[this.$k] || first[this.k],
             kh = options.kh
         
+        this.startObj = first
         // TODO set functions as object field
         var startKey: string
         if (kh) {
@@ -832,13 +834,17 @@ export class PojoStore<T> {
         if (this.isEmpty())
             return ds.ParamRangeKey.$create(true, toPopulate.length + 1)
         
-        return ds.ParamRangeKey.$create(false, toPopulate.length, this.get(0)[this.k])
+        let first = this.get(0)
+        this.startObj = first
+        return ds.ParamRangeKey.$create(false, toPopulate.length, first[this.k])
     }
 
     newRangeKeyForLoadOlder(): ds.ParamRangeKey {
-        let toPopulate = this.pager.array as Array<T>
+        let toPopulate = this.pager.array as Array<T>,
+            last = this.get(this.size() - 1)
 
-        return ds.ParamRangeKey.$create(true, toPopulate.length, this.get(this.size() - 1)[this.k])
+        this.startObj = last
+        return ds.ParamRangeKey.$create(true, toPopulate.length, last[this.k])
     }
 
     requestNewer() {
