@@ -136,7 +136,7 @@ export interface PagerOptions<T> {
     merge_fn?: MergeFn<T>
 
     /** create Pojo With Defaults */
-    createObservable(so: StateObject): T
+    createObservable(so: StateObject, idx: number): T
     fetch(req: ds.ParamRangeKey, pager: Pager)
     
     onSelect(message: T, flags: SelectionFlags): number
@@ -181,7 +181,7 @@ function addVpropsTo(so: StateObject, descriptor: any): StateObject {
 
 function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pager, 
     descriptor: any, so: any): T {
-    let p = options.createObservable(so)
+    let p = options.createObservable(so, index)
     p['_'] = so
     Object.defineProperties(p, {
         $d: { value: descriptor, enumerable: false, configurable: true },
