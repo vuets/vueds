@@ -1,6 +1,6 @@
 import * as Vue from 'vue'
 import * as numeral from 'numeral'
-import { regexInt, regexDouble, regexTime, regexDate, regexDateTime } from './util'
+import { regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc } from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 
 /**
@@ -381,7 +381,7 @@ function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: 
     let msg: string|null = null,
         v
     if (val) {
-        if (!regexDate.test(val) || !(v = isValidDateStr(val)))
+        if (!regexDate.test(val) || !(v = isValidDateStr(val)) || !(v = localToUtc(v)))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
@@ -405,7 +405,7 @@ function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, 
     let msg: string|null = null,
         v
     if (val) {
-        if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)))
+        if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)) || !(v = localToUtc(v)))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
