@@ -86,7 +86,7 @@ export interface PagerOptions<T> {
     kh?: KeyHandler;
     merge_fn?: MergeFn<T>;
     /** create Pojo With Defaults */
-    createObservable(so: StateObject): T;
+    createObservable(so: StateObject, idx: number): T;
     fetch(req: ds.ParamRangeKey, pager: Pager): any;
     onSelect(message: T, flags: SelectionFlags): number;
     onAdd?(message: T, main: boolean, latest: boolean): any;
