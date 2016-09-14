@@ -1,5 +1,7 @@
 import * as Vue from 'vue'
-import { regexInt, regexDouble } from './util'
+import * as numeral from 'numeral'
+import { regexInt, regexDouble, regexTime, regexDate, regexDateTime } from './util'
+import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 
 /**
  * Define a property that should not be observed by vue's vm.
@@ -280,6 +282,149 @@ function postValidate(message, f, fk, msg) {
         message_.vfbs = state
 }
 
+function validateString(val: string, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+    let msg: string|null = null
+    if (val) {
+        if (!fd.vfn || !(msg = fd.vfn(val)))
+            message[prop] = val
+    } else if (update) {
+        el.value = message[prop]
+    } else if (message[prop]) {
+        el.value = ''
+        message[prop] = null
+        msg = fd.$n + ' is required.'
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, f, fk, msg)
+    return msg
+}
+
+function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+    let msg: string|null = null
+    if (val) {
+        if (!regexDouble.test(val))
+            msg = fd.$n + ' is invalid.'
+        else if (!fd.vfn)
+            message[prop] = parseFloat(val)
+        else if (!(msg = fd.vfn(val = parseFloat(val))))
+            message[prop] = val
+    } else if (update) {
+        el.value = message[prop]
+    } else if (message[prop]) {
+        el.value = ''
+        message[prop] = null
+        msg = fd.$n + ' is required.'
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, f, fk, msg)
+    return msg
+}
+
+function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+    let msg: string|null = null
+    if (val) {
+        if (!regexInt.test(val))
+            msg = fd.$n + ' is invalid.'
+        else if (!fd.vfn)
+            message[prop] = parseInt(val, 10)
+        else if (!(msg = fd.vfn(val = parseInt(val, 10))))
+            message[prop] = val
+    } else if (update) {
+        el.value = message[prop]
+    } else if (message[prop]) {
+        el.value = ''
+        message[prop] = null
+        msg = fd.$n + ' is required.'
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, f, fk, msg)
+    return msg
+}
+
+function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+    let msg: string|null = null,
+        v
+    if (val) {
+        if (!regexTime.test(val) || 86399 < (v = numeral().unformat(val.length <= 5 ? (val + ':00') : val)))
+            msg = fd.$n + ' is invalid.'
+        else if (!fd.vfn || !(msg = fd.vfn(v)))
+            message[prop] = v
+    } else if (update) {
+        el.value = formatTime(message[prop])
+    } else if (message[prop]) {
+        el.value = ''
+        message[prop] = null
+        msg = fd.$n + ' is required.'
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, f, fk, msg)
+    return msg
+}
+
+function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+    let msg: string|null = null,
+        v
+    if (val) {
+        if (!regexDate.test(val) || !(v = isValidDateStr(val)))
+            msg = fd.$n + ' is invalid.'
+        else if (!fd.vfn || !(msg = fd.vfn(v)))
+            message[prop] = v
+    } else if (update) {
+        el.value = formatDate(message[prop])
+    } else if (message[prop]) {
+        el.value = ''
+        message[prop] = null
+        msg = fd.$n + ' is required.'
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, f, fk, msg)
+    return msg
+}
+
+function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+    let msg: string|null = null,
+        v
+    if (val) {
+        if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)))
+            msg = fd.$n + ' is invalid.'
+        else if (!fd.vfn || !(msg = fd.vfn(v)))
+            message[prop] = v
+    } else if (update) {
+        el.value = formatDateTime(message[prop])
+    } else if (message[prop]) {
+        el.value = ''
+        message[prop] = null
+        msg = fd.$n + ' is required.'
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, f, fk, msg)
+    return msg
+}
+
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
@@ -296,77 +441,40 @@ export function $change(event, message, field: string|number, update: boolean): 
         prop = fd.$ || fk,
         el = event.target,
         msg: string|null = null,
-        pv = true,
         val
     
     switch (fd.t) {
         case FieldType.BOOL:
             message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
+            postValidate(message, f, fk, msg)
             break
         case FieldType.ENUM:
             val = el.value
             message[prop] = !val.length ? null : parseInt(val, 10)
+            postValidate(message, f, fk, msg)
             break
         case FieldType.STRING:
-            if ((val = el.value.trim())) {
-                if (!fd.vfn || !(msg = fd.vfn(val)))
-                    message[prop] = val
-            } else if (update) {
-                el.value = message[prop]
-            } else if (message[prop]) {
-                el.value = ''
-                message[prop] = null
-                msg = fd.$n + ' is required.'
-            } else if (el.value) {
-                // remove whitespace
-                el.value = ''
-                pv = false
-            }
+            msg = validateString(el.value.trim(), fd, f, fk, message, prop, el, update)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
-            if ((val = el.value.trim())) {
-                if (!regexDouble.test(val))
-                    msg = fd.$n + ' is invalid.'
-                else if (!fd.vfn)
-                    message[prop] = parseFloat(val)
-                else if (!(msg = fd.vfn(val = parseFloat(val))))
-                    message[prop] = val
-            } else if (update) {
-                el.value = message[prop]
-            } else if (message[prop]) {
-                el.value = ''
-                message[prop] = null
-                msg = fd.$n + ' is required.'
-            } else if (el.value) {
-                // remove whitespace
-                el.value = ''
-                pv = false
-            }
+            msg = validateFloat(el.value.trim(), fd, f, fk, message, prop, el, update)
             break
         default:
-            if ((val = el.value.trim())) {
-                if (!regexInt.test(val))
-                    msg = fd.$n + ' is invalid.'
-                else if (!fd.vfn)
-                    message[prop] = parseInt(val, 10)
-                else if (!(msg = fd.vfn(val = parseInt(val, 10))))
-                    message[prop] = val
-            } else if (update) {
-                el.value = message[prop]
-            } else if (message[prop]) {
-                el.value = ''
-                message[prop] = null
-                msg = fd.$n + ' is required.'
-            } else if (el.value) {
-                // remove whitespace
-                el.value = ''
-                pv = false
+            switch (fd.o || 0) {
+                case 1: // time
+                    msg = validateTime(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    break
+                case 2: // date
+                    msg = validateDate(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    break
+                case 4: // datetime
+                    msg = validateDateTime(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    break
+                default:
+                    msg = validateInt(el.value.trim(), fd, f, fk, message, prop, el, update)
             }
     }
-
-    if (pv)
-        postValidate(message, f, fk, msg)
     
     return msg
 }
