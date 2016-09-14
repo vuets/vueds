@@ -124,6 +124,8 @@ export interface StateObject {
     vfbs: number
 }
 
+export type MergeFn<T> = (src: any, descriptor: any, target: T) => T
+
 export interface PagerOptions<T> {
     desc: boolean
     pageSize: number
@@ -131,6 +133,7 @@ export interface PagerOptions<T> {
     keyProperty?: string
     $keyProperty?: string
     kh?: KeyHandler
+    merge_fn?: MergeFn<T>
 
     /** create Pojo With Defaults */
     createObservable(so: StateObject): T
@@ -197,7 +200,7 @@ export class PojoStore<T> {
     private array: Array<T>
     private mainArray: Array<T>
 
-    private fnMergeFrom: (src: any, descriptor: any, target: T) => any
+    private fnMergeFrom: MergeFn<T>
 
     constructor(fetchedArray: Array<T>, private options: PagerOptions<T>) {
         this.mainArray = fetchedArray
@@ -213,7 +216,7 @@ export class PojoStore<T> {
             remaining = pageSize > size ? pageSize - size : 0,
             pager: Pager
         
-        this.fnMergeFrom = descriptor.$ ? mergeVmFrom : shallowCopyFrom
+        this.fnMergeFrom = options.merge_fn || (descriptor.$ ? mergeVmFrom : shallowCopyFrom)
         
         this.pager = pager = {
             size: size,
