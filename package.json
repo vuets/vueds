@@ -9,6 +9,10 @@
   "scripts": {
     "build": "tsc"
   },
+  "dependencies": {
+    "@types/numeral": "0.0.16",
+    "numeral": "^1.5.3"
+  },
   "devDependencies": {
     "@types/axios": "^0.9.31",
     "@types/vue": "^1.0.29",
