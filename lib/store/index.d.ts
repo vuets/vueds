@@ -78,13 +78,14 @@ export interface StateObject {
 }
 export declare type MergeFn<T> = (src: any, descriptor: any, target: T) => T;
 export interface PagerOptions<T> {
-    desc: boolean;
     pageSize: number;
     descriptor: any;
+    desc?: boolean;
     keyProperty?: string;
     $keyProperty?: string;
     kh?: KeyHandler;
     merge_fn?: MergeFn<T>;
+    page?(next: boolean, pager: Pager): any;
     /** create Pojo With Defaults */
     createObservable(so: StateObject, idx: number): T;
     fetch(req: ds.ParamRangeKey, pager: Pager): any;
@@ -97,7 +98,7 @@ export interface PagerOptions<T> {
 }
 export declare function nullifyVprops(so: StateObject, descriptor: any): StateObject | undefined;
 export declare class PojoStore<T> {
-    private options;
+    options: PagerOptions<T>;
     pager: Pager;
     k: string;
     $k: string;
