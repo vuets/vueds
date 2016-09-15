@@ -127,13 +127,14 @@ export interface StateObject {
 export type MergeFn<T> = (src: any, descriptor: any, target: T) => T
 
 export interface PagerOptions<T> {
-    desc: boolean
     pageSize: number
     descriptor: any
+    desc?: boolean
     keyProperty?: string
     $keyProperty?: string
     kh?: KeyHandler
     merge_fn?: MergeFn<T>
+    page?(next: boolean, pager: Pager)
 
     /** create Pojo With Defaults */
     createObservable(so: StateObject, idx: number): T
@@ -202,7 +203,7 @@ export class PojoStore<T> {
 
     private fnMergeFrom: MergeFn<T>
 
-    constructor(fetchedArray: Array<T>, private options: PagerOptions<T>) {
+    constructor(fetchedArray: Array<T>, public options: PagerOptions<T>) {
         this.mainArray = fetchedArray
         this.array = fetchedArray
         this.k = options.keyProperty || '1'
@@ -851,20 +852,34 @@ export class PojoStore<T> {
     }
 
     requestNewer() {
-        let pager = this.pager
+        let pager = this.pager,
+            pageFn = this.options.page
+        if (pageFn) {
+            pageFn(!this.options.desc, pager)
+            return
+        }
+
         $bit_clear_and_set(pager, STATE, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.LOAD_NEWER)
         this.options.fetch(this.newRangeKeyForLoadNewer(), pager)
     }
 
     requestOlder() {
-        let pager = this.pager
+        let pager = this.pager,
+            pageFn = this.options.page
+        if (pageFn) {
+            pageFn(!!this.options.desc, pager)
+            return
+        }
+
         $bit_clear_and_set(pager, STATE, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.LOAD_OLDER)
         this.options.fetch(this.newRangeKeyForLoadOlder(), pager)
     }
 
     reload() {
+        if (this.options.page) return
+
         let pager = this.pager
         $bit_clear_and_set(pager, STATE, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.RELOAD)
@@ -890,7 +905,13 @@ export class PojoStore<T> {
     }
 
     pagePrevOrLoad(flags: number): number {
-        let pager = this.pager
+        let pager = this.pager,
+            pageFn = this.options.page
+        if (pageFn) {
+            pageFn(false, pager)
+            return EventFlags.PREVENT_BOTH
+        }
+
         if (pager.page) {
             // goto previous
             //e.preventDefault()
@@ -919,7 +940,13 @@ export class PojoStore<T> {
 
     pageNextOrLoad(flags: number): number {
         let pager = this.pager,
-            page = pager.page
+            pageFn = this.options.page
+        if (pageFn) {
+            pageFn(true, pager)
+            return EventFlags.PREVENT_BOTH
+        }
+
+        let page = pager.page
         if (page < pager.page_count) {
             // goto next
             //e.preventDefault()
