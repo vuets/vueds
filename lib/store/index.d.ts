@@ -115,7 +115,7 @@ export declare class PojoStore<T> {
     repaint(): number;
     populate(type: SelectionType, flags: SelectionFlags, idxSelected: number): number;
     $populate(type: SelectionType, flags: SelectionFlags, main: boolean, idxSelected: number, page: number): any;
-    select(current: T, flags: SelectionFlags, idx: number): number;
+    select(current: T, flags: SelectionFlags, idx?: number): number;
     $select(current: T, flags: SelectionFlags, idx: number, page: number, selectWithoutPopulate: boolean): number;
     populateAndSelect(storeIdx: number, flags: SelectionFlags): void;
     notifyAndSelect(storeIdx: number, flags: SelectionFlags): void;
