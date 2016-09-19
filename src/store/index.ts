@@ -436,8 +436,12 @@ export class PojoStore<T> {
                 // state intentionally not modified
             }
 
-            if (same)
+            if (same) {
+                if (selectWithoutPopulate && (flags & SelectionFlags.FORCE))
+                    current_.lstate = PojoListState.INCLUDED | PojoListState.SELECTED
+                
                 return options.onSelect(current, flags)
+            }
 
             if (!sameSlot) {
                 if (selectWithoutPopulate)
