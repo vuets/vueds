@@ -392,10 +392,11 @@ export class PojoStore<T> {
         return 0
     }
 
-    select(current: T, flags: SelectionFlags, idx: number): number {
-        let pager = this.pager
-        pager.index_selected = idx
-        return this.$select(current, flags, idx, pager.page, true)
+    select(current: T, flags: SelectionFlags, idx?: number): number {
+        let pager = this.pager,
+            index = idx !== undefined ? idx : current['$index']
+        pager.index_selected = index
+        return this.$select(current, flags, index, pager.page, true)
     }
 
     $select(current: T, flags: SelectionFlags, idx: number,
