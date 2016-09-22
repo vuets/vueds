@@ -199,7 +199,7 @@ export function isValidScriptAssert(value: string): boolean {
     return true
 }
 
-export function isValidSize(value: any[], min: number, max: number): boolean {
+export function isValidSize(value: any[]|string, min: number, max: number): boolean {
     let length = value.length
     return length >= min && length <= max
 }
