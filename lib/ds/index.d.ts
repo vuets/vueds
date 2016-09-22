@@ -1,5 +1,6 @@
-import { MultiCAS } from '../';
+import mc_ from './mc';
 export declare namespace ds {
+    export import MultiCAS = mc_;
     /**
      *
      * message ParamId {

@@ -1,3 +1,4 @@
+import { MultiCAS } from './ds/mc';
 /**
  * Define a property that should not be observed by vue's vm.
  * Returns the value
@@ -42,14 +43,6 @@ export declare const enum EventFlags {
     PREVENT_PROPAGATION = 2,
     PREVENT_BOTH = 3,
     CAPTURING = 4,
-}
-export interface MultiCAS {
-}
-export declare namespace MultiCAS {
-    function $createObservable(): MultiCAS;
-    function $create(): MultiCAS;
-    function $stringify(obj: any): string;
-    const $descriptor: {};
 }
 export interface KV {
     k: string;
