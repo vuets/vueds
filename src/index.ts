@@ -2,6 +2,7 @@ import * as Vue from 'vue'
 import * as numeral from 'numeral'
 import { regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc } from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
+import { MultiCAS } from './ds/mc'
 
 /**
  * Define a property that should not be observed by vue's vm.
@@ -64,29 +65,12 @@ export const enum EventFlags {
     CAPTURING = 4
 }
 
-export interface MultiCAS {
-
-}
-export namespace MultiCAS {
-    export function $createObservable(): MultiCAS {
-        return {}
-    }
-    export function $create(): MultiCAS {
-        return {}
-    }
-    export function $stringify(obj: any): string {
-        return ''
-    }
-    export const $descriptor = {
-
-    }
-}
-
 export interface KV {
     k: string
     v: any
 }
 
+// TODO
 export function escapeValue(v: string): string {
     return v
 }
