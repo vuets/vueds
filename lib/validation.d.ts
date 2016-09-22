@@ -25,4 +25,4 @@ export declare function isValidPast(value: number, min?: number, max?: number): 
 export declare function isValidPattern(value: string, pattern: RegExp): boolean;
 export declare function isValidSafeHtml(value: string): boolean;
 export declare function isValidScriptAssert(value: string): boolean;
-export declare function isValidSize(value: any[], min: number, max: number): boolean;
+export declare function isValidSize(value: any[] | string, min: number, max: number): boolean;
