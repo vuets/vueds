@@ -103,8 +103,8 @@ export declare class PojoStore<T> {
     k: string;
     $k: string;
     startObj: T;
-    private array;
-    private mainArray;
+    array: Array<T>;
+    mainArray: Array<T>;
     private fnMergeFrom;
     constructor(fetchedArray: Array<T>, options: PagerOptions<T>);
     getLastSeenObj(): T | null;

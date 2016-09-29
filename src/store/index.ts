@@ -198,8 +198,8 @@ export class PojoStore<T> {
     k: string
     $k: string
     startObj: T
-    private array: Array<T>
-    private mainArray: Array<T>
+    array: Array<T>
+    mainArray: Array<T>
 
     private fnMergeFrom: MergeFn<T>
 
