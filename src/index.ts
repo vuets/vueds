@@ -100,7 +100,8 @@ export function initObservable<T>(target: T, descriptor: any, update?: boolean):
         state: 0,
         msg: '',
         vstate: 0,
-        vfbs: 0
+        vfbs: 0,
+        rfbs: 0
     }, descriptor, update ? null : target)
 
     defp(target, '$d', descriptor)
@@ -246,26 +247,31 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
 // =====================================
 // event handling
 
-function postValidate(message, f, fk, msg) {
+function postValidate(message, fd, f, fk, msg) {
     let message_ = message._,
         state = message_.state,
-        vfbs = message_.vfbs
+        vfbs = message_.vfbs,
+        rfbs = message_.rfbs,
+        required = fd.t === 2,
+        flag = 1 << (f - 1)
     
     message_[fk] = msg
-
+    
     if (!(state & PojoState.UPDATE))
         message_.state = state | PojoState.UPDATE
-
-    // reuse state var
-    if (msg)
-        state = vfbs | (1 << --f)
-    else
-        state = vfbs & (~(1 << --f) & 0x7fffffff)
-
-    if (vfbs !== state)
-        message_.vfbs = state
+    
+    if (msg) {
+        if (!(vfbs & flag))
+            message_.vfbs |= flag
+        if (required && (rfbs & flag))
+            message_.rfbs ^= flag
+    } else {
+        if (vfbs & flag)
+            message_.vfbs ^= flag
+        if (required && !(rfbs & flag))
+            message_.rfbs |= flag
+    }
 }
-
 function validateString(val: string, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
     let msg: string|null = null
     if (val) {
@@ -283,7 +289,7 @@ function validateString(val: string, fd: any, f, fk, message: any, prop: string,
         return msg
     }
 
-    postValidate(message, f, fk, msg)
+    postValidate(message, fd, f, fk, msg)
     return msg
 }
 
@@ -308,7 +314,7 @@ function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el:
         return msg
     }
 
-    postValidate(message, f, fk, msg)
+    postValidate(message, fd, f, fk, msg)
     return msg
 }
 
@@ -333,7 +339,7 @@ function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: a
         return msg
     }
 
-    postValidate(message, f, fk, msg)
+    postValidate(message, fd, f, fk, msg)
     return msg
 }
 
@@ -357,7 +363,7 @@ function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: 
         return msg
     }
 
-    postValidate(message, f, fk, msg)
+    postValidate(message, fd, f, fk, msg)
     return msg
 }
 
@@ -381,7 +387,7 @@ function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: 
         return msg
     }
 
-    postValidate(message, f, fk, msg)
+    postValidate(message, fd, f, fk, msg)
     return msg
 }
 
@@ -405,7 +411,7 @@ function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, 
         return msg
     }
 
-    postValidate(message, f, fk, msg)
+    postValidate(message, fd, f, fk, msg)
     return msg
 }
 
@@ -430,12 +436,12 @@ export function $change(event, message, field: string|number, update: boolean): 
     switch (fd.t) {
         case FieldType.BOOL:
             message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
-            postValidate(message, f, fk, msg)
+            postValidate(message, fd, f, fk, msg)
             break
         case FieldType.ENUM:
             val = el.value
             message[prop] = !val.length ? null : parseInt(val, 10)
-            postValidate(message, f, fk, msg)
+            postValidate(message, fd, f, fk, msg)
             break
         case FieldType.STRING:
             msg = validateString(el.value.trim(), fd, f, fk, message, prop, el, update)
