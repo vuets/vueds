@@ -244,6 +244,33 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
     return diffed
 }
 
+export function verifyFormFields(message: any, descriptor: any): boolean {
+    let message_ = message._,
+        rfbs,
+        fmf,
+        fd
+    
+    if (message_.vfbs)
+        return false
+    
+    if ((rfbs = descriptor.$rfbs) && rfbs !== message_.rfbs) {
+        if (!message_.msg)
+            message_.msg = 'All the required fields must be provided.'
+        return false
+    }
+    
+    if (!(fmf = descriptor.$fmf))
+        return true
+    
+    for (let fk of fmf) {
+        fd = descriptor[fk]
+        if (!verifyFormFields(message[fd.$ || fk], fd.d_fn()))
+            return false
+    }
+
+    return true
+}
+
 // =====================================
 // event handling
 
