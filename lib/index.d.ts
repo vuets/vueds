@@ -57,6 +57,7 @@ export declare function diffFieldTo<T>(mc: MultiCAS, descriptor: any, original: 
 export declare function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[];
 export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T, field: string | number): boolean;
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[];
+export declare function verifyFormFields(message: any, descriptor: any): boolean;
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
