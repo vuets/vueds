@@ -1,6 +1,9 @@
 import * as Vue from 'vue'
 import * as numeral from 'numeral'
-import { regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc } from './util'
+import {
+    regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc,
+    $bit_clear_and_set, $bit_unset
+} from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 import { MultiCAS } from './ds/mc'
 
@@ -259,8 +262,10 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
     }
 
     if (message_.vfbs) {
-        if (root_.msg)
+        if (root_.msg) {
+            $bit_unset(root_, 'state', PojoState.MASK_STATUS)
             root_.msg = ''
+        }
         
         return false
     }
@@ -277,7 +282,7 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
         return true
     
     if (!root_.msg) {
-        root_.state |= PojoState.ERROR
+        $bit_clear_and_set(root_, 'state', PojoState.MASK_STATUS, PojoState.ERROR)
         root_.msg = 'All required fields must be provided.'
     }
     
@@ -287,8 +292,9 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
 // =====================================
 // event handling
 
-function postValidate(message, fd, f, fk, msg) {
+function postValidate(message, fd, f, fk, msg, root: any) {
     let message_ = message._,
+        root_ = root._,
         state = message_.state,
         vfbs = message_.vfbs,
         rfbs = message_.rfbs,
@@ -311,8 +317,13 @@ function postValidate(message, fd, f, fk, msg) {
         if (required && !(rfbs & flag))
             message_.rfbs |= flag
     }
+
+    if (root_.msg) {
+        $bit_unset(root_, 'state', PojoState.MASK_STATUS)
+        root_.msg = ''
+    }
 }
-function validateString(val: string, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+function validateString(val: string, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null
     if (val) {
         if (!fd.vfn || !(msg = fd.vfn(val)))
@@ -329,11 +340,11 @@ function validateString(val: string, fd: any, f, fk, message: any, prop: string,
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg)
+    postValidate(message, fd, f, fk, msg, root)
     return msg
 }
 
-function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null
     if (val) {
         if (!regexDouble.test(val))
@@ -354,11 +365,11 @@ function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el:
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg)
+    postValidate(message, fd, f, fk, msg, root)
     return msg
 }
 
-function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null
     if (val) {
         if (!regexInt.test(val))
@@ -379,11 +390,11 @@ function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: a
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg)
+    postValidate(message, fd, f, fk, msg, root)
     return msg
 }
 
-function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         v
     if (val) {
@@ -403,11 +414,11 @@ function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg)
+    postValidate(message, fd, f, fk, msg, root)
     return msg
 }
 
-function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         v
     if (val) {
@@ -427,11 +438,11 @@ function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg)
+    postValidate(message, fd, f, fk, msg, root)
     return msg
 }
 
-function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean): string|null {
+function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         v
     if (val) {
@@ -451,14 +462,14 @@ function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg)
+    postValidate(message, fd, f, fk, msg, root)
     return msg
 }
 
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
-export function $change(event, message, field: string|number, update: boolean): string|null {
+export function $change(e, message: any, field: string|number, update: boolean, root: any): string|null {
     let d = message['$d'],
         $ = d.$,
         fk = $ && isNaN(field as any) ? $[field] : String(field),
@@ -469,40 +480,40 @@ export function $change(event, message, field: string|number, update: boolean): 
     
     let f = fd._,
         prop = fd.$ || fk,
-        el = event.target,
+        el = e.target,
         msg: string|null = null,
         val
     
     switch (fd.t) {
         case FieldType.BOOL:
             message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
-            postValidate(message, fd, f, fk, msg)
+            postValidate(message, fd, f, fk, msg, root)
             break
         case FieldType.ENUM:
             val = el.value
             message[prop] = !val.length ? null : parseInt(val, 10)
-            postValidate(message, fd, f, fk, msg)
+            postValidate(message, fd, f, fk, msg, root)
             break
         case FieldType.STRING:
-            msg = validateString(el.value.trim(), fd, f, fk, message, prop, el, update)
+            msg = validateString(el.value.trim(), fd, f, fk, message, prop, el, update, root)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
-            msg = validateFloat(el.value.trim(), fd, f, fk, message, prop, el, update)
+            msg = validateFloat(el.value.trim(), fd, f, fk, message, prop, el, update, root)
             break
         default:
             switch (fd.o || 0) {
                 case 1: // time
-                    msg = validateTime(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    msg = validateTime(el.value.trim(), fd, f, fk, message, prop, el, update, root)
                     break
                 case 2: // date
-                    msg = validateDate(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    msg = validateDate(el.value.trim(), fd, f, fk, message, prop, el, update, root)
                     break
                 case 4: // datetime
-                    msg = validateDateTime(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    msg = validateDateTime(el.value.trim(), fd, f, fk, message, prop, el, update, root)
                     break
                 default:
-                    msg = validateInt(el.value.trim(), fd, f, fk, message, prop, el, update)
+                    msg = validateInt(el.value.trim(), fd, f, fk, message, prop, el, update, root)
             }
     }
     
