@@ -298,7 +298,7 @@ function postValidate(message, fd, f, fk, msg, root: any) {
         state = message_.state,
         vfbs = message_.vfbs,
         rfbs = message_.rfbs,
-        required = fd.t === 2,
+        required = fd.m === 2,
         flag = 1 << (f - 1)
     
     message_[fk] = msg
