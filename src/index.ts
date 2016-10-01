@@ -244,31 +244,44 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
     return diffed
 }
 
-export function verifyFormFields(message: any, descriptor: any): boolean {
+export function verifyFormFields(message: any, descriptor: any, root?: any): boolean {
     let message_ = message._,
+        root_,
         rfbs,
         fmf,
         fd
     
-    if (message_.vfbs)
-        return false
-    
-    if ((rfbs = descriptor.$rfbs) && rfbs !== message_.rfbs) {
-        if (!message_.msg)
-            message_.msg = 'All the required fields must be provided.'
-        return false
-    }
-    
-    if (!(fmf = descriptor.$fmf))
-        return true
-    
-    for (let fk of fmf) {
-        fd = descriptor[fk]
-        if (!verifyFormFields(message[fd.$ || fk], fd.d_fn()))
-            return false
+    if (root) {
+        root_ = root._
+    } else {
+        root = message
+        root_ = message_
     }
 
-    return true
+    if (message_.vfbs) {
+        if (root_.msg)
+            root_.msg = ''
+        
+        return false
+    }
+
+    if ((fmf = descriptor.$fmf)) {
+        for (let fk of fmf) {
+            fd = descriptor[fk]
+            if (!verifyFormFields(message[fd.$ || fk], fd.d_fn()), root)
+                return false
+        }
+    }
+
+    if (!(rfbs = descriptor.$rfbs) || rfbs === message_.rfbs)
+        return true
+    
+    if (!root_.msg) {
+        root_.state |= PojoState.ERROR
+        root_.msg = 'All required fields must be provided.'
+    }
+    
+    return false
 }
 
 // =====================================
