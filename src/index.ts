@@ -333,7 +333,7 @@ function validateString(val: string, fd: any, f, fk, message: any, prop: string,
     } else if (message[prop]) {
         el.value = ''
         message[prop] = null
-        msg = fd.$n + ' is required.'
+        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
@@ -358,7 +358,7 @@ function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el:
     } else if (message[prop]) {
         el.value = ''
         message[prop] = null
-        msg = fd.$n + ' is required.'
+        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
@@ -383,7 +383,7 @@ function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: a
     } else if (message[prop]) {
         el.value = ''
         message[prop] = null
-        msg = fd.$n + ' is required.'
+        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
@@ -407,7 +407,7 @@ function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: 
     } else if (message[prop]) {
         el.value = ''
         message[prop] = null
-        msg = fd.$n + ' is required.'
+        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
@@ -431,7 +431,7 @@ function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: 
     } else if (message[prop]) {
         el.value = ''
         message[prop] = null
-        msg = fd.$n + ' is required.'
+        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
@@ -455,7 +455,7 @@ function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, 
     } else if (message[prop]) {
         el.value = ''
         message[prop] = null
-        msg = fd.$n + ' is required.'
+        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
