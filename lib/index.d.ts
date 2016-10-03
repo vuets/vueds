@@ -37,6 +37,16 @@ export declare const enum PojoState {
     UPDATE = 16,
     MASK_STATUS = 7,
 }
+/**
+ * Pojo state object.
+ */
+export interface PojoSO {
+    state: number;
+    msg: string;
+    vstate: number;
+    vfbs: number;
+    rfbs: number;
+}
 export declare const enum EventFlags {
     PREVENT_NONE = 0,
     PREVENT_DEFAULT = 1,
