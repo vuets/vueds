@@ -289,12 +289,19 @@ out[0xfffb] = '\\ufffb' // Intralinear annotation terminator
 
 const regexEscape = /[\x00-\x1f\xad\u0600-\u0603\u06dd\u070f\u17b4\u17b5\u200b-\u200f\u2028-\u202e\u2060-\u2064\u206a-\u206f\ufeff\ufff9-\ufffb"\\]/g
 
-function escapeCharacter(c: string): string {
+function escapeChar(c: string): string {
     return out[c.charCodeAt(0)] || c
 }
 
-export function escape(str: string): string {
-    return str.replace(regexEscape, escapeCharacter)
+export function $escape(str: string): string {
+    return str.replace(regexEscape, escapeChar)
+}
+
+/**
+ * Returns a double-quoted string for json.
+ */
+export function escapeValue(v: string): string {
+    return '"' + $escape(v) + '"'
 }
 
 // =====================================
