@@ -2,7 +2,7 @@ import * as Vue from 'vue'
 import * as numeral from 'numeral'
 import {
     regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc,
-    $bit_clear_and_set, $bit_unset
+    bit_clear_and_set, $bit_clear_and_set, $bit_unset
 } from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 import { MultiCAS } from './ds/mc'
@@ -310,6 +310,44 @@ export function clearFormFields(message: any, descriptor: any) {
         fd = descriptor[fk]
         clearFormFields(message[fd.$ || fk], fd.d_fn())
     }
+}
+
+export function formPrepare(pojo: any) {
+    let pojo_ = pojo['_'] as PojoSO,
+        state = pojo_.state
+    
+    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, pojo['$d']))
+        return false
+    
+    pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
+    pojo_.msg = ''
+
+    return true
+}
+
+export function formSuccess(pojo: any, update?: boolean) {
+    let pojo_ = pojo['_'] as PojoSO
+    
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
+    pojo_.msg = 'Successful.'
+    
+    if (!update)
+        clearFormFields(pojo, pojo['$d'])
+}
+
+export function formFailed(pojo: any, errmsg: any) {
+    let pojo_ = pojo['_'] as PojoSO
+    
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
+    pojo_.msg = String(errmsg)
+}
+
+function cbFormFailed(errmsg: any) {
+    formFailed(this, errmsg)
+}
+
+export function bindFormFailed(pojo: any): any {
+    return cbFormFailed.bind(pojo)
 }
 
 // =====================================
