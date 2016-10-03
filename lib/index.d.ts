@@ -68,6 +68,10 @@ export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[];
 export declare function verifyFormFields(message: any, descriptor: any, root?: any): boolean;
 export declare function clearFormFields(message: any, descriptor: any): void;
+export declare function formPrepare(pojo: any): boolean;
+export declare function formSuccess(pojo: any, update?: boolean): void;
+export declare function formFailed(pojo: any, errmsg: any): void;
+export declare function bindFormFailed(pojo: any): any;
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
