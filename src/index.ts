@@ -2,10 +2,17 @@ import * as Vue from 'vue'
 import * as numeral from 'numeral'
 import {
     regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc,
-    $bit_clear_and_set, $bit_unset
+    $bit_clear_and_set, $bit_unset, escape
 } from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 import { MultiCAS } from './ds/mc'
+
+/**
+ * Returns a double-quoted string for json.
+ */
+export function escapeValue(v: string): string {
+    return '"' + escape(v) + '"'
+}
 
 /**
  * Define a property that should not be observed by vue's vm.
@@ -71,11 +78,6 @@ export const enum EventFlags {
 export interface KV {
     k: string
     v: any
-}
-
-// TODO
-export function escapeValue(v: string): string {
-    return v
 }
 
 function addVpropsTo<T>(so: T, descriptor: any, owner: any): T {
