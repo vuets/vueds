@@ -1,9 +1,5 @@
 import { MultiCAS } from './ds/mc';
 /**
- * Returns a double-quoted string for json.
- */
-export declare function escapeValue(v: string): string;
-/**
  * Define a property that should not be observed by vue's vm.
  * Returns the value
  */

@@ -30,7 +30,11 @@ export declare function isKey(key: string, kind?: number): boolean;
 export declare function getTs(key: string): number;
 export declare function incrementKey(key: string): string;
 export declare function decrementKey(key: string): string;
-export declare function escape(str: string): string;
+export declare function $escape(str: string): string;
+/**
+ * Returns a double-quoted string for json.
+ */
+export declare function escapeValue(v: string): string;
 /**
  * Used by generated code.
  */
