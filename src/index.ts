@@ -284,6 +284,23 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
     return false
 }
 
+export function clearFormFields(message: any, descriptor: any) {
+    var fmf, fd
+
+    for (let fk of descriptor.$fdf) {
+        fd = descriptor[fk]
+        message[fd.$ || fk] = null
+    }
+    
+    if (!(fmf = descriptor.$fmf))
+        return
+    
+    for (let fk of fmf) {
+        fd = descriptor[fk]
+        clearFormFields(message[fd.$ || fk], fd.d_fn())
+    }
+}
+
 // =====================================
 // event handling
 
