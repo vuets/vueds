@@ -171,5 +171,6 @@ export declare class PojoStore<T> {
     $$reload(pager: Pager): void;
     $$notify(): void;
     cbFetchSuccess(array: Array<T>): void;
-    cbFetchFailed(err: any): void;
+    cbFetchFailed(errmsg: any): void;
 }
+export declare function bindFetchFailed(pstore: PojoStore<any>): any;
