@@ -1023,6 +1023,7 @@ export class PojoStore<T> {
 
 function fetchSuccess(this: PojoStore<any>, data: any) {
     this.cbFetchSuccess(data['1'])
+    return true
 }
 
 function fetchFailed(this: PojoStore<any>, errmsg: any) {
