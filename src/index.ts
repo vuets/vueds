@@ -60,6 +60,17 @@ export const enum PojoState {
     MASK_STATUS = SUCCESS | ERROR | WARNING
 }
 
+/**
+ * Pojo state object.
+ */
+export interface PojoSO {
+    state: number
+    msg: string
+    vstate: number
+    vfbs: number
+    rfbs: number
+}
+
 export const enum EventFlags {
     PREVENT_NONE = 0,
     PREVENT_DEFAULT = 1,
