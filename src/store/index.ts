@@ -1021,8 +1021,16 @@ export class PojoStore<T> {
     }
 }
 
+function fetchSuccess(this: PojoStore<any>, data: any) {
+    this.cbFetchSuccess(data['1'])
+}
+
 function fetchFailed(this: PojoStore<any>, errmsg: any) {
     this.cbFetchFailed(errmsg)
+}
+
+export function bindFetchSuccess(pstore: PojoStore<any>): any {
+    return fetchSuccess.bind(pstore)
 }
 
 export function bindFetchFailed(pstore: PojoStore<any>): any {
