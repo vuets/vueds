@@ -173,4 +173,5 @@ export declare class PojoStore<T> {
     cbFetchSuccess(array: Array<T>): void;
     cbFetchFailed(errmsg: any): void;
 }
+export declare function bindFetchSuccess(pstore: PojoStore<any>): any;
 export declare function bindFetchFailed(pstore: PojoStore<any>): any;
