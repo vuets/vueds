@@ -1,21 +1,34 @@
 export const hasOwnProperty = Object.prototype.hasOwnProperty
 export function noop() { return null }
 
-export function $is_set(state: number, value: number): boolean {
-    return 0 !== (value & state)
+/**
+ * Returns the new state.
+ */
+export function bit_unset(state: number, value: number) {
+    return state & (~value & 2147483647)
 }
 
+/**
+ * Sets the new state.
+ */
 export function $bit_unset(obj: any, name: string, value: number) {
-    obj[name] &= ~value & 2147483647
+    obj[name] &= (~value & 2147483647)
 }
 
-export function $bit_toggle(obj: any, name: string, value: number) {
-    obj[name] = value ^ obj[name]
+/**
+ * Returns the new state.
+ */
+export function bit_clear_and_set(state: number, clear: number, set: number) {
+    return set | (state & (~clear & 2147483647))
 }
 
+/**
+ * Sets the new state.
+ */
 export function $bit_clear_and_set(obj: any, name: string, clear: number, set: number) {
-    obj[name] = set | (~clear & 2147483647 & obj[name])
+    obj[name] = set | (obj[name] & (~clear & 2147483647))
 }
+
 
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 

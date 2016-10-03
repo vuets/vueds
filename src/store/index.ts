@@ -1,6 +1,6 @@
 import { ds } from '../ds/'
 import { mergeVmFrom, defp, PojoState, EventFlags } from '../'
-import { $is_set, $bit_clear_and_set, $bit_toggle, $bit_unset, incrementKey, decrementKey } from '../util'
+import { $bit_clear_and_set, $bit_unset, incrementKey, decrementKey } from '../util'
 
 export const STATE = "state"
 export const LSTATE = "lstate" // list state
@@ -292,7 +292,7 @@ export class PojoStore<T> {
         let pager = this.pager,
             toPopulate = pager.array as Array<T>,
             array = main ? this.mainArray : this.array,
-            desc = $is_set(pager.state, PagerState.DESC),
+            desc = !!(pager.state & PagerState.DESC),
             foundPrev = false,
             pageSize = toPopulate.length,
             size = array.length,
@@ -527,7 +527,7 @@ export class PojoStore<T> {
     $getStoreIndex(index: number): number {
         let pager = this.pager,
             toPopulate = pager.array as Array<T>,
-            desc = $is_set(pager.state, PagerState.DESC),
+            desc = !!(pager.state & PagerState.DESC),
             populatePages = pager.page * toPopulate.length
 
         return desc ? populatePages + index : this.size() - populatePages - index - 1
@@ -670,7 +670,7 @@ export class PojoStore<T> {
             main = this.isMainArray(),
             pager = this.pager,
             toPopulate = pager.array as Array<T>,
-            desc = $is_set(pager.state, PagerState.DESC),
+            desc = !!(pager.state & PagerState.DESC),
             page = pager.page,
             size = this.size()
         
@@ -807,7 +807,7 @@ export class PojoStore<T> {
     }
 
     newRangeKeyForReload(): ds.ParamRangeKey {
-        return this.$newRangeKeyForReload($is_set(this.pager.state, PagerState.DESC))
+        return this.$newRangeKeyForReload(!!(this.pager.state & PagerState.DESC))
     }
 
     $newRangeKeyForReload(desc: boolean): ds.ParamRangeKey {
