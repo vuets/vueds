@@ -30,6 +30,7 @@ export declare function isKey(key: string, kind?: number): boolean;
 export declare function getTs(key: string): number;
 export declare function incrementKey(key: string): string;
 export declare function decrementKey(key: string): string;
+export declare function escape(str: string): string;
 /**
  * Used by generated code.
  */

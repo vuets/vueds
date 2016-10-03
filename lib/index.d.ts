@@ -1,5 +1,9 @@
 import { MultiCAS } from './ds/mc';
 /**
+ * Returns a double-quoted string for json.
+ */
+export declare function escapeValue(v: string): string;
+/**
  * Define a property that should not be observed by vue's vm.
  * Returns the value
  */
@@ -48,7 +52,6 @@ export interface KV {
     k: string;
     v: any;
 }
-export declare function escapeValue(v: string): string;
 export declare function initObservable<T>(target: T, descriptor: any, update?: boolean): T;
 export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
 export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T): T;
