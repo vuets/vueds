@@ -339,10 +339,10 @@ export function formFailed(pojo: any, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
-    pojo_.msg = String(errmsg)
+    pojo_.msg = !errmsg ? 'Error.' : String(errmsg)
 }
 
-function cbFormFailed(errmsg: any) {
+function cbFormFailed(this: any, errmsg: any) {
     formFailed(this, errmsg)
 }
 

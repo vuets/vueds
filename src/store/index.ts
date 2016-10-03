@@ -1014,9 +1014,17 @@ export class PojoStore<T> {
         }
     }
 
-    cbFetchFailed(err: any) {
+    cbFetchFailed(errmsg: any) {
         let pager = this.pager
         $bit_clear_and_set(pager, STATE, PagerState.MASK_RPC | PagerState.LOADING, PagerState.ERROR)
-        pager.msg = !err ? 'Failed.' : String(err)
+        pager.msg = !errmsg ? 'Failed.' : String(errmsg)
     }
+}
+
+function fetchFailed(this: PojoStore<any>, errmsg: any) {
+    this.cbFetchFailed(errmsg)
+}
+
+export function bindFetchFailed(pstore: PojoStore<any>): any {
+    return fetchFailed.bind(pstore)
 }
