@@ -1,8 +1,20 @@
 export declare const hasOwnProperty: (v: string) => boolean;
 export declare function noop(): null;
-export declare function $is_set(state: number, value: number): boolean;
+/**
+ * Returns the new state.
+ */
+export declare function bit_unset(state: number, value: number): number;
+/**
+ * Sets the new state.
+ */
 export declare function $bit_unset(obj: any, name: string, value: number): void;
-export declare function $bit_toggle(obj: any, name: string, value: number): void;
+/**
+ * Returns the new state.
+ */
+export declare function bit_clear_and_set(state: number, clear: number, set: number): number;
+/**
+ * Sets the new state.
+ */
 export declare function $bit_clear_and_set(obj: any, name: string, clear: number, set: number): void;
 export declare const bytesToBase64: (bytes: any) => string;
 export declare const base64ToBytes: (base64: string) => any;
