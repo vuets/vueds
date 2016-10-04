@@ -9,7 +9,7 @@ export namespace MultiCAS {
         return {}
     }
     export function $stringify(obj: any): string {
-        return ''
+        return JSON.stringify(obj)
     }
     export const $descriptor = {
 
