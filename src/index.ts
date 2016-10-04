@@ -254,14 +254,14 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
 }
 
 export function verifyFormFields(message: any, descriptor: any, root?: any): boolean {
-    let message_ = message._,
+    let message_ = message._ as PojoSO,
         root_,
         rfbs,
         fmf,
         fd
     
     if (root) {
-        root_ = root._
+        root_ = root._ as PojoSO
     } else {
         root = message
         root_ = message_
@@ -288,7 +288,7 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
         return true
     
     if (!root_.msg) {
-        $bit_clear_and_set(root_, 'state', PojoState.MASK_STATUS, PojoState.ERROR)
+        root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS, PojoState.ERROR)
         root_.msg = 'All required fields must be provided.'
     }
     
