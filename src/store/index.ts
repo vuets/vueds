@@ -539,7 +539,7 @@ export class PojoStore<T> {
     }
     
     getOriginal(selected: T): T {
-        return this.get(this.getStoreIndex(selected[INDEX]))
+        return this.get(this.$getStoreIndex(selected[INDEX]))
     }
 
     remove(index: number): T {
