@@ -54,7 +54,7 @@ export const defaultTimeFormatArray = newTimeFormatArray(
     "last year", "next year", "years",
     "last century", "next century", "centuries")
 
-export function prettyDate(ts: number, targetTimeFormatArray: string[], 
+export function prettyDate(ts: number, targetTimeFormatArray?: string[], 
         ago: string = 'ago', fromNow: string = 'from now'): string {
     var seconds = (new Date().getTime() - ts) / 1000,
         token = ago,
