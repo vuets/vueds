@@ -279,7 +279,7 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
     if ((fmf = descriptor.$fmf)) {
         for (let fk of fmf) {
             fd = descriptor[fk]
-            if (!verifyFormFields(message[fd.$ || fk], fd.d_fn()), root)
+            if (!verifyFormFields(message[fd.$ || fk], fd.d_fn(), root))
                 return false
         }
     }
