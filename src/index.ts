@@ -314,11 +314,35 @@ export function clearFormFields(message: any, descriptor: any) {
     }
 }
 
-export function formPrepare(pojo: any, update?: boolean) {
+export function formUpdate(pojo: any, original: any): MultiCAS|null {
+    let pojo_ = pojo['_'] as PojoSO,
+        state = pojo_.state,
+        $d = pojo['$d']
+    
+    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
+        return null
+    
+    let mc = MultiCAS.$create()
+    if (!diffVmTo(mc, $d, original, pojo)) {
+        if (!pojo_.msg) {
+            pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.WARNING)
+            pojo_.msg = 'No changes were made.'
+        }
+        
+        return null
+    }
+
+    pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
+    pojo_.msg = ''
+
+    return mc
+}
+
+export function formPrepare(pojo: any) {
     let pojo_ = pojo['_'] as PojoSO,
         state = pojo_.state
     
-    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, pojo['$d'], update))
+    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, pojo['$d']))
         return false
     
     pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
