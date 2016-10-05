@@ -115,8 +115,7 @@ export function resolveNextPageIndex(page: number, idx: number, pager: Pager): n
     return page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
 }
 
-export interface StateObject {
-    state: number
+export interface ItemSO extends HasState {
     lstate: number
     msg: string
     vstate: number
@@ -136,7 +135,7 @@ export interface PagerOptions<T> {
     page?(next: boolean, pager: Pager)
 
     /** create Pojo With Defaults */
-    createObservable(so: StateObject, idx: number): T
+    createObservable(so: ItemSO, idx: number): T
     fetch(req: ds.ParamRangeKey, pager: Pager)
     
     onSelect(message: T, flags: SelectionFlags): number
@@ -154,7 +153,7 @@ export interface PagerOptions<T> {
 
 }
 
-export function nullifyVprops(so: StateObject, descriptor: any) {
+export function nullifyVprops(so: ItemSO, descriptor: any) {
     if (!descriptor.$fdf)
         return so
     
@@ -163,7 +162,7 @@ export function nullifyVprops(so: StateObject, descriptor: any) {
     }
 }
 
-function addVpropsTo(so: StateObject, descriptor: any): StateObject {
+function addVpropsTo(so: ItemSO, descriptor: any): ItemSO {
     if (descriptor.$fdf) {
         for (let k of descriptor.$fdf) {
             so[k] = null
