@@ -185,8 +185,8 @@ export function diffFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modif
 }
 
 // only the scalar fields are diffed
-export function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[] {
-    var d, t, k, array, forig, fmod, diffed: KV[] = []
+export function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number {
+    var d, t, k, array, forig, fmod, diffed = 0//diffed: KV[] = []
 
     for (var i in modified) {
         if (!(d = descriptor[i]) ||
@@ -200,7 +200,8 @@ export function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: 
             mc[k] = array = []
 
         array.push({ '1': parseInt(i, 10), '2': forig, '3': fmod })
-        diffed.push({ k: i, v: fmod })
+        //diffed.push({ k: i, v: fmod })
+        diffed++
     }
 
     return diffed
@@ -230,8 +231,8 @@ export function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, mod
 }
 
 // only the scalar fields are diffed
-export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): KV[] {
-    var d, t, k, array, forig, fmod, i, $ = descriptor.$, diffed: KV[] = []
+export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number {
+    var d, t, k, array, forig, fmod, i, $ = descriptor.$, diffed = 0//diffed: KV[] = []
 
     for (var vi in modified) {
         i = $ ? $[vi] : vi
@@ -247,13 +248,14 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
             mc[k] = array = []
 
         array.push({ '1': parseInt(i, 10), '2': forig, '3': fmod })
-        diffed.push({ k: i, v: fmod })
+        //diffed.push({ k: i, v: fmod })
+        diffed++
     }
 
     return diffed
 }
 
-export function verifyFormFields(message: any, descriptor: any, root?: any): boolean {
+export function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean {
     let message_ = message._ as PojoSO,
         root_,
         rfbs,
@@ -279,12 +281,12 @@ export function verifyFormFields(message: any, descriptor: any, root?: any): boo
     if ((fmf = descriptor.$fmf)) {
         for (let fk of fmf) {
             fd = descriptor[fk]
-            if (!verifyFormFields(message[fd.$ || fk], fd.d_fn(), root))
+            if (!verifyFormFields(message[fd.$ || fk], fd.d_fn(), update, root))
                 return false
         }
     }
 
-    if (!(rfbs = descriptor.$rfbs) || rfbs === message_.rfbs)
+    if (update || !(rfbs = descriptor.$rfbs) || rfbs === message_.rfbs)
         return true
     
     if (!root_.msg) {
@@ -312,11 +314,11 @@ export function clearFormFields(message: any, descriptor: any) {
     }
 }
 
-export function formPrepare(pojo: any) {
+export function formPrepare(pojo: any, update?: boolean) {
     let pojo_ = pojo['_'] as PojoSO,
         state = pojo_.state
     
-    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, pojo['$d']))
+    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, pojo['$d'], update))
         return false
     
     pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
