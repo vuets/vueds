@@ -69,8 +69,7 @@ export interface Pager extends HasState {
     pojo?: any;
 }
 export declare function resolveNextPageIndex(page: number, idx: number, pager: Pager): number;
-export interface StateObject {
-    state: number;
+export interface ItemSO extends HasState {
     lstate: number;
     msg: string;
     vstate: number;
@@ -87,7 +86,7 @@ export interface PagerOptions<T> {
     merge_fn?: MergeFn<T>;
     page?(next: boolean, pager: Pager): any;
     /** create Pojo With Defaults */
-    createObservable(so: StateObject, idx: number): T;
+    createObservable(so: ItemSO, idx: number): T;
     fetch(req: ds.ParamRangeKey, pager: Pager): any;
     onSelect(message: T, flags: SelectionFlags): number;
     onAdd?(message: T, main: boolean, latest: boolean): any;
@@ -96,7 +95,7 @@ export interface PagerOptions<T> {
     onRemoveArray?(array: Array<T>, main: boolean): any;
     onPopulate?(message: T, main: boolean, target: T, index: number): any;
 }
-export declare function nullifyVprops(so: StateObject, descriptor: any): StateObject | undefined;
+export declare function nullifyVprops(so: ItemSO, descriptor: any): ItemSO | undefined;
 export declare class PojoStore<T> {
     options: PagerOptions<T>;
     pager: Pager;
