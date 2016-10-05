@@ -60,7 +60,7 @@ export interface KV {
 }
 export declare function initObservable<T>(target: T, descriptor: any, update?: boolean): T;
 export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
-export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T): T;
+export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T, vm?: any): T;
 export declare function writeKVsTo<T>(target: T, kvs: KV[]): T;
 export declare function diffFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T, field: number): boolean;
 export declare function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number;
@@ -68,11 +68,18 @@ export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number;
 export declare function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean;
 export declare function clearFormFields(message: any, descriptor: any): void;
-export declare function formUpdate(pojo: any, original: any): MultiCAS | null;
+export declare function formUpdate(pojo: any, pager: any, original: any): MultiCAS | null;
+export declare function formUpdateSuccess(pojo: any, pager: any, original: any, selected?: any): void;
 export declare function formPrepare(pojo: any): boolean;
-export declare function formSuccess(pojo: any, update?: boolean): void;
+export declare function formSuccess(pojo: any): void;
 export declare function formFailed(pojo: any, errmsg: any): void;
 export declare function bindFormFailed(pojo: any): any;
+export interface FormUpdate {
+    pojo: any;
+    pager: any;
+}
+export declare function formUpdateFailed(pojo: any, pager: any, errmsg: any): void;
+export declare function bindFormUpdateFailed(scope: FormUpdate): any;
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
