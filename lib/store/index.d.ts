@@ -1,5 +1,6 @@
 /// <reference types="vue" />
 import { ds } from '../ds/';
+import { HasState } from '../';
 export declare const STATE: string;
 export declare const LSTATE: string;
 export declare const VSTATE: string;
@@ -50,9 +51,8 @@ export declare const enum PagerState {
     MASK_RPC = 224,
     MASK_RPC_DISABLE = 264,
 }
-export interface Pager {
+export interface Pager extends HasState {
     size: number;
-    state: number;
     msg: string;
     array: any[];
     index_selected: number;

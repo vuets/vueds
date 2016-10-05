@@ -37,11 +37,13 @@ export declare const enum PojoState {
     UPDATE = 16,
     MASK_STATUS = 7,
 }
+export interface HasState {
+    state: number;
+}
 /**
  * Pojo state object.
  */
-export interface PojoSO {
-    state: number;
+export interface PojoSO extends HasState {
     msg: string;
     vstate: number;
     vfbs: number;
@@ -68,17 +70,17 @@ export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number;
 export declare function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean;
 export declare function clearFormFields(message: any, descriptor: any): void;
-export declare function formUpdate(pojo: any, pager: any, original: any): MultiCAS | null;
-export declare function formUpdateSuccess(pojo: any, pager: any, original: any, selected?: any): void;
+export declare function formUpdate(pojo: any, pager: HasState, original: any): MultiCAS | null;
+export declare function formUpdateSuccess(pojo: any, pager: HasState, original: any, selected?: any): void;
 export declare function formPrepare(pojo: any): boolean;
 export declare function formSuccess(pojo: any): void;
 export declare function formFailed(pojo: any, errmsg: any): void;
 export declare function bindFormFailed(pojo: any): any;
 export interface FormUpdate {
     pojo: any;
-    pager: any;
+    pager: HasState;
 }
-export declare function formUpdateFailed(pojo: any, pager: any, errmsg: any): void;
+export declare function formUpdateFailed(pojo: any, pager: HasState, errmsg: any): void;
 export declare function bindFormUpdateFailed(scope: FormUpdate): any;
 /**
  * The update arg means if existing data is modified (not creating new data).
