@@ -145,10 +145,13 @@ export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
 }
 
 // target is pojo
-export function mergePojoFrom<T>(src: any, descriptor: any, target: T): T {
-    var mapping = descriptor.$, k
+export function mergePojoFrom<T>(src: any, descriptor: any, target: T, vm?: any): T {
+    var mapping = descriptor.$, k, v
     for (var i in src) {
-        if ((k = mapping[i])) target[k] = src[i]
+        if (!(k = mapping[i]) || target[k] === (v = src[i])) continue
+        
+        target[k] = v
+        if (vm) vm[i] = v
     }
 
     return target
@@ -314,7 +317,7 @@ export function clearFormFields(message: any, descriptor: any) {
     }
 }
 
-export function formUpdate(pojo: any, original: any): MultiCAS|null {
+export function formUpdate(pojo: any, pager: any, original: any): MultiCAS|null {
     let pojo_ = pojo['_'] as PojoSO,
         state = pojo_.state,
         $d = pojo['$d']
@@ -335,7 +338,22 @@ export function formUpdate(pojo: any, original: any): MultiCAS|null {
     pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
     pojo_.msg = ''
 
+    // TODO move PagerState to this file
+    pager.state |= 8 // LOADING - to disable controls
+
     return mc
+}
+
+export function formUpdateSuccess(pojo: any, pager: any, original: any, selected?: any) {
+    let pojo_ = pojo['_'] as PojoSO
+    
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
+    pojo_.msg = 'Successful.'
+    
+    mergePojoFrom(pojo, pojo['$d'], original, selected)
+    
+    // TODO move PagerState to this file
+    pager.state ^= 8 // LOADING
 }
 
 export function formPrepare(pojo: any) {
@@ -351,14 +369,13 @@ export function formPrepare(pojo: any) {
     return true
 }
 
-export function formSuccess(pojo: any, update?: boolean) {
+export function formSuccess(pojo: any) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = 'Successful.'
     
-    if (!update)
-        clearFormFields(pojo, pojo['$d'])
+    clearFormFields(pojo, pojo['$d'])
 }
 
 export function formFailed(pojo: any, errmsg: any) {
@@ -374,6 +391,29 @@ function cbFormFailed(this: any, errmsg: any) {
 
 export function bindFormFailed(pojo: any): any {
     return cbFormFailed.bind(pojo)
+}
+
+export interface FormUpdate {
+    pojo: any
+    pager: any
+}
+
+export function formUpdateFailed(pojo: any, pager: any, errmsg: any) {
+    let pojo_ = pojo['_'] as PojoSO
+    
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
+    pojo_.msg = !errmsg ? 'Error.' : String(errmsg)
+
+    // TODO move PagerState to this file
+    pager.state ^= 8 // LOADING
+}
+
+function cbFormUpdateFailed(this: FormUpdate, errmsg: any) {
+    formUpdateFailed(this.pojo, errmsg, this.pager)
+}
+
+export function bindFormUpdateFailed(scope: FormUpdate): any {
+    return cbFormUpdateFailed.bind(scope)
 }
 
 // =====================================
