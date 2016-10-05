@@ -68,7 +68,8 @@ export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number;
 export declare function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean;
 export declare function clearFormFields(message: any, descriptor: any): void;
-export declare function formPrepare(pojo: any, update?: boolean): boolean;
+export declare function formUpdate(pojo: any, original: any): MultiCAS | null;
+export declare function formPrepare(pojo: any): boolean;
 export declare function formSuccess(pojo: any, update?: boolean): void;
 export declare function formFailed(pojo: any, errmsg: any): void;
 export declare function bindFormFailed(pojo: any): any;
