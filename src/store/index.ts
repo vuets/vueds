@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { mergeVmFrom, defp, PojoState, EventFlags } from '../'
+import { HasState, mergeVmFrom, defp, PojoState, EventFlags } from '../'
 import { $bit_clear_and_set, $bit_unset, incrementKey, decrementKey } from '../util'
 
 export const STATE = "state"
@@ -90,9 +90,8 @@ export const enum PagerState {
     MASK_RPC_DISABLE = LOADING | LOCAL_SEARCH
 }
 
-export interface Pager {
+export interface Pager extends HasState {
     size: number // the total number of fetched items
-    state: number
     msg: string
     array: any[]
     index_selected: number

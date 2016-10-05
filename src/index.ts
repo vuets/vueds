@@ -60,11 +60,14 @@ export const enum PojoState {
     MASK_STATUS = SUCCESS | ERROR | WARNING
 }
 
+export interface HasState {
+    state: number
+}
+
 /**
  * Pojo state object.
  */
-export interface PojoSO {
-    state: number
+export interface PojoSO extends HasState {
     msg: string
     vstate: number
     vfbs: number
@@ -317,7 +320,7 @@ export function clearFormFields(message: any, descriptor: any) {
     }
 }
 
-export function formUpdate(pojo: any, pager: any, original: any): MultiCAS|null {
+export function formUpdate(pojo: any, pager: HasState, original: any): MultiCAS|null {
     let pojo_ = pojo['_'] as PojoSO,
         state = pojo_.state,
         $d = pojo['$d']
@@ -344,7 +347,7 @@ export function formUpdate(pojo: any, pager: any, original: any): MultiCAS|null 
     return mc
 }
 
-export function formUpdateSuccess(pojo: any, pager: any, original: any, selected?: any) {
+export function formUpdateSuccess(pojo: any, pager: HasState, original: any, selected?: any) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
@@ -395,10 +398,10 @@ export function bindFormFailed(pojo: any): any {
 
 export interface FormUpdate {
     pojo: any
-    pager: any
+    pager: HasState
 }
 
-export function formUpdateFailed(pojo: any, pager: any, errmsg: any) {
+export function formUpdateFailed(pojo: any, pager: HasState, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
