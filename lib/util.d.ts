@@ -16,6 +16,7 @@ export declare function bit_clear_and_set(state: number, clear: number, set: num
  * Sets the new state.
  */
 export declare function $bit_clear_and_set(obj: any, name: string, clear: number, set: number): void;
+export declare function to_flag(field: number): number;
 export declare const bytesToBase64: (bytes: any) => string;
 export declare const base64ToBytes: (base64: string) => any;
 export declare const regexKey: RegExp, regexInt: RegExp, regexDouble: RegExp, regexTime: RegExp, regexDate: RegExp, regexDateTime: RegExp;
