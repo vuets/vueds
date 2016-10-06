@@ -17,6 +17,7 @@ export interface KeyHandler {
 export declare const enum SelectionType {
     NONE = 0,
     RESET = 1,
+    /** Do not reference this, for internal use only */
     SELECT = 2,
     RETAIN = 3,
     RESELECT = 4,
@@ -25,9 +26,9 @@ export declare const enum SelectionFlags {
     NONE = 0,
     CLICKED = 1,
     REFRESH = 2,
-    CLICKED_UPDATE = 3,
-    FORCE = 4,
-    MASK_FORCE_OR_UPDATE = 7,
+    CLICKED_UPDATE = 4,
+    FORCE = 8,
+    MASK_FORCE_OR_UPDATE = 12,
 }
 export declare const enum PojoListState {
     NONE = 0,
