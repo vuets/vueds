@@ -47,7 +47,8 @@ export interface KeyHandler {
 export const enum SelectionType {
     NONE = 0,
     RESET = 1,
-    SELECT = 2, // do not reference this, for internal use only
+    /** Do not reference this, for internal use only */
+    SELECT = 2,
     RETAIN = 3,
     RESELECT = 4
 }
@@ -56,8 +57,8 @@ export const enum SelectionFlags {
     NONE = 0,
     CLICKED = 1,
     REFRESH = 2,
-    CLICKED_UPDATE = 3,
-    FORCE = 4,
+    CLICKED_UPDATE = 4,
+    FORCE = 8,
 
     MASK_FORCE_OR_UPDATE = FORCE | CLICKED_UPDATE
 }
