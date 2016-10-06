@@ -377,6 +377,7 @@ export function formSuccess(pojo: any) {
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = 'Successful.'
+    pojo_.rfbs = 0
     
     clearFormFields(pojo, pojo['$d'])
 }
