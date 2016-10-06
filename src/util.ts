@@ -29,6 +29,9 @@ export function $bit_clear_and_set(obj: any, name: string, clear: number, set: n
     obj[name] = set | (obj[name] & (~clear & 2147483647))
 }
 
+export function to_flag(field: number): number {
+    return 1 << (field - 1)
+}
 
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
