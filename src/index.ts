@@ -2,7 +2,7 @@ import * as Vue from 'vue'
 import * as numeral from 'numeral'
 import {
     regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc,
-    bit_clear_and_set, $bit_clear_and_set, $bit_unset
+    bit_clear_and_set, $bit_clear_and_set, bit_unset
 } from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 import { MultiCAS } from './ds/mc'
@@ -70,8 +70,9 @@ export interface HasState {
 export interface PojoSO extends HasState {
     msg: string
     vstate: number
-    vfbs: number
-    rfbs: number
+    sfbs: number // set field
+    vfbs: number // validation
+    rfbs: number // required
 }
 
 export const enum EventFlags {
@@ -112,6 +113,7 @@ export function initObservable<T>(target: T, descriptor: any, update?: boolean):
         state: 0,
         msg: '',
         vstate: 0,
+        sfbs: 0,
         vfbs: 0,
         rfbs: 0
     }, descriptor, update ? null : target)
@@ -263,9 +265,9 @@ export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified
 
 export function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean {
     let message_ = message._ as PojoSO,
-        root_,
-        rfbs,
-        fmf,
+        root_: PojoSO,
+        rfbs: number,
+        fmf: string[],
         fd
     
     if (root) {
@@ -277,7 +279,7 @@ export function verifyFormFields(message: any, descriptor: any, update?: boolean
 
     if (message_.vfbs) {
         if (root_.msg) {
-            $bit_unset(root_, 'state', PojoState.MASK_STATUS)
+            root_.state = bit_unset(root_.state, PojoState.MASK_STATUS)
             root_.msg = ''
         }
         
@@ -352,6 +354,7 @@ export function formUpdateSuccess(pojo: any, pager: HasState, original: any, sel
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = 'Successful.'
+    pojo_.sfbs = 0
     
     mergePojoFrom(pojo, pojo['$d'], original, selected)
     
@@ -377,6 +380,7 @@ export function formSuccess(pojo: any) {
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = 'Successful.'
+    pojo_.sfbs = 0
     pojo_.rfbs = 0
     
     clearFormFields(pojo, pojo['$d'])
@@ -423,10 +427,11 @@ export function bindFormUpdateFailed(scope: FormUpdate): any {
 // =====================================
 // event handling
 
-function postValidate(message, fd, f, fk, msg, root: any) {
-    let message_ = message._,
-        root_ = root._,
+function postValidate(message, fd, f: number, fk, msg, root: any, set: boolean) {
+    let message_ = message._ as PojoSO,
+        root_ = root._ as PojoSO,
         state = message_.state,
+        sfbs = message_.sfbs,
         vfbs = message_.vfbs,
         rfbs = message_.rfbs,
         required = fd.m === 2,
@@ -437,6 +442,13 @@ function postValidate(message, fd, f, fk, msg, root: any) {
     if (!(state & PojoState.UPDATE))
         message_.state = state | PojoState.UPDATE
     
+    if (set) {
+        if (!(sfbs & flag))
+            message_.sfbs |= flag
+    } else if (sfbs & flag) {
+        message_.sfbs ^= flag
+    }
+
     if (msg) {
         if (!(vfbs & flag))
             message_.vfbs |= flag
@@ -450,13 +462,15 @@ function postValidate(message, fd, f, fk, msg, root: any) {
     }
 
     if (root_.msg) {
-        $bit_unset(root_, 'state', PojoState.MASK_STATUS)
+        root_.state = bit_unset(root_.state, PojoState.MASK_STATUS)
         root_.msg = ''
     }
 }
-function validateString(val: string, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
-    let msg: string|null = null
-    if (val) {
+
+function validateString(val: string, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+    let msg: string|null = null,
+        set = !!val
+    if (set) {
         if (!fd.vfn || !(msg = fd.vfn(val)))
             message[prop] = val
         else// if (!update)
@@ -473,13 +487,14 @@ function validateString(val: string, fd: any, f, fk, message: any, prop: string,
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root)
+    postValidate(message, fd, f, fk, msg, root, set)
     return msg
 }
 
-function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
-    let msg: string|null = null
-    if (val) {
+function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+    let msg: string|null = null,
+        set = !!val
+    if (set) {
         if (!regexDouble.test(val))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn)
@@ -500,13 +515,14 @@ function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el:
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root)
+    postValidate(message, fd, f, fk, msg, root, set)
     return msg
 }
 
-function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
-    let msg: string|null = null
-    if (val) {
+function validateInt(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+    let msg: string|null = null,
+        set = !!val
+    if (set) {
         if (!regexInt.test(val))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn)
@@ -527,14 +543,15 @@ function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: a
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root)
+    postValidate(message, fd, f, fk, msg, root, set)
     return msg
 }
 
-function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateTime(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
+        set = !!val,
         v
-    if (val) {
+    if (set) {
         if (!regexTime.test(val) || 86399 < (v = numeral().unformat(val.length <= 5 ? (val + ':00') : val)))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
@@ -553,14 +570,15 @@ function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root)
+    postValidate(message, fd, f, fk, msg, root, set)
     return msg
 }
 
-function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateDate(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
+        set = !!val,
         v
-    if (val) {
+    if (set) {
         if (!regexDate.test(val) || !(v = isValidDateStr(val)) || !(v = localToUtc(v)))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
@@ -579,14 +597,15 @@ function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root)
+    postValidate(message, fd, f, fk, msg, root, set)
     return msg
 }
 
-function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateDateTime(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
+        set = !!val,
         v
-    if (val) {
+    if (set) {
         if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)) || !(v = localToUtc(v)))
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
@@ -605,7 +624,7 @@ function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root)
+    postValidate(message, fd, f, fk, msg, root, set)
     return msg
 }
 
@@ -629,13 +648,14 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     
     switch (fd.t) {
         case FieldType.BOOL:
-            message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
-            postValidate(message, fd, f, fk, msg, root)
+            val = el.type === 'checkbox' ? el.checked : ('1' === el.value)
+            message[prop] = val
+            postValidate(message, fd, f, fk, msg, root, update || val)
             break
         case FieldType.ENUM:
             val = el.value
             message[prop] = !val.length ? null : parseInt(val, 10)
-            postValidate(message, fd, f, fk, msg, root)
+            postValidate(message, fd, f, fk, msg, root, update || val.length !== 0)
             break
         case FieldType.STRING:
             msg = validateString(el.value.trim(), fd, f, fk, message, prop, el, update, root)
