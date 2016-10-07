@@ -326,22 +326,23 @@ export function clearFormFields(message: any, descriptor: any) {
     }
 }
 
-export function formUpdate(pojo: any, pager: HasState, original: any): MultiCAS|null {
+export function formUpdate(pojo: any, pager: HasState, original: any, changes?: any): MultiCAS|undefined {
     let pojo_ = pojo['_'] as PojoSO,
         state = pojo_.state,
         $d = pojo['$d']
     
     if ((state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
-        return null
+        return undefined
     
-    let mc = MultiCAS.$create()
-    if (!diffVmTo(mc, $d, original, pojo)) {
+    let mc = MultiCAS.$create(),
+        diffCount = diffVmTo(mc, $d, original, pojo)
+    if (!diffCount && !changes) {
         if (!pojo_.msg) {
             pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.WARNING)
             pojo_.msg = 'No changes were made.'
         }
         
-        return null
+        return undefined
     }
 
     pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
@@ -350,7 +351,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any): MultiCAS|
     // TODO move PagerState to this file
     pager.state |= 8 // LOADING - to disable controls
 
-    return mc
+    return diffCount ? mc : undefined
 }
 
 export function formUpdateSuccess(pojo: any, pager: HasState, original: any, selected?: any) {
