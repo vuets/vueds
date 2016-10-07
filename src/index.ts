@@ -306,8 +306,12 @@ export function verifyFormFields(message: any, descriptor: any, update?: boolean
 }
 
 export function clearFormFields(message: any, descriptor: any) {
-    var fmf, fd
-
+    let message_ = message['_'] as PojoSO,
+        fmf,
+        fd
+    
+    message_.sfbs = 0
+    message_.rfbs = 0
     for (let fk of descriptor.$fdf) {
         fd = descriptor[fk]
         message[fd.$ || fk] = null
@@ -380,8 +384,6 @@ export function formSuccess(pojo: any) {
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = 'Successful.'
-    pojo_.sfbs = 0
-    pojo_.rfbs = 0
     
     clearFormFields(pojo, pojo['$d'])
 }
