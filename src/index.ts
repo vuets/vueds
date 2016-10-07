@@ -135,9 +135,9 @@ export function initObservable<T>(target: T, descriptor: any, update?: boolean):
 
 // target is vm
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
-    var fd
+    var fd, v
     for (var i in src) {
-        let v = src[i]
+        v = src[i]
         // only trigger the observable if the value changed
         if ((fd = descriptor[i])) {
             if (v !== target[fd.$]) target[fd.$] = v
