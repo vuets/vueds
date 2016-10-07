@@ -46,6 +46,7 @@ export interface HasState {
 export interface PojoSO extends HasState {
     msg: string;
     vstate: number;
+    sfbs: number;
     vfbs: number;
     rfbs: number;
 }
