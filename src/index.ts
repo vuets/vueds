@@ -149,8 +149,8 @@ export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     return target
 }
 
-// target is pojo
-export function mergePojoFrom<T>(src: any, descriptor: any, target: T, vm?: any): T {
+// target is original
+export function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: any): T {
     var mapping = descriptor.$, k, v
     for (var i in src) {
         if (!(k = mapping[i]) || target[k] === (v = src[i])) continue
@@ -360,7 +360,7 @@ export function formUpdateSuccess(pojo: any, pager: HasState, original: any, sel
     pojo_.msg = 'Successful.'
     pojo_.sfbs = 0
     
-    mergePojoFrom(pojo, pojo['$d'], original, selected)
+    mergeOriginalFrom(pojo, pojo['$d'], original, selected)
     
     // TODO move PagerState to this file
     pager.state ^= 8 // LOADING
