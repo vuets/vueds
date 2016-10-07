@@ -459,6 +459,8 @@ function validateString(val: string, fd: any, f, fk, message: any, prop: string,
     if (val) {
         if (!fd.vfn || !(msg = fd.vfn(val)))
             message[prop] = val
+        else// if (!update)
+            message[prop] = undefined
     } else if (update) {
         el.value = message[prop]
     } else if (message[prop]) {
@@ -484,6 +486,8 @@ function validateFloat(val: any, fd: any, f, fk, message: any, prop: string, el:
             message[prop] = parseFloat(val)
         else if (!(msg = fd.vfn(val = parseFloat(val))))
             message[prop] = val
+        else// if (!update)
+            message[prop] = undefined
     } else if (update) {
         el.value = message[prop]
     } else if (message[prop]) {
@@ -509,6 +513,8 @@ function validateInt(val: any, fd: any, f, fk, message: any, prop: string, el: a
             message[prop] = parseInt(val, 10)
         else if (!(msg = fd.vfn(val = parseInt(val, 10))))
             message[prop] = val
+        else// if (!update)
+            message[prop] = undefined
     } else if (update) {
         el.value = message[prop]
     } else if (message[prop]) {
@@ -533,6 +539,8 @@ function validateTime(val: any, fd: any, f, fk, message: any, prop: string, el: 
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
+        else// if (!update)
+            message[prop] = undefined
     } else if (update) {
         el.value = formatTime(message[prop])
     } else if (message[prop]) {
@@ -557,6 +565,8 @@ function validateDate(val: any, fd: any, f, fk, message: any, prop: string, el: 
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
+        else// if (!update)
+            message[prop] = undefined
     } else if (update) {
         el.value = formatDate(message[prop])
     } else if (message[prop]) {
@@ -581,6 +591,8 @@ function validateDateTime(val: any, fd: any, f, fk, message: any, prop: string, 
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
+        else// if (!update)
+            message[prop] = undefined
     } else if (update) {
         el.value = formatDateTime(message[prop])
     } else if (message[prop]) {
