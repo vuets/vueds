@@ -63,7 +63,7 @@ export interface KV {
 }
 export declare function initObservable<T>(target: T, descriptor: any, update?: boolean): T;
 export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
-export declare function mergePojoFrom<T>(src: any, descriptor: any, target: T, vm?: any): T;
+export declare function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: any): T;
 export declare function writeKVsTo<T>(target: T, kvs: KV[]): T;
 export declare function diffFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T, field: number): boolean;
 export declare function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number;
