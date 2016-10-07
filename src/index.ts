@@ -379,6 +379,23 @@ export function formPrepare(pojo: any) {
     return true
 }
 
+export function formClear(pojo: any): PojoSO {
+    let pojo_ = pojo['_'] as PojoSO
+
+    if (pojo_.msg)
+        pojo_.msg = ''
+    
+    if (!pojo_.sfbs)
+        return pojo_
+    
+    if (pojo_.vfbs)
+        pojo_.vfbs = 0
+    
+    clearFormFields(pojo, pojo['$d'])
+    
+    return pojo_
+}
+
 export function formSuccess(pojo: any) {
     let pojo_ = pojo['_'] as PojoSO
     
