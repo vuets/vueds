@@ -74,6 +74,7 @@ export declare function clearFormFields(message: any, descriptor: any): void;
 export declare function formUpdate(pojo: any, pager: HasState, original: any): MultiCAS | null;
 export declare function formUpdateSuccess(pojo: any, pager: HasState, original: any, selected?: any): void;
 export declare function formPrepare(pojo: any): boolean;
+export declare function formClear(pojo: any): PojoSO;
 export declare function formSuccess(pojo: any): void;
 export declare function formFailed(pojo: any, errmsg: any): void;
 export declare function bindFormFailed(pojo: any): any;
