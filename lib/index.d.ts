@@ -71,7 +71,7 @@ export declare function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original
 export declare function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number;
 export declare function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean;
 export declare function clearFormFields(message: any, descriptor: any): void;
-export declare function formUpdate(pojo: any, pager: HasState, original: any): MultiCAS | null;
+export declare function formUpdate(pojo: any, pager: HasState, original: any, changes?: any): MultiCAS | undefined;
 export declare function formUpdateSuccess(pojo: any, pager: HasState, original: any, selected?: any): void;
 export declare function formPrepare(pojo: any): boolean;
 export declare function formClear(pojo: any): PojoSO;
