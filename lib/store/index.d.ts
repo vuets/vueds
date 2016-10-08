@@ -1,14 +1,11 @@
 /// <reference types="vue" />
 import { ds } from '../ds/';
-import { HasState } from '../';
-export declare const STATE: string;
-export declare const LSTATE: string;
-export declare const VSTATE: string;
+import { HasState, PojoSO } from '../';
 export declare const DESCRIPTOR: string;
 export declare const INDEX: string;
 export declare const PREV_KEY: string;
 export declare const PREV_PAGE: string;
-export declare const PREV_VSTATE: string;
+export declare const PREV_ISTATE: string;
 export declare function shallowCopyTo<T>(target: T, src: T): T;
 export interface KeyHandler {
     inc(key: string): string;
@@ -61,7 +58,7 @@ export interface Pager extends HasState {
     q_index: number;
     prev_key: string | null;
     prev_page: number;
-    prev_vstate: number;
+    prev_istate: number;
     page: number;
     page_count: number;
     page_vcount: number;
@@ -70,11 +67,8 @@ export interface Pager extends HasState {
     pojo?: any;
 }
 export declare function resolveNextPageIndex(page: number, idx: number, pager: Pager): number;
-export interface ItemSO extends HasState {
+export interface ItemSO extends PojoSO {
     lstate: number;
-    msg: string;
-    vstate: number;
-    vfbs: number;
 }
 export declare type MergeFn<T> = (src: any, descriptor: any, target: T) => T;
 export interface PagerOptions<T> {

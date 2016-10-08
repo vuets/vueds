@@ -39,13 +39,12 @@ export declare const enum PojoState {
 }
 export interface HasState {
     state: number;
+    msg: string;
 }
 /**
  * Pojo state object.
  */
 export interface PojoSO extends HasState {
-    msg: string;
-    vstate: number;
     dfbs: number;
     vfbs: number;
     rfbs: number;
