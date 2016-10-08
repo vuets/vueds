@@ -489,15 +489,26 @@ function postValidate(message, fd, f: number, fk, msg, root: any, set: boolean) 
 
 function validateString(val: string, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
-        set = !!val
+        set = !!val,
+        v
     if (set) {
         if (!fd.vfn || !(msg = fd.vfn(val)))
             message[prop] = val
-        else// if (!update)
+        else if (update && !message._[prop]) {
+            // backup data
+            message._[prop] = message[prop]
             message[prop] = undefined
+        } else {
+            message[prop] = undefined
+        }
     } else if (update) {
-        el.value = message[prop]
-    } else if (message[prop]) {
+        if ((v = message[prop]) === undefined) {
+            // restore data
+            message[prop] = v = message._[prop]
+            message._[prop] = null
+        }
+        el.value = v
+    } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
         //msg = fd.$n + ' is required.'
@@ -513,7 +524,8 @@ function validateString(val: string, fd: any, f: number, fk, message: any, prop:
 
 function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
-        set = !!val
+        set = !!val,
+        v
     if (set) {
         if (!regexDouble.test(val))
             msg = fd.$n + ' is invalid.'
@@ -521,11 +533,21 @@ function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: str
             message[prop] = parseFloat(val)
         else if (!(msg = fd.vfn(val = parseFloat(val))))
             message[prop] = val
-        else// if (!update)
+        else if (update && !message._[prop]) {
+            // backup data
+            message._[prop] = message[prop]
             message[prop] = undefined
+        } else {
+            message[prop] = undefined
+        }
     } else if (update) {
-        el.value = message[prop]
-    } else if (message[prop]) {
+        if ((v = message[prop]) === undefined) {
+            // restore data
+            message[prop] = v = message._[prop]
+            message._[prop] = null
+        }
+        el.value = v
+    } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
         //msg = fd.$n + ' is required.'
@@ -541,7 +563,8 @@ function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: str
 
 function validateInt(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
-        set = !!val
+        set = !!val,
+        v
     if (set) {
         if (!regexInt.test(val))
             msg = fd.$n + ' is invalid.'
@@ -549,11 +572,21 @@ function validateInt(val: any, fd: any, f: number, fk, message: any, prop: strin
             message[prop] = parseInt(val, 10)
         else if (!(msg = fd.vfn(val = parseInt(val, 10))))
             message[prop] = val
-        else// if (!update)
+        else if (update && !message._[prop]) {
+            // backup data
+            message._[prop] = message[prop]
             message[prop] = undefined
+        } else {
+            message[prop] = undefined
+        }
     } else if (update) {
-        el.value = message[prop]
-    } else if (message[prop]) {
+        if ((v = message[prop]) === undefined) {
+            // restore data
+            message[prop] = v = message._[prop]
+            message._[prop] = null
+        }
+        el.value = v
+    } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
         //msg = fd.$n + ' is required.'
@@ -576,11 +609,21 @@ function validateTime(val: any, fd: any, f: number, fk, message: any, prop: stri
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
-        else// if (!update)
+        else if (update && !message._[prop]) {
+            // backup data
+            message._[prop] = message[prop]
             message[prop] = undefined
+        } else {
+            message[prop] = undefined
+        }
     } else if (update) {
-        el.value = formatTime(message[prop])
-    } else if (message[prop]) {
+        if ((v = message[prop]) === undefined) {
+            // restore data
+            message[prop] = v = message._[prop]
+            message._[prop] = null
+        }
+        el.value = formatTime(v)
+    } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
         //msg = fd.$n + ' is required.'
@@ -603,11 +646,21 @@ function validateDate(val: any, fd: any, f: number, fk, message: any, prop: stri
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
-        else// if (!update)
+        else if (update && !message._[prop]) {
+            // backup data
+            message._[prop] = message[prop]
             message[prop] = undefined
+        } else {
+            message[prop] = undefined
+        }
     } else if (update) {
-        el.value = formatDate(message[prop])
-    } else if (message[prop]) {
+        if ((v = message[prop]) === undefined) {
+            // restore data
+            message[prop] = v = message._[prop]
+            message._[prop] = null
+        }
+        el.value = formatDate(v)
+    } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
         //msg = fd.$n + ' is required.'
@@ -630,11 +683,21 @@ function validateDateTime(val: any, fd: any, f: number, fk, message: any, prop: 
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
-        else// if (!update)
+        else if (update && !message._[prop]) {
+            // backup data
+            message._[prop] = message[prop]
             message[prop] = undefined
+        } else {
+            message[prop] = undefined
+        }
     } else if (update) {
-        el.value = formatDateTime(message[prop])
-    } else if (message[prop]) {
+        if ((v = message[prop]) === undefined) {
+            // restore data
+            message[prop] = v = message._[prop]
+            message._[prop] = null
+        }
+        el.value = formatDateTime(v)
+    } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
         //msg = fd.$n + ' is required.'
