@@ -62,14 +62,13 @@ export const enum PojoState {
 
 export interface HasState {
     state: number
+    msg: string
 }
 
 /**
  * Pojo state object.
  */
 export interface PojoSO extends HasState {
-    msg: string
-    vstate: number
     dfbs: number // dirty
     vfbs: number // validation
     rfbs: number // required
@@ -112,7 +111,6 @@ export function initObservable<T>(target: T, descriptor: any, update?: boolean):
     target['_'] = addVpropsTo({
         state: 0,
         msg: '',
-        vstate: 0,
         dfbs: 0,
         vfbs: 0,
         rfbs: 0

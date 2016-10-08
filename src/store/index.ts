@@ -1,17 +1,16 @@
 import { ds } from '../ds/'
-import { HasState, mergeVmFrom, defp, PojoState, EventFlags } from '../'
-import { $bit_clear_and_set, $bit_unset, incrementKey, decrementKey } from '../util'
+import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO } from '../'
+import { bit_clear_and_set, bit_unset, incrementKey, decrementKey } from '../util'
 
-export const STATE = "state"
-export const LSTATE = "lstate" // list state
-export const VSTATE = "vstate" // validation state
+//export const STATE = "state"
+//export const LSTATE = "lstate" // list state
 
 export const DESCRIPTOR = "$d"
 export const INDEX = "$index"
 
 export const PREV_KEY = "$prev_key"
 export const PREV_PAGE = "$prev_page"
-export const PREV_VSTATE = "$prev_vstate"
+export const PREV_ISTATE = "$prev_istate"
 
 // TODO usage
 function extractMessage(err: any): string {
@@ -101,7 +100,7 @@ export interface Pager extends HasState {
 
     prev_key: string|null
     prev_page: number
-    prev_vstate: number
+    prev_istate: number
 
     page: number
     page_count: number
@@ -116,11 +115,8 @@ export function resolveNextPageIndex(page: number, idx: number, pager: Pager): n
     return page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
 }
 
-export interface ItemSO extends HasState {
+export interface ItemSO extends PojoSO {
     lstate: number
-    msg: string
-    vstate: number
-    vfbs: number
 }
 
 export type MergeFn<T> = (src: any, descriptor: any, target: T) => T
@@ -229,7 +225,7 @@ export class PojoStore<T> {
             
             prev_key: null,
             prev_page: page,
-            prev_vstate: 0,
+            prev_istate: 0,
 
             page: page,
             page_count: size / pageSize,
@@ -243,10 +239,11 @@ export class PojoStore<T> {
 
         let so = addVpropsTo({
             state: 0,
-            lstate: 0,
             msg: '',
-            vstate: 0,
-            vfbs: 0
+            dfbs: 0,
+            vfbs: 0,
+            rfbs: 0,
+            lstate: 0
         }, descriptor)
         observedArray.push(createObservable(options, 0, pager, descriptor, so))
         for (let i = 1; i < pageSize; i++) {
@@ -319,7 +316,7 @@ export class PojoStore<T> {
             start = desc ? populatePages : -populatePages
         
         var target: T,
-            target_,
+            target_: ItemSO,
             message: T,
             selected: T|null = null,
             prevKey: string|null = type >= SelectionType.RETAIN ? pager.prev_key : null,
@@ -327,7 +324,7 @@ export class PojoStore<T> {
         
         for (let state = 0; i < len; i++) {
             target = toPopulate[i]
-            target_ = target['_']
+            target_ = target['_'] as ItemSO
             message = array[start + (desc ? i : size - i - 1)]
 
             if (idxSelected === i) {
@@ -346,8 +343,8 @@ export class PojoStore<T> {
                 }
             } else if (type < SelectionType.RETAIN || selected || prevKey !== message[k]) {
                 state = 0
-                target_.vstate = 0
-                target_.msg = null
+                target_.state = 0
+                target_.msg = ''
             } else {
                 selected = target
                 idxSelected = i
@@ -387,7 +384,7 @@ export class PojoStore<T> {
             pager.pojo = selected
 
         if (foundPrev)
-            selected['_'].vstate = pager[PREV_VSTATE]
+            selected['_'].state = pager[PREV_ISTATE]
 
         return 0
     }
@@ -406,11 +403,11 @@ export class PojoStore<T> {
             prevKey = pager.prev_key,
             options = this.options,
             k = this.k,
-            current_ = current['_']
+            current_ = current['_'] as ItemSO
         
         if (prevKey) {
             let previous: T = pager.pojo,
-                previous_ = previous['_'],
+                previous_ = previous['_'] as ItemSO,
                 state: number = previous_.state
             
             if ((state & PojoState.LOADING))
@@ -425,14 +422,14 @@ export class PojoStore<T> {
             } else if ((state & PojoState.UPDATE)) {
                 if (previous_.vfbs) {
                     previous_.vfbs = 0
-                    previous_.msg = null
+                    previous_.msg = ''
                     nullifyVprops(current_, options.descriptor)
                 } else if (previous_.msg) {
-                    previous_.msg = null
+                    previous_.msg = ''
                 }
                 // state intentionally not modified
             } else if ((state & PojoState.MASK_STATUS)) {
-                previous_.msg = null
+                previous_.msg = ''
                 // state intentionally not modified
             }
 
@@ -445,9 +442,9 @@ export class PojoStore<T> {
 
             if (!sameSlot) {
                 if (selectWithoutPopulate)
-                    $bit_unset(previous_, LSTATE, PojoListState.SELECTED)
+                    previous_.lstate = bit_unset(previous_.lstate, PojoListState.SELECTED)
                 
-                previous_.vstate = 0
+                previous_.state = 0
             }
         }
 
@@ -456,7 +453,7 @@ export class PojoStore<T> {
         pager.pojo = current
         pager.prev_key = current[this.$k] || current[k]
         pager.prev_page = page
-        pager.prev_vstate = current_.vstate
+        pager.prev_istate = current_.state
 
         if (selectWithoutPopulate)
             current_.lstate = PojoListState.INCLUDED | PojoListState.SELECTED
@@ -864,7 +861,7 @@ export class PojoStore<T> {
             return
         }
 
-        $bit_clear_and_set(pager, STATE, PagerState.MASK_STATUS, 
+        pager.state = bit_clear_and_set(pager.state, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.LOAD_NEWER)
         this.options.fetch(this.newRangeKeyForLoadNewer(), pager)
     }
@@ -877,7 +874,7 @@ export class PojoStore<T> {
             return
         }
 
-        $bit_clear_and_set(pager, STATE, PagerState.MASK_STATUS, 
+        pager.state = bit_clear_and_set(pager.state, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.LOAD_OLDER)
         this.options.fetch(this.newRangeKeyForLoadOlder(), pager)
     }
@@ -886,7 +883,7 @@ export class PojoStore<T> {
         if (this.options.page) return
 
         let pager = this.pager
-        $bit_clear_and_set(pager, STATE, PagerState.MASK_STATUS, 
+        pager.state = bit_clear_and_set(pager.state, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.RELOAD)
         this.options.fetch(this.newRangeKeyForReload(), pager)
     }
@@ -896,8 +893,8 @@ export class PojoStore<T> {
         if (desc)
             pager.state |= (PagerState.RELOAD | PagerState.DESC)
         else
-            $bit_clear_and_set(pager, STATE, PagerState.DESC, PagerState.RELOAD)
-
+            pager.state = bit_clear_and_set(pager.state, PagerState.DESC, PagerState.RELOAD)
+        
         this.options.fetch(this.$newRangeKeyForReload(desc), pager)
     }
 
@@ -999,7 +996,7 @@ export class PojoStore<T> {
         let pager = this.pager, 
             masked = PagerState.MASK_RPC & pager.state
         
-        $bit_unset(pager, STATE, PagerState.MASK_RPC | PagerState.LOADING)
+        pager.state = bit_unset(pager.state, PagerState.MASK_RPC | PagerState.LOADING)
 
         switch (masked) {
             case PagerState.LOAD_NEWER:
@@ -1016,7 +1013,7 @@ export class PojoStore<T> {
 
     cbFetchFailed(errmsg: any) {
         let pager = this.pager
-        $bit_clear_and_set(pager, STATE, PagerState.MASK_RPC | PagerState.LOADING, PagerState.ERROR)
+        pager.state = bit_clear_and_set(pager.state, PagerState.MASK_RPC | PagerState.LOADING, PagerState.ERROR)
         pager.msg = !errmsg ? 'Failed.' : String(errmsg)
     }
 }
