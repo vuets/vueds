@@ -447,9 +447,8 @@ export function bindFormUpdateFailed(scope: FormUpdate): any {
 // =====================================
 // event handling
 
-function postValidate(message, fd, f: number, fk, msg, root: any, set: boolean) {
-    let message_ = message._ as PojoSO,
-        root_ = root._ as PojoSO,
+function postValidate(message: any, fd: any, f: number, fk: string, message_: PojoSO, msg, root: any, set: boolean) {
+    let root_ = root._ as PojoSO,
         state = message_.state,
         sfbs = message_.sfbs,
         vfbs = message_.vfbs,
@@ -487,16 +486,16 @@ function postValidate(message, fd, f: number, fk, msg, root: any, set: boolean) 
     }
 }
 
-function validateString(val: string, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateString(val: string, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
         v
     if (set) {
         if (!fd.vfn || !(msg = fd.vfn(val)))
             message[prop] = val
-        else if (update && !message._[prop]) {
+        else if (update && !message_[prop]) {
             // backup data
-            message._[prop] = message[prop]
+            message_[prop] = message[prop]
             message[prop] = undefined
         } else {
             message[prop] = undefined
@@ -504,8 +503,8 @@ function validateString(val: string, fd: any, f: number, fk, message: any, prop:
     } else if (update) {
         if ((v = message[prop]) === undefined) {
             // restore data
-            message[prop] = v = message._[prop]
-            message._[prop] = null
+            message[prop] = v = message_[prop]
+            message_[prop] = null
         }
         el.value = v
     } else if ((v = message[prop]) || v === undefined) {
@@ -518,11 +517,11 @@ function validateString(val: string, fd: any, f: number, fk, message: any, prop:
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root, set)
+    postValidate(message, fd, f, fk, message_, msg, root, set)
     return msg
 }
 
-function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateFloat(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
         v
@@ -533,9 +532,9 @@ function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: str
             message[prop] = parseFloat(val)
         else if (!(msg = fd.vfn(val = parseFloat(val))))
             message[prop] = val
-        else if (update && !message._[prop]) {
+        else if (update && !message_[prop]) {
             // backup data
-            message._[prop] = message[prop]
+            message_[prop] = message[prop]
             message[prop] = undefined
         } else {
             message[prop] = undefined
@@ -543,8 +542,8 @@ function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: str
     } else if (update) {
         if ((v = message[prop]) === undefined) {
             // restore data
-            message[prop] = v = message._[prop]
-            message._[prop] = null
+            message[prop] = v = message_[prop]
+            message_[prop] = null
         }
         el.value = v
     } else if ((v = message[prop]) || v === undefined) {
@@ -557,11 +556,11 @@ function validateFloat(val: any, fd: any, f: number, fk, message: any, prop: str
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root, set)
+    postValidate(message, fd, f, fk, message_, msg, root, set)
     return msg
 }
 
-function validateInt(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateInt(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
         v
@@ -572,9 +571,9 @@ function validateInt(val: any, fd: any, f: number, fk, message: any, prop: strin
             message[prop] = parseInt(val, 10)
         else if (!(msg = fd.vfn(val = parseInt(val, 10))))
             message[prop] = val
-        else if (update && !message._[prop]) {
+        else if (update && !message_[prop]) {
             // backup data
-            message._[prop] = message[prop]
+            message_[prop] = message[prop]
             message[prop] = undefined
         } else {
             message[prop] = undefined
@@ -582,8 +581,8 @@ function validateInt(val: any, fd: any, f: number, fk, message: any, prop: strin
     } else if (update) {
         if ((v = message[prop]) === undefined) {
             // restore data
-            message[prop] = v = message._[prop]
-            message._[prop] = null
+            message[prop] = v = message_[prop]
+            message_[prop] = null
         }
         el.value = v
     } else if ((v = message[prop]) || v === undefined) {
@@ -596,11 +595,11 @@ function validateInt(val: any, fd: any, f: number, fk, message: any, prop: strin
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root, set)
+    postValidate(message, fd, f, fk, message_, msg, root, set)
     return msg
 }
 
-function validateTime(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateTime(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
         v
@@ -609,9 +608,9 @@ function validateTime(val: any, fd: any, f: number, fk, message: any, prop: stri
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
-        else if (update && !message._[prop]) {
+        else if (update && !message_[prop]) {
             // backup data
-            message._[prop] = message[prop]
+            message_[prop] = message[prop]
             message[prop] = undefined
         } else {
             message[prop] = undefined
@@ -619,8 +618,8 @@ function validateTime(val: any, fd: any, f: number, fk, message: any, prop: stri
     } else if (update) {
         if ((v = message[prop]) === undefined) {
             // restore data
-            message[prop] = v = message._[prop]
-            message._[prop] = null
+            message[prop] = v = message_[prop]
+            message_[prop] = null
         }
         el.value = formatTime(v)
     } else if ((v = message[prop]) || v === undefined) {
@@ -633,11 +632,11 @@ function validateTime(val: any, fd: any, f: number, fk, message: any, prop: stri
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root, set)
+    postValidate(message, fd, f, fk, message_, msg, root, set)
     return msg
 }
 
-function validateDate(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateDate(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
         v
@@ -646,9 +645,9 @@ function validateDate(val: any, fd: any, f: number, fk, message: any, prop: stri
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
-        else if (update && !message._[prop]) {
+        else if (update && !message_[prop]) {
             // backup data
-            message._[prop] = message[prop]
+            message_[prop] = message[prop]
             message[prop] = undefined
         } else {
             message[prop] = undefined
@@ -656,8 +655,8 @@ function validateDate(val: any, fd: any, f: number, fk, message: any, prop: stri
     } else if (update) {
         if ((v = message[prop]) === undefined) {
             // restore data
-            message[prop] = v = message._[prop]
-            message._[prop] = null
+            message[prop] = v = message_[prop]
+            message_[prop] = null
         }
         el.value = formatDate(v)
     } else if ((v = message[prop]) || v === undefined) {
@@ -670,11 +669,11 @@ function validateDate(val: any, fd: any, f: number, fk, message: any, prop: stri
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root, set)
+    postValidate(message, fd, f, fk, message_, msg, root, set)
     return msg
 }
 
-function validateDateTime(val: any, fd: any, f: number, fk, message: any, prop: string, el: any, update: boolean, root: any): string|null {
+function validateDateTime(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
         v
@@ -683,9 +682,9 @@ function validateDateTime(val: any, fd: any, f: number, fk, message: any, prop: 
             msg = fd.$n + ' is invalid.'
         else if (!fd.vfn || !(msg = fd.vfn(v)))
             message[prop] = v
-        else if (update && !message._[prop]) {
+        else if (update && !message_[prop]) {
             // backup data
-            message._[prop] = message[prop]
+            message_[prop] = message[prop]
             message[prop] = undefined
         } else {
             message[prop] = undefined
@@ -693,8 +692,8 @@ function validateDateTime(val: any, fd: any, f: number, fk, message: any, prop: 
     } else if (update) {
         if ((v = message[prop]) === undefined) {
             // restore data
-            message[prop] = v = message._[prop]
-            message._[prop] = null
+            message[prop] = v = message_[prop]
+            message_[prop] = null
         }
         el.value = formatDateTime(v)
     } else if ((v = message[prop]) || v === undefined) {
@@ -707,7 +706,7 @@ function validateDateTime(val: any, fd: any, f: number, fk, message: any, prop: 
         return msg
     }
 
-    postValidate(message, fd, f, fk, msg, root, set)
+    postValidate(message, fd, f, fk, message_, msg, root, set)
     return msg
 }
 
@@ -723,7 +722,8 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     if (!fd || fd.t === FieldType.BYTES)
         return null
     
-    let f = fd._,
+    let message_ = message['_'] as PojoSO,
+        f = fd._,
         prop = fd.$ || fk,
         el = e.target,
         msg: string|null = null,
@@ -733,33 +733,33 @@ export function $change(e, message: any, field: string|number, update: boolean, 
         case FieldType.BOOL:
             val = el.type === 'checkbox' ? el.checked : ('1' === el.value)
             message[prop] = val
-            postValidate(message, fd, f, fk, msg, root, update || val)
+            postValidate(message, fd, f, fk, message_, msg, root, update || val)
             break
         case FieldType.ENUM:
             val = el.value
             message[prop] = !val.length ? null : parseInt(val, 10)
-            postValidate(message, fd, f, fk, msg, root, update || val.length !== 0)
+            postValidate(message, fd, f, fk, message_, msg, root, update || val.length !== 0)
             break
         case FieldType.STRING:
-            msg = validateString(el.value.trim(), fd, f, fk, message, prop, el, update, root)
+            msg = validateString(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
-            msg = validateFloat(el.value.trim(), fd, f, fk, message, prop, el, update, root)
+            msg = validateFloat(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
             break
         default:
             switch (fd.o || 0) {
                 case 1: // time
-                    msg = validateTime(el.value.trim(), fd, f, fk, message, prop, el, update, root)
+                    msg = validateTime(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
                     break
                 case 2: // date
-                    msg = validateDate(el.value.trim(), fd, f, fk, message, prop, el, update, root)
+                    msg = validateDate(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
                     break
                 case 4: // datetime
-                    msg = validateDateTime(el.value.trim(), fd, f, fk, message, prop, el, update, root)
+                    msg = validateDateTime(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
                     break
                 default:
-                    msg = validateInt(el.value.trim(), fd, f, fk, message, prop, el, update, root)
+                    msg = validateInt(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
             }
     }
     
