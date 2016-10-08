@@ -332,8 +332,9 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
     if ((state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
         return undefined
     
-    let mc = MultiCAS.$create(),
-        diffCount = diffVmTo(mc, $d, original, pojo)
+    let mc,
+        diffCount = pojo_.dfbs && diffVmTo(mc = MultiCAS.$create(), $d, original, pojo)
+    
     if (!diffCount && !changes) {
         if (!pojo_.msg) {
             pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.WARNING)
