@@ -485,11 +485,10 @@ function postValidate(message: any, fd: any, fk: string, f: number, flag: number
     }
 }
 
-function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, 
+function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         dirty = !!val,
-        dfbs = message_.dfbs,
         v
     if (dirty) {
         // backup data
@@ -522,11 +521,10 @@ function validateString(val: string, message: any, fd: any, fk, f: number, flag:
     return msg
 }
 
-function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, 
+function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         dirty = !!val,
-        dfbs = message_.dfbs,
         v
     if (dirty) {
         // backup data
@@ -565,11 +563,10 @@ function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: num
     return msg
 }
 
-function validateInt(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, 
+function validateInt(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         dirty = !!val,
-        dfbs = message_.dfbs,
         v
     if (dirty) {
         // backup data
@@ -608,11 +605,10 @@ function validateInt(val: any, message: any, fd: any, fk, f: number, flag: numbe
     return msg
 }
 
-function validateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, 
+function validateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         dirty = !!val,
-        dfbs = message_.dfbs,
         v
     if (dirty) {
         // backup data
@@ -648,11 +644,10 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
     return msg
 }
 
-function validateDate(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, 
+function validateDate(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         dirty = !!val,
-        dfbs = message_.dfbs,
         v
     if (dirty) {
         // backup data
@@ -688,11 +683,10 @@ function validateDate(val: any, message: any, fd: any, fk, f: number, flag: numb
     return msg
 }
 
-function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, 
+function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         dirty = !!val,
-        dfbs = message_.dfbs,
         v
     if (dirty) {
         // backup data
@@ -741,6 +735,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
         return null
     
     let message_ = message['_'] as PojoSO,
+        dfbs = message_.dfbs,
         f = fd._,
         flag = 1 << (f - 1),
         prop = fd.$ || fk,
@@ -750,35 +745,43 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     
     switch (fd.t) {
         case FieldType.BOOL:
-            val = el.type === 'checkbox' ? el.checked : ('1' === el.value)
-            message[prop] = val
-            postValidate(message, fd, fk, f, flag, message_, message_.dfbs, msg, root, update || val)
+            message[prop] = el.type === 'checkbox' ? el.checked : ('1' === el.value)
+            postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, !(flag & dfbs))
             break
         case FieldType.ENUM:
-            val = el.value
-            message[prop] = !val.length ? null : parseInt(val, 10)
-            postValidate(message, fd, fk, f, flag, message_, message_.dfbs, msg, root, update || val.length !== 0)
+            // re-use update var as dirty
+            if (!update) {
+                val = (update = !!el.value.length) ? parseInt(el.value, 10) : null
+            } else if (!(flag & dfbs)) {
+                // first update, dirty state
+                message_[prop] = val = parseInt(el.value, 10)
+            } else if (message_[prop] === (val = parseInt(el.value, 10))) {
+                // restored to original value, no longer dirty
+                update = false
+            }
+            message[prop] = val
+            postValidate(message, fd, fk, f, flag, message_, message_.dfbs, msg, root, update)
             break
         case FieldType.STRING:
-            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
+            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
-            msg = validateFloat(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
+            msg = validateFloat(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root)
             break
         default:
             switch (fd.o || 0) {
                 case 1: // time
-                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
+                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root)
                     break
                 case 2: // date
-                    msg = validateDate(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
+                    msg = validateDate(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root)
                     break
                 case 4: // datetime
-                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
+                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root)
                     break
                 default:
-                    msg = validateInt(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
+                    msg = validateInt(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root)
             }
     }
     
