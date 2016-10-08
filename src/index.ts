@@ -332,7 +332,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
     if ((state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
         return undefined
     
-    let mc,
+    let mc: MultiCAS|undefined,
         diffCount = pojo_.dfbs && diffVmTo(mc = MultiCAS.$create(), $d, original, pojo)
     
     if (!diffCount && !changes) {
