@@ -447,14 +447,13 @@ export function bindFormUpdateFailed(scope: FormUpdate): any {
 // =====================================
 // event handling
 
-function postValidate(message: any, fd: any, f: number, fk: string, message_: PojoSO, msg, root: any, set: boolean) {
+function postValidate(message: any, fd: any, fk: string, f: number, flag: number, 
+        message_: PojoSO, sfbs: number, msg, root: any, set: boolean) {
     let root_ = root._ as PojoSO,
         state = message_.state,
-        sfbs = message_.sfbs,
         vfbs = message_.vfbs,
         rfbs = message_.rfbs,
-        required = fd.m === 2,
-        flag = 1 << (f - 1)
+        required = fd.m === 2
     
     message_[fk] = msg
     
@@ -486,227 +485,240 @@ function postValidate(message: any, fd: any, f: number, fk: string, message_: Po
     }
 }
 
-function validateString(val: string, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
+function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
+        sfbs = message_.sfbs,
         v
     if (set) {
-        if (!fd.vfn || !(msg = fd.vfn(val)))
+        // backup data
+        if (update && (v = message[prop]) !== undefined && v !== message_[prop])
+            message_[prop] = v
+        
+        if (!fd.vfn || !(msg = fd.vfn(val))) {
             message[prop] = val
-        else if (update && !message_[prop]) {
-            // backup data
-            message_[prop] = message[prop]
-            message[prop] = undefined
+            set = !update || val !== message_[prop]
         } else {
             message[prop] = undefined
         }
     } else if (update) {
-        if ((v = message[prop]) === undefined) {
-            // restore data
+        set = !!(flag & sfbs)
+        // restore data
+        if ((v = message[prop]) === undefined)
             message[prop] = v = message_[prop]
-            message_[prop] = null
-        }
-        el.value = v
+        else
+            el.value = v
     } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
-        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
         return msg
     }
 
-    postValidate(message, fd, f, fk, message_, msg, root, set)
+    postValidate(message, fd, fk, f, flag, message_, sfbs, msg, root, set)
     return msg
 }
 
-function validateFloat(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
+function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
+        sfbs = message_.sfbs,
         v
     if (set) {
-        if (!regexDouble.test(val))
-            msg = fd.$n + ' is invalid.'
-        else if (!fd.vfn)
-            message[prop] = parseFloat(val)
-        else if (!(msg = fd.vfn(val = parseFloat(val))))
-            message[prop] = val
-        else if (update && !message_[prop]) {
-            // backup data
-            message_[prop] = message[prop]
+        // backup data
+        if (update && (v = message[prop]) !== undefined && v !== message_[prop])
+            message_[prop] = v
+        
+        if (!regexDouble.test(val)) {
+            msg = fd.$n + ' is not a number.'
             message[prop] = undefined
-        } else {
-            message[prop] = undefined
-        }
-    } else if (update) {
-        if ((v = message[prop]) === undefined) {
-            // restore data
-            message[prop] = v = message_[prop]
-            message_[prop] = null
-        }
-        el.value = v
-    } else if ((v = message[prop]) || v === undefined) {
-        el.value = ''
-        message[prop] = null
-        //msg = fd.$n + ' is required.'
-    } else if (el.value) {
-        // remove whitespace
-        el.value = ''
-        return msg
-    }
-
-    postValidate(message, fd, f, fk, message_, msg, root, set)
-    return msg
-}
-
-function validateInt(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
-    let msg: string|null = null,
-        set = !!val,
-        v
-    if (set) {
-        if (!regexInt.test(val))
-            msg = fd.$n + ' is invalid.'
-        else if (!fd.vfn)
-            message[prop] = parseInt(val, 10)
-        else if (!(msg = fd.vfn(val = parseInt(val, 10))))
-            message[prop] = val
-        else if (update && !message_[prop]) {
-            // backup data
-            message_[prop] = message[prop]
-            message[prop] = undefined
-        } else {
-            message[prop] = undefined
-        }
-    } else if (update) {
-        if ((v = message[prop]) === undefined) {
-            // restore data
-            message[prop] = v = message_[prop]
-            message_[prop] = null
-        }
-        el.value = v
-    } else if ((v = message[prop]) || v === undefined) {
-        el.value = ''
-        message[prop] = null
-        //msg = fd.$n + ' is required.'
-    } else if (el.value) {
-        // remove whitespace
-        el.value = ''
-        return msg
-    }
-
-    postValidate(message, fd, f, fk, message_, msg, root, set)
-    return msg
-}
-
-function validateTime(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
-    let msg: string|null = null,
-        set = !!val,
-        v
-    if (set) {
-        if (!regexTime.test(val) || 86399 < (v = numeral().unformat(val.length <= 5 ? (val + ':00') : val)))
-            msg = fd.$n + ' is invalid.'
-        else if (!fd.vfn || !(msg = fd.vfn(v)))
+        } else if (!fd.vfn) {
+            message[prop] = v = parseFloat(val)
+            set = !update || v !== message_[prop]
+        } else if (!(msg = fd.vfn(v = parseFloat(val)))) {
             message[prop] = v
-        else if (update && !message_[prop]) {
-            // backup data
-            message_[prop] = message[prop]
-            message[prop] = undefined
+            set = !update || v !== message_[prop]
         } else {
             message[prop] = undefined
         }
     } else if (update) {
-        if ((v = message[prop]) === undefined) {
-            // restore data
+        set = !!(flag & sfbs)
+        // restore data
+        if ((v = message[prop]) === undefined)
             message[prop] = v = message_[prop]
-            message_[prop] = null
-        }
-        el.value = formatTime(v)
+        else
+            el.value = v
     } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
-        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
         return msg
     }
 
-    postValidate(message, fd, f, fk, message_, msg, root, set)
+    postValidate(message, fd, fk, f, flag, message_, sfbs, msg, root, set)
     return msg
 }
 
-function validateDate(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
+function validateInt(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
+        sfbs = message_.sfbs,
         v
     if (set) {
-        if (!regexDate.test(val) || !(v = isValidDateStr(val)) || !(v = localToUtc(v)))
-            msg = fd.$n + ' is invalid.'
-        else if (!fd.vfn || !(msg = fd.vfn(v)))
-            message[prop] = v
-        else if (update && !message_[prop]) {
-            // backup data
-            message_[prop] = message[prop]
+        // backup data
+        if (update && (v = message[prop]) !== undefined && v !== message_[prop])
+            message_[prop] = v
+        
+        if (!regexInt.test(val)) {
+            msg = fd.$n + ' is not a whole number.'
             message[prop] = undefined
+        } else if (!fd.vfn) {
+            message[prop] = v = parseInt(val, 10)
+            set = !update || v !== message_[prop]
+        } else if (!(msg = fd.vfn(v = parseInt(val, 10)))) {
+            message[prop] = v
+            set = !update || v !== message_[prop]
         } else {
             message[prop] = undefined
         }
     } else if (update) {
-        if ((v = message[prop]) === undefined) {
-            // restore data
+        set = !!(flag & sfbs)
+        // restore data
+        if ((v = message[prop]) === undefined)
             message[prop] = v = message_[prop]
-            message_[prop] = null
-        }
-        el.value = formatDate(v)
+        else
+            el.value = v
     } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
-        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
         return msg
     }
 
-    postValidate(message, fd, f, fk, message_, msg, root, set)
+    postValidate(message, fd, fk, f, flag, message_, sfbs, msg, root, set)
     return msg
 }
 
-function validateDateTime(val: any, message: any, fd: any, f: number, fk, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
+function validateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
     let msg: string|null = null,
         set = !!val,
+        sfbs = message_.sfbs,
         v
     if (set) {
-        if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)) || !(v = localToUtc(v)))
-            msg = fd.$n + ' is invalid.'
-        else if (!fd.vfn || !(msg = fd.vfn(v)))
-            message[prop] = v
-        else if (update && !message_[prop]) {
-            // backup data
-            message_[prop] = message[prop]
+        // backup data
+        if (update && (v = message[prop]) !== undefined && v !== message_[prop])
+            message_[prop] = v
+        
+        if (!regexTime.test(val) || 86399 < (v = numeral().unformat(val.length <= 5 ? (val + ':00') : val))) {
+            msg = fd.$n + ' is not a valid time.'
             message[prop] = undefined
+        } else if (!fd.vfn || !(msg = fd.vfn(v))) {
+            message[prop] = v
+            set = !update || v !== message_[prop]
         } else {
             message[prop] = undefined
         }
     } else if (update) {
-        if ((v = message[prop]) === undefined) {
-            // restore data
+        set = !!(flag & sfbs)
+        // restore data
+        if ((v = message[prop]) === undefined)
             message[prop] = v = message_[prop]
-            message_[prop] = null
-        }
-        el.value = formatDateTime(v)
+        else
+            el.value = formatTime(v)
     } else if ((v = message[prop]) || v === undefined) {
         el.value = ''
         message[prop] = null
-        //msg = fd.$n + ' is required.'
     } else if (el.value) {
         // remove whitespace
         el.value = ''
         return msg
     }
 
-    postValidate(message, fd, f, fk, message_, msg, root, set)
+    postValidate(message, fd, fk, f, flag, message_, sfbs, msg, root, set)
+    return msg
+}
+
+function validateDate(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
+    let msg: string|null = null,
+        set = !!val,
+        sfbs = message_.sfbs,
+        v
+    if (set) {
+        // backup data
+        if (update && (v = message[prop]) !== undefined && v !== message_[prop])
+            message_[prop] = v
+        
+        if (!regexDate.test(val) || !(v = isValidDateStr(val)) || !(v = localToUtc(v))) {
+            msg = fd.$n + ' is not a valid date.'
+            message[prop] = undefined
+        } else if (!fd.vfn || !(msg = fd.vfn(v))) {
+            message[prop] = v
+            set = !update || v !== message_[prop]
+        } else {
+            message[prop] = undefined
+        }
+    } else if (update) {
+        set = !!(flag & sfbs)
+        // restore data
+        if ((v = message[prop]) === undefined)
+            message[prop] = v = message_[prop]
+        else
+            el.value = formatDate(v)
+    } else if ((v = message[prop]) || v === undefined) {
+        el.value = ''
+        message[prop] = null
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, fd, fk, f, flag, message_, sfbs, msg, root, set)
+    return msg
+}
+
+function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, prop: string, el: any, update: boolean, root: any): string|null {
+    let msg: string|null = null,
+        set = !!val,
+        sfbs = message_.sfbs,
+        v
+    if (set) {
+        // backup data
+        if (update && (v = message[prop]) !== undefined && v !== message_[prop])
+            message_[prop] = v
+        
+        if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)) || !(v = localToUtc(v))) {
+            msg = fd.$n + ' is not a valid date and time.'
+            message[prop] = undefined
+        } else if (!fd.vfn || !(msg = fd.vfn(v))) {
+            message[prop] = v
+            set = !update || v !== message_[prop]
+        } else {
+            message[prop] = undefined
+        }
+    } else if (update) {
+        set = !!(flag & sfbs)
+        // restore data
+        if ((v = message[prop]) === undefined)
+            message[prop] = v = message_[prop]
+        else
+            el.value = formatDateTime(v)
+    } else if ((v = message[prop]) || v === undefined) {
+        el.value = ''
+        message[prop] = null
+    } else if (el.value) {
+        // remove whitespace
+        el.value = ''
+        return msg
+    }
+
+    postValidate(message, fd, fk, f, flag, message_, sfbs, msg, root, set)
     return msg
 }
 
@@ -724,6 +736,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     
     let message_ = message['_'] as PojoSO,
         f = fd._,
+        flag = 1 << (f - 1),
         prop = fd.$ || fk,
         el = e.target,
         msg: string|null = null,
@@ -733,33 +746,33 @@ export function $change(e, message: any, field: string|number, update: boolean, 
         case FieldType.BOOL:
             val = el.type === 'checkbox' ? el.checked : ('1' === el.value)
             message[prop] = val
-            postValidate(message, fd, f, fk, message_, msg, root, update || val)
+            postValidate(message, fd, fk, f, flag, message_, message_.sfbs, msg, root, update || val)
             break
         case FieldType.ENUM:
             val = el.value
             message[prop] = !val.length ? null : parseInt(val, 10)
-            postValidate(message, fd, f, fk, message_, msg, root, update || val.length !== 0)
+            postValidate(message, fd, fk, f, flag, message_, message_.sfbs, msg, root, update || val.length !== 0)
             break
         case FieldType.STRING:
-            msg = validateString(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
+            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
-            msg = validateFloat(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
+            msg = validateFloat(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
             break
         default:
             switch (fd.o || 0) {
                 case 1: // time
-                    msg = validateTime(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
+                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
                     break
                 case 2: // date
-                    msg = validateDate(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
+                    msg = validateDate(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
                     break
                 case 4: // datetime
-                    msg = validateDateTime(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
+                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
                     break
                 default:
-                    msg = validateInt(el.value.trim(), message, fd, f, fk, message_, prop, el, update, root)
+                    msg = validateInt(el.value.trim(), message, fd, fk, f, flag, message_, prop, el, update, root)
             }
     }
     
