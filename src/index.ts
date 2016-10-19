@@ -396,6 +396,10 @@ export function formClear(pojo: any): PojoSO {
     return pojo_
 }
 
+export function extractMsg(data: any): string {
+    return Array.isArray(data) ? data[1]['1'] : String(data)
+}
+
 export function formSuccess(pojo: any) {
     let pojo_ = pojo['_'] as PojoSO
     
@@ -409,7 +413,7 @@ export function formFailed(pojo: any, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
-    pojo_.msg = !errmsg ? 'Error.' : String(errmsg)
+    pojo_.msg = !errmsg ? 'Error.' : extractMsg(errmsg)
 }
 
 function cbFormFailed(this: any, errmsg: any) {
@@ -429,7 +433,7 @@ export function formUpdateFailed(pojo: any, pager: HasState, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
-    pojo_.msg = !errmsg ? 'Error.' : String(errmsg)
+    pojo_.msg = !errmsg ? 'Error.' : extractMsg(errmsg)
 
     // TODO move PagerState to this file
     pager.state ^= 8 // LOADING

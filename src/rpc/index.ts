@@ -3,11 +3,25 @@ import * as axios from 'axios'
 const defaultConfig = { headers: { 'Content-Type': 'application/json;charset=utf-8' } }
 
 function handler<T>(res): T {
-    let e = res.headers['e']
-    if (!e) throw 'Malformed response.'
-    if (parseInt(e, 10)) throw JSON.parse(res['request']['responseText'])['1']
+    let raw: string = res['request']['responseText'],
+        first = raw.charAt(0),
+        text = raw.substring(1, raw.length - 2),
+        data
+    
+    if (first === '+') {
+        data = JSON.parse(text)
+        if (data[0])
+            throw data
+        return data[1]
+    }
 
-    return res.data
+    if (first !== '-')
+        throw new Error('Malformed response.')
+    
+    if (raw.charAt(1) !== '[')
+        throw new Error(text)
+    
+    throw JSON.parse(text)
 }
 
 export function post<T>(url: string, data: string, config?: any): PromiseLike<T> {
