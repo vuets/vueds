@@ -2,7 +2,7 @@ import * as axios from 'axios'
 
 const defaultConfig = { headers: { 'Content-Type': 'application/json;charset=utf-8' } }
 
-function handler<T>(res): T {
+export function handler<T>(res): T {
     let raw: string = res['request']['responseText'],
         first = raw.charAt(0),
         text = raw.substring(1, raw.length - 2),
