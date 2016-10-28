@@ -43,7 +43,8 @@ export function handler<T>(raw: string): T {
         data = JSON.parse(text)
         if (data[0])
             throw data
-        return data[1]
+        
+        return data.length === 2 ? data[1] : data
     }
 
     if (first !== '-')
