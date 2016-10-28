@@ -63,7 +63,7 @@ export function post<T>(url: string, data: string, customHandler?: any): Promise
     //return axios.post(url, data, config || defaultConfig).then(handler)
 }
 
-export function get<T>(url: string, customHandler?: any): PromiseLike<T> {
-    return fetch(url).then(checkStatus).then(customHandler || handler)
+export function get<T>(url: string, opts?: any, customHandler?: any): PromiseLike<T> {
+    return fetch(url, opts).then(checkStatus).then(customHandler || handler)
     //return axios.get(url).then(handler)
 }
