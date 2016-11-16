@@ -4,6 +4,10 @@ declare function fetch(path: string, opts?: any): any;
 
 /*const defaultConfig = { headers: { 'Content-Type': 'application/json;charset=utf-8' } }
 
+export interface HasToken {
+    token: string
+}
+
 export function handler<T>(res): T {
     let raw: string = res['request']['responseText'],
         first = raw.charAt(0),
