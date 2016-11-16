@@ -793,11 +793,11 @@ export class PojoStore<T> {
             masked = PagerState.MASK_RPC & pager.state
         switch (masked) {
             case PagerState.LOAD_NEWER:
-                return this.get(0)
+                return this.array.length === 0 ? null : this.get(0)
             case PagerState.LOAD_OLDER:
-                return this.get(this.size() - 1)
+                return this.array.length === 0 ? null : this.get(this.size() - 1)
             case PagerState.RELOAD:
-                return pager.array[0]
+                return pager.array.length === 0 ? null : pager.array[0]
             default:
                 return null
         }
