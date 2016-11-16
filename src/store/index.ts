@@ -860,9 +860,13 @@ export class PojoStore<T> {
             pageFn(!this.options.desc, pager)
             return
         }
-
+        
+        if (pager.msg)
+            pager.msg = ''
+        
         pager.state = bit_clear_and_set(pager.state, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.LOAD_NEWER)
+        
         this.options.fetch(this.newRangeKeyForLoadNewer(), pager)
     }
 
@@ -873,9 +877,13 @@ export class PojoStore<T> {
             pageFn(!!this.options.desc, pager)
             return
         }
-
+        
+        if (pager.msg)
+            pager.msg = ''
+        
         pager.state = bit_clear_and_set(pager.state, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.LOAD_OLDER)
+        
         this.options.fetch(this.newRangeKeyForLoadOlder(), pager)
     }
 
@@ -883,17 +891,30 @@ export class PojoStore<T> {
         if (this.options.page) return
 
         let pager = this.pager
+        
+        if (pager.msg)
+            pager.msg = ''
+        
         pager.state = bit_clear_and_set(pager.state, PagerState.MASK_STATUS, 
             PagerState.LOADING | PagerState.RELOAD)
+        
         this.options.fetch(this.newRangeKeyForReload(), pager)
     }
 
     $reload(desc: boolean) {
-        let pager = this.pager
+        let pager = this.pager,
+            clear = PagerState.MASK_STATUS,
+            set = PagerState.LOADING | PagerState.RELOAD
+        
         if (desc)
-            pager.state |= (PagerState.RELOAD | PagerState.DESC)
+            set |= PagerState.DESC
         else
-            pager.state = bit_clear_and_set(pager.state, PagerState.DESC, PagerState.RELOAD)
+            clear |= PagerState.DESC
+        
+        if (pager.msg)
+            pager.msg = ''
+        
+        pager.state = bit_clear_and_set(pager.state, clear, set)
         
         this.options.fetch(this.$newRangeKeyForReload(desc), pager)
     }
