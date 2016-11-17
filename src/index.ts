@@ -766,8 +766,18 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     
     switch (fd.t) {
         case FieldType.BOOL:
-            message[prop] = val = el.type === 'checkbox' ? el.checked : ('1' === el.value)
-            postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, !(flag & dfbs))
+            // re-use update var as dirty
+            if (el.nodeName !== 'SELECT') {
+                message[prop] = val = el.checked
+                update = !(flag & dfbs)
+            } else if (update || el.value) {
+                message[prop] = val = ('1' === el.value)
+                update = !(flag & dfbs)
+            } else {
+                message[prop] = val = null
+                update = false
+            }
+            postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, update)
             if (cbfn)
                 cbfn(f, val, message, fd, root)
             break
