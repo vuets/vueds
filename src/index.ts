@@ -489,7 +489,7 @@ function postValidate(message: any, fd: any, fk: string, f: number, flag: number
 }
 
 function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -499,7 +499,7 @@ function validateString(val: string, message: any, fd: any, fk, f: number, flag:
         if (update && (v = message[prop]) !== undefined && v !== message_[prop])
             message_[prop] = v
         
-        if (!fd.vfn || !(msg = fd.vfn(val))) {
+        if (skipValidate || !fd.vfn || !(msg = fd.vfn(val))) {
             message[prop] = sv = val
             dirty = !update || val !== message_[prop]
         } else {
@@ -746,7 +746,7 @@ function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: 
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
-export function $change(e, message: any, field: string|number, update: boolean, root: any, cbfn?: any): string|null {
+export function $change(e, message: any, field: string|number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean): string|null {
     let d = message['$d'],
         $ = d.$,
         fk = $ && isNaN(field as any) ? $[field] : String(field),
@@ -798,7 +798,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
                 cbfn(f, val, message, fd, root)
             break
         case FieldType.STRING:
-            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
+            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
