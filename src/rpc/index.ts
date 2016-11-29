@@ -132,7 +132,8 @@ class P {
     }
 
     fail(err) {
-        if (err === 401)
+        // check unauthorized
+        if (err === 401 || (Array.isArray(err) && err[0] === 3))
             this.ah(this.authOk || (this.authOk = this.run.bind(this)))
         else
             this.handlers[this.handlers.length - 1](err)
