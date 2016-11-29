@@ -30,6 +30,9 @@ export function handler<T>(res): T {
     throw JSON.parse(text)
 }*/
 
+export type AuthOk = (token: string) => void;
+export type AuthHandler = (cb: AuthOk) => void;
+
 export function checkStatus<T>(res: any): T {
     let status = res.status
     if (status < 200 || status > 299)
@@ -60,15 +63,71 @@ export function handler<T>(raw: string): T {
     throw JSON.parse(text)
 }
 
+var authHandler: AuthHandler|null = null
+
+export function setAuthHandler(handler: AuthHandler) {
+    authHandler = handler
+}
+
 export function post<T>(url: string, data: string, customHandler?: any): PromiseLike<T> {
-    return fetch(url, {
+    let opts = {
         method: 'POST',
         body: data
-    }).then(checkStatus).then(customHandler || handler)
-    //return axios.post(url, data, config || defaultConfig).then(handler)
+    }
+    return authHandler ?
+        new P(authHandler, url, opts, customHandler || handler) : 
+        fetch(url, opts).then(checkStatus).then(customHandler || handler)
 }
 
 export function get<T>(url: string, opts?: any, customHandler?: any): PromiseLike<T> {
-    return fetch(url, opts).then(checkStatus).then(customHandler || handler)
-    //return axios.get(url).then(handler)
+    return authHandler ?
+        new P(authHandler, url, opts, customHandler || handler) : 
+        fetch(url, opts).then(checkStatus).then(customHandler || handler)
+}
+
+class P {
+    resolvers: any[] = []
+    cbFail: any
+    authOk: AuthOk
+    constructor(private ah: AuthHandler, private url: string, private opts: any, private h: any) {
+
+    }
+
+    then(resolve, reject): P {
+        if (resolve) {
+            this.resolvers.push(resolve)
+        } else {
+            this.resolvers.push(reject)
+            this.run()
+        }
+        return this
+    }
+
+    catch(reject): P {
+        this.resolvers.push(reject)
+        this.run()
+        return this
+    }
+
+    run(token?: string): void {
+        let url = this.url
+        if (token)
+            url = url.substring(0, url.lastIndexOf('=') + 1) + token
+        
+        let f = fetch(url, this.opts).then(checkStatus).then(this.h),
+            array = this.resolvers,
+            last = array.length - 1,
+            i = 0
+        while (i < last)
+            f.then(array[i++])
+        
+        f.then(undefined, this.cbFail || (this.cbFail = this.fail.bind(this)))
+    }
+
+    fail(err) {
+        if (err === 401)
+            this.ah(this.authOk || (this.authOk = this.run.bind(this)))
+        else
+            this.resolvers[this.resolvers.length - 1](err)
+    }
 }
