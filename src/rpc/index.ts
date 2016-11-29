@@ -86,7 +86,7 @@ export function get<T>(url: string, opts?: any, customHandler?: any): PromiseLik
 }
 
 class P {
-    resolvers: any[] = []
+    handlers: any[] = []
     cbFail: any
     authOk: AuthOk
     constructor(private ah: AuthHandler, private url: string, private opts: any, private h: any) {
@@ -94,18 +94,25 @@ class P {
     }
 
     then(resolve, reject): P {
-        if (resolve) {
-            this.resolvers.push(resolve)
+        if (this.cbFail) {
+            console.warn('Cannot add a resolve/reject handler once a reject handler is provided.')
+        } else if (resolve) {
+            this.handlers.push(resolve)
         } else {
-            this.resolvers.push(reject)
+            this.handlers.push(reject)
             this.run()
         }
         return this
     }
 
     catch(reject): P {
-        this.resolvers.push(reject)
-        this.run()
+        if (this.cbFail) {
+            console.warn('Only one reject handler is allowed.')
+        } else {
+            this.handlers.push(reject)
+            this.run()
+        }
+
         return this
     }
 
@@ -115,7 +122,7 @@ class P {
             url = url.substring(0, url.lastIndexOf('=') + 1) + token
         
         let f = fetch(url, this.opts).then(checkStatus).then(this.h),
-            array = this.resolvers,
+            array = this.handlers,
             last = array.length - 1,
             i = 0
         while (i < last)
@@ -128,6 +135,6 @@ class P {
         if (err === 401)
             this.ah(this.authOk || (this.authOk = this.run.bind(this)))
         else
-            this.resolvers[this.resolvers.length - 1](err)
+            this.handlers[this.handlers.length - 1](err)
     }
 }
