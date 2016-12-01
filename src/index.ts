@@ -618,7 +618,7 @@ function validateInt(val: any, message: any, fd: any, fk, f: number, flag: numbe
 }
 
 function validateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -631,7 +631,7 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
         if (!regexTime.test(val) || 86399 < (v = numeral().unformat(val.length <= 5 ? (val + ':00') : val))) {
             msg = fd.$n + ' is not a valid time.'
             message[prop] = undefined
-        } else if (!fd.vfn || !(msg = fd.vfn(v))) {
+        } else if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
             message[prop] = sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -660,7 +660,7 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
 }
 
 function validateDate(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -673,7 +673,7 @@ function validateDate(val: any, message: any, fd: any, fk, f: number, flag: numb
         if (!regexDate.test(val) || !(v = isValidDateStr(val)) || !(v = localToUtc(v))) {
             msg = fd.$n + ' is not a valid date.'
             message[prop] = undefined
-        } else if (!fd.vfn || !(msg = fd.vfn(v))) {
+        } else if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
             message[prop] = sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -702,7 +702,7 @@ function validateDate(val: any, message: any, fd: any, fk, f: number, flag: numb
 }
 
 function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -715,7 +715,7 @@ function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: 
         if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)) || !(v = localToUtc(v))) {
             msg = fd.$n + ' is not a valid date and time.'
             message[prop] = undefined
-        } else if (!fd.vfn || !(msg = fd.vfn(v))) {
+        } else if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
             message[prop] = sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -807,13 +807,13 @@ export function $change(e, message: any, field: string|number, update: boolean, 
         default:
             switch (fd.o || 0) {
                 case 1: // time
-                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
+                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
                     break
                 case 2: // date
-                    msg = validateDate(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
+                    msg = validateDate(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
                     break
                 case 4: // datetime
-                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
+                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
                     break
                 default:
                     msg = validateInt(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
