@@ -1,11 +1,10 @@
-/// <reference types="vue" />
 import { ds } from '../ds/';
 import { HasState, PojoSO } from '../';
-export declare const DESCRIPTOR: string;
-export declare const INDEX: string;
-export declare const PREV_KEY: string;
-export declare const PREV_PAGE: string;
-export declare const PREV_ISTATE: string;
+export declare const DESCRIPTOR = "$d";
+export declare const INDEX = "$index";
+export declare const PREV_KEY = "$prev_key";
+export declare const PREV_PAGE = "$prev_page";
+export declare const PREV_ISTATE = "$prev_istate";
 export declare function shallowCopyTo<T>(target: T, src: T): T;
 export interface KeyHandler {
     inc(key: string): string;
