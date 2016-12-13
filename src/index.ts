@@ -447,6 +447,73 @@ export function bindFormUpdateFailed(scope: FormUpdate): any {
     return cbFormUpdateFailed.bind(scope)
 }
 
+export function toggleUpdateSuccess(pager: any, pojo_update: any): boolean {
+    let selected = pager.pojo,
+        selected_ = selected['_'] as PojoSO,
+        store = pager['store'],
+        original = store.getOriginal(selected)
+    
+    pager.state ^= 8 // LOADING
+    mergeOriginalFrom(selected, selected['$d'], original, pojo_update)
+
+    selected_.state = bit_clear_and_set(selected_.state, PojoState.LOADING, PojoState.SUCCESS)
+    selected_.msg = 'Update Sucessful'
+    
+    return true
+}
+
+function cbToggleUpdateSuccess(this: FormUpdate) {
+    toggleUpdateSuccess(this.pager, this.pojo)
+}
+
+export function bindToggleUpdateSuccess(scope: FormUpdate): any {
+    return cbToggleUpdateSuccess.bind(scope)
+}
+
+export function toggleUpdateFailed(pager: any, errmsg: any) {
+    let selected = pager.pojo,
+        selected_ = selected['_'] as PojoSO,
+        store = pager['store'],
+        original = store.getOriginal(selected)
+    
+    pager.state ^= 8 // LOADING
+    selected_.state = bit_clear_and_set(selected_.state, PojoState.LOADING, PojoState.ERROR)
+    selected_.msg = !errmsg ? 'Update failed.' : extractMsg(errmsg)
+}
+
+function cbToggleUpdateFailed(this: any, errmsg: any) {
+    toggleUpdateFailed(this, errmsg)
+}
+
+export function bindToggleUpdateFailed(pager: any): any {
+    return cbToggleUpdateFailed.bind(pager)
+}
+
+export function toggleUpdate(pager: any, field: string): MultiCAS|null {
+    let selected = pager.pojo,
+        selected_ = selected['_'] as PojoSO
+    
+    if (pager.state & 8 /*LOADING*/ || selected_.state & PojoState.LOADING)
+        return null
+    
+    let d = selected['$d'],
+        fd = d[d.$[field]],
+        store = pager['store'],
+        original = store.getOriginal(selected),
+        mc = MultiCAS.$create()
+    
+    selected[field] = !selected[field]
+
+    diffFieldTo(mc, d, original, selected, fd._)
+    
+    pager.state |= 8 // LOADING
+    selected_.state |= PojoState.LOADING
+    if (selected_.msg)
+        selected_.msg = ''
+
+    return mc
+}
+
 // =====================================
 // event handling
 
