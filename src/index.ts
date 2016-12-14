@@ -505,7 +505,7 @@ export function toggleUpdate(pager: any, field: string, changed?: boolean): Mult
     if (!changed)
         selected[field] = !selected[field]
 
-    diffFieldTo(mc, d, original, selected, fd._)
+    diffVmFieldTo(mc, d, original, selected, fd._)
     
     pager.state |= 8 // LOADING
     selected_.state |= PojoState.LOADING
