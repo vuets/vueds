@@ -489,8 +489,8 @@ export function bindToggleUpdateFailed(pager: any): any {
     return cbToggleUpdateFailed.bind(pager)
 }
 
-export function toggleUpdate(pager: any, field: string, changed?: boolean): MultiCAS|null {
-    let selected = pager.pojo,
+export function toggleUpdate(pager: any, field: string, pojo?: any, changed?: boolean): MultiCAS|null {
+    let selected = pojo || pager.pojo,
         selected_ = selected['_'] as PojoSO
     
     if (pager.state & 8 /*LOADING*/ || selected_.state & PojoState.LOADING)
@@ -502,6 +502,9 @@ export function toggleUpdate(pager: any, field: string, changed?: boolean): Mult
         original = store.getOriginal(selected),
         mc = MultiCAS.$create()
     
+    if (pojo && pojo !== pager.pojo)
+        store.select(pojo, 1 /*SelectionFlags.CLICKED*/)
+
     if (!changed)
         selected[field] = !selected[field]
 
