@@ -728,13 +728,21 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
     return msg
 }
 
-function validateDate(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
+function validateDate(e, val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
         prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
         sv
-    if (dirty) {
+    if (!e.isTrusted && (v = message[prop])) {
+        // dirty
+        if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
+            sv = v
+            dirty = !update || v !== message_[prop]
+        } else {
+            message[prop] = undefined
+        }
+    } else if (dirty) {
         // backup data
         if (update && (v = message[prop]) !== undefined && v !== message_[prop])
             message_[prop] = v
@@ -879,7 +887,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
                     msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
                     break
                 case 2: // date
-                    msg = validateDate(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
+                    msg = validateDate(e, el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
                     break
                 case 4: // datetime
                     msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
