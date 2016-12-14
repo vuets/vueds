@@ -88,7 +88,7 @@ export declare function toggleUpdateSuccess(pager: any, pojo_update: any): boole
 export declare function bindToggleUpdateSuccess(scope: FormUpdate): any;
 export declare function toggleUpdateFailed(pager: any, errmsg: any): void;
 export declare function bindToggleUpdateFailed(pager: any): any;
-export declare function toggleUpdate(pager: any, field: string, changed?: boolean): MultiCAS | null;
+export declare function toggleUpdate(pager: any, field: string, pojo?: any, changed?: boolean): MultiCAS | null;
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
