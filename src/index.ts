@@ -329,7 +329,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
         state = pojo_.state,
         $d = pojo['$d']
     
-    if ((state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
+    if ((pager.state & 8 /*LOADING*/) || (state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
         return undefined
     
     let mc: MultiCAS|undefined,
@@ -489,7 +489,7 @@ export function bindToggleUpdateFailed(pager: any): any {
     return cbToggleUpdateFailed.bind(pager)
 }
 
-export function toggleUpdate(pager: any, field: string): MultiCAS|null {
+export function toggleUpdate(pager: any, field: string, changed?: boolean): MultiCAS|null {
     let selected = pager.pojo,
         selected_ = selected['_'] as PojoSO
     
@@ -502,7 +502,8 @@ export function toggleUpdate(pager: any, field: string): MultiCAS|null {
         original = store.getOriginal(selected),
         mc = MultiCAS.$create()
     
-    selected[field] = !selected[field]
+    if (!changed)
+        selected[field] = !selected[field]
 
     diffFieldTo(mc, d, original, selected, fd._)
     
