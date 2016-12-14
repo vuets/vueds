@@ -295,10 +295,8 @@ export function verifyFormFields(message: any, descriptor: any, update?: boolean
     if (update || !(rfbs = descriptor.$rfbs) || rfbs === message_.rfbs)
         return true
     
-    if (!root_.msg) {
-        root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS, PojoState.ERROR)
-        root_.msg = 'All required fields must be provided.'
-    }
+    root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS, PojoState.ERROR)
+    root_.msg = 'All required fields must be provided.'
     
     return false
 }
