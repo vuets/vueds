@@ -75,7 +75,7 @@ export declare function formUpdateSuccess(pojo: any, pager: HasState, original: 
 export declare function formPrepare(pojo: any): boolean;
 export declare function formClear(pojo: any): PojoSO;
 export declare function extractMsg(data: any): string;
-export declare function formSuccess(pojo: any): void;
+export declare function formSuccess(pojo: any, msg?: string): void;
 export declare function formFailed(pojo: any, errmsg: any): void;
 export declare function bindFormFailed(pojo: any): any;
 export interface FormUpdate {
