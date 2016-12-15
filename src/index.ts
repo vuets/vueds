@@ -399,11 +399,11 @@ export function extractMsg(data: any): string {
     return Array.isArray(data) ? data[1]['1'] : String(data)
 }
 
-export function formSuccess(pojo: any) {
+export function formSuccess(pojo: any, msg?: string) {
     let pojo_ = pojo['_'] as PojoSO
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
-    pojo_.msg = 'Successful.'
+    pojo_.msg = msg || 'Successful.'
     
     clearFormFields(pojo, pojo['$d'])
 }
