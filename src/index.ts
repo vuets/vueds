@@ -87,34 +87,35 @@ export interface KV {
     v: any
 }
 
-function addVpropsTo<T>(so: T, descriptor: any, owner: any): T {
+function addVpropsTo<T>(so: T, descriptor: any, owner: any, nullifyEmptyString?: boolean): T {
+    var prop
     if (descriptor.$fdf) {
         for (let k of descriptor.$fdf) {
             so[k] = null
-            if (owner)
-                owner[descriptor[k].$ || k] = null
+            prop = descriptor[k].$ || k
+            if (!nullifyEmptyString || owner[prop] === '')
+                owner[prop] = null
         }
     }
 
     if (descriptor.$fdikf) {
         for (let k of descriptor.$fdikf) {
             so[k] = null
-            if (owner)
-                owner[descriptor[k].$ || k] = null
+            owner[descriptor[k].$ || k] = null
         }
     }
     
     return so
 }
 
-export function initObservable<T>(target: T, descriptor: any, update?: boolean): T {
+export function initObservable<T>(target: T, descriptor: any, nullifyEmptyString?: boolean): T {
     target['_'] = addVpropsTo({
         state: 0,
         msg: '',
         dfbs: 0,
         vfbs: 0,
         rfbs: 0
-    }, descriptor, update ? null : target)
+    }, descriptor, target, nullifyEmptyString)
 
     defp(target, '$d', descriptor)
     if (!descriptor.$fmf)
@@ -122,7 +123,7 @@ export function initObservable<T>(target: T, descriptor: any, update?: boolean):
 
     for (let fk of descriptor.$fmf) {
         let fd = descriptor[fk]
-        initObservable(target[fd.$], fd.d_fn(), update)
+        initObservable(target[fd.$], fd.d_fn(), nullifyEmptyString)
     }
     return target
 }
