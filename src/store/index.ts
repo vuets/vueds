@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO } from '../'
+import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO, extractMsg } from '../'
 import { bit_clear_and_set, bit_unset, incrementKey, decrementKey } from '../util'
 
 //export const STATE = "state"
@@ -13,10 +13,10 @@ export const PREV_PAGE = "$prev_page"
 export const PREV_ISTATE = "$prev_istate"
 
 // TODO usage
-function extractMessage(err: any): string {
+/*function extractMessage(err: any): string {
     var str = JSON.parse(err)['1']
     return Array.isArray(str) ? str.join('\n') : str
-}
+}*/
 
 export function shallowCopyTo<T>(target: T, src: T): T {
     for (var i in src)
@@ -1035,7 +1035,7 @@ export class PojoStore<T> {
     cbFetchFailed(errmsg: any) {
         let pager = this.pager
         pager.state = bit_clear_and_set(pager.state, PagerState.MASK_RPC | PagerState.LOADING, PagerState.ERROR)
-        pager.msg = !errmsg ? 'Failed.' : String(errmsg)
+        pager.msg = !errmsg ? 'Failed.' : extractMsg(errmsg)
     }
 }
 
