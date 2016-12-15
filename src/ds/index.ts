@@ -8,10 +8,12 @@ import mc_ from './mc'
 export namespace ds {
     export import MultiCAS = mc_
     /**
+     * ```
      * 
      * message ParamId {
      *   required uint32 id = 1;
      * }
+     * ```
      */
     export interface ParamId {
         /** required: 1 */
@@ -43,6 +45,8 @@ export namespace ds {
             } as ParamId
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1'],
             '1': {_: 1, t: 10, m: 2, a: 0, $: 'id', $n: 'Id'},
             $: {
                 id: '1'
@@ -53,11 +57,13 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message ParamKey {
      *   required bytes key = 1;
      *   optional bytes parent_key = 2;
      * }
+     * ```
      */
     export interface ParamKey {
         /** required: 1 */
@@ -97,6 +103,8 @@ export namespace ds {
             } as ParamKey
         }
         export const $descriptor = {
+            $rfbs: 0,
+            $fdikf: ['2'],
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'key', $n: 'Key'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'parentKey', $n: 'Parent Key'},
             $: {
@@ -109,12 +117,14 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message ParamUpdate {
      *   required bytes key = 1;
      *   required MultiCAS mc = 2;
      *   optional uint32 id = 3;
      * }
+     * ```
      */
     export interface ParamUpdate {
         /** required: 1 */
@@ -163,6 +173,9 @@ export namespace ds {
             } as ParamUpdate
         }
         export const $descriptor = {
+            $rfbs: 0,
+            $fdf: ['3'],
+            $fmf: ['2'],
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'key', $n: 'Key'},
             '2': {_: 2, t: 0, m: 2, a: 0, $: 'mc', $n: 'Mc', d_fn: () => MultiCAS.$descriptor},
             '3': {_: 3, t: 10, m: 1, a: 0, $: 'id', $n: 'Id'},
@@ -177,6 +190,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message ParamRangeKey {
      *   required bool desc = 1;
@@ -184,6 +198,7 @@ export namespace ds {
      *   optional bytes start_key = 3;
      *   optional bytes parent_key = 4;
      * }
+     * ```
      */
     export interface ParamRangeKey {
         /** required: 1 */
@@ -239,6 +254,9 @@ export namespace ds {
             } as ParamRangeKey
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','2'],
+            $fdikf: ['3','4'],
             '1': {_: 1, t: 1, m: 2, a: 0, $: 'desc', $n: 'Desc'},
             '2': {_: 2, t: 6, m: 1, a: 0, $: 'limit', $n: 'Limit'},
             '3': {_: 3, t: 2, m: 1, a: 0, $: 'startKey', $n: 'Start Key'},
@@ -255,12 +273,14 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message ACResult {
      *   required string name = 1;
      *   required bytes value = 2;
      *   optional uint32 id = 3;
      * }
+     * ```
      */
     export interface ACResult {
         /** required: 1 */
@@ -272,10 +292,12 @@ export namespace ds {
     }
     export namespace ACResult {
         /**
+         * ```
          * 
          * message PList {
          *   repeated ACResult p = 1;
          * }
+         * ```
          */
         export interface PList {
             /** repeated: 1 */
@@ -319,6 +341,8 @@ export namespace ds {
             } as ACResult
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','3'],
             '1': {_: 1, t: 3, m: 2, a: 0, $: 'name', $n: 'Name'},
             '2': {_: 2, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '3': {_: 3, t: 10, m: 1, a: 0, $: 'id', $n: 'Id'},
@@ -333,6 +357,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message P1 {
      *   required int8 value = 1;
@@ -340,6 +365,7 @@ export namespace ds {
      *   optional int8 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface P1 {
         /** required: 1 */
@@ -396,6 +422,9 @@ export namespace ds {
             } as P1
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','2','3'],
+            $fmf: ['4'],
             '1': {_: 1, t: 8, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 8, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 8, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
@@ -412,6 +441,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message P4 {
      *   required uint32 value = 1;
@@ -419,6 +449,7 @@ export namespace ds {
      *   optional uint32 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface P4 {
         /** required: 1 */
@@ -475,6 +506,9 @@ export namespace ds {
             } as P4
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','2','3'],
+            $fmf: ['4'],
             '1': {_: 1, t: 6, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 6, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 6, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
@@ -491,6 +525,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message P8 {
      *   required uint64 value = 1;
@@ -498,6 +533,7 @@ export namespace ds {
      *   optional uint64 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface P8 {
         /** required: 1 */
@@ -554,6 +590,9 @@ export namespace ds {
             } as P8
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','2','3'],
+            $fmf: ['4'],
             '1': {_: 1, t: 11, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 11, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 11, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
@@ -570,6 +609,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message PD {
      *   required uint64 value = 1;
@@ -577,6 +617,7 @@ export namespace ds {
      *   optional uint64 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface PD {
         /** required: 1 */
@@ -633,6 +674,9 @@ export namespace ds {
             } as PD
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','2','3'],
+            $fmf: ['4'],
             '1': {_: 1, t: 11, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 11, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 11, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
@@ -649,6 +693,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message PB {
      *   required bytes value = 1;
@@ -656,6 +701,7 @@ export namespace ds {
      *   optional bytes pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface PB {
         /** required: 1 */
@@ -712,6 +758,8 @@ export namespace ds {
             } as PB
         }
         export const $descriptor = {
+            $rfbs: 0,
+            $fmf: ['4'],
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 2, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
@@ -728,6 +776,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message PK {
      *   required bytes value = 1;
@@ -735,6 +784,7 @@ export namespace ds {
      *   optional bytes pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface PK {
         /** required: 1 */
@@ -791,6 +841,8 @@ export namespace ds {
             } as PK
         }
         export const $descriptor = {
+            $rfbs: 0,
+            $fmf: ['4'],
             '1': {_: 1, t: 2, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 2, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 2, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
@@ -807,6 +859,7 @@ export namespace ds {
 
 
     /**
+     * ```
      * 
      * message PS {
      *   required string value = 1;
@@ -814,6 +867,7 @@ export namespace ds {
      *   optional string pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     export interface PS {
         /** required: 1 */
@@ -870,6 +924,9 @@ export namespace ds {
             } as PS
         }
         export const $descriptor = {
+            $rfbs: 1, $rfdf: ['1'],
+            $fdf: ['1','2','3'],
+            $fmf: ['4'],
             '1': {_: 1, t: 3, m: 2, a: 0, $: 'value', $n: 'Value'},
             '2': {_: 2, t: 3, m: 1, a: 0, $: 'end', $n: 'End'},
             '3': {_: 3, t: 3, m: 1, a: 0, $: 'pgstart', $n: 'Pgstart'},
