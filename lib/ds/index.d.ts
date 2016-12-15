@@ -2,10 +2,12 @@ import mc_ from './mc';
 export declare namespace ds {
     export import MultiCAS = mc_;
     /**
+     * ```
      *
      * message ParamId {
      *   required uint32 id = 1;
      * }
+     * ```
      */
     interface ParamId {
         /** required: 1 */
@@ -27,6 +29,9 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
             $: {
                 id: string;
             };
@@ -35,11 +40,13 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message ParamKey {
      *   required bytes key = 1;
      *   optional bytes parent_key = 2;
      * }
+     * ```
      */
     interface ParamKey {
         /** required: 1 */
@@ -72,6 +79,8 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
+            $rfbs: number;
+            $fdikf: string[];
             $: {
                 key: string;
                 parentKey: string;
@@ -81,12 +90,14 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message ParamUpdate {
      *   required bytes key = 1;
      *   required MultiCAS mc = 2;
      *   optional uint32 id = 3;
      * }
+     * ```
      */
     interface ParamUpdate {
         /** required: 1 */
@@ -131,6 +142,9 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
+            $rfbs: number;
+            $fdf: string[];
+            $fmf: string[];
             $: {
                 key: string;
                 mc: string;
@@ -141,6 +155,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message ParamRangeKey {
      *   required bool desc = 1;
@@ -148,6 +163,7 @@ export declare namespace ds {
      *   optional bytes start_key = 3;
      *   optional bytes parent_key = 4;
      * }
+     * ```
      */
     interface ParamRangeKey {
         /** required: 1 */
@@ -202,6 +218,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fdikf: string[];
             $: {
                 desc: string;
                 limit: string;
@@ -213,12 +233,14 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message ACResult {
      *   required string name = 1;
      *   required bytes value = 2;
      *   optional uint32 id = 3;
      * }
+     * ```
      */
     interface ACResult {
         /** required: 1 */
@@ -230,10 +252,12 @@ export declare namespace ds {
     }
     namespace ACResult {
         /**
+         * ```
          *
          * message PList {
          *   repeated ACResult p = 1;
          * }
+         * ```
          */
         interface PList {
             /** repeated: 1 */
@@ -272,6 +296,9 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
             $: {
                 name: string;
                 value: string;
@@ -282,6 +309,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message P1 {
      *   required int8 value = 1;
@@ -289,6 +317,7 @@ export declare namespace ds {
      *   optional int8 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface P1 {
         /** required: 1 */
@@ -375,6 +404,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -385,6 +418,10 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -396,6 +433,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message P4 {
      *   required uint32 value = 1;
@@ -403,6 +441,7 @@ export declare namespace ds {
      *   optional uint32 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface P4 {
         /** required: 1 */
@@ -489,6 +528,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -499,6 +542,10 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -510,6 +557,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message P8 {
      *   required uint64 value = 1;
@@ -517,6 +565,7 @@ export declare namespace ds {
      *   optional uint64 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface P8 {
         /** required: 1 */
@@ -603,6 +652,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -613,6 +666,10 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -624,6 +681,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message PD {
      *   required uint64 value = 1;
@@ -631,6 +689,7 @@ export declare namespace ds {
      *   optional uint64 pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface PD {
         /** required: 1 */
@@ -717,6 +776,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -727,6 +790,10 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -738,6 +805,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message PB {
      *   required bytes value = 1;
@@ -745,6 +813,7 @@ export declare namespace ds {
      *   optional bytes pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface PB {
         /** required: 1 */
@@ -831,6 +900,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -841,6 +914,8 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -852,6 +927,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message PK {
      *   required bytes value = 1;
@@ -859,6 +935,7 @@ export declare namespace ds {
      *   optional bytes pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface PK {
         /** required: 1 */
@@ -945,6 +1022,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -955,6 +1036,8 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -966,6 +1049,7 @@ export declare namespace ds {
         };
     }
     /**
+     * ```
      *
      * message PS {
      *   required string value = 1;
@@ -973,6 +1057,7 @@ export declare namespace ds {
      *   optional string pgstart = 3;
      *   required ParamRangeKey prk = 4;
      * }
+     * ```
      */
     interface PS {
         /** required: 1 */
@@ -1059,6 +1144,10 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -1069,6 +1158,10 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean | undefined) => string | null;
                 };
             };
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             $: {
                 value: string;
                 end: string;

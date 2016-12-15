@@ -1,12 +1,14 @@
 import { ds } from '../../';
 export declare namespace p8 {
     /**
+     * ```
      *
      * message P881 {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface P881 {
         /** required: 1 */
@@ -26,12 +28,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P884 {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface P884 {
         /** required: 1 */
@@ -51,12 +55,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P888 {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface P888 {
         /** required: 1 */
@@ -76,12 +82,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P88D {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface P88D {
         /** required: 1 */
@@ -101,12 +109,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P88K {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface P88K {
         /** required: 1 */
@@ -126,12 +136,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P88S {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface P88S {
         /** required: 1 */
@@ -151,12 +163,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P811 {
      *   required uint64 p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface P811 {
         /** required: 1 */
@@ -176,12 +190,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P814 {
      *   required uint64 p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface P814 {
         /** required: 1 */
@@ -201,12 +217,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P818 {
      *   required uint64 p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface P818 {
         /** required: 1 */
@@ -226,12 +244,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P81D {
      *   required uint64 p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface P81D {
         /** required: 1 */
@@ -251,12 +271,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P81K {
      *   required uint64 p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface P81K {
         /** required: 1 */
@@ -276,12 +298,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P81S {
      *   required uint64 p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface P81S {
         /** required: 1 */
@@ -301,12 +325,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P841 {
      *   required uint64 p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface P841 {
         /** required: 1 */
@@ -326,12 +352,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P844 {
      *   required uint64 p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface P844 {
         /** required: 1 */
@@ -351,12 +379,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P848 {
      *   required uint64 p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface P848 {
         /** required: 1 */
@@ -376,12 +406,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P84D {
      *   required uint64 p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface P84D {
         /** required: 1 */
@@ -401,12 +433,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P84K {
      *   required uint64 p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface P84K {
         /** required: 1 */
@@ -426,12 +460,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P84S {
      *   required uint64 p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface P84S {
         /** required: 1 */
@@ -451,11 +487,13 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P81 {
      *   required uint64 p0 = 1;
      *   required ds.P1 l = 2;
      * }
+     * ```
      */
     interface P81 {
         /** required: 1 */
@@ -472,11 +510,13 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P84 {
      *   required uint64 p0 = 1;
      *   required ds.P4 l = 2;
      * }
+     * ```
      */
     interface P84 {
         /** required: 1 */
@@ -493,11 +533,13 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P88 {
      *   required uint64 p0 = 1;
      *   required ds.P8 l = 2;
      * }
+     * ```
      */
     interface P88 {
         /** required: 1 */
@@ -514,11 +556,13 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8D {
      *   required uint64 p0 = 1;
      *   required ds.PD l = 2;
      * }
+     * ```
      */
     interface P8D {
         /** required: 1 */
@@ -535,11 +579,13 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8K {
      *   required uint64 p0 = 1;
      *   required ds.PK l = 2;
      * }
+     * ```
      */
     interface P8K {
         /** required: 1 */
@@ -556,11 +602,13 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8S {
      *   required uint64 p0 = 1;
      *   required ds.PS l = 2;
      * }
+     * ```
      */
     interface P8S {
         /** required: 1 */
@@ -577,12 +625,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8S1 {
      *   required uint64 p0 = 1;
      *   required string p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface P8S1 {
         /** required: 1 */
@@ -602,12 +652,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8S4 {
      *   required uint64 p0 = 1;
      *   required string p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface P8S4 {
         /** required: 1 */
@@ -627,12 +679,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8S8 {
      *   required uint64 p0 = 1;
      *   required string p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface P8S8 {
         /** required: 1 */
@@ -652,12 +706,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8SD {
      *   required uint64 p0 = 1;
      *   required string p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface P8SD {
         /** required: 1 */
@@ -677,12 +733,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8SK {
      *   required uint64 p0 = 1;
      *   required string p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface P8SK {
         /** required: 1 */
@@ -702,12 +760,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8SS {
      *   required uint64 p0 = 1;
      *   required string p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface P8SS {
         /** required: 1 */
@@ -727,12 +787,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8D1 {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface P8D1 {
         /** required: 1 */
@@ -752,12 +814,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8D4 {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface P8D4 {
         /** required: 1 */
@@ -777,12 +841,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8D8 {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface P8D8 {
         /** required: 1 */
@@ -802,12 +868,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8DD {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface P8DD {
         /** required: 1 */
@@ -827,12 +895,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8DK {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface P8DK {
         /** required: 1 */
@@ -852,12 +922,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8DS {
      *   required uint64 p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface P8DS {
         /** required: 1 */
@@ -877,12 +949,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8K1 {
      *   required uint64 p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface P8K1 {
         /** required: 1 */
@@ -902,12 +976,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8K4 {
      *   required uint64 p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface P8K4 {
         /** required: 1 */
@@ -927,12 +1003,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8K8 {
      *   required uint64 p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface P8K8 {
         /** required: 1 */
@@ -952,12 +1030,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8KD {
      *   required uint64 p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface P8KD {
         /** required: 1 */
@@ -977,12 +1057,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8KK {
      *   required uint64 p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface P8KK {
         /** required: 1 */
@@ -1002,12 +1084,14 @@ export declare namespace p8 {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message P8KS {
      *   required uint64 p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface P8KS {
         /** required: 1 */

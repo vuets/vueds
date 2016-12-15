@@ -1,6 +1,7 @@
 import { ds } from '../../';
 export declare namespace pk {
     /**
+     * ```
      *
      * message PK111 {
      *   required bytes p0 = 1;
@@ -8,6 +9,7 @@ export declare namespace pk {
      *   required int8 p2 = 3;
      *   required ds.P1 l = 4;
      * }
+     * ```
      */
     interface PK111 {
         /** required: 1 */
@@ -30,6 +32,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK114 {
      *   required bytes p0 = 1;
@@ -37,6 +40,7 @@ export declare namespace pk {
      *   required int8 p2 = 3;
      *   required ds.P4 l = 4;
      * }
+     * ```
      */
     interface PK114 {
         /** required: 1 */
@@ -59,6 +63,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK118 {
      *   required bytes p0 = 1;
@@ -66,6 +71,7 @@ export declare namespace pk {
      *   required int8 p2 = 3;
      *   required ds.P8 l = 4;
      * }
+     * ```
      */
     interface PK118 {
         /** required: 1 */
@@ -88,6 +94,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK11D {
      *   required bytes p0 = 1;
@@ -95,6 +102,7 @@ export declare namespace pk {
      *   required int8 p2 = 3;
      *   required ds.PD l = 4;
      * }
+     * ```
      */
     interface PK11D {
         /** required: 1 */
@@ -117,6 +125,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK11K {
      *   required bytes p0 = 1;
@@ -124,6 +133,7 @@ export declare namespace pk {
      *   required int8 p2 = 3;
      *   required ds.PK l = 4;
      * }
+     * ```
      */
     interface PK11K {
         /** required: 1 */
@@ -146,6 +156,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK11S {
      *   required bytes p0 = 1;
@@ -153,6 +164,7 @@ export declare namespace pk {
      *   required int8 p2 = 3;
      *   required ds.PS l = 4;
      * }
+     * ```
      */
     interface PK11S {
         /** required: 1 */
@@ -175,12 +187,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK81 {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PK81 {
         /** required: 1 */
@@ -200,12 +214,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK84 {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PK84 {
         /** required: 1 */
@@ -225,12 +241,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK88 {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PK88 {
         /** required: 1 */
@@ -250,12 +268,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK8D {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PK8D {
         /** required: 1 */
@@ -275,12 +295,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK8K {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PK8K {
         /** required: 1 */
@@ -300,12 +322,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK8S {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PK8S {
         /** required: 1 */
@@ -325,6 +349,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1111 {
      *   required bytes p0 = 1;
@@ -333,6 +358,7 @@ export declare namespace pk {
      *   required int8 p3 = 4;
      *   required ds.P1 l = 5;
      * }
+     * ```
      */
     interface PK1111 {
         /** required: 1 */
@@ -358,6 +384,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1114 {
      *   required bytes p0 = 1;
@@ -366,6 +393,7 @@ export declare namespace pk {
      *   required int8 p3 = 4;
      *   required ds.P4 l = 5;
      * }
+     * ```
      */
     interface PK1114 {
         /** required: 1 */
@@ -391,6 +419,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1118 {
      *   required bytes p0 = 1;
@@ -399,6 +428,7 @@ export declare namespace pk {
      *   required int8 p3 = 4;
      *   required ds.P8 l = 5;
      * }
+     * ```
      */
     interface PK1118 {
         /** required: 1 */
@@ -424,6 +454,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK111D {
      *   required bytes p0 = 1;
@@ -432,6 +463,7 @@ export declare namespace pk {
      *   required int8 p3 = 4;
      *   required ds.PD l = 5;
      * }
+     * ```
      */
     interface PK111D {
         /** required: 1 */
@@ -457,6 +489,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK111K {
      *   required bytes p0 = 1;
@@ -465,6 +498,7 @@ export declare namespace pk {
      *   required int8 p3 = 4;
      *   required ds.PK l = 5;
      * }
+     * ```
      */
     interface PK111K {
         /** required: 1 */
@@ -490,6 +524,7 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK111S {
      *   required bytes p0 = 1;
@@ -498,6 +533,7 @@ export declare namespace pk {
      *   required int8 p3 = 4;
      *   required ds.PS l = 5;
      * }
+     * ```
      */
     interface PK111S {
         /** required: 1 */
@@ -523,12 +559,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK11 {
      *   required bytes p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PK11 {
         /** required: 1 */
@@ -548,12 +586,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK14 {
      *   required bytes p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PK14 {
         /** required: 1 */
@@ -573,12 +613,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK18 {
      *   required bytes p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PK18 {
         /** required: 1 */
@@ -598,12 +640,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1D {
      *   required bytes p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PK1D {
         /** required: 1 */
@@ -623,12 +667,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1K {
      *   required bytes p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PK1K {
         /** required: 1 */
@@ -648,12 +694,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1S {
      *   required bytes p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PK1S {
         /** required: 1 */
@@ -673,12 +721,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKK1 {
      *   required bytes p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PKK1 {
         /** required: 1 */
@@ -698,12 +748,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKK4 {
      *   required bytes p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PKK4 {
         /** required: 1 */
@@ -723,12 +775,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKK8 {
      *   required bytes p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PKK8 {
         /** required: 1 */
@@ -748,12 +802,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKKD {
      *   required bytes p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PKKD {
         /** required: 1 */
@@ -773,12 +829,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKKK {
      *   required bytes p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PKKK {
         /** required: 1 */
@@ -798,12 +856,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKKS {
      *   required bytes p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PKKS {
         /** required: 1 */
@@ -823,11 +883,13 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK1 {
      *   required bytes p0 = 1;
      *   required ds.P1 l = 2;
      * }
+     * ```
      */
     interface PK1 {
         /** required: 1 */
@@ -844,11 +906,13 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK4 {
      *   required bytes p0 = 1;
      *   required ds.P4 l = 2;
      * }
+     * ```
      */
     interface PK4 {
         /** required: 1 */
@@ -865,11 +929,13 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK8 {
      *   required bytes p0 = 1;
      *   required ds.P8 l = 2;
      * }
+     * ```
      */
     interface PK8 {
         /** required: 1 */
@@ -886,11 +952,13 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKD {
      *   required bytes p0 = 1;
      *   required ds.PD l = 2;
      * }
+     * ```
      */
     interface PKD {
         /** required: 1 */
@@ -907,11 +975,13 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKK {
      *   required bytes p0 = 1;
      *   required ds.PK l = 2;
      * }
+     * ```
      */
     interface PKK {
         /** required: 1 */
@@ -928,11 +998,13 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKS {
      *   required bytes p0 = 1;
      *   required ds.PS l = 2;
      * }
+     * ```
      */
     interface PKS {
         /** required: 1 */
@@ -949,12 +1021,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKD1 {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PKD1 {
         /** required: 1 */
@@ -974,12 +1048,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKD4 {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PKD4 {
         /** required: 1 */
@@ -999,12 +1075,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKD8 {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PKD8 {
         /** required: 1 */
@@ -1024,12 +1102,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKDD {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PKDD {
         /** required: 1 */
@@ -1049,12 +1129,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKDK {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PKDK {
         /** required: 1 */
@@ -1074,12 +1156,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKDS {
      *   required bytes p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PKDS {
         /** required: 1 */
@@ -1099,12 +1183,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK41 {
      *   required bytes p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PK41 {
         /** required: 1 */
@@ -1124,12 +1210,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK44 {
      *   required bytes p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PK44 {
         /** required: 1 */
@@ -1149,12 +1237,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK48 {
      *   required bytes p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PK48 {
         /** required: 1 */
@@ -1174,12 +1264,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK4D {
      *   required bytes p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PK4D {
         /** required: 1 */
@@ -1199,12 +1291,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK4K {
      *   required bytes p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PK4K {
         /** required: 1 */
@@ -1224,12 +1318,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PK4S {
      *   required bytes p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PK4S {
         /** required: 1 */
@@ -1249,12 +1345,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKS1 {
      *   required bytes p0 = 1;
      *   required string p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PKS1 {
         /** required: 1 */
@@ -1274,12 +1372,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKS4 {
      *   required bytes p0 = 1;
      *   required string p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PKS4 {
         /** required: 1 */
@@ -1299,12 +1399,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKS8 {
      *   required bytes p0 = 1;
      *   required string p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PKS8 {
         /** required: 1 */
@@ -1324,12 +1426,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKSD {
      *   required bytes p0 = 1;
      *   required string p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PKSD {
         /** required: 1 */
@@ -1349,12 +1453,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKSK {
      *   required bytes p0 = 1;
      *   required string p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PKSK {
         /** required: 1 */
@@ -1374,12 +1480,14 @@ export declare namespace pk {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PKSS {
      *   required bytes p0 = 1;
      *   required string p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PKSS {
         /** required: 1 */

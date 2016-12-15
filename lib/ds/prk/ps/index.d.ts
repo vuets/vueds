@@ -1,12 +1,14 @@
 import { ds } from '../../';
 export declare namespace ps {
     /**
+     * ```
      *
      * message PSK1 {
      *   required string p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PSK1 {
         /** required: 1 */
@@ -26,12 +28,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSK4 {
      *   required string p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PSK4 {
         /** required: 1 */
@@ -51,12 +55,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSK8 {
      *   required string p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PSK8 {
         /** required: 1 */
@@ -76,12 +82,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSKD {
      *   required string p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PSKD {
         /** required: 1 */
@@ -101,12 +109,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSKK {
      *   required string p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PSKK {
         /** required: 1 */
@@ -126,12 +136,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSKS {
      *   required string p0 = 1;
      *   required bytes p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PSKS {
         /** required: 1 */
@@ -151,6 +163,7 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS111 {
      *   required string p0 = 1;
@@ -158,6 +171,7 @@ export declare namespace ps {
      *   required int8 p2 = 3;
      *   required ds.P1 l = 4;
      * }
+     * ```
      */
     interface PS111 {
         /** required: 1 */
@@ -180,6 +194,7 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS114 {
      *   required string p0 = 1;
@@ -187,6 +202,7 @@ export declare namespace ps {
      *   required int8 p2 = 3;
      *   required ds.P4 l = 4;
      * }
+     * ```
      */
     interface PS114 {
         /** required: 1 */
@@ -209,6 +225,7 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS118 {
      *   required string p0 = 1;
@@ -216,6 +233,7 @@ export declare namespace ps {
      *   required int8 p2 = 3;
      *   required ds.P8 l = 4;
      * }
+     * ```
      */
     interface PS118 {
         /** required: 1 */
@@ -238,6 +256,7 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS11D {
      *   required string p0 = 1;
@@ -245,6 +264,7 @@ export declare namespace ps {
      *   required int8 p2 = 3;
      *   required ds.PD l = 4;
      * }
+     * ```
      */
     interface PS11D {
         /** required: 1 */
@@ -267,6 +287,7 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS11K {
      *   required string p0 = 1;
@@ -274,6 +295,7 @@ export declare namespace ps {
      *   required int8 p2 = 3;
      *   required ds.PK l = 4;
      * }
+     * ```
      */
     interface PS11K {
         /** required: 1 */
@@ -296,6 +318,7 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS11S {
      *   required string p0 = 1;
@@ -303,6 +326,7 @@ export declare namespace ps {
      *   required int8 p2 = 3;
      *   required ds.PS l = 4;
      * }
+     * ```
      */
     interface PS11S {
         /** required: 1 */
@@ -325,12 +349,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSD1 {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PSD1 {
         /** required: 1 */
@@ -350,12 +376,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSD4 {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PSD4 {
         /** required: 1 */
@@ -375,12 +403,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSD8 {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PSD8 {
         /** required: 1 */
@@ -400,12 +430,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSDD {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PSDD {
         /** required: 1 */
@@ -425,12 +457,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSDK {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PSDK {
         /** required: 1 */
@@ -450,12 +484,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSDS {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PSDS {
         /** required: 1 */
@@ -475,12 +511,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS41 {
      *   required string p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PS41 {
         /** required: 1 */
@@ -500,12 +538,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS44 {
      *   required string p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PS44 {
         /** required: 1 */
@@ -525,12 +565,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS48 {
      *   required string p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PS48 {
         /** required: 1 */
@@ -550,12 +592,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS4D {
      *   required string p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PS4D {
         /** required: 1 */
@@ -575,12 +619,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS4K {
      *   required string p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PS4K {
         /** required: 1 */
@@ -600,12 +646,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS4S {
      *   required string p0 = 1;
      *   required uint32 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PS4S {
         /** required: 1 */
@@ -625,12 +673,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSS1 {
      *   required string p0 = 1;
      *   required string p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PSS1 {
         /** required: 1 */
@@ -650,12 +700,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSS4 {
      *   required string p0 = 1;
      *   required string p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PSS4 {
         /** required: 1 */
@@ -675,12 +727,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSS8 {
      *   required string p0 = 1;
      *   required string p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PSS8 {
         /** required: 1 */
@@ -700,12 +754,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSSD {
      *   required string p0 = 1;
      *   required string p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PSSD {
         /** required: 1 */
@@ -725,12 +781,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSSK {
      *   required string p0 = 1;
      *   required string p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PSSK {
         /** required: 1 */
@@ -750,12 +808,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSSS {
      *   required string p0 = 1;
      *   required string p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PSSS {
         /** required: 1 */
@@ -775,12 +835,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS11 {
      *   required string p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PS11 {
         /** required: 1 */
@@ -800,12 +862,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS14 {
      *   required string p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PS14 {
         /** required: 1 */
@@ -825,12 +889,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS18 {
      *   required string p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PS18 {
         /** required: 1 */
@@ -850,12 +916,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS1D {
      *   required string p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PS1D {
         /** required: 1 */
@@ -875,12 +943,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS1K {
      *   required string p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PS1K {
         /** required: 1 */
@@ -900,12 +970,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS1S {
      *   required string p0 = 1;
      *   required int8 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PS1S {
         /** required: 1 */
@@ -925,12 +997,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS81 {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P1 l = 3;
      * }
+     * ```
      */
     interface PS81 {
         /** required: 1 */
@@ -950,12 +1024,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS84 {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P4 l = 3;
      * }
+     * ```
      */
     interface PS84 {
         /** required: 1 */
@@ -975,12 +1051,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS88 {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.P8 l = 3;
      * }
+     * ```
      */
     interface PS88 {
         /** required: 1 */
@@ -1000,12 +1078,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS8D {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PD l = 3;
      * }
+     * ```
      */
     interface PS8D {
         /** required: 1 */
@@ -1025,12 +1105,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS8K {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PK l = 3;
      * }
+     * ```
      */
     interface PS8K {
         /** required: 1 */
@@ -1050,12 +1132,14 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS8S {
      *   required string p0 = 1;
      *   required uint64 p1 = 2;
      *   required ds.PS l = 3;
      * }
+     * ```
      */
     interface PS8S {
         /** required: 1 */
@@ -1075,11 +1159,13 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS1 {
      *   required string p0 = 1;
      *   required ds.P1 l = 2;
      * }
+     * ```
      */
     interface PS1 {
         /** required: 1 */
@@ -1096,11 +1182,13 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS4 {
      *   required string p0 = 1;
      *   required ds.P4 l = 2;
      * }
+     * ```
      */
     interface PS4 {
         /** required: 1 */
@@ -1117,11 +1205,13 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PS8 {
      *   required string p0 = 1;
      *   required ds.P8 l = 2;
      * }
+     * ```
      */
     interface PS8 {
         /** required: 1 */
@@ -1138,11 +1228,13 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSD {
      *   required string p0 = 1;
      *   required ds.PD l = 2;
      * }
+     * ```
      */
     interface PSD {
         /** required: 1 */
@@ -1159,11 +1251,13 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSK {
      *   required string p0 = 1;
      *   required ds.PK l = 2;
      * }
+     * ```
      */
     interface PSK {
         /** required: 1 */
@@ -1180,11 +1274,13 @@ export declare namespace ps {
         function $stringify(obj: any): string;
     }
     /**
+     * ```
      *
      * message PSS {
      *   required string p0 = 1;
      *   required ds.PS l = 2;
      * }
+     * ```
      */
     interface PSS {
         /** required: 1 */
