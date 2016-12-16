@@ -4,7 +4,7 @@
   version "0.0.16"
   resolved "https://registry.yarnpkg.com/@types/numeral/-/numeral-0.0.16.tgz#a1c225b1266f64e4a3cdbe515a266f01b6e89df1"
 
-"@types/vue@^1.0.29":
+"@types/vue@^1.0.31":
   version "1.0.31"
   resolved "https://registry.yarnpkg.com/@types/vue/-/vue-1.0.31.tgz#c33010d649fb237386bbf58944ac3b86aa394f06"
 
