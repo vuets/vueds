@@ -60,7 +60,7 @@ export interface KV {
     k: string;
     v: any;
 }
-export declare function initObservable<T>(target: T, descriptor: any, nullifyEmptyString?: boolean): T;
+export declare function initObservable<T>(target: T, descriptor: any, withVal?: boolean): T;
 export declare function mergeVmFrom<T>(src: any, descriptor: any, target: T): T;
 export declare function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: any): T;
 export declare function writeKVsTo<T>(target: T, kvs: KV[]): T;
