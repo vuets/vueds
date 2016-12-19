@@ -565,7 +565,9 @@ function postValidate(message: any, fd: any, fk: string, f: number, flag: number
 }
 
 export const enum ChangeFlags {
-    SKIP_VALIDATE = 1
+    SKIP_VALIDATE = 1,
+    CB_NEXT_TICK = 2,
+    CB_ONLY_ON_SET = 4
 }
 
 function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
@@ -602,8 +604,15 @@ function validateString(val: string, message: any, fd: any, fk, f: number, flag:
     }
 
     postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, dirty)
-    if (cbfn && sv !== undefined)
+    
+    if (!cbfn || sv === undefined || ((flags & ChangeFlags.CB_ONLY_ON_SET) && sv === null))
+        return msg
+    
+    if ((flags & ChangeFlags.CB_NEXT_TICK))
+        Vue.nextTick(cbfn)
+    else
         cbfn(f, sv, message, fd, root)
+    
     return msg
 }
 
@@ -647,8 +656,15 @@ function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: num
     }
 
     postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, dirty)
-    if (cbfn && sv !== undefined)
+    
+    if (!cbfn || sv === undefined || ((flags & ChangeFlags.CB_ONLY_ON_SET) && sv === null))
+        return msg
+    
+    if ((flags & ChangeFlags.CB_NEXT_TICK))
+        Vue.nextTick(cbfn)
+    else
         cbfn(f, sv, message, fd, root)
+    
     return msg
 }
 
@@ -692,8 +708,15 @@ function validateInt(val: any, message: any, fd: any, fk, f: number, flag: numbe
     }
 
     postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, dirty)
-    if (cbfn && sv !== undefined)
+    
+    if (!cbfn || sv === undefined || ((flags & ChangeFlags.CB_ONLY_ON_SET) && sv === null))
+        return msg
+    
+    if ((flags & ChangeFlags.CB_NEXT_TICK))
+        Vue.nextTick(cbfn)
+    else
         cbfn(f, sv, message, fd, root)
+    
     return msg
 }
 
@@ -734,8 +757,15 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
     }
 
     postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, dirty)
-    if (cbfn && sv !== undefined)
+    
+    if (!cbfn || sv === undefined || ((flags & ChangeFlags.CB_ONLY_ON_SET) && sv === null))
+        return msg
+    
+    if ((flags & ChangeFlags.CB_NEXT_TICK))
+        Vue.nextTick(cbfn)
+    else
         cbfn(f, sv, message, fd, root)
+    
     return msg
 }
 
@@ -784,8 +814,15 @@ function validateDate(e, val: any, message: any, fd: any, fk, f: number, flag: n
     }
 
     postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, dirty)
-    if (cbfn && sv !== undefined)
+    
+    if (!cbfn || sv === undefined || ((flags & ChangeFlags.CB_ONLY_ON_SET) && sv === null))
+        return msg
+    
+    if ((flags & ChangeFlags.CB_NEXT_TICK))
+        Vue.nextTick(cbfn)
+    else
         cbfn(f, sv, message, fd, root)
+    
     return msg
 }
 
@@ -826,8 +863,15 @@ function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: 
     }
 
     postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, dirty)
-    if (cbfn && sv !== undefined)
+    
+    if (!cbfn || sv === undefined || ((flags & ChangeFlags.CB_ONLY_ON_SET) && sv === null))
+        return msg
+    
+    if ((flags & ChangeFlags.CB_NEXT_TICK))
+        Vue.nextTick(cbfn)
+    else
         cbfn(f, sv, message, fd, root)
+    
     return msg
 }
 
@@ -869,7 +913,12 @@ export function $change(e, message: any, field: string|number, update: boolean, 
                 update = false
             }
             postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, update)
-            if (cbfn)
+
+            if (!cbfn || ((flags & ChangeFlags.CB_ONLY_ON_SET) && val === null))
+                break
+            if ((flags & ChangeFlags.CB_NEXT_TICK))
+                Vue.nextTick(cbfn)
+            else
                 cbfn(f, val, message, fd, root)
             break
         case FieldType.ENUM:
@@ -885,7 +934,12 @@ export function $change(e, message: any, field: string|number, update: boolean, 
             }
             message[prop] = val
             postValidate(message, fd, fk, f, flag, message_, message_.dfbs, msg, root, update)
-            if (cbfn)
+            
+            if (!cbfn || ((flags & ChangeFlags.CB_ONLY_ON_SET) && val === null))
+                break
+            if ((flags & ChangeFlags.CB_NEXT_TICK))
+                Vue.nextTick(cbfn)
+            else
                 cbfn(f, val, message, fd, root)
             break
         case FieldType.STRING:
