@@ -718,7 +718,7 @@ export class PojoStore<T> {
                 i++
 
                 if (!options.onUpdate || options.onUpdate(message, main, update))
-                    fnMergeFrom(update, descriptor, message)
+                    shallowCopyFrom(update, descriptor, message)
                 
                 if (desc) {
                     idx = populatePages + i
