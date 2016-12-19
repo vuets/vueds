@@ -91,6 +91,8 @@ export declare function bindToggleUpdateFailed(pager: any): any;
 export declare function toggleUpdate(pager: any, field: string, pojo?: any, changed?: boolean): MultiCAS | null;
 export declare const enum ChangeFlags {
     SKIP_VALIDATE = 1,
+    CB_NEXT_TICK = 2,
+    CB_ONLY_ON_SET = 4,
 }
 /**
  * The update arg means if existing data is modified (not creating new data).
