@@ -839,6 +839,9 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     if (!fd || fd.t === FieldType.BYTES)
         return null
     
+    if (!root)
+        root = message
+    
     let message_ = message['_'] as PojoSO,
         dfbs = message_.dfbs,
         f = fd._,
