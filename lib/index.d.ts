@@ -89,7 +89,10 @@ export declare function bindToggleUpdateSuccess(scope: FormUpdate): any;
 export declare function toggleUpdateFailed(pager: any, errmsg: any): void;
 export declare function bindToggleUpdateFailed(pager: any): any;
 export declare function toggleUpdate(pager: any, field: string, pojo?: any, changed?: boolean): MultiCAS | null;
+export declare const enum ChangeFlags {
+    SKIP_VALIDATE = 1,
+}
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
-export declare function $change(e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean): string | null;
+export declare function $change(e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number): string | null;
