@@ -33,6 +33,14 @@ export function to_flag(field: number): number {
     return 1 << (field - 1)
 }
 
+export function to_int32(bytes: any, i: number): number {
+    return ((bytes[i]&0xFF) << 24) | ((bytes[i+1]&0xFF) << 16) | ((bytes[i+2]&0xFF) << 8) | (bytes[i+3]&0xFF)
+}
+
+export function to_int32LE(bytes: any, i: number): number {
+    return ((bytes[i+3]&0xFF) << 24) | ((bytes[i+2]&0xFF) << 16) | ((bytes[i+1]&0xFF) << 8) | (bytes[i]&0xFF)
+}
+
 const base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
 function b_to_b64(bytes: any): string {
