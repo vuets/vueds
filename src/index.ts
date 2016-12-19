@@ -564,8 +564,12 @@ function postValidate(message: any, fd: any, fk: string, f: number, flag: number
     }
 }
 
+export const enum ChangeFlags {
+    SKIP_VALIDATE = 1
+}
+
 function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, flags: ChangeFlags): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -575,7 +579,7 @@ function validateString(val: string, message: any, fd: any, fk, f: number, flag:
         if (update && (v = message[prop]) !== undefined && v !== message_[prop])
             message_[prop] = v
         
-        if (skipValidate || !fd.vfn || !(msg = fd.vfn(val))) {
+        if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn || !(msg = fd.vfn(val))) {
             message[prop] = sv = val
             dirty = !update || val !== message_[prop]
         } else {
@@ -604,7 +608,7 @@ function validateString(val: string, message: any, fd: any, fk, f: number, flag:
 }
 
 function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, flags: ChangeFlags): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -617,7 +621,7 @@ function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: num
         if (!regexDouble.test(val)) {
             msg = fd.$n + ' is not a number.'
             message[prop] = undefined
-        } else if (!fd.vfn) {
+        } else if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn) {
             message[prop] = sv = v = parseFloat(val)
             dirty = !update || v !== message_[prop]
         } else if (!(msg = fd.vfn(v = parseFloat(val)))) {
@@ -649,7 +653,7 @@ function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: num
 }
 
 function validateInt(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, flags: ChangeFlags): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -662,7 +666,7 @@ function validateInt(val: any, message: any, fd: any, fk, f: number, flag: numbe
         if (!regexInt.test(val)) {
             msg = fd.$n + ' is not a whole number.'
             message[prop] = undefined
-        } else if (!fd.vfn) {
+        } else if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn) {
             message[prop] = sv = v = parseInt(val, 10)
             dirty = !update || v !== message_[prop]
         } else if (!(msg = fd.vfn(v = parseInt(val, 10)))) {
@@ -694,7 +698,7 @@ function validateInt(val: any, message: any, fd: any, fk, f: number, flag: numbe
 }
 
 function validateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, flags: ChangeFlags): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -707,7 +711,7 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
         if (!regexTime.test(val) || 86399 < (v = numeral().unformat(val.length <= 5 ? (val + ':00') : val))) {
             msg = fd.$n + ' is not a valid time.'
             message[prop] = undefined
-        } else if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
+        } else if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn || !(msg = fd.vfn(v))) {
             message[prop] = sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -736,14 +740,14 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
 }
 
 function validateDate(e, val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, flags: ChangeFlags): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
         sv
     if (!e.isTrusted && (v = message[prop])) {
         // dirty
-        if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
+        if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn || !(msg = fd.vfn(v))) {
             sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -757,7 +761,7 @@ function validateDate(e, val: any, message: any, fd: any, fk, f: number, flag: n
         if (!regexDate.test(val) || !(v = isValidDateStr(val)) || !(v = localToUtc(v))) {
             msg = fd.$n + ' is not a valid date.'
             message[prop] = undefined
-        } else if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
+        } else if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn || !(msg = fd.vfn(v))) {
             message[prop] = sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -786,7 +790,7 @@ function validateDate(e, val: any, message: any, fd: any, fk, f: number, flag: n
 }
 
 function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
-        prop: string, el: any, update: boolean, root: any, cbfn: any, skipValidate: boolean): string|null {
+        prop: string, el: any, update: boolean, root: any, cbfn: any, flags: ChangeFlags): string|null {
     let msg: string|null = null,
         dirty = !!val,
         v,
@@ -799,7 +803,7 @@ function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: 
         if (!regexDateTime.test(val) || !(v = isValidDateTimeStr(val)) || !(v = localToUtc(v))) {
             msg = fd.$n + ' is not a valid date and time.'
             message[prop] = undefined
-        } else if (skipValidate || !fd.vfn || !(msg = fd.vfn(v))) {
+        } else if ((flags & ChangeFlags.SKIP_VALIDATE) || !fd.vfn || !(msg = fd.vfn(v))) {
             message[prop] = sv = v
             dirty = !update || v !== message_[prop]
         } else {
@@ -830,7 +834,7 @@ function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: 
 /**
  * The update arg means if existing data is modified (not creating new data).
  */
-export function $change(e, message: any, field: string|number, update: boolean, root: any, cbfn?: any, skipValidate?: boolean): string|null {
+export function $change(e, message: any, field: string|number, update: boolean, root: any, cbfn?: any, flags?: number): string|null {
     let d = message['$d'],
         $ = d.$,
         fk = $ && isNaN(field as any) ? $[field] : String(field),
@@ -885,25 +889,25 @@ export function $change(e, message: any, field: string|number, update: boolean, 
                 cbfn(f, val, message, fd, root)
             break
         case FieldType.STRING:
-            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
+            msg = validateString(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, flags || 0)
             break
         case FieldType.FLOAT:
         case FieldType.DOUBLE:
-            msg = validateFloat(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
+            msg = validateFloat(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, flags || 0)
             break
         default:
             switch (fd.o || 0) {
                 case 1: // time
-                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
+                    msg = validateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, flags || 0)
                     break
                 case 2: // date
-                    msg = validateDate(e, el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
+                    msg = validateDate(e, el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, flags || 0)
                     break
                 case 4: // datetime
-                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, !!skipValidate)
+                    msg = validateDateTime(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, flags || 0)
                     break
                 default:
-                    msg = validateInt(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn)
+                    msg = validateInt(el.value.trim(), message, fd, fk, f, flag, message_, dfbs, prop, el, update, root, cbfn, flags || 0)
             }
     }
     
