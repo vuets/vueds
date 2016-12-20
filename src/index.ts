@@ -312,7 +312,7 @@ export function verifyFormFields(message: any, descriptor: any, update?: boolean
     if (update || !(rfbs = descriptor.$rfbs) || rfbs === message_.rfbs)
         return true
     
-    root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
+    root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS, PojoState.ERROR)
     root_.msg = 'All required fields must be provided.'
     
     return false
@@ -352,7 +352,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
     
     if (!diffCount && !changes) {
         if (!pojo_.msg) {
-            pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.WARNING)
+            pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.WARNING)
             pojo_.msg = 'No changes were made.'
         }
         
