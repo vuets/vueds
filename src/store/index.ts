@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO, extractMsg } from '../'
+import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO, extractMsg, mergeFrom } from '../'
 import { bit_clear_and_set, bit_unset, incrementKey, decrementKey } from '../util'
 
 //export const STATE = "state"
@@ -19,13 +19,6 @@ export const PREV_ISTATE = "$prev_istate"
 }*/
 
 export function shallowCopyTo<T>(target: T, src: T): T {
-    for (var i in src)
-        target[i] = src[i]
-    
-    return target
-}
-
-function shallowCopyFrom<T>(src: any, descriptor: any, target: T): T {
     for (var i in src)
         target[i] = src[i]
     
@@ -212,7 +205,7 @@ export class PojoStore<T> {
             remaining = pageSize > size ? pageSize - size : 0,
             pager: Pager
         
-        this.fnMergeFrom = options.merge_fn || (descriptor.$ ? mergeVmFrom : shallowCopyFrom)
+        this.fnMergeFrom = options.merge_fn || (descriptor.$ ? mergeVmFrom : mergeFrom)
         
         this.pager = pager = {
             size: size,
@@ -718,7 +711,7 @@ export class PojoStore<T> {
                 i++
 
                 if (!options.onUpdate || options.onUpdate(message, main, update))
-                    shallowCopyFrom(update, descriptor, message)
+                    mergeFrom(update, descriptor, message)
                 
                 if (desc) {
                     idx = populatePages + i

@@ -167,6 +167,16 @@ export function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: 
     return target
 }
 
+export function mergeFrom<T>(src: any, descriptor: any, target: T): T {
+    for (var i in src) {
+        let v = src[i]
+        if (v !== target[i])
+            target[i] = v
+    }
+    
+    return target
+}
+
 export function writeKVsTo<T>(target: T, kvs: KV[]): T {
     for (let kv of kvs) {
         target[kv.k] = kv.v
