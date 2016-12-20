@@ -462,15 +462,15 @@ export function bindFormUpdateFailed(scope: FormUpdate): any {
     return cbFormUpdateFailed.bind(scope)
 }
 
-export function toggleUpdateSuccess(pager: any, pojo_update: any): boolean {
+export function toggleUpdateSuccess(pager: any, pojo_update: any, skipMerge?: boolean): boolean {
     let selected = pager.pojo,
         selected_ = selected['_'] as PojoSO,
-        store = pager['store'],
-        original = store.getOriginal(selected)
+        store = pager['store']
     
     pager.state ^= 8 // LOADING
-    mergeOriginalFrom(selected, selected['$d'], original, pojo_update)
-
+    if (!skipMerge)
+        mergeOriginalFrom(selected, selected['$d'], store.getOriginal(selected), pojo_update)
+    
     selected_.state = bit_clear_and_set(selected_.state, PojoState.LOADING, PojoState.SUCCESS)
     selected_.msg = 'Update Sucessful'
     
@@ -531,6 +531,21 @@ export function toggleUpdate(pager: any, field: string, pojo?: any, changed?: bo
         selected_.msg = ''
 
     return mc
+}
+
+export function togglePrepare(pager: any): boolean {
+    let selected = pager.pojo,
+        selected_ = selected['_'] as PojoSO
+    
+    if (pager.state & 8 /*LOADING*/ || selected_.state & PojoState.LOADING)
+        return false
+    
+    pager.state |= 8 // LOADING
+    selected_.state |= PojoState.LOADING
+    if (selected_.msg)
+        selected_.msg = ''
+    
+    return true
 }
 
 // =====================================
