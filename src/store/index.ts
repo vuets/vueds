@@ -229,6 +229,7 @@ export class PojoStore<T> {
             //pojo: null
         }
         //defp(pager, 'pojo', null)
+        defp(pager, 'm', { d: null })
 
         let so = addVpropsTo({
             state: 0,
