@@ -85,11 +85,12 @@ export interface FormUpdate {
 }
 export declare function formUpdateFailed(pojo: any, pager: HasState, errmsg: any): void;
 export declare function bindFormUpdateFailed(scope: FormUpdate): any;
-export declare function toggleUpdateSuccess(pager: any, pojo_update: any): boolean;
+export declare function toggleUpdateSuccess(pager: any, pojo_update: any, skipMerge?: boolean): boolean;
 export declare function bindToggleUpdateSuccess(scope: FormUpdate): any;
 export declare function toggleUpdateFailed(pager: any, errmsg: any): void;
 export declare function bindToggleUpdateFailed(pager: any): any;
 export declare function toggleUpdate(pager: any, field: string, pojo?: any, changed?: boolean): MultiCAS | null;
+export declare function togglePrepare(pager: any): boolean;
 export declare const enum ChangeFlags {
     SKIP_VALIDATE = 1,
     CB_NEXT_TICK = 2,
