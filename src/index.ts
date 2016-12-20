@@ -312,7 +312,7 @@ export function verifyFormFields(message: any, descriptor: any, update?: boolean
     if (update || !(rfbs = descriptor.$rfbs) || rfbs === message_.rfbs)
         return true
     
-    root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS, PojoState.ERROR)
+    root_.state = bit_clear_and_set(root_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
     root_.msg = 'All required fields must be provided.'
     
     return false
@@ -352,7 +352,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
     
     if (!diffCount && !changes) {
         if (!pojo_.msg) {
-            pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.WARNING)
+            pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.WARNING)
             pojo_.msg = 'No changes were made.'
         }
         
@@ -371,7 +371,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
 export function formUpdateSuccess(pojo: any, pager: HasState, original: any, selected?: any) {
     let pojo_ = pojo['_'] as PojoSO
     
-    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = 'Successful.'
     pojo_.dfbs = 0
     
@@ -418,7 +418,7 @@ export function extractMsg(data: any): string {
 export function formSuccess(pojo: any, msg?: string) {
     let pojo_ = pojo['_'] as PojoSO
     
-    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.SUCCESS)
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.SUCCESS)
     pojo_.msg = msg || 'Successful.'
     
     clearFormFields(pojo, pojo['$d'])
@@ -427,7 +427,7 @@ export function formSuccess(pojo: any, msg?: string) {
 export function formFailed(pojo: any, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
-    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
     pojo_.msg = !errmsg ? 'Error.' : extractMsg(errmsg)
 }
 
@@ -447,7 +447,7 @@ export interface FormUpdate {
 export function formUpdateFailed(pojo: any, pager: HasState, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
-    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.LOADING, PojoState.ERROR)
+    pojo_.state = bit_clear_and_set(pojo_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
     pojo_.msg = !errmsg ? 'Error.' : extractMsg(errmsg)
 
     // TODO move PagerState to this file
@@ -471,7 +471,7 @@ export function toggleUpdateSuccess(pager: any, pojo_update: any, skipMerge?: bo
     if (!skipMerge)
         mergeOriginalFrom(selected, selected['$d'], store.getOriginal(selected), pojo_update)
     
-    selected_.state = bit_clear_and_set(selected_.state, PojoState.LOADING, PojoState.SUCCESS)
+    selected_.state = bit_clear_and_set(selected_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.SUCCESS)
     selected_.msg = 'Update Sucessful'
     
     return true
@@ -492,7 +492,7 @@ export function toggleUpdateFailed(pager: any, errmsg: any) {
         original = store.getOriginal(selected)
     
     pager.state ^= 8 // LOADING
-    selected_.state = bit_clear_and_set(selected_.state, PojoState.LOADING, PojoState.ERROR)
+    selected_.state = bit_clear_and_set(selected_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
     selected_.msg = !errmsg ? 'Update failed.' : extractMsg(errmsg)
 }
 
