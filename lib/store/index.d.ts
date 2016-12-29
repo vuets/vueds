@@ -70,6 +70,7 @@ export interface ItemSO extends PojoSO {
     lstate: number;
 }
 export declare type MergeFn<T> = (src: any, descriptor: any, target: T) => T;
+export declare type FetchFn = (req: ds.ParamRangeKey, pager: Pager) => void;
 export interface PagerOptions<T> {
     pageSize: number;
     descriptor: any;
@@ -81,7 +82,7 @@ export interface PagerOptions<T> {
     page?(next: boolean, pager: Pager): any;
     /** create Pojo With Defaults */
     createObservable(so: ItemSO, idx: number): T;
-    fetch(req: ds.ParamRangeKey, pager: Pager): any;
+    fetch: FetchFn;
     onSelect(message: T, flags: SelectionFlags): number;
     onAdd?(message: T, main: boolean, latest: boolean): any;
     onUpdate?(message: T, main: boolean, update: T): boolean;
