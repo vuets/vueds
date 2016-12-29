@@ -113,6 +113,7 @@ export interface ItemSO extends PojoSO {
 }
 
 export type MergeFn<T> = (src: any, descriptor: any, target: T) => T
+export type FetchFn = (req: ds.ParamRangeKey, pager: Pager) => void
 
 export interface PagerOptions<T> {
     pageSize: number
@@ -126,7 +127,7 @@ export interface PagerOptions<T> {
 
     /** create Pojo With Defaults */
     createObservable(so: ItemSO, idx: number): T
-    fetch(req: ds.ParamRangeKey, pager: Pager)
+    fetch: FetchFn
     
     onSelect(message: T, flags: SelectionFlags): number
     
