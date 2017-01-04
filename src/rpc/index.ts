@@ -71,51 +71,11 @@ export interface Config {
     post$$: PostHandler
 }
 
-const config: Config = {
-    auth$$: undefined,
-    get$$,
-    post$$
-}
-
-window['rpc_config'] = config
-
-export function setAuthHandler(handler: AuthHandler) {
-    config.auth$$ = handler
-}
-
-function post$$<T>(location: string, data: string): PromiseLike<T> {
-    let authHandler = config.auth$$,
-        opts = {
-            method: 'POST',
-            body: data
-        }
-    
-    return authHandler ?
-        new P(authHandler, location, opts, handler) : 
-        fetch(location, opts).then(checkStatus).then(handler)
-}
-
-export function post<T>(location: string, data: string): PromiseLike<T> {
-    return config.post$$(location, data)
-}
-
-function get$$<T>(location: string, opts?: any): PromiseLike<T> {
-    let authHandler = config.auth$$
-    
-    return authHandler ?
-        new P(authHandler, location, opts, handler) : 
-        fetch(location, opts).then(checkStatus).then(handler)
-}
-
-export function get<T>(location: string, opts?: any): PromiseLike<T> {
-    return config.get$$(location, opts)
-}
-
 export class P {
     handlers: any[] = []
     cbFail: any = null
     authOk: AuthOk|null = null
-    constructor(private ah: AuthHandler|null, private url: string, private opts: any, private h: any) {
+    constructor(private url: string, private opts: any, private ih: any, private ah?: AuthHandler) {
 
     }
 
@@ -147,7 +107,7 @@ export class P {
         if (token)
             url = url.substring(0, url.lastIndexOf('=') + 1) + token
         
-        let f = fetch(url, this.opts).then(checkStatus).then(this.h),
+        let f = fetch(url, this.opts).then(this.ih).then(handler),
             array = this.handlers,
             last = array.length - 1,
             i = 0
@@ -164,4 +124,46 @@ export class P {
         else
             this.ah(this.authOk || (this.authOk = this.run.bind(this)))
     }
+}
+
+const config_default = {
+    auth$$: undefined,
+    get$$,
+    post$$
+} as Config
+
+window['rpc_config_d'] = config_default
+
+const config: Config = window['rpc_config'] || config_default
+
+export function setAuthHandler(handler: AuthHandler) {
+    config.auth$$ = handler
+}
+
+function post$$<T>(location: string, data: string, delegate?: boolean, initialHandler?: any): PromiseLike<T> {
+    let authHandler = config.auth$$,
+        opts = {
+            method: 'POST',
+            body: data
+        }
+    
+    return delegate || authHandler ?
+        new P(location, opts, initialHandler || checkStatus, authHandler) : 
+        fetch(location, opts).then(initialHandler || checkStatus).then(handler)
+}
+
+export function post<T>(location: string, data: string): PromiseLike<T> {
+    return config.post$$(location, data)
+}
+
+function get$$<T>(location: string, opts?: any, delegate?: boolean, initialHandler?: any): PromiseLike<T> {
+    let authHandler = config.auth$$
+    
+    return delegate || authHandler ?
+        new P(location, opts, initialHandler || checkStatus, authHandler) : 
+        fetch(location, opts).then(initialHandler || checkStatus).then(handler)
+}
+
+export function get<T>(location: string, opts?: any): PromiseLike<T> {
+    return config.get$$(location, opts)
 }
