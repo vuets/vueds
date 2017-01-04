@@ -30,8 +30,10 @@ export function handler<T>(res): T {
     throw JSON.parse(text)
 }*/
 
-export type AuthOk = (token: string) => void;
+export type AuthOk = (token: string) => void
 export type AuthHandler = (cb: AuthOk) => void;
+export type GetHandler = <T>(location: string, opts?: any) => PromiseLike<T>
+export type PostHandler = <T>(location: string, data: string) => PromiseLike<T>
 
 export function checkStatus<T>(res: any): T {
     let status = res.status
@@ -63,33 +65,57 @@ export function handler<T>(raw: string): T {
     throw JSON.parse(text)
 }
 
-var authHandler: AuthHandler|null = null
+export interface Config {
+    auth$$?: AuthHandler,
+    get$$: GetHandler,
+    post$$: PostHandler
+}
+
+const config: Config = {
+    auth$$: undefined,
+    get$$,
+    post$$
+}
+
+window['rpc_config'] = config
 
 export function setAuthHandler(handler: AuthHandler) {
-    authHandler = handler
+    config.auth$$ = handler
 }
 
-export function post<T>(url: string, data: string, customHandler?: any): PromiseLike<T> {
-    let opts = {
-        method: 'POST',
-        body: data
-    }
+function post$$<T>(location: string, data: string): PromiseLike<T> {
+    let authHandler = config.auth$$,
+        opts = {
+            method: 'POST',
+            body: data
+        }
+    
     return authHandler ?
-        new P(authHandler, url, opts, customHandler || handler) : 
-        fetch(url, opts).then(checkStatus).then(customHandler || handler)
+        new P(authHandler, location, opts, handler) : 
+        fetch(location, opts).then(checkStatus).then(handler)
 }
 
-export function get<T>(url: string, opts?: any, customHandler?: any): PromiseLike<T> {
+export function post<T>(location: string, data: string): PromiseLike<T> {
+    return config.post$$(location, data)
+}
+
+function get$$<T>(location: string, opts?: any): PromiseLike<T> {
+    let authHandler = config.auth$$
+    
     return authHandler ?
-        new P(authHandler, url, opts, customHandler || handler) : 
-        fetch(url, opts).then(checkStatus).then(customHandler || handler)
+        new P(authHandler, location, opts, handler) : 
+        fetch(location, opts).then(checkStatus).then(handler)
 }
 
-class P {
+export function get<T>(location: string, opts?: any): PromiseLike<T> {
+    return config.get$$(location, opts)
+}
+
+export class P {
     handlers: any[] = []
-    cbFail: any
-    authOk: AuthOk
-    constructor(private ah: AuthHandler, private url: string, private opts: any, private h: any) {
+    cbFail: any = null
+    authOk: AuthOk|null = null
+    constructor(private ah: AuthHandler|null, private url: string, private opts: any, private h: any) {
 
     }
 
@@ -133,9 +159,9 @@ class P {
 
     fail(err) {
         // check unauthorized
-        if (err === 401 || (Array.isArray(err) && err[0] === 3))
-            this.ah(this.authOk || (this.authOk = this.run.bind(this)))
-        else
+        if (!this.ah || (err !== 401 && (!Array.isArray(err) || err[0] !== 3)))
             this.handlers[this.handlers.length - 1](err)
+        else
+            this.ah(this.authOk || (this.authOk = this.run.bind(this)))
     }
 }
