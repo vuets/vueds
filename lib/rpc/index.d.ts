@@ -13,20 +13,20 @@ export interface Config {
     get$$: GetHandler;
     post$$: PostHandler;
 }
-export declare function setAuthHandler(handler: AuthHandler): void;
-export declare function post<T>(location: string, data: string): PromiseLike<T>;
-export declare function get<T>(location: string, opts?: any): PromiseLike<T>;
 export declare class P {
-    private ah;
     private url;
     private opts;
-    private h;
+    private ih;
+    private ah;
     handlers: any[];
     cbFail: any;
     authOk: AuthOk | null;
-    constructor(ah: AuthHandler | null, url: string, opts: any, h: any);
+    constructor(url: string, opts: any, ih: any, ah?: AuthHandler);
     then(resolve: any, reject: any): P;
     catch(reject: any): P;
     run(token?: string): void;
     fail(err: any): void;
 }
+export declare function setAuthHandler(handler: AuthHandler): void;
+export declare function post<T>(location: string, data: string): PromiseLike<T>;
+export declare function get<T>(location: string, opts?: any): PromiseLike<T>;
