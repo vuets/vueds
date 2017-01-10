@@ -1,4 +1,5 @@
 import { MultiCAS } from './ds/mc';
+export declare const nextTick: (callback: Function) => any;
 /**
  * Define a property that should not be observed by vue's vm.
  * Returns the value
