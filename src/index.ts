@@ -2,7 +2,7 @@ import * as Vue from 'vue'
 import * as numeral from 'numeral'
 import {
     regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc,
-    bit_clear_and_set, $bit_clear_and_set, bit_unset
+    bit_clear_and_set, bit_unset
 } from './util'
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 import { MultiCAS } from './ds/mc'
