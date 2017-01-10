@@ -7,7 +7,6 @@ export declare function bit_unset(state: number, value: number): number;
 /**
  * Sets the new state.
  */
-export declare function $bit_unset(obj: any, name: string, value: number): void;
 /**
  * Returns the new state.
  */
@@ -15,7 +14,6 @@ export declare function bit_clear_and_set(state: number, clear: number, set: num
 /**
  * Sets the new state.
  */
-export declare function $bit_clear_and_set(obj: any, name: string, clear: number, set: number): void;
 export declare function to_flag(field: number): number;
 export declare function to_int32(bytes: any, i: number): number;
 export declare function to_int32LE(bytes: any, i: number): number;
