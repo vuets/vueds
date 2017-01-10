@@ -1,5 +1,5 @@
 import { ds } from '../ds/'
-import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO, extractMsg, mergeFrom } from '../'
+import { HasState, mergeVmFrom, defp, PojoState, EventFlags, PojoSO, extractMsg, mergeFrom, nextTick } from '../'
 import { bit_clear_and_set, bit_unset, incrementKey, decrementKey } from '../util'
 
 //export const STATE = "state"
@@ -993,19 +993,19 @@ export class PojoStore<T> {
     // next tick
 
     $$requestNewer(pager: Pager) {
-        Vue.nextTick(() => this.requestNewer())
+        nextTick(() => this.requestNewer())
     }
 
     $$requestOlder(pager: Pager) {
-        Vue.nextTick(() => this.requestOlder())
+        nextTick(() => this.requestOlder())
     }
 
     $$reload(pager: Pager) {
-        Vue.nextTick(() => this.reload())
+        nextTick(() => this.reload())
     }
     
     $$notify() {
-        Vue.nextTick(() => this.notify())
+        nextTick(() => this.notify())
     }
 
     cbFetchSuccess(array: Array<T>) {

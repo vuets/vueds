@@ -7,6 +7,8 @@ import {
 import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
 import { MultiCAS } from './ds/mc'
 
+export const nextTick = Vue.nextTick
+
 /**
  * Define a property that should not be observed by vue's vm.
  * Returns the value
@@ -632,7 +634,7 @@ function validateString(val: string, message: any, fd: any, fk, f: number, flag:
         return msg
     
     if ((flags & ChangeFlags.CB_NEXT_TICK))
-        Vue.nextTick(cbfn)
+        nextTick(cbfn)
     else
         cbfn(f, sv, message, fd, root)
     
@@ -684,7 +686,7 @@ function validateFloat(val: any, message: any, fd: any, fk, f: number, flag: num
         return msg
     
     if ((flags & ChangeFlags.CB_NEXT_TICK))
-        Vue.nextTick(cbfn)
+        nextTick(cbfn)
     else
         cbfn(f, sv, message, fd, root)
     
@@ -736,7 +738,7 @@ function validateInt(val: any, message: any, fd: any, fk, f: number, flag: numbe
         return msg
     
     if ((flags & ChangeFlags.CB_NEXT_TICK))
-        Vue.nextTick(cbfn)
+        nextTick(cbfn)
     else
         cbfn(f, sv, message, fd, root)
     
@@ -785,7 +787,7 @@ function validateTime(val: any, message: any, fd: any, fk, f: number, flag: numb
         return msg
     
     if ((flags & ChangeFlags.CB_NEXT_TICK))
-        Vue.nextTick(cbfn)
+        nextTick(cbfn)
     else
         cbfn(f, sv, message, fd, root)
     
@@ -842,7 +844,7 @@ function validateDate(e, val: any, message: any, fd: any, fk, f: number, flag: n
         return msg
     
     if ((flags & ChangeFlags.CB_NEXT_TICK))
-        Vue.nextTick(cbfn)
+        nextTick(cbfn)
     else
         cbfn(f, sv, message, fd, root)
     
@@ -891,7 +893,7 @@ function validateDateTime(val: any, message: any, fd: any, fk, f: number, flag: 
         return msg
     
     if ((flags & ChangeFlags.CB_NEXT_TICK))
-        Vue.nextTick(cbfn)
+        nextTick(cbfn)
     else
         cbfn(f, sv, message, fd, root)
     
@@ -940,7 +942,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
             if (!cbfn || ((flags & ChangeFlags.CB_ONLY_ON_SET) && val === null))
                 break
             if ((flags & ChangeFlags.CB_NEXT_TICK))
-                Vue.nextTick(cbfn)
+                nextTick(cbfn)
             else
                 cbfn(f, val, message, fd, root)
             break
@@ -961,7 +963,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
             if (!cbfn || ((flags & ChangeFlags.CB_ONLY_ON_SET) && val === null))
                 break
             if ((flags & ChangeFlags.CB_NEXT_TICK))
-                Vue.nextTick(cbfn)
+                nextTick(cbfn)
             else
                 cbfn(f, val, message, fd, root)
             break
