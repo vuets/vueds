@@ -658,7 +658,7 @@ export class PojoStore<T> {
     update(updateArray: Array<T>): boolean {
         let options = this.options,
             descriptor = options.descriptor,
-            fnMergeFrom = this.fnMergeFrom,
+            //fnMergeFrom = this.fnMergeFrom,
             main = this.isMainArray(),
             pager = this.pager,
             toPopulate = pager.array as Array<T>,

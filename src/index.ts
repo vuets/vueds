@@ -487,8 +487,7 @@ export function bindToggleUpdateSuccess(scope: FormUpdate): any {
 
 export function toggleUpdateFailed(pager: any, errmsg: any) {
     let selected = pager.pojo,
-        selected_ = selected['_'] as PojoSO,
-        store = pager['store']
+        selected_ = selected['_'] as PojoSO
     
     pager.state ^= 8 // LOADING
     selected_.state = bit_clear_and_set(selected_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)

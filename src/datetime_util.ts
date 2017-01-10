@@ -3,7 +3,7 @@ declare function require(path: string) : any;
 import * as numeral from 'numeral'
 import { regexDate, utcToLocal } from './util'
 
-const MILLIS_PER_DAY = 1000 * 60 * 60 * 24,
+const //MILLIS_PER_DAY = 1000 * 60 * 60 * 24,
     monthRegularArray = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ],
     monthLeapArray = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ],
     daysArray = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
