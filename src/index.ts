@@ -474,7 +474,7 @@ export function toggleUpdateSuccess(pager: any, pojo_update: any, skipMerge?: bo
         mergeOriginalFrom(selected, selected['$d'], store.getOriginal(selected), pojo_update)
     
     selected_.state = bit_clear_and_set(selected_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.SUCCESS)
-    selected_.msg = 'Update Sucessful'
+    selected_.msg = 'Update Successful'
     
     return true
 }
