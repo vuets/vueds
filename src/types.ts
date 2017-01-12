@@ -150,3 +150,10 @@ export interface Pager extends HasState {
 export interface ItemSO extends PojoSO {
     lstate: number
 }
+
+export interface KeyHandler {
+    inc(key: string): string
+    dec(key: string): string
+}
+
+export type MergeFn<T> = (src: any, descriptor: any, target: T) => T

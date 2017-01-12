@@ -1,6 +1,7 @@
 import {
     EventFlags, PojoState, PojoListState, ItemSO,
-    Pager, PagerState, SelectionType, SelectionFlags
+    Pager, PagerState, SelectionType, SelectionFlags,
+    KeyHandler, MergeFn
 } from '../types'
 import { bit_clear_and_set, bit_unset, incrementKey, decrementKey, defp, extractMsg } from '../util'
 import { mergeVmFrom, mergeFrom } from '../diff'
@@ -36,16 +37,10 @@ export function shallowCopyTo<T>(target: T, src: T): T {
     }
 }*/
 
-export interface KeyHandler {
-    inc(key: string): string
-    dec(key: string): string
-}
-
 export function resolveNextPageIndex(page: number, idx: number, pager: Pager): number {
     return page !== pager.page_count ? idx : Math.min(idx, (pager.size % pager.array.length) - 1)
 }
 
-export type MergeFn<T> = (src: any, descriptor: any, target: T) => T
 export type FetchFn = (req: ds.ParamRangeKey, pager: Pager) => void
 
 export interface PagerOptions<T> {
