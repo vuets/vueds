@@ -1,93 +1,21 @@
 import * as Vue from 'vue'
 import * as numeral from 'numeral'
 import {
-    regexInt, regexDouble, regexTime, regexDate, regexDateTime, localToUtc,
-    bit_clear_and_set, bit_unset
+    defp, bit_clear_and_set, bit_unset, extractMsg, localToUtc,
+    regexInt, regexDouble, regexTime, regexDate, regexDateTime,
 } from './util'
-import { formatTime, formatDate, formatDateTime, isValidDateStr, isValidDateTimeStr } from './datetime_util'
+import {
+    formatTime, formatDate, formatDateTime,
+    isValidDateStr, isValidDateTimeStr
+} from './datetime_util'
+import {
+    FieldType, PojoState, HasState, PojoSO,
+    PagerState, SelectionFlags
+} from './types'
+import { diffVmFieldTo, diffVmTo, mergeOriginalFrom } from './diff'
 import { MultiCAS } from './ds/mc'
 
 export const nextTick = Vue.nextTick
-
-/**
- * Define a property that should not be observed by vue's vm.
- * Returns the value
- */
-export function defp<T>(obj: any, prop: string, val: T): T {
-    Object.defineProperty(obj, prop, {
-        enumerable: false,
-        configurable: true,
-        value: val
-    })
-
-    return val
-}
-/**
- * Nullify property.
- * Also useful for lazy observable properties that bypasses typescript's strictNullChecks config.
- */
-export function nullp(obj: any, prop: string) {
-    obj[prop] = null
-}
-
-export const enum FieldType {
-    MESSAGE = 0,
-    BOOL = 1,
-    BYTES = 2,
-    STRING = 3,
-    FLOAT = 4,
-    DOUBLE = 5,
-    UINT32 = 6,
-    UINT64 = 7,
-    INT32 = 8,
-    INT64 = 9,
-    FIXED32 = 10,
-    FIXED64 = 11,
-    SINT32 = 12,
-    SINT64 = 13,
-    SFIXED32 = 14,
-    SFIXED64 = 15,
-    ENUM = 16
-}
-
-export const enum PojoState {
-    NONE = 0,
-    SUCCESS = 1,
-    ERROR = 2,
-    WARNING = 4,
-    LOADING = 8,
-    
-    UPDATE = 16,
-
-    MASK_STATUS = SUCCESS | ERROR | WARNING
-}
-
-export interface HasState {
-    state: number
-    msg: string
-}
-
-/**
- * Pojo state object.
- */
-export interface PojoSO extends HasState {
-    dfbs: number // dirty
-    vfbs: number // validation
-    rfbs: number // required
-}
-
-export const enum EventFlags {
-    PREVENT_NONE = 0,
-    PREVENT_DEFAULT = 1,
-    PREVENT_PROPAGATION = 2,
-    PREVENT_BOTH = 3,
-    CAPTURING = 4
-}
-
-export interface KV {
-    k: string
-    v: any
-}
 
 function addVpropsTo<T>(so: T, descriptor: any, owner: any, withVal?: boolean): T {
     var prop
@@ -139,146 +67,6 @@ export function initObservable<T>(target: T, descriptor: any, withVal?: boolean)
 /*export function createObservable<T>(descriptor: any): T {
     return initObservable(descriptor.$new(), descriptor)
 }*/
-
-// target is vm
-export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
-    var fd, v
-    for (var i in src) {
-        v = src[i]
-        // only trigger the observable if the value changed
-        if ((fd = descriptor[i])) {
-            if (v !== target[fd.$]) target[fd.$] = v
-        } else if (v !== target[i]) {
-            target[i] = v
-        }
-    }
-
-    return target
-}
-
-// target is original
-export function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: any): T {
-    var mapping = descriptor.$, k, v
-    for (var i in src) {
-        if (!(k = mapping[i]) || target[k] === (v = src[i])) continue
-        
-        target[k] = v
-        if (vm) vm[i] = v
-    }
-
-    return target
-}
-
-export function mergeFrom<T>(src: any, descriptor: any, target: T): T {
-    for (var i in src) {
-        let v = src[i]
-        if (v !== target[i])
-            target[i] = v
-    }
-    
-    return target
-}
-
-export function writeKVsTo<T>(target: T, kvs: KV[]): T {
-    for (let kv of kvs) {
-        target[kv.k] = kv.v
-    }
-
-    return target
-}
-
-// must be a scalar field
-export function diffFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T,
-        field: number): boolean {
-    var d, t, k, array, forig, fmod,
-        i = String(field)
-
-    if (!i ||
-        !(d = descriptor[i]) ||
-        !d.m ||
-        !(t = d.t) ||
-        (fmod = modified[i]) === (forig = original[i])) return false
-
-    // enum type converted to int
-    k = t === 16 ? '8' : String(t)
-    if (!(array = mc[k]))
-        mc[k] = array = []
-
-    array.push({ '1': parseInt(i, 10), '2': forig, '3': fmod })
-
-    return true
-}
-
-// only the scalar fields are diffed
-export function diffTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number {
-    var d, t, k, array, forig, fmod, diffed = 0//diffed: KV[] = []
-
-    for (var i in modified) {
-        if (!(d = descriptor[i]) ||
-            !d.m ||
-            !(t = d.t) ||
-            (fmod = modified[i]) === (forig = original[i])) continue
-
-        // enum type converted to int
-        k = t === 16 ? '8' : String(t)
-        if (!(array = mc[k]))
-            mc[k] = array = []
-
-        array.push({ '1': parseInt(i, 10), '2': forig, '3': fmod })
-        //diffed.push({ k: i, v: fmod })
-        diffed++
-    }
-
-    return diffed
-}
-
-// must be a scalar field
-export function diffVmFieldTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T,
-        field: string | number): boolean {
-    var d, t, k, array, forig, fmod,
-        $ = descriptor.$,
-        i = $ && isNaN(field as any) ? $[field] : String(field)
-
-    if (!i ||
-        !(d = descriptor[i]) ||
-        !d.m ||
-        !(t = d.t) ||
-        (fmod = modified[d.$]) === (forig = original[i])) return false
-
-    // enum type converted to int
-    k = t === 16 ? '8' : String(t)
-    if (!(array = mc[k]))
-        mc[k] = array = []
-
-    array.push({ '1': parseInt(i, 10), '2': forig, '3': fmod })
-
-    return true
-}
-
-// only the scalar fields are diffed
-export function diffVmTo<T>(mc: MultiCAS, descriptor: any, original: T, modified: T): number {
-    var d, t, k, array, forig, fmod, i, $ = descriptor.$, diffed = 0//diffed: KV[] = []
-
-    for (var vi in modified) {
-        i = $ ? $[vi] : vi
-        if (!i ||
-            !(d = descriptor[i]) ||
-            !d.m ||
-            !(t = d.t) ||
-            (fmod = modified[vi]) === (forig = original[i])) continue
-
-        // enum type converted to int
-        k = t === 16 ? '8' : String(t)
-        if (!(array = mc[k]))
-            mc[k] = array = []
-
-        array.push({ '1': parseInt(i, 10), '2': forig, '3': fmod })
-        //diffed.push({ k: i, v: fmod })
-        diffed++
-    }
-
-    return diffed
-}
 
 export function verifyFormFields(message: any, descriptor: any, update?: boolean, root?: any): boolean {
     let message_ = message._ as PojoSO,
@@ -346,7 +134,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
         state = pojo_.state,
         $d = pojo['$d']
     
-    if ((pager.state & 8 /*LOADING*/) || (state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
+    if ((pager.state & PagerState.LOADING) || (state & PojoState.LOADING) || !verifyFormFields(pojo, $d, true))
         return undefined
     
     let mc: MultiCAS|undefined,
@@ -364,8 +152,7 @@ export function formUpdate(pojo: any, pager: HasState, original: any, changes?: 
     pojo_.state = bit_clear_and_set(state, PojoState.MASK_STATUS, PojoState.LOADING)
     pojo_.msg = ''
 
-    // TODO move PagerState to this file
-    pager.state |= 8 // LOADING - to disable controls
+    pager.state |= PagerState.LOADING
 
     return diffCount ? mc : undefined
 }
@@ -379,8 +166,7 @@ export function formUpdateSuccess(pojo: any, pager: HasState, original: any, sel
     
     mergeOriginalFrom(pojo, pojo['$d'], original, selected)
     
-    // TODO move PagerState to this file
-    pager.state ^= 8 // LOADING
+    pager.state ^= PagerState.LOADING
 }
 
 export function formPrepare(pojo: any) {
@@ -411,10 +197,6 @@ export function formClear(pojo: any): PojoSO {
     clearFormFields(pojo, pojo['$d'])
     
     return pojo_
-}
-
-export function extractMsg(data: any): string {
-    return Array.isArray(data) ? data[1]['1'] : String(data)
 }
 
 export function formSuccess(pojo: any, msg?: string) {
@@ -451,9 +233,8 @@ export function formUpdateFailed(pojo: any, pager: HasState, errmsg: any) {
     
     pojo_.state = bit_clear_and_set(pojo_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
     pojo_.msg = !errmsg ? 'Error.' : extractMsg(errmsg)
-
-    // TODO move PagerState to this file
-    pager.state ^= 8 // LOADING
+    
+    pager.state ^= PagerState.LOADING
 }
 
 function cbFormUpdateFailed(this: FormUpdate, errmsg: any) {
@@ -469,7 +250,7 @@ export function toggleUpdateSuccess(pager: any, pojo_update: any, skipMerge?: bo
         selected_ = selected['_'] as PojoSO,
         store = pager['store']
     
-    pager.state ^= 8 // LOADING
+    pager.state ^= PagerState.LOADING
     if (!skipMerge)
         mergeOriginalFrom(selected, selected['$d'], store.getOriginal(selected), pojo_update)
     
@@ -491,7 +272,7 @@ export function toggleUpdateFailed(pager: any, errmsg: any) {
     let selected = pager.pojo,
         selected_ = selected['_'] as PojoSO
     
-    pager.state ^= 8 // LOADING
+    pager.state ^= PagerState.LOADING
     selected_.state = bit_clear_and_set(selected_.state, PojoState.MASK_STATUS|PojoState.LOADING, PojoState.ERROR)
     selected_.msg = !errmsg ? 'Update failed.' : extractMsg(errmsg)
 }
@@ -508,7 +289,7 @@ export function toggleUpdate(pager: any, field: string, pojo?: any, changed?: bo
     let selected = pojo || pager.pojo,
         selected_ = selected['_'] as PojoSO
     
-    if (pager.state & 8 /*LOADING*/ || selected_.state & PojoState.LOADING)
+    if ((pager.state & PagerState.LOADING) || (selected_.state & PojoState.LOADING))
         return null
     
     let d = selected['$d'],
@@ -518,14 +299,14 @@ export function toggleUpdate(pager: any, field: string, pojo?: any, changed?: bo
         mc = MultiCAS.$create()
     
     if (pojo && pojo !== pager.pojo)
-        store.select(pojo, 1 /*SelectionFlags.CLICKED*/)
+        store.select(pojo, SelectionFlags.CLICKED)
 
     if (!changed)
         selected[field] = !selected[field]
 
     diffVmFieldTo(mc, d, original, selected, fd._)
     
-    pager.state |= 8 // LOADING
+    pager.state |= PagerState.LOADING
     selected_.state |= PojoState.LOADING
     if (selected_.msg)
         selected_.msg = ''
@@ -537,10 +318,10 @@ export function togglePrepare(pager: any): boolean {
     let selected = pager.pojo,
         selected_ = selected['_'] as PojoSO
     
-    if (pager.state & 8 /*LOADING*/ || selected_.state & PojoState.LOADING)
+    if ((pager.state & PagerState.LOADING) || (selected_.state & PojoState.LOADING))
         return false
     
-    pager.state |= 8 // LOADING
+    pager.state |= PagerState.LOADING
     selected_.state |= PojoState.LOADING
     if (selected_.msg)
         selected_.msg = ''

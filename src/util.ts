@@ -2,6 +2,32 @@ export const hasOwnProperty = Object.prototype.hasOwnProperty
 export function noop() { return null }
 
 /**
+ * Define a property that should not be observed by vue's vm.
+ * Returns the value
+ */
+export function defp<T>(obj: any, prop: string, val: T): T {
+    Object.defineProperty(obj, prop, {
+        enumerable: false,
+        configurable: true,
+        value: val
+    })
+
+    return val
+}
+/**
+ * Nullify property.
+ * Also useful for lazy observable properties that bypasses typescript's strictNullChecks config.
+ */
+export function nullp(obj: any, prop: string) {
+    obj[prop] = null
+}
+
+export function extractMsg(data: any): string {
+    //return Array.isArray(data) && data[1]['1'] || String(data)
+    return Array.isArray(data) ? data[1]['1'] : String(data)
+}
+
+/**
  * Returns the new state.
  */
 export function bit_unset(state: number, value: number) {
