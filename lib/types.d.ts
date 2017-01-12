@@ -45,6 +45,15 @@ export declare const enum EventFlags {
     PREVENT_BOTH = 3,
     CAPTURING = 4,
 }
+export declare const enum ChangeFlags {
+    SKIP_VALIDATE = 1,
+    CB_NEXT_TICK = 2,
+    CB_ONLY_ON_SET = 4,
+}
+export interface FormUpdate {
+    pojo: any;
+    pager: HasState;
+}
 export declare const enum SelectionType {
     NONE = 0,
     RESET = 1,
