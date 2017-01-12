@@ -1,4 +1,4 @@
-import { ItemSO, Pager, SelectionType, SelectionFlags } from '../types';
+import { ItemSO, Pager, SelectionType, SelectionFlags, KeyHandler, MergeFn } from '../types';
 import { ds } from '../ds/';
 export declare const DESCRIPTOR = "$d";
 export declare const INDEX = "$index";
@@ -6,12 +6,7 @@ export declare const PREV_KEY = "$prev_key";
 export declare const PREV_PAGE = "$prev_page";
 export declare const PREV_ISTATE = "$prev_istate";
 export declare function shallowCopyTo<T>(target: T, src: T): T;
-export interface KeyHandler {
-    inc(key: string): string;
-    dec(key: string): string;
-}
 export declare function resolveNextPageIndex(page: number, idx: number, pager: Pager): number;
-export declare type MergeFn<T> = (src: any, descriptor: any, target: T) => T;
 export declare type FetchFn = (req: ds.ParamRangeKey, pager: Pager) => void;
 export interface PagerOptions<T> {
     pageSize: number;
