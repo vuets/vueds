@@ -1,6 +1,17 @@
 export declare const hasOwnProperty: (v: string) => boolean;
 export declare function noop(): null;
 /**
+ * Define a property that should not be observed by vue's vm.
+ * Returns the value
+ */
+export declare function defp<T>(obj: any, prop: string, val: T): T;
+/**
+ * Nullify property.
+ * Also useful for lazy observable properties that bypasses typescript's strictNullChecks config.
+ */
+export declare function nullp(obj: any, prop: string): void;
+export declare function extractMsg(data: any): string;
+/**
  * Returns the new state.
  */
 export declare function bit_unset(state: number, value: number): number;

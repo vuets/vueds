@@ -1,5 +1,5 @@
+import { ItemSO, Pager, SelectionType, SelectionFlags } from '../types';
 import { ds } from '../ds/';
-import { HasState, PojoSO } from '../';
 export declare const DESCRIPTOR = "$d";
 export declare const INDEX = "$index";
 export declare const PREV_KEY = "$prev_key";
@@ -10,65 +10,7 @@ export interface KeyHandler {
     inc(key: string): string;
     dec(key: string): string;
 }
-export declare const enum SelectionType {
-    NONE = 0,
-    RESET = 1,
-    /** Do not reference this, for internal use only */
-    SELECT = 2,
-    RETAIN = 3,
-    RESELECT = 4,
-}
-export declare const enum SelectionFlags {
-    NONE = 0,
-    CLICKED = 1,
-    REFRESH = 2,
-    CLICKED_UPDATE = 4,
-    FORCE = 8,
-    MASK_FORCE_OR_UPDATE = 12,
-}
-export declare const enum PojoListState {
-    NONE = 0,
-    INCLUDED = 1,
-    SELECTED = 2,
-    REFRESH = 4,
-    MASK_SELECTED_REFRESH = 6,
-}
-export declare const enum PagerState {
-    NONE = 0,
-    SUCCESS = 1,
-    ERROR = 2,
-    WARNING = 4,
-    LOADING = 8,
-    DESC = 16,
-    LOAD_NEWER = 32,
-    LOAD_OLDER = 64,
-    RELOAD = 128,
-    LOCAL_SEARCH = 256,
-    MASK_STATUS = 7,
-    MASK_RPC = 224,
-    MASK_RPC_DISABLE = 264,
-}
-export interface Pager extends HasState {
-    size: number;
-    msg: string;
-    array: any[];
-    index_selected: number;
-    index_hidden: number;
-    q_index: number;
-    prev_key: string | null;
-    prev_page: number;
-    prev_istate: number;
-    page: number;
-    page_count: number;
-    page_vcount: number;
-    page_from: number;
-    page_to: number;
-    pojo?: any;
-}
 export declare function resolveNextPageIndex(page: number, idx: number, pager: Pager): number;
-export interface ItemSO extends PojoSO {
-    lstate: number;
-}
 export declare type MergeFn<T> = (src: any, descriptor: any, target: T) => T;
 export declare type FetchFn = (req: ds.ParamRangeKey, pager: Pager) => void;
 export interface PagerOptions<T> {
