@@ -52,6 +52,17 @@ export const enum EventFlags {
     CAPTURING = 4
 }
 
+export const enum ChangeFlags {
+    SKIP_VALIDATE = 1,
+    CB_NEXT_TICK = 2,
+    CB_ONLY_ON_SET = 4
+}
+
+export interface FormUpdate {
+    pojo: any
+    pager: HasState
+}
+
 /*export interface KV {
     k: string
     v: any

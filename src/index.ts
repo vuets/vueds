@@ -10,7 +10,7 @@ import {
 } from './datetime_util'
 import {
     FieldType, PojoState, HasState, PojoSO,
-    PagerState, SelectionFlags
+    FormUpdate, ChangeFlags, PagerState, SelectionFlags
 } from './types'
 import { diffVmFieldTo, diffVmTo, mergeOriginalFrom } from './diff'
 import { MultiCAS } from './ds/mc'
@@ -223,11 +223,6 @@ export function bindFormFailed(pojo: any): any {
     return cbFormFailed.bind(pojo)
 }
 
-export interface FormUpdate {
-    pojo: any
-    pager: HasState
-}
-
 export function formUpdateFailed(pojo: any, pager: HasState, errmsg: any) {
     let pojo_ = pojo['_'] as PojoSO
     
@@ -368,12 +363,6 @@ function postValidate(message: any, fd: any, fk: string, f: number, flag: number
         root_.state = bit_unset(root_.state, PojoState.MASK_STATUS)
         root_.msg = ''
     }
-}
-
-export const enum ChangeFlags {
-    SKIP_VALIDATE = 1,
-    CB_NEXT_TICK = 2,
-    CB_ONLY_ON_SET = 4
 }
 
 function validateString(val: string, message: any, fd: any, fk, f: number, flag: number, message_: PojoSO, dfbs: number, 
