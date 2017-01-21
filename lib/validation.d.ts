@@ -1,3 +1,5 @@
+export declare function isAsciiOnly(value: string): boolean;
+export declare function isValidAsciiOnly(value: string | string[]): boolean;
 export declare function isValidId(id: number): boolean;
 export declare function isValidKey(key: string | string[], kind?: number): boolean;
 export declare function isValidKeyUnique(keys: string[], kind: number, unique: number): boolean;
