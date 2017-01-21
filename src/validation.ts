@@ -17,7 +17,26 @@ function getMultiplier(unit: number): number {
     }
 }
 
-export function isValidId(id: number) : boolean {
+export function isAsciiOnly(value: string) {
+    for (let i = 0, len = value.length; i < len; i++) {
+        if (value.charCodeAt(i) > 127)
+            return false
+    }
+    return true
+}
+
+export function isValidAsciiOnly(value: string|string[]): boolean {
+    if (!Array.isArray(value))
+        return isAsciiOnly(value)
+    
+    for (let s of value) {
+        if (!isAsciiOnly(s)) return false
+    }
+    
+    return true
+}
+
+export function isValidId(id: number): boolean {
     return id > 0
 }
 
