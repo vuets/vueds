@@ -36,6 +36,47 @@ export function isValidAsciiOnly(value: string|string[]): boolean {
     return true
 }
 
+export function isAsciiPrintable(value: string) {
+    for (let i = 0, len = value.length, c; i < len; i++) {
+        c = value.charCodeAt(i)
+        if (c < 32 || c > 127)
+            return false
+    }
+    return true
+}
+
+export function isValidAsciiPrintable(value: string|string[]): boolean {
+    if (!Array.isArray(value))
+        return isAsciiPrintable(value)
+    
+    for (let s of value) {
+        if (!isAsciiPrintable(s)) return false
+    }
+    
+    return true
+}
+
+export function isAsciiSafeHtml(value: string) {
+    for (let i = 0, len = value.length, c; i < len; i++) {
+        c = value.charCodeAt(i)
+        //                             &           <           >           \ 
+        if (c < 32 || c > 127 || c === 38 || c === 60 || c === 62 || c === 92)
+            return false
+    }
+    return true
+}
+
+export function isValidAsciiSafeHtml(value: string|string[]): boolean {
+    if (!Array.isArray(value))
+        return isAsciiSafeHtml(value)
+    
+    for (let s of value) {
+        if (!isAsciiSafeHtml(s)) return false
+    }
+    
+    return true
+}
+
 export function isValidId(id: number): boolean {
     return id > 0
 }
