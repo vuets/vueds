@@ -685,6 +685,9 @@ export function $change(e, message: any, field: string|number, update: boolean, 
     if (!root)
         root = message
     
+    if (flags === undefined)
+        flags = 0
+    
     let message_ = message['_'] as PojoSO,
         dfbs = message_.dfbs,
         f = fd._,
