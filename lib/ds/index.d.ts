@@ -21,6 +21,9 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): ParamId;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -29,9 +32,6 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
             $: {
                 id: string;
             };
@@ -63,6 +63,8 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): ParamKey;
         const $descriptor: {
+            $rfbs: number;
+            $fdikf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -79,8 +81,6 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
-            $rfbs: number;
-            $fdikf: string[];
             $: {
                 key: string;
                 parentKey: string;
@@ -117,6 +117,9 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): ParamUpdate;
         const $descriptor: {
+            $rfbs: number;
+            $fdf: string[];
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -142,9 +145,6 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
-            $rfbs: number;
-            $fdf: string[];
-            $fmf: string[];
             $: {
                 key: string;
                 mc: string;
@@ -186,6 +186,10 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): ParamRangeKey;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fdikf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -218,10 +222,6 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
-            $fdikf: string[];
             $: {
                 desc: string;
                 limit: string;
@@ -272,6 +272,9 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): ACResult;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -296,9 +299,6 @@ export declare namespace ds {
                 $: string;
                 $n: string;
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
             $: {
                 name: string;
                 value: string;
@@ -340,6 +340,10 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): P1;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -372,6 +376,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -404,10 +412,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -418,10 +422,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -464,6 +464,10 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): P4;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -496,6 +500,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -528,10 +536,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -542,10 +546,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -588,6 +588,10 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): P8;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -620,6 +624,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -652,10 +660,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -666,10 +670,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -712,6 +712,10 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): PD;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -744,6 +748,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -776,10 +784,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -790,10 +794,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -836,6 +836,8 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): PB;
         const $descriptor: {
+            $rfbs: number;
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -868,6 +870,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -900,10 +906,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -914,8 +916,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -958,6 +958,8 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): PK;
         const $descriptor: {
+            $rfbs: number;
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -990,6 +992,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -1022,10 +1028,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -1036,8 +1038,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
@@ -1080,6 +1080,10 @@ export declare namespace ds {
         function $stringify(obj: any): string;
         function $createObservable(): PS;
         const $descriptor: {
+            $rfbs: number;
+            $rfdf: string[];
+            $fdf: string[];
+            $fmf: string[];
             '1': {
                 _: number;
                 t: number;
@@ -1112,6 +1116,10 @@ export declare namespace ds {
                 $: string;
                 $n: string;
                 d_fn: () => {
+                    $rfbs: number;
+                    $rfdf: string[];
+                    $fdf: string[];
+                    $fdikf: string[];
                     '1': {
                         _: number;
                         t: number;
@@ -1144,10 +1152,6 @@ export declare namespace ds {
                         $: string;
                         $n: string;
                     };
-                    $rfbs: number;
-                    $rfdf: string[];
-                    $fdf: string[];
-                    $fdikf: string[];
                     $: {
                         desc: string;
                         limit: string;
@@ -1158,10 +1162,6 @@ export declare namespace ds {
                     $change: (e: any, message: any, field: string | number, update: boolean, root: any, cbfn?: any, flags?: number | undefined) => string | null;
                 };
             };
-            $rfbs: number;
-            $rfdf: string[];
-            $fdf: string[];
-            $fmf: string[];
             $: {
                 value: string;
                 end: string;
