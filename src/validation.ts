@@ -143,7 +143,7 @@ export function isValidFutureTS(value: number, unit?: number, min?: number, max?
     if (!max)
         return !min ? value > today : value >= (today + (multiplier * min))
 
-    return value >= (today + (multiplier * min)) && value <= (today + (multiplier * max))
+    return value >= (today + (multiplier * (min || 0))) && value <= (today + (multiplier * max))
 }
 
 export function isValidFutureOrToday(value: number, min?: number, max?: number): boolean {
@@ -158,7 +158,7 @@ export function isValidFutureOrToday(value: number, min?: number, max?: number):
     if (!max)
         return !min ? value > today : value >= (today + (MILLIS_PER_DAY * min))
 
-    return value >= (today + (MILLIS_PER_DAY * min)) && value <= (today + (MILLIS_PER_DAY * max))
+    return value >= (today + (MILLIS_PER_DAY * (min || 0))) && value <= (today + (MILLIS_PER_DAY * max))
 }
 
 export function isValidFuture(value: number, min?: number, max?: number): boolean {
@@ -171,7 +171,7 @@ export function isValidFuture(value: number, min?: number, max?: number): boolea
     if (!max)
         return !min ? value > today : value >= (today + (MILLIS_PER_DAY * min))
 
-    return value >= (today + (MILLIS_PER_DAY * min)) && value <= (today + (MILLIS_PER_DAY * max))
+    return value >= (today + (MILLIS_PER_DAY * (min || 0))) && value <= (today + (MILLIS_PER_DAY * max))
 }
 
 export function isValidLength(value: string, min: number, max: number): boolean {
@@ -214,7 +214,7 @@ export function isValidPastTS(value: number, unit?: number, min?: number, max?: 
     if (!max)
         return !min ? value < today : value <= (today - (multiplier * min))
 
-    return value <= (today - (multiplier * min)) && value >= (today - (multiplier * max))
+    return value <= (today - (multiplier * (min || 0))) && value >= (today - (multiplier * max))
 }
 
 export function isValidPastOrToday(value: number, min?: number, max?: number): boolean {
@@ -229,7 +229,7 @@ export function isValidPastOrToday(value: number, min?: number, max?: number): b
     if (!max)
         return !min ? value < today : value <= (today - (MILLIS_PER_DAY * min))
 
-    return value <= (today - (MILLIS_PER_DAY * min)) && value >= (today - (MILLIS_PER_DAY * max))
+    return value <= (today - (MILLIS_PER_DAY * (min || 0))) && value >= (today - (MILLIS_PER_DAY * max))
 }
 
 export function isValidPast(value: number, min?: number, max?: number): boolean {
@@ -242,7 +242,7 @@ export function isValidPast(value: number, min?: number, max?: number): boolean 
     if (!max)
         return !min ? value < today : value <= (today - (MILLIS_PER_DAY * min))
 
-    return value <= (today - (MILLIS_PER_DAY * min)) && value >= (today - (MILLIS_PER_DAY * max))
+    return value <= (today - (MILLIS_PER_DAY * (min || 0))) && value >= (today - (MILLIS_PER_DAY * max))
 }
 
 export function isValidPattern(value: string, pattern: RegExp): boolean {
