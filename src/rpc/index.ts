@@ -45,10 +45,12 @@ export function checkStatus<T>(res: any): T {
 
 export function handler<T>(raw: string): T {
     let first = raw.charAt(0),
+        len = raw.length,
+        end = raw.charAt(len - 1) === '\n' ? len - 2 : len,
         data
     
     if (first === '+') {
-        data = JSON.parse(raw.substring(1, raw.length - 2))
+        data = JSON.parse(raw.substring(1, end))
         if (data[0])
             throw data
         
@@ -59,9 +61,9 @@ export function handler<T>(raw: string): T {
         throw new Error('Malformed response.')
     
     if (raw.charAt(1) !== '[')
-        throw new Error(raw.substring(1, raw.length - 2))
+        throw new Error(raw.substring(1, end))
     
-    throw JSON.parse(raw.substring(1, raw.length - 2))
+    throw JSON.parse(raw.substring(1, end))
 }
 
 export interface Config {
