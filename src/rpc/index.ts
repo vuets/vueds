@@ -136,6 +136,7 @@ const config_default = {
 window['rpc_config_d'] = config_default
 
 const config: Config = window['rpc_config'] || config_default
+const prefix: string = window['rpc_host'] || ''
 
 export function setAuthHandler(handler: AuthHandler) {
     config.auth$$ = handler
@@ -148,6 +149,9 @@ function post$$<T>(location: string, data: string, delegate?: boolean, initialHa
             body: data
         }
     
+    if (prefix)
+        location = prefix + location
+    
     return delegate || authHandler ?
         new P(location, opts, initialHandler || checkStatus, authHandler) : 
         fetch(location, opts).then(initialHandler || checkStatus).then(handler)
@@ -159,6 +163,9 @@ export function post<T>(location: string, data: string): PromiseLike<T> {
 
 function get$$<T>(location: string, opts?: any, delegate?: boolean, initialHandler?: any): PromiseLike<T> {
     let authHandler = config.auth$$
+    
+    if (prefix)
+        location = prefix + location
     
     return delegate || authHandler ?
         new P(location, opts, initialHandler || checkStatus, authHandler) : 
