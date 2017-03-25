@@ -1,7 +1,7 @@
 {
   "name": "vueds",
   "version": "0.5.0",
-  "description": "vue and protostuffdb",
+  "description": "vuets lib for protostuffdb",
   "private": true,
   "author": "dyu",
   "main": "lib/index.js",
