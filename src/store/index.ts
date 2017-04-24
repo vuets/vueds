@@ -761,22 +761,27 @@ export class PojoStore<T> {
     }
 
     newRangeKeyForLoadNewer(): ds.ParamRangeKey {
-        let toPopulate = this.pager.array as Array<T>
+        let pager = this.pager,
+            toPopulate = pager.array as Array<T>
 
         if (this.isEmpty())
-            return ds.ParamRangeKey.$create(true, toPopulate.length + 1)
+            return ds.ParamRangeKey.$create(true, (toPopulate.length * this.multiplier) + 1)
         
-        let first = this.get(0)
+        let first = this.get(0),
+            limit = 0 !== (PagerState.DESC & pager.state) ? toPopulate.length : toPopulate.length * this.multiplier
+        
         this.startObj = first
-        return ds.ParamRangeKey.$create(false, toPopulate.length * this.multiplier, first[this.k])
+        return ds.ParamRangeKey.$create(false, limit, first[this.k])
     }
 
     newRangeKeyForLoadOlder(): ds.ParamRangeKey {
-        let toPopulate = this.pager.array as Array<T>,
-            last = this.get(this.size() - 1)
+        let pager = this.pager,
+            toPopulate = pager.array as Array<T>,
+            last = this.get(this.size() - 1),
+            limit = 0 !== (PagerState.DESC & pager.state) ? toPopulate.length * this.multiplier : toPopulate.length
 
         this.startObj = last
-        return ds.ParamRangeKey.$create(true, toPopulate.length * this.multiplier, last[this.k])
+        return ds.ParamRangeKey.$create(true, limit, last[this.k])
     }
 
     requestNewer() {
