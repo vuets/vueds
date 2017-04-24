@@ -12,6 +12,7 @@ export interface PagerOptions<T> {
     pageSize: number;
     descriptor: any;
     desc?: boolean;
+    multiplier?: number;
     keyProperty?: string;
     $keyProperty?: string;
     kh?: KeyHandler;
@@ -31,6 +32,7 @@ export declare function nullifyVprops(so: ItemSO, descriptor: any): ItemSO | und
 export declare class PojoStore<T> {
     options: PagerOptions<T>;
     pager: Pager;
+    multiplier: number;
     k: string;
     $k: string;
     startObj: T;

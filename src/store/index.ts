@@ -47,6 +47,7 @@ export interface PagerOptions<T> {
     pageSize: number
     descriptor: any
     desc?: boolean
+    multiplier?: number // defaults to 1, translates to the how many extra pages to fetch
     keyProperty?: string
     $keyProperty?: string
     kh?: KeyHandler
@@ -112,6 +113,7 @@ function createObservable<T>(options: PagerOptions<T>, index: number, pager: Pag
 export class PojoStore<T> {
 
     pager: Pager
+    multiplier: number
     k: string
     $k: string
     startObj: T
@@ -123,6 +125,7 @@ export class PojoStore<T> {
     constructor(fetchedArray: Array<T>, public options: PagerOptions<T>) {
         this.mainArray = fetchedArray
         this.array = fetchedArray
+        this.multiplier = options.multiplier || 1
         this.k = options.keyProperty || '1'
         this.$k = options.$keyProperty || 'key'
 
@@ -765,7 +768,7 @@ export class PojoStore<T> {
         
         let first = this.get(0)
         this.startObj = first
-        return ds.ParamRangeKey.$create(false, toPopulate.length, first[this.k])
+        return ds.ParamRangeKey.$create(false, toPopulate.length * this.multiplier, first[this.k])
     }
 
     newRangeKeyForLoadOlder(): ds.ParamRangeKey {
@@ -773,7 +776,7 @@ export class PojoStore<T> {
             last = this.get(this.size() - 1)
 
         this.startObj = last
-        return ds.ParamRangeKey.$create(true, toPopulate.length, last[this.k])
+        return ds.ParamRangeKey.$create(true, toPopulate.length * this.multiplier, last[this.k])
     }
 
     requestNewer() {
