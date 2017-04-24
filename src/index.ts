@@ -233,7 +233,7 @@ export function formUpdateFailed(pojo: any, pager: HasState, errmsg: any) {
 }
 
 function cbFormUpdateFailed(this: FormUpdate, errmsg: any) {
-    formUpdateFailed(this.pojo, errmsg, this.pager)
+    formUpdateFailed(this.pojo, this.pager, errmsg)
 }
 
 export function bindFormUpdateFailed(scope: FormUpdate): any {

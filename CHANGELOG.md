@@ -1,3 +1,7 @@
+## 0.8.2 (2017-04-24)
+
+* fix form-update failure callback
+
 ## 0.8.1 (2017-04-24)
 
 * Apply multiplier logic with regards to sort order
