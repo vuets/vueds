@@ -13,6 +13,7 @@ export interface PagerOptions<T> {
     descriptor: any;
     desc?: boolean;
     multiplier?: number;
+    multiplier_conditional?: boolean;
     keyProperty?: string;
     $keyProperty?: string;
     kh?: KeyHandler;
@@ -33,6 +34,7 @@ export declare class PojoStore<T> {
     options: PagerOptions<T>;
     pager: Pager;
     multiplier: number;
+    multiplier_conditional: boolean;
     k: string;
     $k: string;
     startObj: T;

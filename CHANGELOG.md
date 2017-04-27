@@ -1,3 +1,7 @@
+## 0.8.3 (2017-04-27)
+
+* add PagerOptions.multiplier_conditional property to apply multiplier based on sort order
+
 ## 0.8.2 (2017-04-24)
 
 * fix form-update failure callback

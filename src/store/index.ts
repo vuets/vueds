@@ -48,6 +48,7 @@ export interface PagerOptions<T> {
     descriptor: any
     desc?: boolean
     multiplier?: number // defaults to 1, translates to the how many extra pages to fetch
+    multiplier_conditional?: boolean // whether to apply the multipler with regards to sort order
     keyProperty?: string
     $keyProperty?: string
     kh?: KeyHandler
@@ -114,6 +115,7 @@ export class PojoStore<T> {
 
     pager: Pager
     multiplier: number
+    multiplier_conditional: boolean
     k: string
     $k: string
     startObj: T
@@ -126,6 +128,7 @@ export class PojoStore<T> {
         this.mainArray = fetchedArray
         this.array = fetchedArray
         this.multiplier = options.multiplier || 1
+        this.multiplier_conditional = !!options.multiplier_conditional
         this.k = options.keyProperty || '1'
         this.$k = options.$keyProperty || 'key'
 
@@ -768,7 +771,7 @@ export class PojoStore<T> {
             return ds.ParamRangeKey.$create(true, (toPopulate.length * this.multiplier) + 1)
         
         let first = this.get(0),
-            limit = 0 !== (PagerState.DESC & pager.state) ? toPopulate.length : toPopulate.length * this.multiplier
+            limit = !this.multiplier_conditional || 0 === (PagerState.DESC & pager.state) ? toPopulate.length * this.multiplier : toPopulate.length
         
         this.startObj = first
         return ds.ParamRangeKey.$create(false, limit, first[this.k])
@@ -778,7 +781,7 @@ export class PojoStore<T> {
         let pager = this.pager,
             toPopulate = pager.array as Array<T>,
             last = this.get(this.size() - 1),
-            limit = 0 !== (PagerState.DESC & pager.state) ? toPopulate.length * this.multiplier : toPopulate.length
+            limit = !this.multiplier_conditional || 0 !== (PagerState.DESC & pager.state) ? toPopulate.length * this.multiplier : toPopulate.length
 
         this.startObj = last
         return ds.ParamRangeKey.$create(true, limit, last[this.k])
