@@ -21,7 +21,7 @@ export declare class P {
     handlers: any[];
     cbFail: any;
     authOk: AuthOk | null;
-    constructor(url: string, opts: any, ih: any, ah?: AuthHandler);
+    constructor(url: string, opts: any, ih: any, ah?: AuthHandler | undefined);
     then(resolve: any, reject: any): P;
     catch(reject: any): P;
     run(token?: string): void;
