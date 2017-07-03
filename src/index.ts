@@ -59,7 +59,7 @@ export function initObservable<T>(target: T, descriptor: any, withVal?: boolean)
 
     for (let fk of descriptor.$fmf) {
         let fd = descriptor[fk]
-        initObservable(target[fd.$], fd.d_fn(), withVal)
+        initObservable(target[fd.$ || fk], fd.d_fn(), withVal)
     }
     return target
 }
