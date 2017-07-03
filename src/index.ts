@@ -732,7 +732,7 @@ export function $change(e, message: any, field: string|number, update: boolean, 
                 update = false
             }
             message[prop] = val
-            postValidate(message, fd, fk, f, flag, message_, message_.dfbs, msg, root, update)
+            postValidate(message, fd, fk, f, flag, message_, dfbs, msg, root, update)
             
             if (!cbfn || ((flags & ChangeFlags.CB_ONLY_ON_SET) && val === null))
                 break
