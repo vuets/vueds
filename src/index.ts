@@ -17,6 +17,8 @@ import { MultiCAS } from './ds/mc'
 
 export const nextTick = Vue.nextTick
 
+const hasOwnProperty = Object.prototype.hasOwnProperty
+
 function addVpropsTo<T>(so: T, descriptor: any, owner: any, withVal?: boolean): T {
     var prop
     if (descriptor.$fdf) {
@@ -25,7 +27,7 @@ function addVpropsTo<T>(so: T, descriptor: any, owner: any, withVal?: boolean): 
             if (!withVal || owner[prop] === '') {
                 so[k] = null
                 owner[prop] = null
-            } else if (Object.prototype.hasOwnProperty.call(owner, prop)) {
+            } else if (hasOwnProperty.call(owner, prop)) {
                 so[k] = null
             }
         }
@@ -34,7 +36,7 @@ function addVpropsTo<T>(so: T, descriptor: any, owner: any, withVal?: boolean): 
     if (descriptor.$fdikf) {
         for (let k of descriptor.$fdikf) {
             prop = descriptor[k].$ || k
-            if (!withVal || Object.prototype.hasOwnProperty.call(owner, prop)) {
+            if (!withVal || hasOwnProperty.call(owner, prop)) {
                 so[k] = null
                 owner[prop] = null
             }
