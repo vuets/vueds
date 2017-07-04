@@ -25,14 +25,14 @@ export const PREV_ISTATE = "$prev_istate"
 }*/
 
 export function shallowCopyTo<T>(target: T, src: T): T {
-    for (var i in src)
+    for (var i of Object.keys(src))
         target[i] = src[i]
     
     return target
 }
 
 /*export function nullifyAll(obj: any) {
-    for (var i in obj) {
+    for (var i of Object.keys(obj)) {
         if (obj[i] !== null) obj[i] = null
     }
 }*/

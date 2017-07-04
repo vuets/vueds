@@ -25,7 +25,7 @@ export function diffFieldTo<T>(mc: any/**MultiCAS*/, descriptor: any, original: 
 export function diffTo<T>(mc: any/**MultiCAS*/, descriptor: any, original: T, modified: T): number {
     var d, t, k, array, forig, fmod, diffed = 0//diffed: KV[] = []
 
-    for (var i in modified) {
+    for (var i of Object.keys(modified)) {
         if (!(d = descriptor[i]) ||
             !d.m ||
             !(t = d.t) ||
@@ -71,7 +71,7 @@ export function diffVmFieldTo<T>(mc: any/**MultiCAS*/, descriptor: any, original
 export function diffVmTo<T>(mc: any/**MultiCAS*/, descriptor: any, original: T, modified: T): number {
     var d, t, k, array, forig, fmod, i, $ = descriptor.$, diffed = 0//diffed: KV[] = []
 
-    for (var vi in modified) {
+    for (var vi of Object.keys(modified)) {
         i = $ ? $[vi] : vi
         if (!i ||
             !(d = descriptor[i]) ||
@@ -95,7 +95,7 @@ export function diffVmTo<T>(mc: any/**MultiCAS*/, descriptor: any, original: T, 
 // target is vm
 export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
     var fd, v
-    for (var i in src) {
+    for (var i of Object.keys(src)) {
         v = src[i]
         // only trigger the observable if the value changed
         if ((fd = descriptor[i])) {
@@ -111,7 +111,7 @@ export function mergeVmFrom<T>(src: any, descriptor: any, target: T): T {
 // target is original
 export function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: any): T {
     var mapping = descriptor.$, k, v
-    for (var i in src) {
+    for (var i of Object.keys(src)) {
         if (!(k = mapping[i]) || target[k] === (v = src[i])) continue
         
         target[k] = v
@@ -122,7 +122,7 @@ export function mergeOriginalFrom<T>(src: any, descriptor: any, target: T, vm?: 
 }
 
 export function mergeFrom<T>(src: any, descriptor: any, target: T): T {
-    for (var i in src) {
+    for (var i of Object.keys(src)) {
         let v = src[i]
         if (v !== target[i])
             target[i] = v
