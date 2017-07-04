@@ -101,10 +101,6 @@ export declare class PojoStore<T> {
     addOlder(array: Array<T>): void;
     pagePrevOrLoad(flags: number): number;
     pageNextOrLoad(flags: number): number;
-    $$requestNewer(pager: Pager): void;
-    $$requestOlder(pager: Pager): void;
-    $$reload(pager: Pager): void;
-    $$notify(): void;
     cbFetchSuccess(array: Array<T>): void;
     cbFetchFailed(errmsg: any): void;
 }
