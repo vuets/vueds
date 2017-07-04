@@ -5,7 +5,7 @@ import {
 } from '../types'
 import { bit_clear_and_set, bit_unset, incrementKey, decrementKey, defp, extractMsg } from '../util'
 import { mergeVmFrom, mergeFrom } from '../diff'
-import { nextTick } from '../'
+//import { nextTick } from '../'
 import { ds } from '../ds/'
 
 //export const STATE = "state"
@@ -931,7 +931,7 @@ export class PojoStore<T> {
 
     // next tick
 
-    $$requestNewer(pager: Pager) {
+    /*$$requestNewer(pager: Pager) {
         nextTick(() => this.requestNewer())
     }
 
@@ -945,7 +945,7 @@ export class PojoStore<T> {
     
     $$notify() {
         nextTick(() => this.notify())
-    }
+    }*/
 
     cbFetchSuccess(array: Array<T>) {
         let pager = this.pager, 
