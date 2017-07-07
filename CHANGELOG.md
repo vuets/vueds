@@ -1,3 +1,7 @@
+## 0.9.1 (2017-07-07)
+
+* Error msg ends with period
+
 ## 0.9.0 (2017-07-05)
 
 * Use Object.keys()
